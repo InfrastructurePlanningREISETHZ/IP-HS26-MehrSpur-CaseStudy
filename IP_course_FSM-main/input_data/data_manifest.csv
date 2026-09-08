@@ -1,0 +1,18 @@
+path,dataset,reference_year,publisher,use
+raw/npvm/npvm_zones_2023.zip,NPVM traffic zones,2023,Federal Office for Spatial Development,Model zoning
+raw/npvm/npvm_road_demand_2023.zip,NPVM road demand,2023,Federal Office for Spatial Development,Passenger-car and road-background demand
+raw/npvm/npvm_pt_demand_2023.zip,NPVM public-transport demand,2023,Federal Office for Spatial Development,Passenger demand
+raw/npvm/npvm_active_demand_2023.zip,NPVM walking bicycle and e-bike demand,2023,Federal Office for Spatial Development,Passenger demand
+raw/npvm/external_road_background_gateways.csv,Course gateway mapping,2023,Course model,Peripheral road-background loading
+raw/boundaries/canton_municipalities.zip,Canton and municipality boundaries,2026,Canton Zurich,Study area and City boundary
+raw/boundaries/city_quartiers.zip,City districts and quarters,2026,Canton Zurich,Reference geography
+raw/boundaries/zurich_city_boundary.parquet,City of Zurich boundary,2026,Canton Zurich,Network policy mask
+raw/population/statpop_2024.zip,STATPOP,2024,Federal Statistical Office,Baseline population
+raw/population/statent_2023.zip,STATENT,2023,Federal Statistical Office,Baseline employment
+raw/gtfs/gtfs_fp2026_20260422.zip,Swiss GTFS timetable,2026,Swiss public-transport data platform,Public-transport skims
+raw/osm/osm_drive.pkl,Frozen OSM road graph,2026,OpenStreetMap contributors,Direct car skims
+raw/osm/osm_walk.pkl,Frozen OSM City walk graph,2026,OpenStreetMap contributors,City walking skims
+raw/osm/osm_bike.pkl,Frozen OSM bicycle graph,2026,OpenStreetMap contributors,Bicycle skims
+raw/osm/pt_access_walk.pkl,Frozen full-Canton OSM walk graph,2026,OpenStreetMap contributors,Walking and PT access skims
+raw/osm/pt_access_bike.pkl,Frozen full-Canton OSM bicycle graph,2026,OpenStreetMap contributors,PT bicycle access skims
+raw/osm/network_base.pkl,Frozen multimodal base network,2026,OpenStreetMap contributors,Road assignment network

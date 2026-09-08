@@ -1,0 +1,25 @@
+{
+  "name": "course_mode_choice",
+  "description": "Mode-choice parameters for the Canton Zurich ASP model.",
+  "parameters": {
+    "ASC_CAR": 0.5,
+    "ASC_WALK": 2.4,
+    "ASC_BIKE": -0.1,
+    "ASC_PT_WALK": 0.0,
+    "ASC_PT_BIKE": -1.5,
+    "B_CAR_TIME": -0.075,
+    "B_WALK_TIME": -0.1,
+    "B_BIKE_TIME": -0.10,
+    "B_PT_IVT": -0.045,
+    "B_PT_OVT": -0.08,
+    "B_COST": -0.18,
+    "B_PT_FARE": -0.18,
+    "B_TRANSFER": -0.43,
+    "CAR_COST_CHF_PER_KM": 0.27,
+    "PT_MIN_FARE_CHF": 3.0,
+    "PT_FARE_CHF_PER_KM": 0.08,
+    "PT_MAX_FARE_CHF": 8.0,
+    "MAX_UTILITY_CLIP": 700.0,
+    "NO_PATH_TIME_MIN": 999.0
+  }
+}

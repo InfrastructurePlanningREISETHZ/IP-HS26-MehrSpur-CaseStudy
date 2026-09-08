@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environments
+.env
+.venv
+env/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# Cache and large artifacts
+cache/
+
+# Outputs
+figures/*.png
+figures/*.pdf
+results/*.csv
+results/*.parquet
+!figures/.gitkeep
+!results/.gitkeep
+
+# Allow reference figures
+!figures/mehrspur_corridor_map.jpg
+
+
