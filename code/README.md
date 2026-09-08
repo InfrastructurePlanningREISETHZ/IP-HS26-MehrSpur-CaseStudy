@@ -1,6 +1,18 @@
-# How the MehrSpur transport simulation works
+# MehrSpur Simulation Codebase
 
-The pipeline has two layers. The **spatial layer** runs the Canton Zürich four-step FSM (1,223 zones) once per infrastructure stage to compute OD matrices, modal split, travel times, distances, and corridor indicators. The **40-year pathway layer** then reuses those stage results, scaling demand and switching between stages year by year without re-running the FSM. This makes large uncertainty sweeps computationally feasible, at the cost of the long-term layer being an aggregate approximation.
+This folder contains the Python code for simulating and evaluating transport infrastructure investments on the Zürich–Winterthur corridor over a 40-year planning horizon.
+
+### What this code does
+
+Evaluating long-term infrastructure involves answering two core questions:
+- **How does traffic respond to an infrastructure project?** When new railway tracks or highway lanes are added, how do travel times change, and how many travelers switch between driving and public transit?
+- **How does an investment strategy perform over 40 years?** When should projects be built under uncertain future conditions—such as changing population growth, shifting travel habits, and rising carbon costs?
+
+Running a full regional travel model for every year across hundreds of uncertain future scenarios would take weeks to compute. Instead, this codebase separates the workload:
+- The regional transport model runs once per infrastructure stage (Stage 0: baseline, Stage 1: partial upgrade, Stage 2: full MehrSpur expansion) to compute corridor travel times, distances, and modal split.
+- The 40-year simulation engine reuses those stage results, scaling demand year by year, checking adaptive triggers, calculating congestion delays, and computing lifecycle costs and socio-economic indicators in seconds.
+
+### Data flow between files
 
 ```text
 parameters.py ──► stages.py, pathways.py, simulation_engine.py
@@ -13,6 +25,8 @@ stage metrics ──► pathways.py ⇄ simulation_engine.py (40-yr loop)
                        ▼
         40-year DataFrame ──► discounted NPC & robustness
 ```
+
+The codebase is split into files you configure for your assignments and backend files that handle the underlying transport model.
 
 ## Files you edit
 
