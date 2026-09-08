@@ -1529,6 +1529,7 @@ def network_explorer(
         width_min_pixels=1,
         width_max_pixels=7,
         auto_highlight=True,
+        # pyrefly: ignore [unexpected-keyword]
         highlight_color=[20, 20, 20, 180],
         pickable=True,
     )
