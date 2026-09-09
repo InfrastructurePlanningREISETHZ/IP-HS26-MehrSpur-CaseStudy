@@ -1,70 +1,34 @@
-# ⚠️ Transport Model Engine (Read-Only / Backend)
-> **Note:** This directory contains the underlying Four-Step Transport Model (FSM) engine. 
-> You **do not** need to edit, debug, or understand these files in detail for your coursework. 
-> All student interactions occur via `code/` and the notebooks in `notebooks/`.
+# ⚠️ Transport Model Engine (Backend Reference)
 
+> [!NOTE]
+> **Read-Only Backend Directory:** This folder contains the underlying Four-Step Transport Model (FSM) engine for Canton Zürich. 
+> You **do not** need to run, debug, or modify these scripts directly for your coursework.
+> 
+> All simulation runs, intervention definitions, and policy evaluations are handled via the notebooks in `notebooks/` and the configuration files in `code/` (`parameters.py`, `stages.py`, `pathways.py`).
+>
+> For the student simulation guide and workflow, see [`code/README.md`](../code/README.md).
 
+---
 
-# IP Course FSM — Canton Zürich Transport Model
+# Canton Zürich Transport Model (FSM)
 
 This directory contains a standalone afternoon-peak transport model for Canton Zürich. It includes the Python model, prepared runtime inputs, and the public raw datasets required to rebuild those inputs.
 
-The model represents **1,223 NPVM zones** and combines passenger demand, multimodal travel-time skims, mode choice, infrastructure interventions, and optional road assignment.
+The model represents **1,223 NPVM zones** and combines passenger demand, multimodal travel-time skims, discrete mode choice, infrastructure interventions, and optional road traffic assignment.
 
-> The prepared inputs are used to run the model. Rebuilding inputs from raw data is a separate, explicit workflow and is never started automatically.
 
-For the MehrSpur course workflow and the connection to the 40-year pathway model, see [`code/README.md`](../code/README.md).
 
 ## Contents
 
-1. [Getting started](#getting-started)
-2. [How the model works](#how-the-model-works)
-3. [Model settings and interventions](#model-settings-and-interventions)
+1. [Architecture and execution flow](#architecture-and-execution-flow)
+2. [Zoning, demand, and networks](#zoning-demand-and-networks)
+3. [Intervention mechanics](#intervention-mechanics)
 4. [Input data](#input-data)
-5. [Rebuilding the inputs](#rebuilding-the-inputs)
+5. [Rebuilding inputs (optional)](#rebuilding-inputs-optional)
 6. [Outputs](#outputs)
 7. [Code map](#code-map)
 
-## Getting started
-
-### 1. Create the environment
-
-From this directory, run:
-
-```bash
-conda env create -f environment.yml
-conda activate ip-course-fsm
-```
-
-### 2. Check the supplied runtime inputs
-
-```bash
-python prepare_inputs.py --check-runtime
-```
-
-The check verifies the five required files in `input_data/prepared/`. If a required file is missing or invalid, the model stops with an input error.
-
-### 3. Configure and run the model
-
-Edit the **Run settings** block near the top of [`Main.py`](Main.py), then run:
-
-```bash
-python Main.py
-```
-
-Road assignment is enabled by default. For a faster run with prepared free-flow road times:
-
-```bash
-python Main.py --no-assignment
-```
-
-Normal runs create timestamped folders under `outputs/`. To use a specific output directory:
-
-```bash
-python Main.py --output-dir outputs/my_scenario
-```
-
-## How the model works
+## Architecture and execution flow
 
 ```mermaid
 flowchart TD
@@ -86,36 +50,33 @@ flowchart TD
     I --> J --> K
 ```
 
-The sequence is implemented in [`Main.py`](Main.py). In summary:
+When invoked through `transport_model_interface.py`, the model executes the following sequence:
 
 1. Load the prepared NPVM zones, passenger demand, fixed road-background demand, and multimodal skims.
 2. Optionally modify population, employment, trip rates, mode affinities, and e-bike share.
 3. Apply perceived connector, terminal, intrazonal, and public-transport floor assumptions.
-4. Apply the selected infrastructure interventions.
-5. Allocate passenger demand across car, bicycle, walking, PT with walking access, and PT with bicycle access.
-6. If enabled, assign car demand and fixed background traffic to the road network.
-7. Recalculate mode choice with the assigned road-time skim.
-8. Save model results and diagnostics.
+4. Apply the selected infrastructure interventions to the travel-time and distance skims.
+5. Allocate passenger demand across car, bicycle, walking, PT with walking access, and PT with bicycle access using multinomial logit choice.
+6. If assignment is enabled, assign car demand and fixed background traffic to the road network using the Method of Successive Averages (MSA) or Frank–Wolfe iterations.
+7. Recalculate mode choice using the assigned congested road-time skim.
+8. Return multimodal trip matrices and aggregate corridor indicators to the simulation engine.
 
-Road assignment uses one outer pass: preliminary mode choice → road assignment → final mode choice. It is not repeated until mode choice converges.
+## Zoning, demand, and networks
 
 ### Zoning and demand
-
-- The model uses 1,223 NPVM zones within Canton Zürich.
+- The model uses **1,223 NPVM zones** within Canton Zürich.
 - Zones in the City of Zürich are labelled `Quartier`; the remaining zones are labelled `Canton`.
 - Zone attributes include municipality and City-quarter names, making spatial interventions readable without long lists of zone IDs.
-- Population comes from STATPOP 2024 and employment from STATENT 2023.
-- Passenger demand represents the 17:00–18:00 afternoon peak and combines NPVM car, PT, walking, bicycle, and e-bike matrices.
-- Freight and commercial traffic are included as fixed road-background demand.
+- Population is sourced from STATPOP 2024 and employment from STATENT 2023.
+- Passenger demand represents the **17:00–18:00 afternoon peak** and combines NPVM car, PT, walking, bicycle, and e-bike matrices.
+- Freight and commercial traffic are included as fixed road-background demand that consumes road capacity.
 - Peripheral NPVM zones are represented through gateway mappings.
 
 ### Networks, skims, and mode choice
-
-Road, walking, and bicycle skims use frozen OpenStreetMap-derived network snapshots. Public-transport skims are based on a representative weekday in the 17:00–18:00 period.
+Road, walking, and bicycle skims use frozen OpenStreetMap-derived network snapshots. Public-transport skims are based on a representative weekday in the 17:00–18:00 period (GTFS).
 
 The PT skims retain:
-
-- in-vehicle time;
+- in-vehicle time (IVT);
 - access and egress time;
 - initial and transfer waiting time;
 - physical transfer time;
@@ -125,50 +86,30 @@ The PT skims retain:
 
 Walking is available for reachable trips of up to 5 km. Bicycle speed is 13 km/h in the base model. E-bikes reduce standalone bicycle time and bicycle access/egress time for PT, but do not change PT waiting, transfer, or in-vehicle time.
 
-Mode choice is implemented in [`mode_choice_zurich.py`](mode_choice_zurich.py), using coefficients from [`config/mode_choice.json`](config/mode_choice.json).
+Mode choice is implemented in [`mode_choice_zurich.py`](mode_choice_zurich.py), using calibrated coefficients from [`config/mode_choice.json`](config/mode_choice.json).
 
-## Model settings and interventions
+## Intervention mechanics
 
-### Run settings
+In the course pipeline, infrastructure stages are defined in [`code/stages.py`](../code/stages.py). When a stage is evaluated, its specifications are translated into skim modifications by [`interventions.py`](interventions.py).
 
-Students normally edit the settings near the top of [`Main.py`](Main.py).
+The engine supports four primary intervention types:
 
-| Setting | Purpose |
-|---|---|
-| `RUN_NAME` | Short label used in the output-folder name |
-| `RUN_ASSIGNMENT` | Enables road assignment; `--no-assignment` overrides it for a quick run |
-| `APPLY_SCENARIO` | Selects baseline demand or applies `SCENARIO_SETTINGS` |
-| `SCENARIO_SETTINGS` | Controls population, jobs, trip rate, mode affinities, and e-bike share |
-| `INTERVENTION_SELECTION` | Selects level 0, 1, or 2 independently for each intervention type |
+| Intervention type | Target network | Supported effects |
+|---|---|---|
+| `railway_expansions` | Public transport OD pairs | In-vehicle time reduction, initial wait reduction, transfer wait reduction, speed increase |
+| `mobility_hubs` | Station nodes and surrounding zones | Station access time, egress time, physical transfer walking time |
+| `road_capacity` | Highway and road links | Free-flow speed increase, travel time reduction |
+| `bike_highways` | Cycling paths between area pairs | Distance reduction, cycling speed increase |
 
-Population and job multipliers set totals relative to the baseline; they do not represent a specific calendar year. City growth shares distribute net change between the City of Zürich and the rest of the Canton. Positive affinity values multiply mode-choice odds, where `1.0` means no change.
-
-There are no separate scenario or intervention JSON files:
-
-- scenario controls and intervention selections are in [`Main.py`](Main.py);
-- demand mechanics are in [`scenario_generation.py`](scenario_generation.py);
-- intervention definitions and effects are in [`interventions.py`](interventions.py);
-- mode-choice coefficients are in [`config/mode_choice.json`](config/mode_choice.json).
-
-### Available interventions
-
-The three intervention types can be selected independently and combined.
-
-| Intervention | Location | Level 1 | Level 2 |
-|---|---|---|---|
-| Bike highway | Altstetten–Schlieren–Dietikon OD pairs, for bicycle paths of 2–15 km | Cycling speed +20% | Cycling speed +35% |
-| Railway expansion | City of Zürich–Winterthur OD pairs | PT in-vehicle time −8%, initial wait −20%, transfer wait −10% | PT in-vehicle time −15%, initial wait −40%, transfer wait −25% |
-| Mobility hub | Paths using Forch station as selected origin or destination stop | Access/egress −10%, physical transfer −20%, transfer wait −10% | Access/egress −25%, physical transfer −40%, transfer wait −25%, initial wait −15% |
-
-Bike and railway interventions use readable zone attributes such as `city_quartier`, `municipality_name`, and `Level`. Mobility hubs use explicit GTFS stop IDs and retain the baseline selected stop; they do not reroute passengers to a different station.
-
-Supported effects include changes to travel time, distance, speed, initial wait, transfer wait, physical transfer, access, and egress time.
+### Spatial targeting and scaling
+- Interventions target geography using either corridor link pairs (`area_pairs`) or localized station zones (`zones`).
+- **Percentage reductions:** For a time reduction of $r\%$, the affected skim values are multiplied by $(1 - r/100)$.
+- **Speed increases:** For a speed increase of $s\%$, travel times are multiplied by $1 / (1 + s/100)$.
 
 ## Input data
 
 ### Prepared runtime inputs
-
-Every normal model run uses the five files in `input_data/prepared/`:
+All regular model runs use the five validated files in `input_data/prepared/`:
 
 | File | Contents |
 |---|---|
@@ -178,60 +119,35 @@ Every normal model run uses the five files in `input_data/prepared/`:
 | `lookups.pkl.gz` | Zone-to-stop lookup tables used by mobility-hub interventions |
 | `assignment_network.pkl` | Road network, capacities, and zone-to-node mappings |
 
-The compressed pickle packages contain dictionaries of pandas DataFrames. The supplied prepared inputs are sufficient for normal runs, assignment, and both levels of all three interventions.
+The compressed pickle packages contain dictionaries of pandas DataFrames. The supplied prepared inputs are sufficient for all normal runs, assignment methods, and stage interventions.
 
 ### Input directories
-
 ```text
 input_data/
 ├── raw/       Public source archives and frozen OSM network snapshots
-├── prepared/  Validated runtime packages used by Main.py
+├── prepared/  Validated runtime packages used by the transport model
 └── work/      Disposable intermediate files used during rebuilding
 ```
 
-`Main.py` reads the prepared files; it does not launch preprocessing or write to `input_data/`. Raw source files are never deleted. After a successful rebuild, intermediate files are removed unless `--keep-work` is supplied.
+The model reads exclusively from `prepared/`; it never modifies raw source files.
 
-## Rebuilding the inputs
+## Rebuilding inputs (optional)
 
-Rebuilding is optional and computationally intensive, particularly for GTFS and full-Canton walking-network processing.
+Rebuilding is an optional, computationally intensive maintenance task (particularly for GTFS and full-Canton walking networks). Students do not need to rebuild inputs.
 
-Check the prepared runtime packages:
-
+To verify the supplied runtime files:
 ```bash
 python prepare_inputs.py --check-runtime
 ```
 
-Check all raw sources:
-
-```bash
-python prepare_inputs.py --check-raw
-```
-
-Rebuild everything:
-
+If an explicit rebuild is required:
 ```bash
 python prepare_inputs.py --all
 ```
 
-Individual stages are also available:
-
-```bash
-python prepare_inputs.py --zones-demand
-python prepare_inputs.py --networks
-python prepare_inputs.py --gtfs
-```
-
-Package compatible intermediate files already present in `input_data/work/`:
-
-```bash
-python prepare_inputs.py --package
-```
-
-Add `--keep-work` when intermediate tables are needed for teaching or diagnostics.
-
 ## Outputs
 
-Each run writes a timestamped output directory unless `--output-dir` is supplied.
+When executed, model runs write output metrics, tables, and diagnostics to `outputs/` (or directly return them in memory to `transport_model_interface.py`):
 
 | Output | Purpose |
 |---|---|
@@ -247,13 +163,11 @@ Each run writes a timestamped output directory unless `--output-dir` is supplied
 | `run_metadata.json` | Effective run settings for reproducibility |
 | `diagnostics.json` | Model and road-assignment diagnostics |
 
-`outputs/example_output/` contains a compact example from a real run. Large OD and road-link files are not duplicated there.
-
 ## Code map
 
 | File or directory | Responsibility |
 |---|---|
-| [`Main.py`](Main.py) | Editable run settings and main model sequence |
+| [`Main.py`](Main.py) | Standalone CLI entry point and execution sequence |
 | [`config.py`](config.py) | Repository paths and core modelling assumptions |
 | [`config/mode_choice.json`](config/mode_choice.json) | Mode-choice coefficients and monetary assumptions |
 | [`zoning.py`](zoning.py) | NPVM zoning and runtime-input loading |

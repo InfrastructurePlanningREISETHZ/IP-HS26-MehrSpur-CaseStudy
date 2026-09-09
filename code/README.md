@@ -1,4 +1,4 @@
-# MehrSpur Simulation Codebase
+# Guide: MehrSpur Simulation Codebase
 
 This folder contains the Python code for simulating and evaluating transport infrastructure investments on the Zürich–Winterthur corridor over a 40-year planning horizon.
 
@@ -85,22 +85,6 @@ You will edit this file to tailor the simulation to your own project scope, econ
 - **Exploring long-term future scenarios:** Configure the `STRUCTURAL_UNCERTAINTIES` section to test how your strategy performs across different 40-year scenarios, adjusting deep uncertainty parameters and trajectories.
 - **40-Year simulation runner:** Executes the annual simulation loop in `run_pathway_from_trajectories()` following this decision sequence inside each year:
 
-```text
-Each simulated year (Year 1 to 40):
-   Fixed transition scheduled for this year? ──yes──► Activate new stage
-        ▼
-   Read previous year's signpost metric (pt_trips, avg_tt_min, delay, etc.)
-        ▼
-   Signpost > threshold?
-        yes ──► persistence += 1 ──► persistence reached? ──yes──► Lock in decision
-        no  ──► persistence = 0               (opening year = decision year + lead time)
-        ▼
-   Opening year reached? ──yes──► Activate new stage
-        ▼
-   Simulate year ──► add inv. nd op. costs ──► record indicators & costs as signposts
-        ▼
-   40 years complete? ──no──► repeat for next year     yes ──► return 40-year results
-```     
 
 ---
 
@@ -140,6 +124,24 @@ This file defines adaptive planning strategies and runs the dynamic 40-year simu
 You will edit this file to design and evaluate long-term deployment strategies for your own project:
 - **Creating investment pathways:** Define new adaptive planning strategies in `get_pathways()`, setting stages activation year.
 - **Designing adaptive triggers:** Formulate your trigger logic for the flexible strategies in `get_triggers()` by selecting signpost metrics, setting trigger thresholds, required consecutive years (`persistence`), and construction `lead_time`.
+
+```text
+Each simulated year (Year 1 to 40):
+   Fixed transition scheduled for this year? ──yes──► Activate new stage
+        ▼
+   Read previous year's signpost metric (pt_trips, avg_tt_min, delay, etc.)
+        ▼
+   Signpost > threshold?
+        yes ──► persistence += 1 ──► persistence reached? ──yes──► Lock in decision
+        no  ──► persistence = 0               (opening year = decision year + lead time)
+        ▼
+   Opening year reached? ──yes──► Activate new stage
+        ▼
+   Simulate year ──► add inv. nd op. costs ──► record indicators & costs as signposts
+        ▼
+   40 years complete? ──no──► repeat for next year     yes ──► return 40-year results
+```     
+
 
 ---
 
