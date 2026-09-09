@@ -35,11 +35,11 @@ Select infrastructure stage (Stage 0, 1, or 2 from stages.py)
    ▼
 Generate scenario demand & Furness-balance OD matrices
    ▼
-Apply stage interventions (rail upgrades, hubs, speeds, e-bike share)
+Apply stage interventions
    ▼
-Calculate preliminary 5-mode utilities (car, PT walk/bike, walk, bike)
+Calculate preliminary mode utilities
    ▼
-Preliminary Multinomial Logit (MNL) mode choice
+Multinomial Logit (MNL) mode choice
    ▼
 Route assignment & congestion method
    ├── LUT (Fast mode)
@@ -54,7 +54,7 @@ Route assignment & congestion method
              ▼
              Recalculate utilities & converge on final multimodal split
    ▼
-Extract final corridor metrics (trips, modal shares, PKM, travel time, delay, CO₂)
+Extract final corridor metrics (trips, modal shares, PKM, etc.)
    ▼
 Pass stage metrics to the 40-year pathway simulation engine
 ```
@@ -85,7 +85,7 @@ You will edit this file to tailor the simulation to your own project scope, econ
 - **Exploring long-term future scenarios:** Configure the `STRUCTURAL_UNCERTAINTIES` section to test how your strategy performs across different 40-year scenarios, adjusting deep uncertainty parameters and trajectories.
 - **40-Year simulation runner:** Executes the annual simulation loop in `run_pathway_from_trajectories()` following this decision sequence inside each year:
 
-
+```text
 Each simulated year (Year 1 to 40):
    Fixed transition scheduled for this year? ──yes──► Activate new stage
         ▼
@@ -100,6 +100,7 @@ Each simulated year (Year 1 to 40):
    Simulate year ──► add inv. nd op. costs ──► record indicators & costs as signposts
         ▼
    40 years complete? ──no──► repeat for next year     yes ──► return 40-year results
+```     
 
 ---
 
@@ -174,8 +175,14 @@ You will edit this file to adjust or expand how costs, externalities, and apprai
 
 **What this file does**
 Acts as the bridge between your stage specifications and the regional 4-step transport model. It takes care of all low-level computations: modifying multimodal skims (rail, road, bike, walk), calculating discrete choice utilities, performing link-level route assignment (MSA), and extracting corridor demand metrics.
+- **Data loading & caching:** `load_transport_context()` runs preflight readiness checks on raw FSM files (`zones.parquet`, `skims.pkl.gz`, `demand.pkl.gz`, `assignment_network.pkl`) and automatically caches the loaded model object to `cache/tmi_context.pkl` for near-instant notebook startup.
+- **Cordon Gates & Network Clipping:** For fast traffic assignment, the road network is clipped to the corridor boundary, and external trips are compressed to entry/exit "cordon gates" via `collapse_od_to_gates()`. This preserves realistic traffic loads on corridor highways without having to simulate all 1,223 zones across the entire canton.
+
+
 **What you will change**
-You will not need to touch this file, as all standard interventions can be configured through `stages.py` and `parameters.py`. However, if you want to implement more advanced interventions such as custom network policies, or specialized spatial metrics you can extend `transport_model_interface.py`.
+You will not need to touch this file, as all standard interventions can be configured through `stages.py` and `parameters.py`. However, if you want to implement more advanced interventions such as custom network policies or specialized spatial metrics, you can extend `transport_model_interface.py`.
+- **Clearing the cache:** If you ever update underlying network skims or zone data, delete `cache/tmi_context.pkl` to force `load_transport_context()` to re-parse and rebuild the cached context.
+- **4 vs. 5 Mode Choice:** The underlying discrete choice engine calculates 5 separate alternatives (`drive`, `bike`, `walk`, `pt_walk`, `pt_bike`). By default, outputs aggregate these into the standard 4 modes (`Car`, `PT`, `Bike`, `Walk`), but functions like `corridor_od_summary(..., detailed_pt=True)` allow you to toggle the full 5-mode breakdown to inspect bike-and-ride behavior.
 
 
 ---
