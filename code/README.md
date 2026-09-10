@@ -71,19 +71,23 @@ This file acts as the single central registry for all assumptions, geographic de
 
 While pre-configured with data from the SBB MehrSpur Zürich–Winterthur case study, it provides a general template covering:
 - **Corridor boundaries:** Defines which municipalities or zones fall within the study area (`CORRIDOR_REGIONS`, `CORRIDOR_MUNICIPALITIES`).
-- **Project economics & service levels:** Specifies investment costs (`C_INV_STAGE...`), annual maintenance costs (`C_OP_STAGE...`), flexibility costs (`C_FLEX`), as well as train capacities and service headways for each stage for the MehrSpur Project.
-- **Socio-economic valuation:** Sets standard Swiss cost rates for travel time, vehicle fuel, carbon prices, the discount rate, and road externalities.
-- **Policy benchmarks:** Establishes planning acceptability thresholds, such as maximum acceptable corridor travel times (`MAX_AVG_TT`) in the MehrSpur case.
-- **Uncertainty registries:** Controls how uncertainties are modeled: `PERTURBABLE_PARAMS` holds scalar economic inputs (construction costs, fuel prices, discount rates) that are randomly perturbed during Monte Carlo sensitivity tests, while `STRUCTURAL_UNCERTAINTIES` defines the random-walk trajectories for 40-year regional demand growth and modal shift.
+- **Project economics & service levels:** Specifies capital investment costs (`C_INV_STAGE...`), annual maintenance costs (`C_OP_STAGE...`), flexibility option premiums (`C_FLEX`), as well as train capacities (`CAPACITY_STAGE...`) and service headways (`HEADWAY_STAGE...`) for each stage.
+- **Socio-economic valuation:** Sets standard Swiss cost rates for travel time, vehicle fuel, carbon prices, the discount rate (`DISCOUNT_RATE`), and road externalities (noise, air pollution, accidents) according to NIBA norms.
+- **Policy benchmarks:** Establishes planning acceptability thresholds, such as maximum acceptable corridor travel time (`MAX_AVG_TT = 20` min) and target transit mode share (`PT_SHARE_TARGET = 0.35`).
+- **Uncertainty registries:** Formally distinguishes between scalar baseline parameters and dynamic 40-year trajectories:
+  - `FIXED_PARAMS` & `UNCERTAIN_PARAMS`: Register the deterministic baseline and scalar parameters. Combined into `NOMINAL_PARAMS`.
+  - `STRUCTURAL_UNCERTAINTIES`: Registers the deep 40-year macro trajectory envelopes (start/end anchors and dispersion $\sigma$) for demand growth (`u_demand`), transit preference shifts (`u_beta_pt`), travel time valuations (`u_C_TT_PT`, `u_C_TT_CAR`), carbon costs (`u_C_CO2`), and capital cost overruns (`u_costs`).
+- **Parameter validation:** Runs `validate_params()` upon import to ensure custom inputs remain within physically and economically sound bounds.
+
 
 **What you will change**
 You will edit this file to tailor the simulation to your own project scope, economic assumptions, and policy scenarios:
 - **Redefining your study corridor:** Replace the default Zürich–Winterthur municipalities in `CORRIDOR_REGIONS` and `CORRIDOR_MUNICIPALITIES` with the specific municipalities or zones that define your project's corridor.
-- **Updating project budgets & operations:** Enter your project's costs and operational parameters (such as capacities) for each stage.
-- **Setting policy & performance targets:** Adjust planning thresholds to evaluate whether your strategy meets your specific planning goals.
-- **Testing sensitivity to cost overruns:** Add or modify parameters in the `PERTURBABLE_PARAMS` dictionary. Any parameter placed here is automatically varied by ±10% during Monte Carlo tests to see how sensitive your strategy is to economic shocks.
-- **Exploring long-term future scenarios:** Configure the `STRUCTURAL_UNCERTAINTIES` section to test how your strategy performs across different 40-year scenarios, adjusting deep uncertainty parameters and trajectories.
-- **40-Year simulation runner:** Executes the annual simulation loop in `run_pathway_from_trajectories()` following this decision sequence inside each year:
+- **Updating project budgets & operations:** Enter your project's investment costs, operating expenditures, capacities, and service headways for each stage.
+- **Setting policy & performance targets:** Adjust planning thresholds (`MAX_AVG_TT`, `PT_SHARE_TARGET`) to evaluate whether your strategy meets your specific planning goals.
+- **Testing sensitivity and exploring long-term scenarios:**
+  - Adjust baseline values in `UNCERTAIN_PARAMS` to shift central anchors.
+  - Modify trajectory ranges, nominal endpoints (e.g., `DEMAND_GROWTH_Y40`), and standard deviations (`DG_SIGMA_1`, `DG_SIGMA_40`) in `STRUCTURAL_UNCERTAINTIES` to evaluate performance under varying 40-year futures.
 
 
 ---
@@ -102,28 +106,32 @@ This file specifies how each infrastructure stage physically and operationally a
 **What you will change**
 You will edit this file to configure the specific interventions and stage definitions for your own project:
 - **Defining stage packages:** Adapt the infrastructure stages in the `stages` dictionary (`0`, `1`, `2`, ...) to represent your own project's planned interventions.
-- **Applying spatial interventions:** Assign your physical interventions to the network by either applying corridor-wide links (reusing the municipalities/zones from `parameters.py`) or picking specific reionsin `zones` (e.g., targeting individual station hubs for upgrades).
-- **Applying physical improvements:** Set percentage reductions suchas in-vehicle travel times, distance changes, etc. under the relevant transport mode.
+- **Applying spatial interventions:** Assign your physical interventions to the network by either applying corridor-wide links (reusing the municipalities/zones from `parameters.py`) or picking specific regions in `zones` (e.g., targeting individual station hubs for upgrades).
+- **Applying physical improvements:** Set percentage reductions such as in-vehicle travel times, distance changes, etc. under the relevant transport mode.
 - **Adjusting mode preferences:** Modify mode affinity multipliers or logit choice parameters (`ASC_...`, `B_...`) to simulate service quality changes (e.g. improved reliability, comfort, or ticketing).
 
 
 ---
 
-### [`pathways.py`](pathways.py)
+### [`adaptive_planning.py`](adaptive_planning.py)
 
 **What this file does**
-This file defines adaptive planning strategies and runs the dynamic 40-year simulation.
+This file defines deployment plans, adaptive signpost triggers, and runs the dynamic 40-year simulation loop.
 
-- **Strategy definitions:** Defines *when* each stage opens over the 40 years in `get_pathways()`—either at a fixed calendar year (e.g., build Stage 2 in Year 15) or dynamically when an adaptive trigger fires.
-- **Adaptive triggers & signposts:** Specifies triggers in `get_triggers()` that tracks metrics (like `pt_trips`, `avg_tt_min`, or `congestion_delay_hours`) also accounting for persistence and construction lead times.
-- **40-Year simulation runner:** Executes the annual simulation loop in `run_pathway_from_trajectories()`, managing demand scaling, checking trigger rules, and logging physical indicators.
-- **Lifecycle cost scheduling:** Allocates investement, maintencance and flexibility costs across the 40-year horizon based on stage activation years.
-- **Tipping & opportunity points:** Provides analytical functions (`find_tipping_point()`, `find_opportunity_point()`) to identify the exact year or demand level when an upgrade becomes necessary.
+- **Standardized deployment plans:** Defines *when* each stage opens over the 40 years in `get_plans()`. Pre-configures 5 canonical plans:
+  - `baseline`: No investment across 40 years (Stage 0 throughout).
+  - `static`: Full build upfront in Year 1 (Stage 2 throughout).
+  - `staged1`: Phased delivery (Stage 1 in Year 9, Stage 2 in Year 13) (SBB Approach).
+  - `staged2`: Alternative phased delivery (Stage 1 in Year 10, Stage 2 in Year 20).
+  - `flexible`: Fully adaptive pathway (Stage 1 via Trigger 1; Stage 2 via Trigger 2).
+- **Adaptive triggers & signposts:** Specifies operational action thresholds in `get_triggers()` that monitor real-time indicators (like `pt_trips`, `avg_tt_min`, `pt_share`, or `congestion_delay_hours`), accounting for consecutive confirmation years (`persistence`) and construction `lead_time`.
+- **40-Year simulation runner:** Executes the annual simulation loop in `run_plan()` and `run_plan_from_trajectories()`, managing demand scaling, checking trigger rules, logging physical indicators, and recording lifecycle investment, maintenance, and flexibility option costs.
+- **Trajectory generators:** Contains `generate_shaped_trajectory()` to construct 40-year non-linear futures (`linear`, `early`, `late`, `logistic`, `random_walk`).
 
 **What you will change**
 You will edit this file to design and evaluate long-term deployment strategies for your own project:
-- **Creating investment pathways:** Define new adaptive planning strategies in `get_pathways()`, setting stages activation year.
-- **Designing adaptive triggers:** Formulate your trigger logic for the flexible strategies in `get_triggers()` by selecting signpost metrics, setting trigger thresholds, required consecutive years (`persistence`), and construction `lead_time`.
+- **Creating investment pathways:** Define new planning strategies or adjust existing transition years in `get_plans()`.
+- **Designing adaptive triggers:** Formulate trigger logic for flexible strategies in `get_triggers()` by selecting signpost metrics, setting trigger thresholds, required consecutive years (`persistence`), and construction `lead_time`.
 
 ```text
 Each simulated year (Year 1 to 40):
@@ -137,25 +145,25 @@ Each simulated year (Year 1 to 40):
         ▼
    Opening year reached? ──yes──► Activate new stage
         ▼
-   Simulate year ──► add inv. nd op. costs ──► record indicators & costs as signposts
+   Simulate year ──► add inv. and op. costs ──► record indicators & costs as signposts
         ▼
    40 years complete? ──no──► repeat for next year     yes ──► return 40-year results
+
 ```     
 
 
 ---
-
 ### [`simulation_engine.py`](simulation_engine.py)
 
 **What this file does**
-This module executes the annual simulation and socio-economic evaluation. Called by `pathways.py` for each year of the 40-year horizon, it applies annual demand growth, determines road congestion delays, costs and environmental externalities, and aggregates 40-year lifecycle impacts into discounted Net Present Cost (NPC) and qualitative measures.
+This module executes the annual simulation and socio-economic evaluation. Called by `adaptive_planning.py` for each year of the 40-year horizon, it applies annual demand growth, determines road congestion delays, costs, and environmental externalities, and aggregates 40-year lifecycle impacts into discounted Net Present Cost (NPC).
 
-- **Annual cost accounting:** Computes yearly monetized costs in`annual_mode_costs()`.
-- **Externalities & emissions:** Computes non-market societal impacts.
-- **Physical performance indicators:** Tracks unmonetized system metrics in `annual_physical_indicators()`, such as average travel times (`avg_tt_min`).
-- **Congestion delay integration:** Interpolates road traffic delays via precomputed Look-Up Tables (`get_lut_delay()`).
-- **Economic appraisal (NPC / NPV):** Discounts 40-year costs back to present value and breaks down lifecycle costs by category in `npc_by_component()`.
-- **Uncertainty sampling:** Draws random variations for parameters in `sample_perturbed_params()` to support Monte Carlo sensitivity testing.
+- **Annual cost accounting:** Computes yearly monetized costs in `annual_mode_costs()` across travel time, operating expenditure, and NIBA externalities (CO2, noise, air pollution, accidents).
+- **Physical performance indicators:** Tracks unmonetized system metrics in `annual_physical_indicators()`, such as average motorized travel times (`avg_tt_min`), annual $\text{CO}_2$ emissions (tonnes), and total bottleneck delay hours.
+- **Congestion delay integration:** Fast-interpolates road traffic delays via precomputed Look-Up Tables (`get_lut_delay()`).
+- **Economic appraisal (NPC & Rule of a Half):** Discounts 40-year costs back to present value and decomposes lifecycle costs by component in `npc_by_component()`. When evaluated against a baseline run, it applies the transport economic **Rule of a Half** to compute consumer surplus and net user benefits.
+- **Uncertainty sampling:** Exposes structural trajectory definitions to the EMA Workbench via `get_ema_uncertainties()`, while `sample_uncertain_params()` safely isolates scalar baseline overrides from 40-year trajectory arrays.
+
 
 **What you will change**
 You will edit this file to adjust or expand how costs, externalities, and appraisal metrics are calculated:
@@ -165,7 +173,6 @@ You will edit this file to adjust or expand how costs, externalities, and apprai
   > $$\text{crowding multiplier} = \max\left[1.0, \left(\frac{\text{peak trips}}{\text{capacity}}\right)^2\right]$$
   > You can follow this exact pattern in `simulation_engine.py` to add your own custom mechanisms—such as highway bottleneck delays, electric vehicle charging queues, or station platform overcrowding.
 - **Customizing physical indicators:** Add or adjust non-monetary metrics in `annual_physical_indicators()` to monitor project-specific performance targets.
-
 
 
 ---
