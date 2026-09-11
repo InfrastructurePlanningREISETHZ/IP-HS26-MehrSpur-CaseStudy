@@ -13,17 +13,17 @@ The simulation engine evaluates long-term pathways by scaling demand year by yea
 
 ---
 
-## 📑 Inhaltsverzeichnis (Codebase Directory)
+## Directory
 
 * **[Files you edit](#files-you-edit)**
-  * [⚙️ `parameters.py`](#parameterspy) — Central registry for boundaries, costs, economic valuation, and uncertainty ranges.
-  * [🏗️ `stages.py`](#stagespy) — Physical stage packages, railway interventions, road capacities, and speed skims.
-  * [📈 `adaptive_planning.py`](#adaptive_planningpy) — 40-year pathway simulation, dynamic decision triggers, and deployment plans.
-  * [🔬 `simulation_engine.py`](#simulation_enginepy) — Annual cost accounting, physical indicator formulas, and discounted NPC.
+  * [`parameters.py`](#parameterspy) — Central registry for boundaries, costs, economic valuation, and uncertainty ranges.
+  * [`stages.py`](#stagespy) — Physical stage packages, railway interventions, road capacities, and speed skims.
+  * [`adaptive_planning.py`](#adaptive_planningpy) — 40-year pathway simulation, dynamic decision triggers, and deployment plans.
+  * [`simulation_engine.py`](#simulation_enginepy) — Annual cost accounting, physical indicator formulas, and discounted NPC.
 
 * **[Files you don't touch & Utilities](#files-you-dont-touch)**
-  * [🧠 `transport_model_interface.py` & `IP_course_FSM-main/`](#transport_model_interfacepy--ip_course_fsm-main) — Core discrete mode choice (MNL) and traffic assignment (MSA) engine.
-  * [⚡ `generate_luts.py`](#generate_lutspy) — Standalone precomputor for multi-modal Look-Up Tables across demand scales.
+  * [`transport_model_interface.py` & `IP_course_FSM-main/`](#transport_model_interfacepy--ip_course_fsm-main) — Core discrete mode choice (MNL) and traffic assignment (MSA) engine.
+  * [`generate_luts.py`](#generate_lutspy) — Standalone precomputor for multi-modal Look-Up Tables across demand scales.
 
 * **[Key Modelling Assumptions](#key-modelling-assumptions)** — Spatial cordon limits, distance filtering, and lead-time rules.
 
