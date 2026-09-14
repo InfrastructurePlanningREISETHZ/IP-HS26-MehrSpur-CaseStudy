@@ -149,9 +149,10 @@ The course simulation logic is located in `code/`:
 | [`code/README.md`](code/README.md) | Technical architecture guide with links to the simulation pipeline |
 | [`parameters.py`](code/parameters.py) | Model assumptions, nominal values, and uncertain parameters |
 | [`stages.py`](code/stages.py) | Infrastructure stages (Stage 0, 1, 2) and physical interventions |
-| [`pathways.py`](code/pathways.py) | Static, staged, and adaptive deployment pathways |
+| [`adaptive_planning.py`](code/adaptive_planning.py) | 40-year pathway simulation, dynamic decision triggers, and deployment plans |
 | [`simulation_engine.py`](code/simulation_engine.py) | Annual simulation loop, congestion delay, and 40-year socio-economic appraisal |
 | [`transport_model_interface.py`](code/transport_model_interface.py) | Bridge connecting stage parameters to the regional transport model |
+| [`generate_luts.py`](code/generate_luts.py) | Standalone precomputor for multi-modal Look-Up Tables |
 
 ### Working with notebooks
 
