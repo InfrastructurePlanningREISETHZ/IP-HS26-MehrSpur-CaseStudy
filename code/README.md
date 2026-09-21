@@ -1,4 +1,4 @@
-# Guide: MehrSpur Simulation Codebase
+# Guide: MehrSpur Model Codebase
 
 This folder contains the Python code for simulating and evaluating transport infrastructure investments on the Zürich–Winterthur corridor over a 40-year planning horizon.
 
@@ -8,7 +8,7 @@ Evaluating long-term infrastructure involves answering two core questions:
 - **How does traffic respond to an infrastructure project?** When new railway tracks, highway lanes, or regional bike highways are added, how do travel times change, and how many travelers switch between driving, public transit, and active mobility?
 - **How does an investment strategy perform over 40 years?** When should projects be built under uncertain future conditions—such as changing population growth, shifting travel habits, and rising carbon costs?
 
-The simulation engine evaluates long-term pathways by scaling demand year by year, checking adaptive triggers, and updating link congestion and lifecycle costs via iterative MSA route assignment.
+The simulation engine evaluates long-term pathways by scaling demand year by year, checking adaptive triggers, and evaluating link congestion and lifecycle costs via precomputed multimodal Look-Up Tables (Smart LUTs) or runtime coupled MSA route assignment.
 
 
 ---
@@ -22,7 +22,7 @@ The simulation engine evaluates long-term pathways by scaling demand year by yea
   * [`simulation_engine.py`](#simulation_enginepy) — Annual cost accounting, physical indicator formulas, and discounted NPC.
 
 * **[Files you don't touch & Utilities](#files-you-dont-touch)**
-  * [`transport_model_interface.py` & `IP_course_FSM-main/`](#transport_model_interfacepy--ip_course_fsm-main) — Core discrete mode choice (MNL) and traffic assignment (MSA) engine.
+  * [`transport_model_interface.py` & `IP_course_FSM-main/`](#transport_model_interfacepy--ip_course_fsm-main) — Core discrete mode choice and traffic assignment (MSA) engine.
   * [`generate_luts.py`](#generate_lutspy) — Standalone precomputor for multi-modal Look-Up Tables across demand scales.
 
 * **[Key Modelling Assumptions](#key-modelling-assumptions)** — Spatial cordon limits, distance filtering, and lead-time rules.
@@ -90,11 +90,12 @@ This file acts as the single central registry for all assumptions, geographic de
 While pre-configured with data from the SBB MehrSpur Zürich–Winterthur case study, it provides a general template covering:
 - **Corridor boundaries:** Defines which municipalities or zones fall within the study area (`CORRIDOR_REGIONS`, `CORRIDOR_MUNICIPALITIES`).
 - **Project economics & service levels:** Specifies capital investment costs (`C_INV_STAGE...`), annual maintenance costs (`C_OP_STAGE...`), flexibility option premiums (`C_FLEX`), as well as train capacities (`CAPACITY_STAGE...`) and service headways (`HEADWAY_STAGE...`) for each stage.
-- **Socio-economic valuation:** Sets standard Swiss cost rates for travel time, vehicle fuel, carbon prices, the discount rate (`DISCOUNT_RATE`), and road externalities (noise, air pollution, accidents) according to NIBA norms.
-- **Policy benchmarks:** Establishes planning acceptability thresholds, such as maximum acceptable corridor travel time (`MAX_AVG_TT = 20` min) and target transit mode share (`PT_SHARE_TARGET = 0.35`).
+- **Socio-economic valuation:** Sets standard Swiss cost rates for travel time, vehicle fuel, carbon prices, the discount rate (`DISCOUNT_RATE`), and NIBA external costs for both road and passenger rail (noise, air pollution, CO2, accidents).
+- **24-Hour annualization factors:** Derives `PEAK_TO_ANNUAL_LINEAR` (for per-trip accruals) and `PEAK_TO_ANNUAL_CONGESTION` (for convex bottleneck delays) from `HOURLY_DEMAND_PROFILE`.
+- **Policy benchmarks:** Establishes planning acceptability thresholds, such as maximum acceptable corridor travel time (`MAX_AVG_TT = 15` min), target transit mode share (`PT_SHARE_TARGET = 0.35`).
 - **Uncertainty registries:** Formally distinguishes between scalar baseline parameters and dynamic 40-year trajectories:
   - `FIXED_PARAMS` & `UNCERTAIN_PARAMS`: Register the deterministic baseline and scalar parameters. Combined into `NOMINAL_PARAMS`.
-  - `STRUCTURAL_UNCERTAINTIES`: Registers the deep 40-year macro trajectory envelopes (start/end anchors and dispersion $\sigma$) for demand growth (`u_demand`), transit preference shifts (`u_pt_affinity_growth`), travel time valuations (`u_C_TT_PT`, `u_C_TT_CAR`), carbon costs (`u_C_CO2`), and capital cost overruns (`u_costs`).
+  - `STRUCTURAL_UNCERTAINTIES`: Registers the deep 40-year macro trajectory envelopes (start/end anchors and dispersion $\sigma$) for demand growth (`u_demand`), transit preference shifts (`u_pt_asc_shift`), travel time valuations (`u_C_TT_PT`, `u_C_TT_CAR`), carbon costs (`u_C_CO2`), and capital cost overruns (`u_costs`).
 - **Parameter validation:** Runs `validate_params()` upon import to ensure custom inputs remain within physically and economically sound bounds.
 
 
@@ -115,7 +116,7 @@ You will edit this file to tailor the simulation to your own project scope, econ
 **What this file does**
 This file specifies how each infrastructure stage physically and operationally alters the regional transport network. It acts as the direct bridge between your project concepts and the underlying travel model skims.
 
-- **Behavioral & discrete choice parameters:** Overrides mode choice constants (such as ASCs, time/cost betas) and stage-level baseline mode attractiveness multipliers (such as base `pt_affinity`, onto which annual societal `pt_affinity_growth` is added dynamically).
+- **Behavioral & discrete choice parameters:** Overrides mode choice constants (such as ASCs, time/cost betas). Societal shifts across time are applied dynamically via `pt_asc_shift`.
 - **Spatial targeting:** Specifies the geographic scope of interventions using corridor OD links (`area_pairs`) or area-wide station catchments (`zones`).
 - **Applying physical improvements:** Set percentage reductions such as in-vehicle travel times, waiting times, distance changes, etc. under the relevant transport mode.
 - **Local improvements:** Creates locally explicit improvements (`mobility_hubs` in the MehrSpur Project).
@@ -126,7 +127,7 @@ You will edit this file to configure the specific interventions and stage defini
 - **Defining stage packages:** Adapt the infrastructure stages in the `stages` dictionary (`0`, `1`, `2`, ...) to represent your own project's planned interventions.
 - **Applying spatial interventions:** Assign your physical interventions to the network by either applying corridor-wide links (reusing the municipalities/zones from `parameters.py`) or picking specific regions in `zones` (e.g., targeting individual station hubs for upgrades).
 - **Applying physical improvements:** Set percentage reductions such as in-vehicle travel times, distance changes, etc. under the relevant transport mode key (e.g., `"bike_highways"`, `"railway_expansions"`, or `"mobility_hubs"`).
-- **Adjusting mode preferences:** Modify mode affinity multipliers or logit choice parameters (`ASC_...`, `B_...`) to simulate service quality changes (e.g. improved reliability, comfort, or ticketing).
+- **Adjusting mode preferences:** Modify logit choice parameters (`ASC_...`, `B_...`) to simulate service quality changes (e.g. improved reliability, comfort, or ticketing).
 
 
 ---
@@ -143,8 +144,9 @@ This file defines deployment plans, adaptive signpost triggers, and runs the dyn
   - `staged2`: Alternative phased delivery (Stage 1 in Year 10, Stage 2 in Year 20).
   - `flexible`: Fully adaptive pathway (Stage 1 via Trigger 1; Stage 2 via Trigger 2).
 - **Adaptive triggers & signposts:** Specifies operational action thresholds in `get_triggers()` that monitor real-time indicators (like `pt_trips`, `annual_pt_trips`, `avg_tt_min`, `pt_share`, or `congestion_delay_hours`), accounting for consecutive confirmation years (`persistence`) and construction `lead_time`. *(Hint: You can use ANY metric returned by the simulation as a signpost, such as `bike_trips` or `bike_share`!)*
-- **40-Year simulation runner:** Executes the annual simulation loop in `run_plan()` and `run_plan_from_trajectories()`, managing demand scaling, applying annual transit preference growth (`pt_affinity_growth`), checking trigger rules, logging physical indicators, and recording lifecycle investment, maintenance, and flexibility option costs.
-- **Trajectory generators:** Contains `generate_shaped_trajectory()` to construct 40-year non-linear futures (`linear`, `early`, `late`, `logistic`, `random_walk`).
+- **40-Year simulation runner:** Executes the annual simulation loop in `run_plan()` and `run_plan_from_trajectories()`, managing demand scaling, applying annual transit preference shifts (`pt_asc_shift`), checking trigger rules, logging physical indicators, and recording lifecycle investment, maintenance, and flexibility option costs.
+- **Trajectory generators:** Contains `generate_shaped_trajectory()` to construct 40-year non-linear futures (`linear`, `early`, `late`, `logistic`, `random_walk`, `almost_flat`).
+
 
 **What you will change**
 You will edit this file to design and evaluate long-term deployment strategies for your own project:
@@ -195,9 +197,9 @@ You will edit this file to adjust or expand how costs, externalities, and apprai
 
 ---
 
-## Files you don't touch
+## Advanced Scripts (Optional to modify)
 
-### [`transport_model_interface.py`](transport_model_interface.py) & [`IP_course_FSM-main/`](../IP_course_FSM-main/)
+### [`transport_model_interface.py`](transport_model_interface.py) 
 
 
 **What this file does**
@@ -206,10 +208,13 @@ Acts as the bridge between your stage specifications and the regional 4-step tra
 - **Cordon Gates & Network Clipping:** For fast traffic assignment, the road network is clipped to the corridor boundary, and external trips are compressed to entry/exit "cordon gates" via `collapse_od_to_gates()`. This preserves realistic traffic loads on corridor highways without having to simulate all 1,223 zones across the entire canton.
 
 
-**What you will change**
-You will not need to touch this file, as all standard interventions can be configured through `stages.py` and `parameters.py`. However, if you want to implement more advanced interventions such as custom network policies or specialized spatial metrics, you can extend `transport_model_interface.py`.
-- **Clearing the cache:** If you ever update underlying network skims or zone data, delete `cache/tmi_context.pkl` to force `load_transport_context()` to re-parse and rebuild the cached context.
-- **4 vs. 5 Mode Choice:** The underlying discrete choice engine calculates 5 separate alternatives (`drive`, `bike`, `walk`, `pt_walk`, `pt_bike`). By default, outputs aggregate these into the standard 4 modes (`Car`, `PT`, `Bike`, `Walk`), but functions like `corridor_od_summary(..., detailed_pt=True)` allow you to toggle the full 5-mode breakdown to inspect bike-and-ride behavior.
+**When to edit this file**
+For all standard interventions, you won't need to edit this file—those are handled in `stages.py` and `parameters.py`. However, you **may choose to modify this file** if you need to:
+- Extract custom spatial metrics or performance indicators not provided by default.
+- Implement advanced network policies that go beyond standard parameter adjustments.
+- **Toggle Mode Aggregation (4 vs. 5 Modes):** The engine calculates 5 alternatives (`drive`, `bike`, `walk`, `pt_walk`, `pt_bike`). By default, outputs aggregate these into the standard 4 modes. You can modify functions like `corridor_od_summary()` to return the full 5-mode breakdown to inspect specific behaviors like bike-and-ride.
+- **Clear the cache:** If you ever update underlying network skims or zone data, delete `cache/tmi_context.pkl` so this script re-parses the raw files.
+
 
 
 ---
@@ -217,7 +222,7 @@ You will not need to touch this file, as all standard interventions can be confi
 ### [`generate_luts.py`](generate_luts.py)
 
 **What this file does**
-This utility precomputes and exports Look-Up Tables (LUTs) across a range of demand multipliers (e.g., $0.8\times$ to $2.0\times$) for all infrastructure stages. (Runtime 5-20 min.)
+This utility precomputes and exports Look-Up Tables (LUTs) across a range of demand multipliers (e.g., $0.8\times$ to $1.8\times$) for all infrastructure stages. (Runtime 10-25 min.)
 
 Instead of running slow, iterative traffic assignment (MSA) during high-volume simulations, the downstream 40-year adaptive planning loops (`Notebook 04` / `Notebook 05`) and uncertainty screening experiments (`Notebook 03`) query these precomputed tables to ensure fast execution times. 
 
@@ -235,21 +240,28 @@ Because the LUT records stage- and network-specific equilibriums, **you must reg
 2. **Infrastructure stage interventions:** If you alter travel-time percentage savings, speeds, service headways, or hub parameters in `stages.py` or `parameters.py`.
 3. **Discrete mode-choice parameters:** If you modify baseline alternative-specific constants (ASCs) or cost/time sensitivity betas in `stages.py` or `parameters.py`.
 
-
----
-
-**How to run it**
+***How to run it***
 
 You can regenerate all LUTs using either the command line or directly inside a notebook:
 
+
+
 #### Option A: From the Terminal (Recommended)
-Run the script from your project root:
+1. Generate the detailed corridor network (if `detailed_network.pkl` is not yet created):
+```bash
+python code/generate_luts.py --build-corridor
+```
+2. Run the LUT generation script from your project root:
+```bash
 python code/generate_luts.py
+```
 
 #### Option B: From inside a Jupyter Notebook
-import transport_model_interface as tmi
-tmi.generate_all_luts(ctx)
-
+Ensure the detailed network is loaded in `ctx` (e.g. via Notebook 02 Section 1.2), then:
+```python
+from generate_luts import generate_all_luts
+generate_all_luts(ctx)
+```
 ---
 
 ## Key Modelling Assumptions
@@ -258,5 +270,7 @@ When presenting your results, keep these system boundaries in mind:
 
 
 - **Distance filtering:** The headline metrics for car and public transport market shares only count trips longer than a minimum distance (e.g., 5 km), intentionally excluding short local walks from the main comparison. This is MehrSpur Project Specific. 
-> CRITICAL FOR ACTIVE MOBILITY: This filter is MehrSpur specific!
+CRITICAL FOR ACTIVE MOBILITY: This filter is MehrSpur specific!
 - **Adaptive lag:** Triggers look at the previous year's data to make decisions, avoiding "look-ahead" bias. Once triggered, the physical construction lead time must pass before the new stage opens.
+- **Monitoring Scope Simplification:** Normally, infrastructure monitoring evaluates specific assets (e.g., individual rail lines or streets) to assess if an intervention is necessary. For simplification purposes in this project, we look at the network as a whole (e.g., aggregate demand or delay) to define our triggers (such as for Stage 1).
+
