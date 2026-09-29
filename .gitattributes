@@ -1,0 +1,8 @@
+data/processed/transport_surrogate/od_emulator.joblib filter=lfs diff=lfs merge=lfs -text
+data/processed/transport_surrogate/od_validation.npz filter=lfs diff=lfs merge=lfs -text
+
+# Transport inputs, source archives and frozen section-routing graphs.
+data/transport/**/*.pkl filter=lfs diff=lfs merge=lfs -text
+data/transport/**/*.gz filter=lfs diff=lfs merge=lfs -text
+data/transport/**/*.parquet filter=lfs diff=lfs merge=lfs -text
+data/transport/**/*.zip filter=lfs diff=lfs merge=lfs -text

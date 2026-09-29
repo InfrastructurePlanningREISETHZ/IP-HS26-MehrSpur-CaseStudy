@@ -22,16 +22,3 @@ Thumbs.db
 
 # Cache and large artifacts
 cache/
-
-# Outputs
-figures/*.png
-figures/*.pdf
-results/*.csv
-results/*.parquet
-!figures/.gitkeep
-!results/.gitkeep
-
-# Allow reference figures
-!figures/mehrspur_corridor_map.jpg
-
-
