@@ -49,7 +49,10 @@ Already comfortable with Python, Git and Jupyter? Go directly to the [course wor
 
 Install the following before the first exercise:
 
-- [Python 3.11](https://www.python.org/downloads/) (recommended version)
+- **[Python 3.11](https://www.python.org/downloads/release/python-3119/) (Required version: Python 3.11 or 3.12)**  
+  *(Windows quick install: `winget install Python.Python.3.11`)*
+  > [!WARNING]
+  > **Do not use Python 3.13+!**  Please stick to **Python 3.11** (or 3.12).
 - [Visual Studio Code](https://code.visualstudio.com/) or another Python IDE of your choice
 - If using VS Code, its **Python** and **Jupyter** extensions
 - [Git](https://git-scm.com/downloads/)
@@ -112,6 +115,12 @@ py -3.11 -m venv .venv
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 ```
+
+> [!TIP]
+> **Windows Troubleshooting:**
+> - If `py -3.11 -m venv .venv` outputs `No suitable Python runtime found`, check installed versions with `py --list`. Install Python 3.11 with `winget install Python.Python.3.11`.
+> - If `Activate.ps1` gives an execution policy error (`running scripts is disabled on this system`), run:  
+>   `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` and try activating again.
 
 **macOS / Linux:**
 
