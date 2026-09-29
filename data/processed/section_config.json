@@ -1,0 +1,18 @@
+{
+  "active": true,
+  "mode": "PT",
+  "origin": {
+    "municipality_name": [
+      "Zürich"
+    ]
+  },
+  "destination": {
+    "municipality_name": [
+      "Winterthur"
+    ]
+  },
+  "both_directions": true,
+  "coverage_file": "C:\\Users\\kizal\\IP-HS26-MehrSpur-CaseStudy\\data\\processed\\section_coverage.npz",
+  "section_override": "custom_section",
+  "crowding_enabled": true
+}

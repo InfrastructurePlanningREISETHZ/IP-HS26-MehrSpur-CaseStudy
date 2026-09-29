@@ -32,7 +32,7 @@ from additional import uncertainty as uc
 from stages import package_parameter_defaults
 
 # =============================================================================
-# 1. GENERAL PARAMETERS
+# 1. GENERAL PARAMETERS (STUDENT EDITABLE)
 # =============================================================================
 
 NOMINAL_PARAMS = {

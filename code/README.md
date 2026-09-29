@@ -4,6 +4,8 @@ The code supports transport modeling and 40-year appraisal of the MehrSpur Züri
 
 ## Project settings
 
+> **Student Note:** For your case study, these are the **only** files you should need to edit.
+
 | File | What to configure |
 | --- | --- |
 | [parameters.py](parameters.py) | General parameters, corridor boundaries, counting section, external flow and uncertainties. |
@@ -12,9 +14,11 @@ The code supports transport modeling and 40-year appraisal of the MehrSpur Züri
 
 The two investment packages can open independently. Transport states are **0: baseline**, **1: Stage 1**, **2: Stage 2**, and **3: both stages**. Plan timing determines which state operates each year.
 
-`NOMINAL_PARAMS` contains general values and final-year endpoints. `STRUCTURAL_UNCERTAINTIES` uses the same keys, with settings for `transport_modelling` or `post_modelling`, `scenarios` or `sensitivity`, and time-varying or constant values. Removing an uncertainty retains its nominal value or trajectory. Notebook selections default to `ALL` uncertainties in the relevant group; supported keys are available through `parameter_catalogue()` in [additional/uncertainty.py](additional/uncertainty.py).
+Inside `parameters.py`, you will find `NOMINAL_PARAMS` (for baseline/final values) and `STRUCTURAL_UNCERTAINTIES` (for defining uncertainty ranges). Removing an uncertainty simply means the model will use its nominal, fixed trajectory instead. For a list of all supported keys you can add, check out `parameter_catalogue()` in [additional/uncertainty.py](additional/uncertainty.py).
 
 ## Calculation modules
+
+> **Student Note:** You generally do not need to modify these files. They handle the core model logic and processing behind the scenes.
 
 | Module | Role |
 | --- | --- |

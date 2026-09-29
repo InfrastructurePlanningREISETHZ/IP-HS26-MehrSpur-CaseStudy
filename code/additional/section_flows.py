@@ -691,7 +691,7 @@ def prepare_section_coverage(context, config, output, *, section_id="custom_sect
     if best is None:
         raise ValueError("The reference OD selection has no positive nominal trips with route endpoints.")
     _, route_origin, route_destination, native, reference_od = best
-    override = station_override
+    override = station_override or config.get("section_override")
     if isinstance(override, str):
         override = [override]
     if override and len(override) not in (1, 2):
@@ -836,7 +836,7 @@ def main(argv=None):
     parser.add_argument("--observed-daily", type=float, help="Observed existing person-trips/day across the same section/directions.")
     parser.add_argument("--iterations", type=int, help="MSA maximum iterations; defaults to ASSIGNMENT_SETTINGS.")
     parser.add_argument("--fixed-iterations", action="store_true", help="Use the same minimum and maximum MSA iterations for reproducible calibration.")
-    parser.add_argument("--output", type=Path, default=Path("verifications/section_calibration"), help="Directory for count report/new compact coverage.")
+    parser.add_argument("--output", type=Path, default=Path("data/processed"), help="Directory for count report/new compact coverage.")
     args = parser.parse_args(argv)
     if args.list_sections:
         print(available_sections(args.coverage_file).to_string(index=False))

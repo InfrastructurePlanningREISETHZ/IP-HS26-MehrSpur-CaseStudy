@@ -3411,6 +3411,11 @@ def load_detailed_corridor_network(
 
         G = nx.compose_all(graphs)
 
+    # Guarantee full reachability by keeping only the largest strongly connected component
+    # of the COMBINED graph, discarding local mapping errors and dead-ends.
+    largest_cc = max(nx.strongly_connected_components(G), key=len)
+    G = G.subgraph(largest_cc).copy()
+
     # Simplify after composing downloads so their overlap has shared junctions.
     # Reachability is checked when selecting the assignment corridor and gates.
     G = ox.simplify_graph(G)
