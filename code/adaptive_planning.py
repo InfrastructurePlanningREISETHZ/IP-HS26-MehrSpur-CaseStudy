@@ -211,11 +211,32 @@ def _validate_plan(spec: dict, name: str) -> None:
             raise ValueError(f"{label}: type must be 'fixed' or 'trigger'.")
 
 
+def validate_section_signpost(rule: dict | None, params: dict | None = None,
+                              *, label: str = "Adaptive trigger") -> None:
+    """Section observations require an active section; capacity ratios need crowding."""
+    if not rule or rule.get("type", "trigger") != "trigger":
+        return
+    signpost = rule.get("signpost", "")
+    if not signpost.startswith("section_"):
+        return
+    from additional.section_flows import section_config
+    config = section_config(params)
+    if not config["active"]:
+        raise ValueError(
+            f"{label}: '{signpost}' requires an active SECTION. Configure a section "
+            "or select a different signpost in adaptive_planning.py."
+        )
+    if signpost == "section_load_ratio" and not config.get("crowding_enabled", False):
+        raise ValueError(f"{label}: section_load_ratio requires an active PT comfort-capacity model.")
+
+
 def _previous_signpost(metrics: dict, transition: dict, label: str):
     """Read the selected observation; Year 1 has no previous observation."""
     if not metrics:
         return None
     signpost = transition["signpost"]
+    if signpost.startswith("section_") and not metrics.get("section_active", False):
+        raise ValueError(f"{label}: section observations are unavailable; enable SECTION or change the signpost.")
     if signpost not in metrics:
         raise ValueError(
             f"{label}: signpost '{signpost}' is absent from the annual results. "
@@ -513,6 +534,8 @@ def run_plan_from_trajectories(plan_def: str  | dict, stage_metrics: dict, g_tra
             if transition and transition.get("type") == "trigger":
                 transition.setdefault("signpost", signpost)
     _validate_plan(plan_def, plan_def.get("name", "custom"))
+    for key in ("to1", "to2"):
+        validate_section_signpost(plan_def[key], params, label=f"Plan {plan_def.get('name', 'custom')}, {key}")
     
     to1, to2 = plan_def["to1"], plan_def["to2"]
     # Raw custom plans may omit get_plans()'s derived fee. Each adaptive package

@@ -18,6 +18,7 @@ from IPython.display import display
 from IPython.core.display_functions import clear_output
 
 import transport_model_interface as tmi
+from additional import notebook_exports as exports
 
 
 def readiness_message(status: pd.DataFrame) -> str:
@@ -220,6 +221,15 @@ def mode_choice_dashboard(
             fig.savefig(buffer, format="png", dpi=130, bbox_inches="tight")
             plt.close(fig)
             figure_image.value = buffer.getvalue()
+            exports.save_outputs(
+                "1_5_mode_choice", png=figure_image.value,
+                tables={
+                    "modal_split": pd.DataFrame(mode_rows, columns=[
+                        "Mode", "Trips/peak hour", "Trip Share", "PKM share",
+                    ]),
+                    "settings": pd.Series(values, name="value"),
+                },
+            )
             total_trips = sum(row[1] for row in mode_rows)
             status.value = (
                 f"<b>Demand ×{values['demand_multiplier']:.2f}: {total_trips:,.0f} passenger trips/peak hour.</b> "
@@ -962,13 +972,17 @@ def corridor_dashboard(
         ["gate_id", "node_id", "direction", "highway", "capacity_vph"]
         if column in corridor.gates
     ]
+    metadata = pd.Series(corridor.metadata, name="value").to_frame()
+    gates = corridor.gates[gate_columns]
+    road_detail = corridor_detail_table(corridor.edges)
+    tables = {"overview": metadata, "gates": gates, "road_detail": road_detail}
     overview = widgets.VBox(
         [
-            table_output(pd.Series(corridor.metadata, name="value").to_frame()),
-            table_output(corridor.gates[gate_columns]),
+            table_output(metadata),
+            table_output(gates),
         ]
     )
-    children = [corridor_explorer(corridor), overview, table_output(corridor_detail_table(corridor.edges))]
+    children = [corridor_explorer(corridor), overview, table_output(road_detail)]
     titles = ["Interactive map", "Overview and gates", "Road detail"]
 
     selected_demand = context.baseline_od if demand_matrix is None else demand_matrix
@@ -979,12 +993,15 @@ def corridor_dashboard(
             corridor,
             passthrough_fraction=passthrough_fraction,
         )
-        children.append(widgets.VBox([table_output(breakdown), table_output(tmi.gate_totals(reduced, corridor))]))
+        gate_demand = tmi.gate_totals(reduced, corridor)
+        tables.update(demand_breakdown=breakdown, gate_demand=gate_demand)
+        children.append(widgets.VBox([table_output(breakdown), table_output(gate_demand)]))
         titles.append("Cordon demand")
 
     tabs = widgets.Tab(children=children)
     for index, title in enumerate(titles):
         tabs.set_title(index, title)
+    exports.save_outputs("1_3_corridor", tables=tables)
     return tabs
 
 
@@ -1122,6 +1139,7 @@ def static_network_plot(
             title="Road class", loc="center left", bbox_to_anchor=(1.01, 0.5), fontsize=9,
         )
     plt.tight_layout()
+    exports.save_outputs("1_3_baseline_network", figure=fig)
     plt.show()
     plt.close(fig)
     return None
@@ -1228,12 +1246,15 @@ def assignment_dashboard(
             ))
         return widgets.VBox(children)
 
-    def figure_image(figure: Any) -> Any:
+    export_name = "1_6_assignment_coupled" if modal_feedback else "1_6_assignment_fixed"
+
+    def figure_image(figure: Any, suffix: str) -> Any:
         """Render one Matplotlib figure into one replaceable widget value."""
 
         buffer = BytesIO()
         figure.savefig(buffer, format="png", dpi=130, bbox_inches="tight")
         plt.close(figure)
+        exports.save_outputs(f"{export_name}_{suffix}", png=buffer.getvalue())
         return widgets.Image(
             value=buffer.getvalue(), format="png",
             layout=widgets.Layout(width="100%", max_width="1150px"),
@@ -1282,7 +1303,7 @@ def assignment_dashboard(
             axis.set_title("Road assignment convergence")
             axis.legend()
             figure.tight_layout()
-            convergence_children.append(figure_image(figure))
+            convergence_children.append(figure_image(figure, "convergence"))
 
             if result.mode_result is not None:
                 figure, axes = plt.subplots(1, 2, figsize=(10.8, 3.2))
@@ -1310,7 +1331,7 @@ def assignment_dashboard(
                 axes[1].set_ylabel("Minutes per trip")
                 axes[1].set_title("Demand-weighted local road delay")
                 figure.tight_layout()
-                convergence_children.append(figure_image(figure))
+                convergence_children.append(figure_image(figure, "modal_response"))
         if not convergence_children:
             convergence_children.append(widgets.HTML("<i>No iteration history is available.</i>"))
 
@@ -1324,6 +1345,20 @@ def assignment_dashboard(
             "Diagnostics", "Demand", "Convergence", "Assignment map"
         )):
             tabs.set_title(index, title)
+        tables = {
+            "diagnostics": diagnostic_table,
+            "demand_breakdown": result.demand_breakdown,
+            "gate_totals": result.gate_totals,
+            "history": result.history,
+            "settings": pd.Series({
+                "modal_feedback": bool(modal_feedback),
+                **{name: control.value for name, control in state["controls"].items()},
+                **dict(mode_state["result"].scenario),
+            }, name="value"),
+        }
+        if result.mode_result is not None:
+            tables["modal_split"] = result.mode_result.summary
+        exports.save_outputs(export_name, tables=tables)
         return tabs
 
     def run(_: Any) -> None:
@@ -1692,6 +1727,7 @@ def od_matrix_explorer(
     side = widgets.VBox(
         [controls, detail], layout=widgets.Layout(width="280px", padding="8px")
     )
+    exports.save_outputs("1_4_cordon_od_matrix", tables={"": mat})
     return widgets.HBox([figure, side])
 
 
@@ -2023,6 +2059,7 @@ def municipality_od_explorer(
         height=int(height),
         margin={"l": 20, "r": 20, "t": 60, "b": 20},
     )
+    exports.save_outputs("1_4_municipality_od", tables={"": municipality_od})
     return figure
 
 
@@ -2958,6 +2995,18 @@ def parameter_playground_dashboard(
         figure_output.value = figure_bytes
         details_output.value = impact_table + mode_table
         output.layout.display = ""
+        exports.save_outputs(
+            f"2_2_parameter_playground_{year}", png=figure_bytes,
+            tables={
+                "impacts": impacts,
+                "modal_split": modes,
+                "parameters": pd.DataFrame({
+                    "Nominal": state["reference"]["parameters"],
+                    "Selected": state["result"]["parameters"],
+                }),
+                "settings": pd.Series({"stage": stage, "year": year}, name="value"),
+            },
+        )
 
     def run(_: Any = None) -> None:
         if state["closed"] or state["running"] or configuration_errors:
@@ -3073,6 +3122,7 @@ def parameter_playground_dashboard(
     catalog = widgets.Accordion(children=[widgets.HTML(catalog_frame.to_html(index=False))])
     catalog.set_title(0, "Supported controls and nominal values")
     catalog.selected_index = None
+    exports.save_outputs("2_2_parameter_playground_controls", tables={"": catalog_frame})
     controls = widgets.HBox([
         run_button, reset_button, year_selector
     ])
@@ -3166,6 +3216,13 @@ def plot_parameter_objective_sweeps(
     )
     fig.tight_layout()
     heatmap = widgets.Image(value=figure_png(fig), format="png", layout=widgets.Layout(width="100%"))
+    exports.save_outputs(
+        "2_3_parameter_sensitivity", png=heatmap.value,
+        tables={
+            "maximum_change_pct": pd.DataFrame(sensitivity, index=[item[1] for item in objectives], columns=parameters),
+            **{f"sweep_{parameter}": frame for parameter, frame in sweep_results.items()},
+        },
+    )
 
     selector = widgets.Dropdown(
         options=parameters, value=parameters[0], description="Inspect:",
@@ -3202,6 +3259,13 @@ def plot_parameter_objective_sweeps(
         )
         fig.tight_layout(rect=(0, 0, 1, 0.92))
         detail_image.value = figure_png(fig)
+        exports.save_outputs(
+            "2_3_parameter_response_year40", png=detail_image.value,
+            tables={"": frame, "settings": pd.Series({
+                "parameter": parameter, "nominal": nominal,
+                "year": 40, "assignment_method": method,
+            }, name="value")},
+        )
 
     selector.observe(draw_detail, names="value")
     draw_detail()
@@ -3793,6 +3857,12 @@ def road_link_stage_editor(
     def refresh_audit() -> None:
         audit = state["audits"][current_stage()]
         audit_output.value = _stage_preview_table(audit, empty="No road links are modified in this stage.")
+        exports.save_outputs(
+            f"3_2_road_edit_{current_stage()}",
+            tables={"audit": audit.drop(columns="geometry", errors="ignore"),
+                    "settings": pd.Series({"stage_or_package": current_stage(),
+                        "name": _stage_editor_label(current_stage(), stage_specs[current_stage()])}, name="value")},
+        )
 
     def refresh_stage_summary() -> None:
         stage_id = current_stage()
@@ -4421,6 +4491,7 @@ def stage_value_variation_dashboard(
     if not stage_ids:
         raise ValueError("The stage comparison requires at least one stage after Stage 0.")
     originals = deepcopy(original_stage_specs) if original_stage_specs is not None else None
+    export_name = "3_2_edited_stage_values" if originals is not None else "3_1_stage_values"
     stage = widgets.Dropdown(
         options=[(_stage_editor_label(s, stage_specs[s]), s) for s in stage_ids],
         value=stage_ids[0], description="Stage:", layout=widgets.Layout(width="520px"),
@@ -4622,6 +4693,7 @@ def stage_value_variation_dashboard(
                 table = od_table(before[selected], after[selected])
                 unit = selected[2]
             summary = ""
+            stats = pd.DataFrame(columns=["Reference", "Edited stage", "Difference"])
             if len(table):
                 stats = table[["baseline", "stage", "change"]].agg(["min", "mean", "max"]).rename(
                     columns={"baseline": "Reference", "stage": "Edited stage", "change": "Difference"}
@@ -4634,6 +4706,15 @@ def stage_value_variation_dashboard(
             state.update(relations=table, stage=sid, mode=mode.value, unit=unit, road_base=road_base,
                          comparison_key=selection_key(), stale=False, reference_label=before_label,
                          attribute=attribute.value, level=level.value)
+            state["export_settings"] = pd.Series({
+                "stage": sid, "stage_name": _stage_editor_label(sid, stage_specs[sid]),
+                "reference": before_label, "mode": mode.value,
+                "attribute": attribute.value, "level": level.value, "unit": unit,
+            }, name="value")
+            exports.save_outputs(export_name, tables={
+                "changes": table.rename(columns={"baseline": "reference", "stage": "edited_stage"}),
+                "statistics": stats, "settings": state["export_settings"],
+            })
             state.pop("last_error", None)
             status.value = (
                 f"<b>{escape(_stage_editor_label(sid, stage_specs[sid]))}</b>: {len(table):,} changed "
@@ -4743,6 +4824,12 @@ def stage_value_variation_dashboard(
                 _close_stage_widgets(widget)
             state.pop("map_error", None)
             map_status.value = f"Showing {len(visible):,} of {len(table):,} changed relations/links. The map is a static preview."
+            exports.save_outputs(f"{export_name}_preview", png=buffer.getvalue(), tables={
+                "settings": pd.concat([state["export_settings"], pd.Series({
+                    "map_view": value, "displayed_relations": len(visible),
+                    "total_changed_relations": len(table),
+                }, name="value")]),
+            })
         except Exception as error:
             state["map_error"] = f"{type(error).__name__}: {error}"
             map_status.value = f"<span style='color:#b71c1c'><b>Preview failed.</b> {escape(state['map_error'])} The table and previous image are retained.</span>"
@@ -5292,6 +5379,7 @@ def desire_line_stage_editor(
             ]
             existing.value = selected if selected is not None and selected < len(values) else None
             rows = []
+            numeric_rows = []
             for entry in values:
                 item = entry["item"]
                 effects = [f"{field}: {value:g}%" for field, value in item.get("effects", {}).items() if float(value) != 0]
@@ -5301,11 +5389,27 @@ def desire_line_stage_editor(
                 rows.append({"Enabled": "Yes" if entry["enabled"] else "No",
                              "Intervention": item.get("name", "Unnamed"), "Scope": scope_text(item),
                              "Effects": "; ".join(effects) or "No active effects"})
+                numeric_rows.append({
+                    "Enabled": bool(entry["enabled"]), "Intervention": item.get("name", "Unnamed"),
+                    "Scope": scope_text(item),
+                    **item.get("effects", {}),
+                    **{field: item[field] for field in (
+                        "section_time_saving_min", "headway_reduction_min", "capacity_increase"
+                    ) if field in item},
+                })
             table_output.value = (
                 "<div style='max-height:280px;overflow:auto'>" + pd.DataFrame(rows).to_html(index=False, escape=True) + "</div>"
                 if rows else "<i>No interventions in this family. Choose New intervention to add one.</i>"
             )
             state["active_stage"] = stage_id()
+            exports.save_outputs(
+                f"3_2_interventions_{stage_id()}_{intervention_key()}",
+                tables={"": pd.DataFrame(numeric_rows) if numeric_rows else pd.DataFrame(
+                    columns=["Enabled", "Intervention", "Scope"]),
+                    "settings": pd.Series({"stage_or_package": stage_id(),
+                        "name": _stage_editor_label(stage_id(), stage_specs[stage_id()]),
+                        "family": intervention_key()}, name="value")},
+            )
             stage_summary.value = f"<b>{html.escape(_stage_editor_label(stage_id(), stage_specs[stage_id()]))}</b> — {sum(v['enabled'] for v in values)} enabled {html.escape(intervention_type.value.lower())} intervention(s)."
         finally:
             state["refreshing"] = False
@@ -5805,6 +5909,8 @@ def plot_baseline_changes(
     units: Mapping[str, str] | None = None,
     scales: Mapping[str, float] | None = None,
     directions: Mapping[str, str] | None = None,
+    ncols: int = 2,
+    fontsize: float = 12,
 ) -> Any:
     """Plot signed changes from the same-year baseline in original reporting units.
 
@@ -5812,16 +5918,21 @@ def plot_baseline_changes(
     suffix share a panel. Scales apply to individual columns (e.g. 100 for
     fractions to percentage points). Labels, units and low/high/context
     directions use panel keys. Green/red mark favourable/unfavourable changes;
-    grey is used when a change has no assigned welfare interpretation.
+    grey is used for contextual indicators. Each panel has its own numeric axis.
+    The narrow default layout keeps labels readable at notebook display width.
     """
     import math
     import textwrap
 
     import matplotlib.pyplot as plt
     from matplotlib.patches import Patch
-    from matplotlib.ticker import MaxNLocator
+    from matplotlib.ticker import FuncFormatter, MaxNLocator
 
     delta = baseline_relative_values(frame, baseline)
+    # Display subtraction roundoff as zero, relative to the precision of the inputs.
+    magnitude = np.maximum(1.0, np.maximum(
+        np.abs(frame.to_numpy(dtype=float)), np.abs(frame.loc[baseline].to_numpy(dtype=float))))
+    delta = delta.mask(np.isfinite(delta) & (delta.abs() <= 32 * np.finfo(float).eps * magnitude), 0.0)
     delta = delta.loc[delta.index != baseline]
     if delta.empty or not len(delta.columns):
         raise ValueError("Select at least one indicator and one alternative to the baseline.")
@@ -5835,6 +5946,10 @@ def plot_baseline_changes(
             panels.setdefault(key, []).append(column)
     if not panels:
         raise ValueError("Select at least one indicator panel.")
+    if not isinstance(ncols, int) or isinstance(ncols, bool) or not 1 <= ncols <= 4:
+        raise ValueError("ncols must be an integer between 1 and 4.")
+    if not np.isfinite(fontsize) or fontsize <= 0:
+        raise ValueError("fontsize must be a positive number.")
     for key, columns in panels.items():
         if not columns or isinstance(columns, str):
             raise ValueError(f"Panel {key!r} needs a nonempty list of indicator columns.")
@@ -5849,10 +5964,13 @@ def plot_baseline_changes(
         delta[column] *= float(scale)
 
     count = len(panels)
-    ncols, nrows = min(4, count), math.ceil(count / 4)
+    ncols = min(ncols, count)
+    nrows = math.ceil(count / ncols)
+    row_height = 1.65 + 0.65 * len(delta)
+    figure_height = nrows * row_height + 1.2
     fig, axes = plt.subplots(
         nrows, ncols,
-        figsize=(4.5 + 3.2 * ncols, nrows * (1.75 + 0.55 * len(delta)) + 0.65),
+        figsize=(3.2 + 4.1 * ncols, figure_height),
         squeeze=False, constrained_layout=True,
     )
     y = np.arange(len(delta))
@@ -5871,8 +5989,8 @@ def plot_baseline_changes(
     def number(value: float) -> str:
         if value == 0:
             return "0"
-        if abs(value) < 0.01:
-            return f"{value:+.2g}"
+        if abs(value) < 1:
+            return f"{value:+.3g}"
         return f"{value:+,.2f}".rstrip("0").rstrip(".")
 
     for index, (key, columns) in enumerate(panels.items()):
@@ -5904,19 +6022,24 @@ def plot_baseline_changes(
                 if np.isfinite(value):
                     ax.annotate(number(float(value)), (value, position),
                                 xytext=(3 if value >= 0 else -3, 0), textcoords="offset points",
-                                va="center", ha="left" if value >= 0 else "right", fontsize=8)
+                                va="center", ha="left" if value >= 0 else "right", fontsize=fontsize - 1)
                 else:
                     ax.annotate("n/a", (0, position), xytext=(3, 0), textcoords="offset points",
-                                va="center", fontsize=8, color="#666666")
+                                va="center", fontsize=fontsize - 1, color="#666666")
         ax.axvline(0, color="#555555", linewidth=0.8)
         ax.set_yticks(y)
-        ax.set_yticklabels([str(value) for value in delta.index] if index % ncols == 0 else [])
+        ax.set_yticklabels([textwrap.fill(str(value), width=30, break_long_words=False)
+                            for value in delta.index] if index % ncols == 0 else [])
         ax.invert_yaxis()
-        ax.set_title("\n".join(textwrap.wrap(labels.get(key, key), width=28)), fontsize=10)
-        ax.set_xlabel(units.get(key, "Change from baseline"), fontsize=9)
-        ax.tick_params(axis="both", labelsize=8)
-        ax.xaxis.set_major_locator(MaxNLocator(nbins=4))
-        ax.ticklabel_format(axis="x", style="sci", scilimits=(-3, 4), useOffset=False)
+        ax.set_title("\n".join(textwrap.fill(line, width=34) for line in labels.get(key, key).splitlines()),
+                     fontsize=fontsize + 1, pad=10)
+        ax.set_xlabel(textwrap.fill(units.get(key, "Change from baseline"), width=34), fontsize=fontsize)
+        ax.tick_params(axis="both", labelsize=fontsize - 1)
+        ax.tick_params(axis="y", length=0)
+        ax.xaxis.set_major_locator(MaxNLocator(nbins=3))
+        ax.xaxis.set_major_formatter(FuncFormatter(
+            lambda value, _: f"{value:,.2f}".rstrip("0").rstrip(".") if abs(value) >= 1 else f"{value:.3g}"))
+        ax.grid(axis="y", visible=False)
         ax.grid(axis="x", alpha=0.18)
         ax.set_axisbelow(True)
         ax.spines[["top", "right", "left"]].set_visible(False)
@@ -5928,8 +6051,8 @@ def plot_baseline_changes(
         legend.extend([Patch(facecolor=colours["favourable"], label="Favourable change"),
                        Patch(facecolor=colours["unfavourable"], label="Unfavourable change")])
     if legend:
-        fig.legend(handles=legend, loc="lower center", bbox_to_anchor=(0.6, 0),
-                   ncol=min(4, len(legend)), fontsize=8, frameon=False)
-        fig.get_layout_engine().set(rect=(0, 0.045, 1, 0.955))
-    fig.suptitle(title, fontsize=12)
+        fig.legend(handles=legend, loc="lower center", bbox_to_anchor=(0.5, 0),
+                   ncol=min(2, len(legend)), fontsize=fontsize - 1, frameon=False)
+        fig.get_layout_engine().set(rect=(0, 0.7 / figure_height, 1, 1 - 0.7 / figure_height))
+    fig.suptitle(textwrap.fill(title, width=85 if ncols > 1 else 48), fontsize=fontsize + 2)
     return fig

@@ -71,8 +71,11 @@ asset lifetimes does not require a surrogate rebuild. Rerun appraisal to include
    - "bike_highways": Modifies the Bicycle network.
    - "road_capacity": Modifies selected directed links in the local MSA road network.
    - "mobility_hubs": Modifies PT access, egress and transfer times for walk and bicycle access.
-   - "section_time_saving_min" in a "railway_expansions" entry: Fixed minutes saved by every modeled journey
-     using parameters.SECTION, for its selected mode (PT/CAR/BIKE/WALK).
+   - "section_time_saving_min" in a "railway_expansions" entry, or directly in a
+     package: Minutes saved on the selected parameters.SECTION. For bike_route,
+     enter the saving for the complete route; each journey receives the fraction
+     corresponding to the improved route length it uses. A pt_stop instead uses
+     station-specific mobility_hubs effects below.
      Savings are relative to baseline: stations save 1 minute, the tunnel 4,
      and both packages 6, including a 1-minute combined bonus. The optional external cohort receives the same saving
      in appraisal, without entering mode choice or assignment.
@@ -118,6 +121,21 @@ asset lifetimes does not require a surrogate rebuild. Rerun appraisal to include
            }
        }
    ]
+
+   For a counted cycling route configured in parameters.SECTION, a package can
+   instead set "section_time_saving_min": 2.0 directly. Do not also apply an OD
+   time reduction for the same improvement.
+
+   EXAMPLE 4: A specific station (rather than a municipality-wide access package)
+   "mobility_hubs": [
+       {"station": "Wallisellen", "effects": {
+           "access_time_reduction_pct": 25.0,
+           "egress_time_reduction_pct": 20.0,
+           "transfer_time_reduction_pct": 15.0
+       }}
+   ]
+   Access and egress affect their respective station users. Transfer reductions
+   affect only represented physical walking at this station, not through users.
 """
 
 from __future__ import annotations
@@ -310,7 +328,10 @@ def _railway_entries(package: dict) -> list[dict]:
 def _package_railway_effect(package: dict, key: str) -> float:
     """Sum an additive section/service assumption across railway entries."""
     total = 0.0
-    for entry in _railway_entries(package):
+    entries = _railway_entries(package)
+    if key == "section_time_saving_min":
+        entries = [package, *entries]
+    for entry in entries:
         try:
             value = float(entry.get(key, 0.0))
         except (TypeError, ValueError) as error:
@@ -477,6 +498,7 @@ def _assemble_stages(packages: dict, params: dict, service_od_pairs: list[dict],
     for stage, package in ((1, "stations"), (2, "tunnel")):
         inputs = deepcopy(packages[package])
         inputs.pop("appraisal", None)
+        inputs.pop("section_time_saving_min", None)
         inputs.pop("railway_expansions", None)
         for key in ("mobility_hubs", "bike_highways", "road_capacity"):
             if isinstance(inputs.get(key), dict):

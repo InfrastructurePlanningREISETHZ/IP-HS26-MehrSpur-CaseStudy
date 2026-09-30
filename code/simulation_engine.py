@@ -171,6 +171,9 @@ def _section_and_external_costs(base_metrics: dict, scale: float, growth: float,
         "section_crowding_multiplier": 1.0,
         "section_reference_minutes0": 0.0, "section_reference_minutes": 0.0,
         "section_reference_delay_minutes": 0.0,
+        "section_reference_access_minutes": 0.0,
+        "section_reference_egress_minutes": 0.0,
+        "section_reference_transfer_walk_minutes": 0.0,
         "external_flow_enabled": enabled, "external_flow_mode": mode,
         "external_flow_daily": 0.0, "external_flow_peak": 0.0,
         "external_flow_signature": "none",
@@ -190,6 +193,14 @@ def _section_and_external_costs(base_metrics: dict, scale: float, growth: float,
         raise ValueError("Transport section metrics are missing or stale. Rebuild the transport "
                          "state with the selected section before appraisal.")
     values = {key: float(base_metrics[key]) for key in required}
+    component_vots = {
+        "access": "C_TT_PT_ACCESS", "egress": "C_TT_PT_ACCESS",
+        "transfer_walk": "C_TT_PT_TRANSFER",
+    }
+    component_minutes = {component: float(base_metrics.get(f"section_reference_{component}_minutes", 0.0))
+                         for component in component_vots}
+    if any(not np.isfinite(value) or value < 0 for value in component_minutes.values()):
+        raise ValueError("Section access, egress and transfer times must be finite and nonnegative.")
     if any(not np.isfinite(value) or value < 0 for value in values.values()):
         raise ValueError("Section quantities and times must be finite and nonnegative.")
     share = float(params[mode + "_PEAK_SHARE"])
@@ -221,6 +232,11 @@ def _section_and_external_costs(base_metrics: dict, scale: float, growth: float,
     if not np.isfinite(days) or days < 0:
         raise ValueError("Equivalent appraisal days must be finite and nonnegative.")
     external_time = daily * days * values["section_reference_minutes"] / 60.0 * external_vot
+    if mode == "PT":
+        external_time += daily * days / 60.0 * sum(
+            component_minutes[component] * _value_of_time(params, key)
+            for component, key in component_vots.items()
+        )
     external_delay = (external_peak * factors["congestion"] * values["section_reference_delay_minutes"]
                       / 60.0 * external_vot if mode == "CAR" else 0.0)
     external_crowd = (external_peak * factors["crowding"] * values["section_reference_minutes"]
@@ -238,6 +254,16 @@ def _section_and_external_costs(base_metrics: dict, scale: float, growth: float,
                   external_cost=external_time + external_delay + external_crowd,
                   pt_crowding_cost=modeled_crowding)
     result.update({key: values[key] for key in required if key.startswith("section_reference_")})
+    result.update({f"section_reference_{component}_minutes": minutes
+                   for component, minutes in component_minutes.items()})
+    for name in ("access", "egress", "transfer", "stop_visitors", "route"):
+        key = f"section_{name}_trips_peak"
+        if key in base_metrics:
+            value = float(base_metrics[key]) * scale
+            if not np.isfinite(value) or value < 0:
+                raise ValueError(f"{key} must be finite and nonnegative.")
+            result[key] = value
+            result[f"section_{name}_trips_daily"] = value / share
     return result
 
 

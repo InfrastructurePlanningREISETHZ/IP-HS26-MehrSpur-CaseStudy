@@ -1,0 +1,11 @@
+{
+  "description": "OpenStreetMap Overpass response used for the MehrSpur detailed road-network reproducibility test. Optional source snapshot; normal preparation uses OSMnx downloads or the prepared network.",
+  "osm_snapshot_time": "2026-09-29T15:06:05Z",
+  "license": "OpenStreetMap contributors, Open Database License (ODbL) 1.0",
+  "source_url": "https://www.openstreetmap.org/copyright",
+  "uncompressed_sha256": "8de62db811ec5cbb3c78e5c8b6c46b0b7479ceea226d8ffc20c3185922f5a1bc",
+  "compressed_sha256": "12eaa865e7da1f721cfcfcf6736e90c430d836d3029d4e1214e43842514d3a91",
+  "raw_json_bytes": 20735120,
+  "compressed_bytes": 3353463,
+  "corridor_buffer_m": 800.0
+}

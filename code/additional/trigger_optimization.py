@@ -61,6 +61,8 @@ def build_stage_lookup(traj_df: pd.DataFrame, futures: pd.DataFrame,
     plans = ap.get_plans(p.NOMINAL_PARAMS)
     selected_plan = plans[plan_name]
     rules = [selected_plan[key] for key in ("to1", "to2")]
+    for rule in rules:
+        ap.validate_section_signpost(rule, p.NOMINAL_PARAMS, label="Threshold search")
     if any(rule is not None and rule["type"] != "trigger" for rule in rules):
         raise ValueError("Threshold search requires trigger-based or absent transitions.")
     if not any(rules):

@@ -63,17 +63,33 @@ class PreparedTransport:
         involved = internal[:, None] | internal[None, :]
         config = sf.section_config(base_mode.scenario.get("section_config"))
         section_masks = sf.coverage_masks(self.labels, config)
+        intervention_masks = sf.intervention_masks(self.labels, config)
+        component_masks = sf.component_masks(self.labels, config) if config.get("kind") == "pt_stop" else {}
+        count_masks = {}
+        if component_masks:
+            for key, name in (("access", "access"), ("egress", "egress"), ("transfer", "transfer"), ("visits", "stop_visitors")):
+                count_masks[f"section_{name}_trips_peak"] = {mode: parts[key] for mode, parts in component_masks.items()}
+        if config.get("kind") == "bike_route":
+            count_masks["section_route_trips_peak"] = intervention_masks
         relevant = involved.copy()
-        for mask in section_masks.values():
+        for mask in (*section_masks.values(), *intervention_masks.values()):
             relevant |= mask
+        for masks in count_masks.values():
+            for mask in masks.values():
+                relevant |= mask
         support = relevant & (total > 0.0)
         self.flat_indices = np.flatnonzero(support)
         self.row, self.col = np.unravel_index(self.flat_indices, total.shape)
         self.baseline_total_od = total.ravel()[self.flat_indices].copy()
         self.involved = involved.ravel()[self.flat_indices]
         self.section_masks = {m: a.ravel()[self.flat_indices] for m, a in section_masks.items()}
+        self.section_count_masks = {key: {m: a.ravel()[self.flat_indices] for m, a in masks.items()}
+                                    for key, masks in count_masks.items()}
+        self.section_saving_weights = {m: a.ravel()[self.flat_indices]
+                                       for m, a in sf.section_saving_weights(self.labels, config).items()}
         self.appraisal_masks = {
-            m: self.involved | self.section_masks.get(m, False) for m in self.modes
+            m: self.involved | intervention_masks.get(m, np.zeros_like(involved)).ravel()[self.flat_indices]
+            for m in self.modes
         }
         digest = hashlib.sha256(json.dumps(list(self.labels)).encode("utf-8"))
         digest.update(self.flat_indices.astype("<i8").tobytes())
@@ -187,6 +203,7 @@ class PreparedTransport:
             self.times[f"{mode}_section"] = self.section_hours.get(mode, zeros) if config["mode"] == "PT" else zeros
         self.reference_delay_terms = []
         self.reference_bike_terms = []
+        self.reference_pt_bike_components = {}
         self.section_no_path = float(getattr(context.modules.get("config"), "NO_PATH_TIME_MIN", 999.0))
         if config["active"] and config["mode"] == "CAR":
             selected = sf.section_reference(context, base_mode, config)
@@ -198,13 +215,38 @@ class PreparedTransport:
                         index=ref_labels, columns=ref_labels).to_numpy(dtype=float)[row, col]
                     self.reference_delay_terms.append((positions, valid, weights, free))
         if config["active"] and config["mode"] == "BIKE":
+            if config.get("kind") == "bike_route":
+                selected = sf.section_reference(context, base_mode, config)
+                ref_labels = context.baseline_od.index.astype(str)
+                row, col, weights, _ = selected["bike"]
+                route_fraction = _dot(sf.section_saving_weights(ref_labels, config)["bike"][row, col], weights)
+                self.reference_bike_terms = [(np.array([sf.section_route_minutes(config) * route_fraction]),
+                                              np.array([1.0]), np.array([route_fraction]))]
+            else:
+                selected = sf.section_reference(context, base_mode, config)
+                ref_labels = context.baseline_od.index.astype(str)
+                for mode, (row, col, weights, old) in selected.items():
+                    if mode == "bike":
+                        raw = technology_base["bike"].rename(index=str, columns=str).reindex(
+                            index=ref_labels, columns=ref_labels).to_numpy(dtype=float)[row, col]
+                        exposure = sf.section_saving_weights(ref_labels, config)["bike"][row, col]
+                        self.reference_bike_terms.append((raw, weights, exposure))
+        if config["active"] and config.get("kind") == "pt_stop":
             selected = sf.section_reference(context, base_mode, config)
             ref_labels = context.baseline_od.index.astype(str)
-            for mode, (row, col, weights, old) in selected.items():
-                if mode == "bike":
-                    raw = technology_base["bike"].rename(index=str, columns=str).reindex(
-                        index=ref_labels, columns=ref_labels).to_numpy(dtype=float)[row, col]
-                    self.reference_bike_terms.append((raw, weights))
+            row, col, weights, _ = selected["pt_bike"]
+            components = sf.component_masks(ref_labels, config)["pt_bike"]
+            # A fixed nominal cohort retains its access/egress composition as
+            # e-bike speed changes. All selected positive-demand cells are stored.
+            ref_zone_to_prepared = self.labels.get_indexer(ref_labels)
+            prepared_flat = ref_zone_to_prepared[row] * self.n_labels + ref_zone_to_prepared[col]
+            positions = np.searchsorted(self.flat_indices, prepared_flat)
+            if (positions >= len(self.flat_indices)).any() or not np.array_equal(self.flat_indices[positions], prepared_flat):
+                raise ValueError("PT-stop reference demand is absent from the prepared welfare support.")
+            for part in ("access", "egress"):
+                component_weights = weights * components[part][row, col]
+                old = vector(uncongested[f"{part}_pt_bike"])[positions]
+                self.reference_pt_bike_components[part] = (positions, component_weights, _dot(old, component_weights))
         # Reuse immutable fixed components across annual welfare states.
         for values in self.times.values():
             values.flags.writeable = False
@@ -226,8 +268,9 @@ class PreparedTransport:
         bike = self.raw_bike.copy()
         bike[valid(bike)] *= factor
         if self.section_config["active"] and self.section_config["mode"] == "BIKE":
-            covered = self.section_masks.get("bike", False) & valid(bike) & (bike >= 0)
-            bike[covered] = np.maximum(bike[covered] - self.section_saving, 0.0)
+            exposure = self.section_saving_weights.get("bike", np.zeros_like(bike))
+            covered = (exposure > 0) & valid(bike) & (bike >= 0)
+            bike[covered] = np.maximum(bike[covered] - self.section_saving * exposure[covered], 0.0)
         components = {**self.fixed_pt_bike, **{key: value.copy() for key, value in self.raw_pt_bike.items()}}
         available = np.logical_and.reduce([valid(value) for value in components.values()])
         if share > 0.0:
@@ -241,6 +284,14 @@ class PreparedTransport:
         intrazonal = ~self.non_diagonal & available
         ovt[intrazonal] = np.maximum(ovt[intrazonal], self.pt_intrazonal_floor)
         return bike, components["access"], components["egress"], ovt, factor
+
+    def _section_counts(self, quantities):
+        return {key: sum(_dot(quantities[mode], mask) for mode, mask in masks.items())
+                for key, masks in self.section_count_masks.items()}
+
+    def _bike_reference_minutes(self, bike_factor):
+        return sum(_dot(np.maximum(raw * bike_factor - self.section_saving * exposure, 0.0), weights)
+                   for raw, weights, exposure in self.reference_bike_terms)
 
     def evaluate(self, delay_array, input_values, *, return_welfare=True):
         if isinstance(delay_array, pd.DataFrame):
@@ -336,13 +387,17 @@ class PreparedTransport:
         section = dict(self.section_template)
         section_hours = self.section_hours
         if self.reference_bike_terms:
-            reference = sum(_dot(np.maximum(raw * bike_factor - self.section_saving, 0.0), weights)
-                            for raw, weights in self.reference_bike_terms)
+            reference = self._bike_reference_minutes(bike_factor)
             section["section_reference_minutes"] = reference
             section_hours = {**section_hours, "bike": np.minimum(times["bike_time"], reference / 60.0)}
+        for part, (positions, weights, old_minutes) in self.reference_pt_bike_components.items():
+            section[f"section_reference_{part}_minutes"] += (
+                _dot(times[f"pt_bike_{part}"][positions] * 60.0, weights) - old_minutes
+            )
         for mode, mask in self.section_masks.items():
             section["section_modeled_trips_peak"] += _dot(q[mode], mask)
             section["section_modeled_person_hours_peak"] += _dot(q[mode], section_hours[mode] * mask)
+        section.update(self._section_counts(q))
         if self.reference_delay_terms:
             section["section_reference_delay_minutes"] = 0.0
             for positions, valid, weights, free in self.reference_delay_terms:

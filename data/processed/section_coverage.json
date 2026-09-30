@@ -1,37 +1,82 @@
 {
-  "schema_version": 2,
-  "default_section": "custom_section",
+  "schema_version": 3,
+  "contract": {
+    "algorithm_version": 1,
+    "recipe": {
+      "mode": "PT",
+      "both_directions": true,
+      "kind": "pt_approach",
+      "station": "Winterthur",
+      "towards": "Effretikon"
+    },
+    "inputs": {
+      "routing": "e5a252e77fc45cdc71b10e04741830bd5b9afae343e1e47ad0377b2c9cbbcec7",
+      "skims": "8c6e321818f13afe85cce069b7df002db2f1c74d33764fda4c175fc689b8d7bf",
+      "zones": "86696f4eed8fb24a1cd8011c332f0ed6a868d65013cddfcf13930b3e11ccd623"
+    }
+  },
+  "default_section": "pt_approach_dd6b616eb764",
   "sections": [
     {
-      "id": "custom_section",
-      "name": "custom_section",
+      "id": "pt_approach_dd6b616eb764",
+      "name": "Winterthur",
       "mode": "PT",
+      "kind": "pt_approach",
       "masks": {
-        "pt_walk": "custom_section_pt_walk",
-        "pt_bike": "custom_section_pt_bike"
+        "pt_walk": "pt_walk_count",
+        "pt_bike": "pt_bike_count"
       },
-      "route_input_signature": "6361a3066f7faaa18f77f8fabcc3bcb2f4f5f657ef1d7a17d6e7c4184f3c682d",
+      "components": {
+        "pt_walk": {},
+        "pt_bike": {}
+      },
+      "saving_weights": {
+        "pt_walk": "pt_walk_saving_weight",
+        "pt_bike": "pt_bike_saving_weight"
+      },
       "both_directions": true,
       "stations": [
-        "Effretikon",
-        "Winterthur"
+        "Winterthur",
+        "Effretikon"
       ],
-      "description": "Prepared midpoint screenline; inspect selected edges and calibrate the same observed boundary.",
-      "screenline_center_lv95": [
-        2695473.017048949,
-        1257697.5078348736
-      ],
-      "screenline_half_width_m": 2000,
-      "reference_od": [
-        "26101302",
-        "23001045"
+      "route_input_signature": "6361a3066f7faaa18f77f8fabcc3bcb2f4f5f657ef1d7a17d6e7c4184f3c682d",
+      "description": "Fixed PT paths approaching the station from the selected side.",
+      "station_stop_ids": [
+        "8506000:0:1",
+        "8506000:0:2",
+        "8506000:0:3",
+        "8506000:0:4",
+        "8506000:0:5",
+        "8506000:0:6",
+        "8506000:0:7",
+        "8506000:0:8",
+        "8506000:0:9",
+        "Parent8506000"
       ],
       "selected_edges": [
+        {
+          "origin": "8506000:0:9",
+          "destination": "8506044",
+          "origin_name": "Winterthur",
+          "destination_name": "Winterthur Töss"
+        },
         {
           "origin": "8506000:0:9",
           "destination": "8503305:0:3",
           "origin_name": "Winterthur",
           "destination_name": "Effretikon"
+        },
+        {
+          "origin": "8506044",
+          "destination": "8506000:0:9",
+          "origin_name": "Winterthur Töss",
+          "destination_name": "Winterthur"
+        },
+        {
+          "origin": "8506000:0:4",
+          "destination": "8503016:0:4",
+          "origin_name": "Winterthur",
+          "destination_name": "Zürich Flughafen"
         },
         {
           "origin": "8506000:0:4",
@@ -44,6 +89,12 @@
           "destination": "8503304:0:3",
           "origin_name": "Winterthur",
           "destination_name": "Kemptthal"
+        },
+        {
+          "origin": "8503016:0:1",
+          "destination": "8506000:0:5",
+          "origin_name": "Zürich Flughafen",
+          "destination_name": "Winterthur"
         },
         {
           "origin": "8506000:0:7",
@@ -59,15 +110,15 @@
         },
         {
           "origin": "8506000:0:3",
+          "destination": "8503016:0:3",
+          "origin_name": "Winterthur",
+          "destination_name": "Zürich Flughafen"
+        },
+        {
+          "origin": "8506000:0:3",
           "destination": "8503147:0:1",
           "origin_name": "Winterthur",
           "destination_name": "Stettbach"
-        },
-        {
-          "origin": "8576176:0:10000",
-          "destination": "8575918:0:E",
-          "origin_name": "Brütten, Harossen",
-          "destination_name": "Effretikon, Bahnhof"
         },
         {
           "origin": "8503003:0:3",
@@ -100,6 +151,12 @@
           "destination_name": "Winterthur"
         },
         {
+          "origin": "8503016:0:2",
+          "destination": "8506000:0:6",
+          "origin_name": "Zürich Flughafen",
+          "destination_name": "Winterthur"
+        },
+        {
           "origin": "8503305:0:2",
           "destination": "8506000:0:7",
           "origin_name": "Effretikon",
@@ -126,14 +183,9 @@
       ]
     }
   ],
-  "provenance": {
-    "route_file": "C:\\Users\\kizal\\IP-HS26-MehrSpur-CaseStudy\\data\\processed\\section_routes.pkl",
-    "route_sha256": "f39410864dee49734d0596f0830c28302082813a2cf928549c48074095910ca9",
-    "method": "fixed prepared shortest paths, each person counted once if any selected edge occurs"
-  },
   "limitations": [
-    "Fixed baseline routes; no route reassignment after an intervention.",
-    "Straight-line service edges approximate geometry; inspect skipped stops and parallel branches.",
-    "Observed count must match mode, directions, section, period and year."
+    "Fixed baseline shortest paths; counts are estimates, not route assignment.",
+    "Match observed mode, directions, time period and counting definition.",
+    "Service connections are not railway geometries; same-platform changes are not identified."
   ]
 }

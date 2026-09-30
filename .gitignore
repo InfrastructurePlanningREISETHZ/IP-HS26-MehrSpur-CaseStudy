@@ -22,3 +22,11 @@ Thumbs.db
 
 # Cache and large artifacts
 cache/
+
+# Local tests and verification outputs
+verifications/
+validation/
+
+# Generated Notebook 02 exports
+/figures/02_system_modeling/
+/results/02_system_modeling/

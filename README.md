@@ -233,7 +233,7 @@ The [transport-data guide](data/transport/README.md) describes supplied inputs a
 - Confirm that the selected kernel uses your project environment.
 - Run cells from top to bottom; later cells depend on variables created earlier.
 - After editing imported Python scripts, restart the kernel and rerun from the top. Notebook-only display selections need only their configuration and affected display cells rerun.
-- Figures and analysis exports are saved in `figures/` and `results/`. Keep supplied transport inputs unchanged unless you are deliberately adapting the transport data for your case study.
+- Notebook 02 automatically saves produced figures to `figures/02_system_modeling/` and tables to `results/02_system_modeling/`. Reruns replace the same files. These generated folders are ignored by Git; copy selected deliverables into your report or submission folder when needed. `SAVE_OUTPUTS` in the notebook setup controls saving. Interactive maps and control panels stay in the notebook. Keep supplied transport inputs unchanged unless deliberately adapting them for your case study.
 - After changing case-study settings, run `python code/validate_case_study.py` before starting lengthy calculations.
 
 ---

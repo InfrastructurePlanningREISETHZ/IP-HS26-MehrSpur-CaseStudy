@@ -27,8 +27,10 @@ Inside `parameters.py`, you will find `NOMINAL_PARAMS` (for baseline/final value
 | [surrogate_model/](surrogate_model/README.md) | Train the OD-delay Gaussian process and prepare the response table used in Notebooks 03–05. |
 | [simulation_engine.py](simulation_engine.py) | Annual physical indicators, matched OD/submode travel-time welfare, external costs and discounted appraisal. |
 | [additional/](additional/) | Uncertainty paths, section coverage and calibration, plots/widgets and trigger optimization. |
-| [validate_case_study.py](validate_case_study.py) | Read-only configuration and saved-artifact checks; no transport simulations. |
+| [validate_case_study.py](validate_case_study.py) | Configuration and saved-artifact checks; prepares missing counting coverage without transport simulations. |
 
 Notebook 02 runs the native transport model. Notebook 03 trains or loads the surrogate and response table after defining uncertainty ranges. Notebooks 04 and 05 reuse these outputs for deployment plans and appraisal. See the [surrogate guide](surrogate_model/README.md) for rebuild and refresh rules.
 
 After editing imported Python scripts, restart the notebook kernel and rerun from the top. Display selections made within Notebook 02 can be changed by rerunning their configuration and affected display cells.
+
+Optional counting definitions are configured in `parameters.py`: choose a PT station approach, cycling-route endpoints or a PT stop. Notebook 02 Section 3.5 reports counts and an optional external-flow residual. Coverage is regenerated from shared routing inputs; no link IDs or GTFS processing are required.
