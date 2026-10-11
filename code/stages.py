@@ -170,14 +170,14 @@ PACKAGES = {
         # Hub & Node Interventions
         "mobility_hubs": [
             {
-                "name": "Mobility Hub Forch (Küsnacht/Maur)",
+                "name": "Mobility Hub Forch (Küsnacht ZH/Maur)",
                 "zones": [
                     {"municipality_name": "Küsnacht (ZH)"},
                     {"municipality_name": "Maur"},
                 ],
                 "effects": {
                     "access_time_reduction_pct": 25.0,  # Underground parking spots for MIV and bikes direct platform connection
-                    "transfer_time_reduction_pct": 30.0, # Bus-rail interchange improvement at new mobility hub
+                    "transfer_time_reduction_pct": 25.0, # Bus-rail interchange improvement at new mobility hub
                     # Frequency savings belong to the railway package only.
                     "egress_time_reduction_pct": 20.0, # Step-free pathways to surrounding neighborhood
                 }
@@ -192,12 +192,13 @@ PACKAGES = {
         # Set capital_share to 0 to disable residual valuation (lifetime may then be None).
         # No asset replacement is assumed.
         "appraisal": {
-            "capital_cost_chf": 28_500_000,  # CAPEX: Park and Ride (15M), Open Space Train Station (8.5M), Bike and Ride 300 spaces (5M)
+            "capital_cost_chf": 15_000_000,  # CAPEX: 15.0M CHF (P+R 9.0M, Square 2.85M, Bus 702 2.61M, B+R 0.54M)
             "lifetime_years": 60,  # Service life of the share valued below (years).
             "capital_share": 0.70,  # Fraction of actual capital paid eligible for residual value.
             # Total construction emissions (tonnes CO2e), spread over construction years.
             # Pre-horizon emissions are charged at time zero; omitted entries mean zero.
-             "construction_co2_tonnes": 12_500.0,  # Add a project-specific total when available.
+            # Scaled for 15M CHF construction
+             "construction_co2_tonnes": 5_000.0,  # Add a project-specific total when available.
         },
     },
 
@@ -223,14 +224,14 @@ PACKAGES = {
     #       Provides 17-minute service and the Winterthur hub improvements;
     #       both packages together provide 15-minute service.
     "tunnel": {
-        "name": "Stage 2 - Forch Express, Bus Frequency & Bike Highway",
+        "name": "Stage 2 - Bus 702 Frequency Increase & B+R Expansion",
 
         # Railway improvements: the same section and service OD scope as above.
         "railway_expansions": [
             {
-                "section_time_saving_min": 2.0,  # In-vehicle time savings via 80 km/h speedup and double-track
-                "headway_reduction_min": 2.5,  # Bus 706 from Schwerzenbach headway reduced from 30 to 15 min, Factor from the S18 Railway view
-                "capacity_increase": 0.2,  # Fraction of baseline peak-hour comfort capacity (+15%).
+                "section_time_saving_min": 0.0,  # No physical S18 track works taken into account
+                "headway_reduction_min": 2.5,  # Bus 702 frequency upgrade (30 min to 15 min), Factor from the S18 Railway view
+                "capacity_increase": 0.1,  # Fraction of baseline peak-hour comfort capacity (+10%)
             },
         ],
 
@@ -245,18 +246,19 @@ PACKAGES = {
                 ],
                 "both_directions": True,
                 "effects": {
-                    "distance_reduction_pct": 10.0,
-                    "speed_increase_pct": 15.0
+                    "distance_reduction_pct": 5.0,
+                    "speed_increase_pct": 10.0
                 }
             }
         ],
 
         # Appraisal considerations: the same valuation and construction conventions.
         "appraisal": {
-            "capital_cost_chf": 42_000_000,  # CAPEX (CHF): S18 upgrade (24M), Bike Feeder Routes (13M), B+R +100 parking spaces (5M)
-            "lifetime_years": 50,  # Service life of the share valued below (years).
+            "capital_cost_chf": 2_180_000,  # CAPEX (CHF): 2.18M CHF (2 E-buses 2.0M, 100 B+R spaces 0.18M)
+            "lifetime_years": 40,  # Service life of the share valued below (years), mixed calculation for buses and B+R spaces.
             "capital_share": 0.65,  # Fraction of actual capital paid eligible for residual value.
-            "construction_co2_tonnes": 18_000.0,  # Total construction emissions (tonnes CO2e).
+            # Minor vehicle and shelter construction emissions
+            "construction_co2_tonnes": 800.0,  # Total construction emissions (tonnes CO2e).
         },
     },
 }
@@ -270,8 +272,8 @@ PACKAGES = {
 COMBINED_EFFECTS = {
     "railway_expansions": [
         {
-            "section_time_saving_min": 0.5,  # Extra in-vehicle time saving when both packages operate.
-            "headway_reduction_min": 1.0, # Synchronized interchange (Bus 706 / S18)
+            "section_time_saving_min": 0.0,  # Extra in-vehicle time saving when both packages operate.
+            "headway_reduction_min": 1.0, # Fully synchronized interchange (Bus 702 / S18)
             "capacity_increase": 0.05,  # Extra fraction of baseline capacity, only when both packages operate.
         },
     ],
@@ -292,7 +294,7 @@ COMBINED_EFFECTS = {
 # INTERNAL ASSEMBLY AND APPRAISAL HELPERS (normally leave unchanged)
 # =============================================================================
 STATE_IDS = (0, 1, 2, 3)
-STATE_LABELS = {0: "Baseline", 1: "Hub Basic & Bus 702", 2: "Forch Express, Bus Frequency & Bike Routes", 3: "Both Stages combined"}
+STATE_LABELS = {0: "Baseline", 1: "Mobility Hub Forch Basic & Feeder Bus 702", 2: "Bus 702 Frequency Increase & B+R Expansion", 3: "Both Stages combined"}
 STATE_COLORS = {0: "#9E9E9E", 1: "#FFC107", 2: "#2196F3", 3: "#4CAF50"}
 _STATE_COMPONENTS = {0: (False, False), 1: (True, False), 2: (False, True), 3: (True, True)}
 
@@ -491,7 +493,7 @@ def _assemble_stages(packages: dict, params: dict, service_od_pairs: list[dict],
         }
         stages[stage] = specification
     combined = deepcopy(stages[2])
-    combined["name"] = "Both stages - Tunnel and Hubs"
+    combined["name"] = "Both stages combined"
     combined["section_time_saving_min"] = minute_effect(3, "section_time_saving_min")
     for key in ("railway_expansions", "mobility_hubs", "bike_highways", "road_capacity"):
         if key in stages[1] or key in stages[2] or key in combined_effects:
