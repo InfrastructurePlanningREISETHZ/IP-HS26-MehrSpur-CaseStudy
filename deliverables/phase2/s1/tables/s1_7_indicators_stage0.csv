@@ -1,0 +1,25 @@
+indicator,unit,year_1,year_40,better,phase1_outcome,change,change_pct
+Mode-choice journey time,min/trip,21.309112737604426,21.101539100473577,lower,5.3 #3 door-to-door travel time and generalised cost,-0.20757363713084942,-0.9741073675232941
+"Road delay (vehicle-hours incl. background, cordon)",veh-h/peak hour,6012.275878182546,7111.468400369921,lower,5.3 #5 car traffic on the Forchstrasse corridor; #3,1099.1925221873753,18.282469807750253
+Car CO2,t/peak hour,56.640184398113966,22.45800213764894,lower,5.3 #6 greenhouse gas emissions (operation),-34.18218226046503,-60.349701583251274
+Trips (all modes),person trips/peak hour,169620.70553658943,203544.84664390737,"context (demand, not a score)",5.3 #2 users (context),33924.14110731793,20.00000000000003
+Trip share: Car passengers,share,0.2880841164536111,0.2669706294382373,lower,5.3 #1 modal split,-0.0211134870153738,-7.328931311898137
+PKM Share (>= 5 km): Car passengers,share,0.5495251060113566,0.50382962640859,lower,5.3 #1 modal split,-0.04569547960276665,-8.315448939983881
+Trip share: Public Transport,share,0.23561866649066085,0.24809293448931852,higher,5.3 #1 modal split,0.012474267998657668,5.294261352231237
+PKM Share (>= 5 km): Public Transport,share,0.3534095430232582,0.3795299725532234,higher,5.3 #1 modal split,0.026120429529965183,7.390980250990611
+Trip share: Bicycle,share,0.1553817537167157,0.16820563649063763,higher,5.3 #1 modal split,0.012823882773921935,8.253145859906951
+PKM Share (>= 5 km): Bicycle,share,0.0783816858729607,0.09836654410656229,context,5.3 #1 modal split,0.01998485823360159,25.496846630720096
+Trip share: Walking,share,0.3209154633390124,0.31673079958180655,higher,5.3 #1 modal split,-0.004184663757205831,-1.303976976885401
+PKM Share (>= 5 km): Walking,share,0.018683665092424494,0.01827385693162432,context,5.3 #1 modal split,-0.0004098081608001729,-2.1934034825229998
+Forch: Forch hub area: trips with an end in the area (peak hour),person trips/peak hour,2114.1138425949516,2536.9366111139416,context,5.3 #2 users of the hub (context),422.82276851898996,19.999999999999982
+Forch: Forch hub area: car trip share,share,0.5231198411465325,0.4987697654867254,lower,5.3 #1 modal split of trips from the catchment,-0.024350075659807124,-4.65477960201979
+Forch: Forch hub area: PT trip share,share,0.12676606908724097,0.13599576187240958,higher,5.3 #1 modal split of trips from the catchment,0.009229692785168608,7.280885848733459
+Forch: Forch hub area: PT-walk trip share,share,0.08679823095743162,0.09179549488937215,higher,5.3 #1 modal split of trips from the catchment,0.0049972639319405265,5.757333849800845
+Forch: Forch hub area: PT-bike trip share,share,0.03996783812980936,0.04420026698303744,higher,5.3 #1 modal split of trips from the catchment,0.004232428853228075,10.589586655855141
+Forch: Pfannenstiel regions: trips with an end in the area (peak hour),person trips/peak hour,15740.302308260972,18888.362769913165,context,5.3 #2 users of the hub (context),3148.0604616521923,19.999999999999986
+Forch: Pfannenstiel regions: car trip share,share,0.4975950203242213,0.47314001313695414,lower,5.3 #1 modal split of trips from the catchment,-0.024455007187267175,-4.914640659251948
+Forch: Pfannenstiel regions: PT trip share,share,0.11656082712136827,0.12529557740912436,higher,5.3 #1 modal split of trips from the catchment,0.008734750287756096,7.493727098093676
+Forch: Pfannenstiel regions: PT-walk trip share,share,0.07788297186120996,0.0821754508971172,higher,5.3 #1 modal split of trips from the catchment,0.004292479035907237,5.511447410554103
+Forch: Pfannenstiel regions: PT-bike trip share,share,0.03867785526015832,0.04312012651200718,higher,5.3 #1 modal split of trips from the catchment,0.004442271251848859,11.485309156800115
+"Forch: Road delay outside Zürich city (veh-h, peak hour)",veh-h/peak hour,4360.672587739493,5157.146407940192,lower,5.3 #5 car traffic; #3,796.4738202006993,18.26493056231904
+"Forch: Road delay in Zürich city part of the cordon (veh-h, peak hour)",veh-h/peak hour,1651.6032904430522,1954.3219924297287,lower,5.3 #5 car traffic; #3,302.7187019866765,18.32877808722883
