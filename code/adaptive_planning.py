@@ -72,7 +72,7 @@ DEFAULT_TRIGGERS = {
     # Trigger 1: Section demand -> package 1 (local stations and access)
     "trigger1": {
         "signpost":        "section_combined_daily",
-        "threshold":       95_000,
+        "threshold":       92_000,
         "persistence":     2,       # Consecutive years above threshold
         "lead_time":       3,       # Years of planning and station civil works
     },
@@ -81,7 +81,7 @@ DEFAULT_TRIGGERS = {
     # capacity. The action threshold is separate from comfort capacity.
     "trigger2": {
         "signpost":        "section_combined_daily",
-        "threshold":       100_000,
+        "threshold":       96_000,
         "persistence":     2,
         # Years of tunnel planning and construction after the decision.
         "lead_time":       2,
