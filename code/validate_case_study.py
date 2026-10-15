@@ -1,8 +1,8 @@
-"""Fast, read-only preflight for a student-adapted case study.
+"""Configuration preflight for a student-adapted case study.
 
 Run this after editing parameters.py, stages.py, or adaptive_planning.py and
-before starting a costly surrogate rebuild. It performs no MSA runs and writes
-no files.
+before starting a costly surrogate rebuild. Missing counting coverage is
+prepared and cached; no MSA runs or surrogate training are performed.
 """
 
 from __future__ import annotations
@@ -29,6 +29,9 @@ def validate_case_study(project_root: str | Path = ROOT) -> dict:
     root = Path(project_root).resolve()
     uc.validate_params()
     ap.validate_case_study_configuration()
+    for name, plan in ap.get_plans(p.NOMINAL_PARAMS).items():
+        for key in ("to1", "to2"):
+            ap.validate_section_signpost(plan[key], p.NOMINAL_PARAMS, label=f"Plan {name}, {key}")
 
     stage_specs = stages.get_stages(p.NOMINAL_PARAMS)
     stage_ids = list(map(int, stage_specs))

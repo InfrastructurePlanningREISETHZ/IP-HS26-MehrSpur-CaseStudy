@@ -189,6 +189,30 @@ def _hub_zone_ids(intervention, zones=None) -> set[str]:
 
 
 def _hub_mode_masks(travel_times, intervention, lookups=None, zones=None) -> dict[str, dict]:
+    if intervention.get("station"):
+        from additional.section_flows import component_masks
+        reference = travel_times["chosen_origin_stop_pt_walk"]
+        if not reference.index.astype(str).equals(reference.columns.astype(str)):
+            raise ValueError("Station hubs require aligned origin and destination zone labels.")
+        components = component_masks(reference.index, {
+            "active": True, "kind": "pt_stop", "mode": "PT",
+            "station": intervention["station"], "crowding_enabled": False,
+        })
+        masks = {}
+        for mode in ("walk", "bike"):
+            selected = components[f"pt_{mode}"]
+            origin = selected["access"]
+            destination = selected["egress"]
+            stop_ids = set(travel_times[f"chosen_origin_stop_pt_{mode}"].to_numpy(dtype=str)[origin])
+            stop_ids.update(travel_times[f"chosen_destination_stop_pt_{mode}"].to_numpy(dtype=str)[destination])
+            masks[mode] = {
+                "origin": origin, "destination": destination,
+                "path": origin | destination | selected["transfer"],
+                "transfer": selected["transfer"],
+                "transfer_walk_minutes": selected["transfer_walk_minutes"],
+                "stop_ids": stop_ids, "matched_stop_ids": stop_ids,
+            }
+        return masks
     configured_stops = intervention.get("stop_ids")
     zone_ids = _hub_zone_ids(intervention, zones)
     stops_per_zone = int(intervention.get("stops_per_zone", 2))
@@ -296,7 +320,80 @@ def _apply_railway_expansion(travel_times, lengths, intervention, zones=None) ->
     }
 
 
-def _apply_mobility_hub(travel_times, intervention, lookups, zones=None) -> dict:
+def _reduce_station_transfer(frame, mask, local_minutes, factor):
+    """Reduce only this station's physical walking, retaining the journey floor."""
+    values = frame.to_numpy(copy=False)
+    selected = mask & np.isfinite(values) & (values < NO_PATH_TIME_MIN)
+    before = values[selected].copy()
+    saving = np.minimum(before, local_minutes[selected]) * (1.0 - factor)
+    values[selected] = np.maximum(before - saving, np.minimum(before, PT_TRANSFER_PHYSICAL_FLOOR_MIN))
+    return selected, before - values[selected]
+
+
+def station_transfer_walk_minutes(context, travel_times, stage_spec, station, labels):
+    """Replay transfer reductions to retain only this station's physical minutes."""
+    from additional import section_flows as sf
+    reference = context.travel_times["ivt_pt_walk"]
+    config = {"active": True, "kind": "pt_stop", "mode": "PT", "station": station, "crowding_enabled": False}
+    station_ids = sf.station_stop_ids(config)
+    components = sf.component_masks(reference.index, config)
+    local = {mode: components[f"pt_{mode}"]["transfer_walk_minutes"].copy() for mode in ("walk", "bike")}
+    local_by_station = {tuple(station_ids): local}
+    broad_factors = {mode: np.ones_like(local[mode]) for mode in ("walk", "bike")}
+    scratch = dict(context.travel_times)
+    for mode in ("walk", "bike"):
+        key = f"transfer_physical_pt_{mode}"
+        scratch[key] = scratch[key].copy()
+        values = scratch[key].to_numpy(copy=False)
+        ivt = scratch[f"ivt_pt_{mode}"]
+        valid = np.isfinite(ivt) & (ivt < NO_PATH_TIME_MIN) & np.isfinite(scratch[f"ovt_pt_{mode}"]) & (scratch[f"ovt_pt_{mode}"] < NO_PATH_TIME_MIN)
+        eligible = np.asarray(valid) & (reference.index.to_numpy()[:, None] != reference.columns.to_numpy()[None, :])
+        eligible &= np.asarray(scratch[f"transfer_count_pt_{mode}"]) > 0
+        eligible &= np.isfinite(values) & (values < PT_TRANSFER_PHYSICAL_FLOOR_MIN)
+        values[eligible] = PT_TRANSFER_PHYSICAL_FLOOR_MIN
+
+    def broad_reduction(mode, mask, factor):
+        frame = scratch[f"transfer_physical_pt_{mode}"]
+        before = frame.to_numpy(copy=True)
+        _multiply_selected(frame, mask, factor, floor=PT_TRANSFER_PHYSICAL_FLOOR_MIN)
+        ratio = np.divide(frame.to_numpy(), before, out=np.ones_like(before), where=before > 0)
+        broad_factors[mode] *= ratio
+        for station_local in local_by_station.values():
+            station_local[mode] *= ratio
+
+    for intervention in _as_list(stage_spec.get("railway_expansions")):
+        mask = _railway_expansion_mask(scratch, intervention, context.zones)
+        factor = _reduction_factor(intervention.get("effects", {}), "transfer_time_reduction_pct")
+        for mode in ("walk", "bike"):
+            broad_reduction(mode, mask, factor)
+    hubs = _as_list(stage_spec.get("mobility_hubs"))
+    needs_lookup = any(not hub.get("stop_ids") and not hub.get("station") for hub in hubs)
+    lookups = load_package(LOOKUP_PACKAGE_FILE, "lookups") if needs_lookup else None
+    for intervention in hubs:
+        masks = _hub_mode_masks(scratch, intervention, lookups, context.zones)
+        factor = _reduction_factor(intervention.get("effects", {}), "transfer_time_reduction_pct")
+        if intervention.get("station"):
+            key = tuple(sf.station_stop_ids({**config, "station": intervention["station"]}))
+            if key not in local_by_station:
+                local_by_station[key] = {mode: masks[mode]["transfer_walk_minutes"] * broad_factors[mode]
+                                         for mode in ("walk", "bike")}
+            station_local = local_by_station[key]
+            for mode in ("walk", "bike"):
+                selected, saved = _reduce_station_transfer(scratch[f"transfer_physical_pt_{mode}"],
+                    masks[mode]["transfer"], station_local[mode], factor)
+                station_local[mode][selected] = np.maximum(station_local[mode][selected] - saved, 0.0)
+        else:
+            for mode in ("walk", "bike"):
+                broad_reduction(mode, masks[mode]["path"], factor)
+    result = {}
+    for mode in ("walk", "bike"):
+        values = np.minimum(local[mode], scratch[f"transfer_physical_pt_{mode}"].to_numpy())
+        result[f"pt_{mode}"] = pd.DataFrame(values, index=reference.index.astype(str),
+            columns=reference.columns.astype(str)).reindex(index=labels, columns=labels).to_numpy(float)
+    return result
+
+
+def _apply_mobility_hub(travel_times, intervention, lookups, zones=None, *, local_transfer=None) -> dict:
     effects = intervention.get("effects", {})
     zone_ids = _hub_zone_ids(intervention, zones)
     feeder_speed_factor = _speed_factor(effects)
@@ -305,6 +402,11 @@ def _apply_mobility_hub(travel_times, intervention, lookups, zones=None) -> dict
     initial_wait_factor = _reduction_factor(effects, "initial_wait_reduction_pct")
     transfer_wait_factor = _reduction_factor(effects, "transfer_wait_reduction_pct")
     transfer_factor = _reduction_factor(effects, "transfer_time_reduction_pct")
+    if intervention.get("station") and (initial_wait_factor != 1.0 or transfer_wait_factor != 1.0):
+        raise ValueError(
+            "Station hubs support access, egress and transfer walking. "
+            "Specify waiting improvements through the railway frequency settings, not the station hub."
+        )
 
     mode_masks = _hub_mode_masks(travel_times, intervention, lookups, zones)
     selected_stops: set[str] = set()
@@ -336,18 +438,25 @@ def _apply_mobility_hub(travel_times, intervention, lookups, zones=None) -> dict
             path_mask,
             transfer_wait_factor,
         )
-        _multiply_selected(
-            travel_times[f"transfer_physical_pt_{mode}"],
-            path_mask,
-            transfer_factor,
-            floor=PT_TRANSFER_PHYSICAL_FLOOR_MIN,
-        )
+        if intervention.get("station"):
+            local = (mode_masks[mode]["transfer_walk_minutes"] if local_transfer is None
+                     else local_transfer[f"pt_{mode}"])
+            _reduce_station_transfer(travel_times[f"transfer_physical_pt_{mode}"],
+                mode_masks[mode]["transfer"], local, transfer_factor)
+        else:
+            _multiply_selected(
+                travel_times[f"transfer_physical_pt_{mode}"],
+                path_mask,
+                transfer_factor,
+                floor=PT_TRANSFER_PHYSICAL_FLOOR_MIN,
+            )
         affected_cells += int(path_mask.sum())
     return {
         "type": "mobility_hub",
         "name": intervention.get("name", "mobility hub"),
         "level": intervention.get("level"),
         "zones": sorted(zone_ids),
+        **({"station": intervention["station"]} if intervention.get("station") else {}),
         "configured_stops": sorted(
             {
                 str(stop_id)
@@ -393,7 +502,7 @@ def intervention_masks(
         )
 
     hubs = _as_list(scenario.get("mobility_hubs"))
-    lookup_required = any(not intervention.get("stop_ids") for intervention in hubs)
+    lookup_required = any(not intervention.get("stop_ids") and not intervention.get("station") for intervention in hubs)
     lookups = load_package(lookup_path, "lookups") if lookup_required else None
     for intervention in hubs:
         mode_masks = _hub_mode_masks(travel_times, intervention, lookups, zones)
@@ -430,10 +539,19 @@ def apply_interventions(
 
     hubs = _as_list(scenario.get("mobility_hubs"))
     if hubs:
-        lookup_required = any(not intervention.get("stop_ids") for intervention in hubs)
+        lookup_required = any(not intervention.get("stop_ids") and not intervention.get("station") for intervention in hubs)
         lookups = load_package(lookup_path, "lookups") if lookup_required else None
-        for intervention in hubs:
-            diagnostics.append(_apply_mobility_hub(travel_times, intervention, lookups, zones))
+        for position, intervention in enumerate(hubs):
+            local_transfer = None
+            if intervention.get("station"):
+                from types import SimpleNamespace
+                local_transfer = station_transfer_walk_minutes(
+                    SimpleNamespace(travel_times=baseline_travel_times, zones=zones), travel_times,
+                    {**scenario, "mobility_hubs": hubs[:position]}, intervention["station"],
+                    baseline_travel_times["ivt_pt_walk"].index.astype(str),
+                )
+            diagnostics.append(_apply_mobility_hub(travel_times, intervention, lookups, zones,
+                                                local_transfer=local_transfer))
 
     rebuild_pt_out_of_vehicle_times(travel_times)
     return travel_times, lengths, diagnostics

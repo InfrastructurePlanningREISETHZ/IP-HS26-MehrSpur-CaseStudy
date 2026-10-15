@@ -7,6 +7,7 @@ INPUT_DIR = ROOT / "data" / "transport"
 PREPARED_DIR = INPUT_DIR / "prepared"
 CONFIG_DIR = INPUT_DIR / "config"
 ROUTING_DIR = INPUT_DIR / "routing"
+PT_ROUTING_FILE = ROUTING_DIR / "pt_routing_input.pkl"
 
 ZONES_FILE = PREPARED_DIR / "zones.parquet"
 DEMAND_PACKAGE_FILE = PREPARED_DIR / "demand.pkl.gz"

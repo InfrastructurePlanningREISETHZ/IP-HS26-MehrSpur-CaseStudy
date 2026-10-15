@@ -145,22 +145,7 @@ def assignment_settings_match(
 # NumPy unpickling compatibility shim (handles NumPy 1.x vs 2.x pickles)
 # ---------------------------------------------------------------------------
 
-def _alias_numpy_core_for_pickle_compat() -> None:
-    """Let NumPy 1.26 unpickle arrays saved under NumPy 2.x."""
-    try:
-        import numpy._core.numeric  # noqa: F401
-        return
-    except ImportError:
-        pass
-
-    try:
-        import numpy.core.numeric
-        sys.modules["numpy._core.numeric"] = numpy.core.numeric
-    except Exception:
-        pass
-
-
-_alias_numpy_core_for_pickle_compat()
+from transport_core import _alias_numpy_core_for_pickle_compat
 
 
 # =============================================================================
@@ -566,8 +551,26 @@ def load_transport_context(
             temporary.write_text(json.dumps(cache_identity, indent=2) + "\n", encoding="utf-8")
             temporary.replace(cache_metadata)
 
-    def _get_active_network(macro_net):
-        return detailed_network if detailed_network is not None else macro_net
+    def _get_active_network(macro_net, loaded_zones):
+        nonlocal detailed_network
+        if detailed_network is None:
+            return macro_net
+        if detailed_network.get("metadata", {}).get("merge_policy") != _DETAILED_NETWORK_MERGE_POLICY:
+            metadata = {key: value for key, value in detailed_network.get("metadata", {}).items() if key != "_cache_source"}
+            buffer_m = float(metadata.get("corridor_scope", {}).get("buffer_m", 800.0))
+            core_zones = _get_core_zones(loaded_zones, getattr(p, "CORRIDOR_MUNICIPALITIES", []))
+            detailed_network = _merge_detailed_road_network(
+                macro_net, detailed_network, loaded_zones, core_zones,
+                core_zones.geometry.union_all().buffer(buffer_m), metadata=metadata,
+            )
+            if not read_only:
+                temporary = target_file.with_suffix(".tmp.pkl")
+                with temporary.open("wb") as handle:
+                    pickle.dump(detailed_network, handle, protocol=pickle.HIGHEST_PROTOCOL)
+                temporary.replace(target_file)
+                detailed_network["metadata"]["_cache_source"] = _detailed_network_file_identity(target_file)
+            print("[OK] Updated detailed-network zone attachments from existing inputs.")
+        return detailed_network
 
     if cache_file.exists():
         try:
@@ -589,7 +592,7 @@ def load_transport_context(
                 road_background_od=cached_data["road_background"],
                 travel_times=cached_data["travel_times"],
                 lengths=cached_data["lengths"],
-                assignment_network=_get_active_network(cached_data["assignment_network"]),
+                assignment_network=_get_active_network(cached_data["assignment_network"], cached_data["zones"]),
                 modules=modules,
             )
         except Exception as e:
@@ -626,7 +629,7 @@ def load_transport_context(
         road_background_od=road_background,
         travel_times=travel_times,
         lengths=lengths,
-        assignment_network=_get_active_network(assignment_network),
+        assignment_network=_get_active_network(assignment_network, zones),
         modules=modules,
     )
 
@@ -950,8 +953,8 @@ def _welfare_od_sample(
     cordon_mask = (internal[:, None] | internal[None, :]) if internal is not None else np.ones(
         (len(labels), len(labels)), dtype=bool
     )
-    from additional.section_flows import coverage_masks, physical_car_times, section_welfare_times
-    section_masks = coverage_masks(labels, mode_result.scenario.get("section_config"))
+    from additional.section_flows import intervention_masks, physical_car_times, section_welfare_times
+    section_masks = intervention_masks(labels, mode_result.scenario.get("section_config"))
     mask = cordon_mask.copy()
     for covered in section_masks.values():
         mask |= covered
@@ -1115,8 +1118,8 @@ def extract_corridor_metrics(
 
     quantities = {mode: aligned_values(frame) for mode, frame in od_by_mode.items()}
 
-    from additional.section_flows import coverage_masks, physical_car_times, section_metrics
-    section_masks = coverage_masks(labels, mode_result.scenario.get("section_config"))
+    from additional.section_flows import intervention_masks, physical_car_times, section_metrics
+    section_masks = intervention_masks(labels, mode_result.scenario.get("section_config"))
     appraisal_masks = {mode: involved | section_masks.get(mode, False)
                        for mode in quantities}
 
@@ -3154,6 +3157,9 @@ def assignment_convergence_test(
 # 8. DETAILED OPENSTREETMAP NETWORK ENHANCER
 # =============================================================================
 
+_DETAILED_NETWORK_MERGE_POLICY = "osm_identity_connected_attachments_v2"
+
+
 def _merge_detailed_road_network(
     base_network: Mapping[str, Any],
     detailed_network: Mapping[str, Any],
@@ -3235,24 +3241,33 @@ def _merge_detailed_road_network(
     nodes = gpd.GeoDataFrame(pd.concat([base_nodes, detail_nodes], ignore_index=True),
                              geometry="geometry", crs=base_nodes.crs).drop_duplicates("node_id", keep="last")
     node_geometry = nodes.set_index("node_id").geometry
-    active_roads = set(kept_roads["source"]) | set(kept_roads["target"]) | set(detail_nodes["node_id"])
-    tree = cKDTree(detail_nodes[["x", "y"]].to_numpy(dtype=float))
+    # Keep physical roads, but attach demand only where vehicles can travel
+    # in both directions through the merged network. One-way spurs are not
+    # valid zone anchors even when they lie closest to the zone centroid.
+    road_graph = nx.DiGraph()
+    road_graph.add_edges_from(zip(kept_roads["source"], kept_roads["target"]))
+    road_graph.add_edges_from(zip(detail_edges["source"], detail_edges["target"]))
+    main_road_core = max(nx.strongly_connected_components(road_graph), key=lambda part: (len(part), -min(part)))
+    attachment_nodes = detail_nodes.loc[detail_nodes["node_id"].isin(main_road_core)].sort_values("node_id")
+    if attachment_nodes.empty:
+        raise ValueError("Detailed roads have no anchors in the main connected road component. Check the source network and corridor boundary.")
+    tree = cKDTree(attachment_nodes[["x", "y"]].to_numpy(dtype=float))
     connectors = base_edges.loc[base_edges["highway"].eq("manual_connector")].copy()
-    # Preserve non-core zone centroids. If their original attachment was replaced,
-    # reconnect the centroid to the detailed roads using an explicit connector.
+    # Preserve non-core centroids and valid attachments. Repair an attachment
+    # that was replaced or cannot reach the main roads, preserving its direction.
     repaired_connectors = 0
     for index, row in connectors.iterrows():
         source, target = int(row["source"]), int(row["target"])
         zone_source = str(row["source_id"]) in base_network["zone_node_map"]
         road_node, zone_node = (target, source) if zone_source else (source, target)
-        if road_node not in active_roads:
+        if road_node not in main_road_core:
             point = node_geometry.loc[zone_node]
             _, position = tree.query([point.x, point.y])
-            replacement = int(detail_nodes.iloc[int(position)]["node_id"])
+            replacement = int(attachment_nodes.iloc[int(position)]["node_id"])
             road_point = node_geometry.loc[replacement]
             field, id_field = ("target", "target_id") if zone_source else ("source", "source_id")
             connectors.at[index, field] = replacement
-            connectors.at[index, id_field] = str(detail_nodes.iloc[int(position)]["nodeID"])
+            connectors.at[index, id_field] = str(attachment_nodes.iloc[int(position)]["nodeID"])
             connectors.at[index, "geometry"] = LineString([point, road_point] if zone_source else [road_point, point])
             length = max(float(point.distance(road_point)), 1.0)
             connectors.at[index, "length_m"] = length
@@ -3263,7 +3278,7 @@ def _merge_detailed_road_network(
     centroids = core_zones["centroid"]
     _, positions = tree.query(np.column_stack((centroids.x, centroids.y)))
     for zone, position in zip(core_zones["grid_id"].astype(str), positions):
-        zone_map[zone] = int(detail_nodes.iloc[int(position)]["node_id"])
+        zone_map[zone] = int(attachment_nodes.iloc[int(position)]["node_id"])
     # Core zones are attached directly to roads; their obsolete centroid links
     # must not create artificial shortcuts through zone centroids.
     core_node_ids = {base_network["zone_node_map"][zone] for zone in core_zones["grid_id"].astype(str)}
@@ -3274,10 +3289,20 @@ def _merge_detailed_road_network(
     nodes = nodes.loc[nodes["node_id"].isin(used)].copy()
     if not set(zone_map.values()).issubset(used):
         raise ValueError("A model zone has no road attachment after the detailed-network merge.")
+    zone_graph = road_graph.copy()
+    zone_graph.add_edges_from(zip(connectors["source"], connectors["target"]))
+    anchor = min(main_road_core)
+    reachable = (nx.descendants(zone_graph, anchor) & nx.ancestors(zone_graph, anchor)) | {anchor}
+    unreachable_zones = [zone for zone, node in zone_map.items() if node not in reachable]
+    if unreachable_zones:
+        raise ValueError("Model zones lack a two-way road attachment: " + ", ".join(map(str, unreachable_zones[:8])) + ". Check their source-network connectors; no zones were dropped.")
     return {"edges": edges, "nodes": nodes, "zone_node_map": zone_map, "metadata": {
-        **metadata, "merge_policy": "osm_identity_boundary_chains_v1",
+        **metadata, "merge_policy": _DETAILED_NETWORK_MERGE_POLICY,
         "shared_osm_nodes": len(shared), "retained_base_road_links": len(kept_roads),
         "repaired_zone_connectors": repaired_connectors,
+        "eligible_detailed_attachment_nodes": len(attachment_nodes),
+        "road_nodes_outside_attachment_core": road_graph.number_of_nodes() - len(main_road_core),
+        "zone_road_reachability": "mutually reachable",
     }}
 
 
@@ -3316,7 +3341,7 @@ def load_detailed_corridor_network(
 
     if not force_regenerate and cache_path is not None and cache_path.exists():
         existing_source = context.assignment_network.get("metadata", {}).get("_cache_source")
-        if existing_source == _detailed_network_file_identity(cache_path) and context.assignment_network.get("metadata", {}).get("merge_policy") == "osm_identity_boundary_chains_v1":
+        if existing_source == _detailed_network_file_identity(cache_path) and context.assignment_network.get("metadata", {}).get("merge_policy") == _DETAILED_NETWORK_MERGE_POLICY:
             _validate_detailed_network(
                 context.assignment_network, corridor_municipalities=corridor_municipalities, buffer_m=buffer_m,
             )
@@ -3325,7 +3350,7 @@ def load_detailed_corridor_network(
         detailed_network = _read_detailed_network(
             cache_path, corridor_municipalities=corridor_municipalities, buffer_m=buffer_m,
         )
-        if detailed_network.get("metadata", {}).get("merge_policy") != "osm_identity_boundary_chains_v1":
+        if detailed_network.get("metadata", {}).get("merge_policy") != _DETAILED_NETWORK_MERGE_POLICY:
             base_network = _load_assignment_network(
                 context.project_root / "data/transport/prepared", configured_input_paths(context.project_root)["network"]
             )
@@ -3340,7 +3365,7 @@ def load_detailed_corridor_network(
                 pickle.dump(detailed_network, handle, protocol=pickle.HIGHEST_PROTOCOL)
             temporary.replace(cache_path)
             detailed_network["metadata"]["_cache_source"] = _detailed_network_file_identity(cache_path)
-            print("[OK] Repaired detailed-network boundary connections from existing inputs.")
+            print("[OK] Updated detailed-network boundary connections and zone attachments from existing inputs.")
         print(f"[OK] Loaded cached detailed corridor network from {Path(cache_path).name}")
         return TransportContext(
             project_root=context.project_root,
@@ -3411,13 +3436,8 @@ def load_detailed_corridor_network(
 
         G = nx.compose_all(graphs)
 
-    # Guarantee full reachability by keeping only the largest strongly connected component
-    # of the COMBINED graph, discarding local mapping errors and dead-ends.
-    largest_cc = max(nx.strongly_connected_components(G), key=len)
-    G = G.subgraph(largest_cc).copy()
-
     # Simplify after composing downloads so their overlap has shared junctions.
-    # Reachability is checked when selecting the assignment corridor and gates.
+    # Keep physical roads; the merge selects mutually reachable zone anchors.
     G = ox.simplify_graph(G)
 
     osm_nodes_gdf, osm_edges_gdf = ox.graph_to_gdfs(G)
@@ -3469,6 +3489,9 @@ def load_detailed_corridor_network(
         "tertiary": 45.0, "tertiary_link": 45.0, "residential": 35.0, "unclassified": 45.0,
         "living_street": 20.0,
     }
+    # OSM simplification can return several classes in an unordered list.
+    # Use the highest road class consistently across processes and platforms.
+    road_class_rank = {name: rank for rank, name in enumerate(capacity_lookup)}
 
     new_edges_records = []
     for idx, row in osm_edges_gdf.reset_index().iterrows():
@@ -3477,7 +3500,11 @@ def load_detailed_corridor_network(
         key = row.get("key", 0)
         highway_val = row.get("highway", "unclassified")
         if isinstance(highway_val, (list, tuple, set)):
-            highway_val = list(highway_val)[0] if highway_val else "unclassified"
+            highway_val = min(
+                (str(value).strip().lower() for value in highway_val),
+                key=lambda value: (road_class_rank.get(value, len(road_class_rank)), value),
+                default="unclassified",
+            )
         highway = str(highway_val or "unclassified").strip().lower()
 
         lanes_raw = row.get("lanes", 1.0)

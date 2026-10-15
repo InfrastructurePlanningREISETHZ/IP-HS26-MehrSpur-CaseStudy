@@ -19,22 +19,12 @@ def _fingerprint(manifest):
     import parameters as p
     import simulation_engine as m
     from additional import section_flows as sf
-    from .transport_surrogate import _file_digest, _input_file_key, stable_fingerprint, equation_identity, model_identity
+    from .transport_surrogate import stable_fingerprint, equation_identity, model_identity
 
-    code = Path(__file__).resolve().parents[1]
-    paths = []
     section = sf.section_config()
-    if section["active"]:
-        coverage = sf._path(section)
-        paths.extend([coverage, coverage.with_suffix(".json")])
-    sources = {}
-    for path in paths:
-        stat = path.stat()
-        key = _input_file_key(path, code.parent)
-        sources[key] = _file_digest(str(path), stat.st_size, stat.st_mtime_ns)
     return stable_fingerprint({
         "schema": SCHEMA, "gp_sha256": manifest["artifact_sha256"],
-        "physical_model": model_identity(manifest), "data": sources,
+        "physical_model": model_identity(manifest), "section": sf.physical_signature(section),
         "equations": equation_identity({
             "code/surrogate_model/response_table.py": ("_ratios", "_moments", "response_grid", "ResponseTable"),
             "code/surrogate_model/prepared_transport.py": ("PreparedTransport",),
