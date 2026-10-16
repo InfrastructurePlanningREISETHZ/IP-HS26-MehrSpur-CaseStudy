@@ -1,0 +1,4 @@
+﻿Parameter,Where it is,Definition,Baseline Value,Unit,Spatial Scope,Direct System Impact
+PT_ASC_SHIFT_Y40,"<a href=""../code/parameters.py#L53"">parameters.py</a>",Common additive shift to both PT ASCs by Year 40,0.1,utility,All PT alternatives,Year-40 PT preference
+EBIKE_SHARE,"<a href=""../code/parameters.py#L56"">parameters.py</a>",Share of bicycles that are e-bikes,25%,fraction,All corridor travel demand,Raises effective average bicycle speed
+EBIKE_SPEED_MULTIPLIER,"<a href=""../code/parameters.py#L58"">parameters.py</a>",Speed advantage of e-bikes over conventional bicycles,1.5x,multiplier,All corridor travel demand,Raises effective average bicycle speed

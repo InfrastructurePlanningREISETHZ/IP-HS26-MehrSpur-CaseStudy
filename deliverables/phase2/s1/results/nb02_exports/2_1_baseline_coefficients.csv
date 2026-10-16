@@ -1,0 +1,18 @@
+﻿Parameter,Where it is,Definition,Baseline Value,Unit,Spatial Scope,Direct System Impact
+ASC_CAR,"<a href=""../data/transport/config/mode_choice.json"">config/mode_choice.json</a>","Base preference for car, independent of time and cost",0.5,utility,All mode-choice segments,Sets baseline logit utility
+ASC_WALK,"<a href=""../data/transport/config/mode_choice.json"">config/mode_choice.json</a>",Base preference for walking,2.4,utility,All mode-choice segments,Sets baseline logit utility
+ASC_BIKE,"<a href=""../data/transport/config/mode_choice.json"">config/mode_choice.json</a>",Base preference for bicycle,-0.1,utility,All mode-choice segments,Sets baseline logit utility
+ASC_PT_WALK,"<a href=""../data/transport/config/mode_choice.json"">config/mode_choice.json</a>",Base preference for PT accessed by walking,0,utility,All mode-choice segments,Sets baseline logit utility
+ASC_PT_BIKE,"<a href=""../data/transport/config/mode_choice.json"">config/mode_choice.json</a>",Base preference for PT accessed by bicycle,-1.5,utility,All mode-choice segments,Sets baseline logit utility
+B_CAR_TIME,"<a href=""../data/transport/config/mode_choice.json"">config/mode_choice.json</a>",Utility penalty per minute of car travel time,-0.075,utility/min,All mode-choice segments,Sets baseline logit utility
+B_WALK_TIME,"<a href=""../data/transport/config/mode_choice.json"">config/mode_choice.json</a>",Utility penalty per minute of walking time,-0.1,utility/min,All mode-choice segments,Sets baseline logit utility
+B_BIKE_TIME,"<a href=""../data/transport/config/mode_choice.json"">config/mode_choice.json</a>",Utility penalty per minute of bicycle time,-0.1,utility/min,All mode-choice segments,Sets baseline logit utility
+B_PT_IVT,"<a href=""../data/transport/config/mode_choice.json"">config/mode_choice.json</a>",Utility penalty per minute of PT in-vehicle time,-0.045,utility/min,All mode-choice segments,Sets baseline logit utility
+B_PT_OVT,"<a href=""../data/transport/config/mode_choice.json"">config/mode_choice.json</a>",Utility penalty per minute of PT out-of-vehicle time,-0.08,utility/min,All mode-choice segments,Sets baseline logit utility
+B_TRANSFER,"<a href=""../data/transport/config/mode_choice.json"">config/mode_choice.json</a>",Utility penalty per PT transfer,-0.43,utility/transfer,All mode-choice segments,Sets baseline logit utility
+B_COST,"<a href=""../data/transport/config/mode_choice.json"">config/mode_choice.json</a>",Utility penalty per CHF of car cost,-0.18,utility/CHF,All mode-choice segments,Sets baseline logit utility
+B_PT_FARE,"<a href=""../data/transport/config/mode_choice.json"">config/mode_choice.json</a>",Utility penalty per CHF of PT fare,-0.18,utility/CHF,All mode-choice segments,Sets baseline logit utility
+CAR_COST_CHF_PER_KM,"<a href=""../data/transport/config/mode_choice.json"">config/mode_choice.json</a>",Car operating cost,0.27,CHF/km,All corridor travel demand,Sets baseline car cost
+PT_MIN_FARE_CHF,"<a href=""../data/transport/config/mode_choice.json"">config/mode_choice.json</a>",Minimum PT fare,3,CHF,All corridor travel demand,Sets baseline PT fare floor
+PT_FARE_CHF_PER_KM,"<a href=""../data/transport/config/mode_choice.json"">config/mode_choice.json</a>",PT distance-based fare,0.08,CHF/km,All corridor travel demand,Sets baseline PT fare
+PT_MAX_FARE_CHF,"<a href=""../data/transport/config/mode_choice.json"">config/mode_choice.json</a>",Maximum PT fare,8,CHF,All corridor travel demand,Sets baseline PT fare ceiling

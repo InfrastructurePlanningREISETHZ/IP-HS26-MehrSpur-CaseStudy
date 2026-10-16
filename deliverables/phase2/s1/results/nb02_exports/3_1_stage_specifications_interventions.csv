@@ -1,0 +1,14 @@
+﻿Stage,Type,Intervention,Spatial scope,Effects
+1,railway_expansions,Corridor service frequency,28 area pairs | both directions,No numerical effects
+1,mobility_hubs,Forch station: bike parking at the platforms and barrier-free links,No spatial selector,"access_time_reduction_pct=13.5, egress_time_reduction_pct=13.5"
+2,railway_expansions,increase in the frequency of the 706 bus service,1 area pairs | both directions,"initial_wait_reduction_pct=50.0, transfer_wait_reduction_pct=42"
+2,railway_expansions,Corridor service frequency,28 area pairs | both directions,No numerical effects
+2,bike_highways,Axe Maur–Forch,1 area pairs | both directions,travel_time_reduction_pct=13.0
+2,bike_highways,Axe Süessblätz–Forch,1 area pairs | both directions,travel_time_reduction_pct=12.5
+2,bike_highways,Axe Forch–Forch,1 area pairs | both directions,travel_time_reduction_pct=12.5
+3,railway_expansions,increase in the frequency of the 706 bus service,1 area pairs | both directions,"initial_wait_reduction_pct=50.0, transfer_wait_reduction_pct=42"
+3,railway_expansions,Corridor service frequency,28 area pairs | both directions,No numerical effects
+3,bike_highways,Axe Maur–Forch,1 area pairs | both directions,travel_time_reduction_pct=13.0
+3,bike_highways,Axe Süessblätz–Forch,1 area pairs | both directions,travel_time_reduction_pct=12.5
+3,bike_highways,Axe Forch–Forch,1 area pairs | both directions,travel_time_reduction_pct=12.5
+3,mobility_hubs,Forch station: bike parking at the platforms and barrier-free links,No spatial selector,"access_time_reduction_pct=13.5, egress_time_reduction_pct=13.5"
