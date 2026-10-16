@@ -242,42 +242,115 @@ PACKAGES = {
     #       Provides 17-minute service and the Winterthur hub improvements;
     #       both packages together provide 15-minute service.
     "tunnel": {
-        "name": "Stage 2 - Tunnel & Winterthur Hub only",
+        "name": "Stage 2 - Acces in non-motorized transport and public transport",
 
         # Railway improvements: the same section and service OD scope as above.
         "railway_expansions": [
             {
-                "section_time_saving_min": 4.0,  # In-vehicle minutes saved relative to baseline.
-                "headway_reduction_min": 3.0,  # Minutes removed from the baseline service interval.
-                "capacity_increase": 0.15,  # Fraction of baseline peak-hour comfort capacity (+15%).
-            },
-        ],
+                "name": "increase in the frequency of the 706 bus service",
 
-        # Hub & Node Interventions
-        "mobility_hubs": [
+                "area_pairs": [
             {
-                "name": "Winterthur Multimodal Hub (A1)",
-                "zones": [
-                    {"municipality_name": "Winterthur"}
-                ],
-                "effects": {
-                    "access_time_reduction_pct": 25.0,
-                    "transfer_time_reduction_pct": 15.0, # Optimized platform connections at Winterthur HB
-                    # Frequency savings belong to the railway package only.
-                    "egress_time_reduction_pct": 20.0,
-                }
+                "origin": {"zone_ids": ["15401012"]},
+                "destination": {
+                    "zone_ids": [
+                "19501001",
+                "19501002",
+                "19501003",
+                "19501004",
+                "19501005",
+                "19501006",
+                "19301001",
+                "19301002",
+                "19301004",
+                "19301006",
+                "19301007",
+                "19701004",
+                "19701005",
+                        # IDs of the zones desserved by the bus 706
+                    ]
+                },
             }
         ],
 
-        # Appraisal considerations: the same valuation and construction conventions.
-        "appraisal": {
-            "capital_cost_chf": 2_302_600_000,  # Tunnel/Winterthur package CAPEX (CHF).
-            "lifetime_years": 80,  # Service life of the share valued below (years).
-            "capital_share": 0.60,  # Fraction of actual capital paid eligible for residual value.
-            "construction_co2_tonnes": 300_000.0,  # Total construction emissions (tonnes CO2e).
+        "both_directions": True,
+
+        "effects": {
+            "initial_wait_reduction_pct": 50.0, #Waiting time from 30min --> 15min
+            "transfer_wait_reduction_pct" : 42, #Waiting time between the bus arrival and train departure at Forch Bahnhof
+
         },
     },
+],
+        #Amelioration of the 
+        "mobility_hubs": [
+    {
+        "name": "Accès et correspondances à Forch",
+        "station": "Forch",
+
+        "effects": {
+            # Acces PT, bike-train
+            "access_time_reduction_pct": 33.3, #Amelioration access walk and bike acces to the station
+            "transfer_time_reduction_pct" : 20.0, #Amelioration transfer time between bus statio 706 at forch bahnhof and the train platforms
+
+        },
+    }
+],
+
+        #Bike improvment access
+        "bike_highways": [
+        {
+            "name": "Axe Maur–Forch", #“The two model zones covering the village of Maur are selected as beneficiaries of the improved cycling connection to Forch. Given the model’s spatial resolution, an average effect is applied to these origin–destination relations.”
+            "area_pairs": [
+                {
+                    "origin": {"zone_ids": ["19501007", "19501008"]}, #Sector Maur Dorf and sector Maur Kirche / See.
+                    "destination": {"zone_ids": ["15401012"]}, #Forch Bahnhof
+                }
+            ],
+            "both_directions": True,
+            "effects": {
+                "travel_time_reduction_pct": 13.0, #Necessity to verify better the percentage. We assume that we can decrease 2min in the total travel that last 15min.
+            },
+        },
+
+        {
+            "name": "Axe Süessblätz–Forch",
+            "area_pairs": [
+                {
+                    "origin": {"zone_ids": ["19501002"]}, #Suessblätz
+                    "destination": {"zone_ids": ["15401012"]},
+                }
+            ],
+            "both_directions": True,
+            "effects": {
+                "travel_time_reduction_pct": 12.5, ##Necessity to verify better the percentage. We assume that we can decrease 2min in the total travel that last 16min.
+            },
+        },
+
+        {
+            "name": "Axe Forch–Forch",
+            "area_pairs": [
+        {
+                "origin": {"zone_ids": ["19501004", "19501005", "19501006"]}, #North east neighborhood
+                "destination": {"zone_ids": ["15401012"]}, # Forch Bahnhof area
+        }
+    ],
+            "both_directions": True,
+            "effects": {
+                "travel_time_reduction_pct": 12.5, ##Necessity to verify better the percentage. We assume that we can decrease 2min in the total travel that last 8min.
+            },
+        },
+    ],
+
+    "appraisal": {
+        "capital_cost_chf": 5280000,  # À compléter : investissement total.
+        "lifetime_years": None,  # À compléter si valeur résiduelle.
+        "capital_share": 0.0,    # Valeur résiduelle désactivée.
+    },
+},
+
 }
+       
 
 # =============================================================================
 # 2. COMBINED-ONLY BENEFITS
@@ -286,13 +359,6 @@ PACKAGES = {
 # are added to the package values: 6 minutes of section saving and 5 minutes
 # of headway reduction in total (20-minute baseline -> 15-minute service).
 COMBINED_EFFECTS = {
-    "railway_expansions": [
-        {
-            "section_time_saving_min": 1.0,
-            "headway_reduction_min": 1.0,
-            "capacity_increase": 0.05,  # Extra fraction of baseline capacity, only when both packages operate.
-        },
-    ],
     # Capacity increases are additive: +10% stations +15% tunnel +5% combined = +30% of baseline.
     # Additional physical interventions can use the same dictionaries as above:
     # "mobility_hubs": [{
