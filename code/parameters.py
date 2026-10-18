@@ -50,9 +50,9 @@ NOMINAL_PARAMS = {
     "PASSENGER_DEMAND_GROWTH": 0.0,  # Cumulative passenger OD growth relative to baseline; 0.20 means +20%.
     "PASSENGER_DEMAND_GROWTH_Y40": 0.20,  # Nominal final passenger-demand growth.
     "PT_ASC_SHIFT": 0.0,  # Additive preference shift for both PT access modes (utility units, not percent).
-    "PT_ASC_SHIFT_Y40": 0.10,  # Nominal final PT preference shift (utility units).
+    "PT_ASC_SHIFT_Y40": 0.10,  # Nominal final PT preference shift (utility units)..
     "BIKE_ASC_SHIFT": 0.0,  # Additive preference shift for standalone cycling (utility units).
-    # "BIKE_ASC_SHIFT_Y40": 0.20,  # Optional nominal final cycling preference shift (utility units).
+    "BIKE_ASC_SHIFT_Y40": 0.20,  # Optional nominal final cycling preference shift (utility units).
     "EBIKE_SHARE": 0.30,  # Baseline e-bike fraction of cycling and PT bicycle access/egress trips (0 to 1).
     "EBIKE_SHARE_Y40": 0.50,  # Nominal final e-bike share.
     "EBIKE_SPEED_MULTIPLIER": 1.5,  # E-bike speed divided by conventional-bike speed; 1.5 means 50% faster.
@@ -101,7 +101,7 @@ NOMINAL_PARAMS = {
     "C_TT_PT_ACCESS": 31.82,  # PT access and egress walking/cycling time value (CHF/person-hour).
     "C_TT_PT_TRANSFER": 39.78,  # Physical transfer-walking time value (CHF/person-hour); excludes waiting.
     # Active-mode time is valued per person-hour, like PT/car passenger time.
-        "C_TT_BIKE": 35.0,  # Cycling value of time (CHF/person-hour)
+    "C_TT_BIKE": 35.0,  # Cycling value of time (CHF/person-hour)
     "C_TT_WALK": 16.0,  # Walking value of time (CHF/person-hour)
 
     # -------------------------------------------------------------------------
@@ -312,17 +312,16 @@ STRUCTURAL_UNCERTAINTIES = {  # Distributions for selected general parameters; n
         "transient": True,
         "distribution": "triangular",
         "minimum": -0.10,
-        "maximum": 0.30,
+        "maximum": 0.50,
     },
-    # Uncomment together with BIKE_ASC_SHIFT_Y40 above to include cycling preferences.
-    # "BIKE_ASC_SHIFT": {
-    #     "category": "transport_modelling",
-    #     "use": "scenarios",
-    #     "transient": True,
-    #     "distribution": "triangular",
-    #     "minimum": -0.50,
-    #     "maximum": 1.00,
-    # },
+    "BIKE_ASC_SHIFT": { # Final additive cycling preference shift; negative values reduce cycling attractiveness.
+         "category": "transport_modelling",
+         "use": "scenarios",
+         "transient": True,
+         "distribution": "triangular",
+         "minimum": -0.10,
+         "maximum": 1.00,
+     },
     "EBIKE_SHARE": {  # Final e-bike fraction; starts from the known baseline share.
         "category": "transport_modelling",
         "use": "scenarios",
@@ -381,30 +380,30 @@ STRUCTURAL_UNCERTAINTIES = {  # Distributions for selected general parameters; n
         "maximum": 5,
         "integer": True,
     },
-    "OPEX_MULTIPLIER": {  # Operating-cost multiplier, sampled once per future.
-        "category": "post_modelling",
-        "use": "scenarios",
-        "transient": False,
-        "distribution": "uniform",
-        "minimum": 0.50,
-        "maximum": 1.50,
-    },
-    "CAPEX_MULTIPLIER": {  # Construction/option-cost multiplier; sampled once per future.
-        "category": "post_modelling",
-        "use": "scenarios",
-        "transient": False,
-        "distribution": "triangular",
-        "minimum": 0.80,
-        "maximum": 1.20,
-    },
-    "ACCIDENT_COST_MULTIPLIER": {  # Final road/rail accident-cost factor.
-        "category": "post_modelling",
-        "use": "scenarios",
-        "transient": True,
-        "distribution": "normal",
-        "sigma": 0.15,
-        "relative_sigma": True,
-    },
+    #"OPEX_MULTIPLIER": {  # Operating-cost multiplier, sampled once per future.
+    #    "category": "post_modelling",
+    #    "use": "scenarios",
+    #    "transient": False,
+    #    "distribution": "uniform",
+    #    "minimum": 0.50,
+    #    "maximum": 1.50,
+    #},
+    #"CAPEX_MULTIPLIER": {  # Construction/option-cost multiplier; sampled once per future.
+    #    "category": "post_modelling",
+    #    "use": "scenarios",
+    #    "transient": False,
+    #    "distribution": "triangular",
+    #    "minimum": 0.80,
+    #    "maximum": 1.20,
+    #},
+    #"ACCIDENT_COST_MULTIPLIER": {  # Final road/rail accident-cost factor.
+    #    "category": "post_modelling",
+    #    "use": "scenarios",
+    #    "transient": True,
+    #    "distribution": "normal",
+    #    "sigma": 0.15,
+    #    "relative_sigma": True,
+    #},
     "LOCAL_AIR_COST_MULTIPLIER": {  # Final road/rail local air-pollution cost factor.
         "category": "post_modelling",
         "use": "scenarios",

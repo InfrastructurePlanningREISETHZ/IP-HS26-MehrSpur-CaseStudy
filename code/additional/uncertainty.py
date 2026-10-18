@@ -20,6 +20,7 @@ TRANSPORT_BINDINGS = {
     "BIKE_ASC_SHIFT": "bike_asc_shift",
     "EBIKE_SHARE": "ebike_share",
     "ROAD_FREIGHT_GROWTH": "road_freight_multiplier",
+    
 }
 POST_MODELLING_TARGETS = {
     "DISCOUNT_RATE", "OPEX_RATE", "OPEX_MULTIPLIER", "CAPEX_MULTIPLIER", "C_FLEX",
