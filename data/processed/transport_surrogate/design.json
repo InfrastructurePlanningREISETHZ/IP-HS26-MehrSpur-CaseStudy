@@ -8,7 +8,12 @@
     "batch_size": 4,
     "targets": {
       "weighted_rmse_min": 0.2
-    }
+    },
+    "points_added": 0,
+    "final_holdout_metrics": {
+      "weighted_rmse_min": 0.11180611464051463
+    },
+    "target_reached": true
   },
   "seed": 42,
   "records": [
@@ -1575,7 +1580,7 @@
   ],
   "cache_contract": {
     "format_version": 3,
-    "model_fingerprint": "adaa47c97118963077b4",
+    "model_fingerprint": "febd8c45e3429787499f",
     "reference_equations": "61595dfc1bb958f882c1",
     "solver_settings": {
       "stopping_rule": "road_relative_gap",
@@ -3294,7 +3299,8 @@
     "drive_occupancy": 1.14,
     "prepared_inputs": {
       "data/transport/config/mode_choice.json": "bf653909c74928ca310759f15c5be22c25ec1acad4ee73a2e561acfae70fdd6c",
-      "cache/tmi_context.pkl": "0c83d5e840b655f539c4a12b422d6b0c4e42fadcd3df70fb29e724e22e6f3d68"
+      "cache/tmi_context.pkl": "0c83d5e840b655f539c4a12b422d6b0c4e42fadcd3df70fb29e724e22e6f3d68",
+      "data/processed/hubforch_detailed_network.pkl": "d9169c2eb9a87ffacf9c98e1991aaf58829c8308f6580b162b8edb062f090fa0"
     },
     "reference_equations": {
       "code/transport_model_interface.py:_corridor_shortest_time_table": "35336b26fbbc94b8b970c35160c3eb6fa2c63177c73be6a813187749ca38a533",
@@ -3455,7 +3461,7 @@
     "code/additional/transport_display.py": "45aa0a30f5e8a1f52d9aaddbe44a974c8e7db2efb6d44d3f98a962d7f71fe8fb",
     "code/additional/trigger_optimization.py": "18fd8b4300761ee47476fe47a22997badda310de88cb47b9d05cce6e9a3f5135",
     "code/additional/uncertainty.py": "b446e012116785d09992dd7230d578858f9792972413eb28653ccf69d563f486",
-    "code/parameters.py": "6254a7e9d8a25c774653407fe058813d7d76f4228aa54f62135ce1642a3060c2",
+    "code/parameters.py": "7dad4976d5d27862e5a3cbaa8c19eff60ee12f83504afd3beba81d5185a4d6ca",
     "code/simulation_engine.py": "72b0f369364272978048a5fa3ddabab7c47355766ffffe7ec6c7b00cef844a8e",
     "code/stages.py": "020cb5fab82091c39d2c9a94cd12ad73d22fa81f72a89b2901e9f4a6628d0022",
     "code/surrogate_model/__init__.py": "e14f9360129c8a8d333cee6c7b17230d83b71c55fd9c2e467149a28a44948039",
@@ -3486,7 +3492,7 @@
     "code/additional/transport_display.py": "45aa0a30f5e8a1f52d9aaddbe44a974c8e7db2efb6d44d3f98a962d7f71fe8fb",
     "code/additional/trigger_optimization.py": "18fd8b4300761ee47476fe47a22997badda310de88cb47b9d05cce6e9a3f5135",
     "code/additional/uncertainty.py": "b446e012116785d09992dd7230d578858f9792972413eb28653ccf69d563f486",
-    "code/parameters.py": "6254a7e9d8a25c774653407fe058813d7d76f4228aa54f62135ce1642a3060c2",
+    "code/parameters.py": "7dad4976d5d27862e5a3cbaa8c19eff60ee12f83504afd3beba81d5185a4d6ca",
     "code/simulation_engine.py": "72b0f369364272978048a5fa3ddabab7c47355766ffffe7ec6c7b00cef844a8e",
     "code/stages.py": "020cb5fab82091c39d2c9a94cd12ad73d22fa81f72a89b2901e9f4a6628d0022",
     "code/surrogate_model/__init__.py": "e14f9360129c8a8d333cee6c7b17230d83b71c55fd9c2e467149a28a44948039",
