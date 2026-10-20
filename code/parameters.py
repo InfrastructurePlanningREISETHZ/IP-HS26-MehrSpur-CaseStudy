@@ -417,5 +417,5 @@ STRUCTURAL_UNCERTAINTIES = {  # Distributions for selected general parameters; n
 # Validate settings and prepare internal surrogate metadata.
 uc.configure(
     registry=STRUCTURAL_UNCERTAINTIES, nominal=NOMINAL_PARAMS,
-    n_years= N_YEARS, tail_probability=TRANSPORT_SURROGATE_TAIL_PROBABILITY,
+    n_years= NOMINAL_PARAMS["N_YEARS"], tail_probability=TRANSPORT_SURROGATE_TAIL_PROBABILITY,
 )
