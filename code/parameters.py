@@ -174,17 +174,23 @@ globals().update(NOMINAL_PARAMS)
 # OPTION A: Define by Municipalities / Regions (Empty when in "zones" mode)
 # -----------------------------------------------------------------------------
 CORRIDOR_REGIONS = {  # Named municipality groups defining the modeled corridor.
-    "Zürich": ["Zürich"],
-    "Winterthur": ["Winterthur"],
-    "Airport / Glattal": [
-        "Kloten", "Opfikon", "Wallisellen", "Dübendorf",
-        "Dietlikon", "Wangen-Brüttisellen", "Bassersdorf", "Rümlang",
-        "Illnau-Effretikon", "Lindau", "Nürensdorf"
-    ],
-    "Eastern Switzerland (Gateways)": [
-        "Wiesendangen", "Elsau",
-        "Elgg", "Hagenbuch"
+    #"Zürich": ["Zürich"],
+
+    "Mobility Hub Region": [
+            "Maur", "Zumikon", "Küsnacht (ZH)", "Egg", "Erlenbach (ZH)",
+            "Fällanden", "Mönchaltorf", "Gossau (ZH)",
+            "Meilen", "Herrliberg", "Zollikon", "Grüningen",
+            "Volketswil", "Uetikon am See", "Hinwil", "Dürnten",
+            "Uster", "Wetzikon (ZH)", "Pfäffikon","Männedorf","Stäfa",
+            "Schwerzenbach", "Illnau-Effretikon", "Fehraltorf",
+            "Oetwil am See"
+        ],
+
+    "Southern Switzerland (Gateways)": [
+        "Rüti (ZH)", "Bubikon", 
+        "Wald (ZH)", "Hombrechtikon"
     ]
+
 }
 
 # Flat list of all corridor municipalities
@@ -195,7 +201,8 @@ CORRIDOR_MUNICIPALITIES = [  # Derived flat list used by corridor selection and 
 # Optional project-relative or absolute detailed road-network cache path.
 # Notebook 02 prepares a missing cache; later notebooks require it to exist.
 # None uses the existing default cache. For a new project, select a new filename.
-DETAILED_NETWORK_FILE = None  # Example: "data/processed/my_project_detailed_network.pkl"
+DETAILED_NETWORK_FILE = "data/processed/MehrForch_noZH.pkl"  # Example: "data/processed/my_project_detailed_network.pkl"
+                                                            # Old version still on my drive: data/processed/MehrForch.pkl
 
 # -----------------------------------------------------------------------------
 # OPTION B: Define by Explicit Zone IDs
