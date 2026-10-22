@@ -5048,7 +5048,6 @@ def stage_specification_tables(
         overview_rows.append({
             "Stage": int(stage_id),
             "Name": spec.get("name", f"Stage {stage_id}"),
-            "Rail": len(spec.get("railway_expansions", [])),
             "Bike": len(spec.get("bike_highways", [])),
             "Hubs": len(spec.get("mobility_hubs", [])),
             "Road": len(spec.get("road_capacity", [])),
