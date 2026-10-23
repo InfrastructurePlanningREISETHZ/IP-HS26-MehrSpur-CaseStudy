@@ -48,16 +48,16 @@ NOMINAL_PARAMS = {
     # Present-day values; *_Y40 values define the nominal endpoints.
     # -------------------------------------------------------------------------
     "PASSENGER_DEMAND_GROWTH": 0.0,  # Cumulative passenger OD growth relative to baseline; 0.20 means +20%.
-    "PASSENGER_DEMAND_GROWTH_Y40": 0.20,  # Nominal final passenger-demand growth.
+    "PASSENGER_DEMAND_GROWTH_Y40": 0.20,  # Nominal final passenger-demand growth. #We validate it with the report from ARE department 
     "PT_ASC_SHIFT": 0.0,  # Additive preference shift for both PT access modes (utility units, not percent).
     "PT_ASC_SHIFT_Y40": 0.10,  # Nominal final PT preference shift (utility units).
     "BIKE_ASC_SHIFT": 0.0,  # Additive preference shift for standalone cycling (utility units).
-    # "BIKE_ASC_SHIFT_Y40": 0.20,  # Optional nominal final cycling preference shift (utility units).
+    "BIKE_ASC_SHIFT_Y40": 0.20,  # Optional nominal final cycling preference shift (utility units).
     "EBIKE_SHARE": 0.25,  # Baseline e-bike fraction of cycling and PT bicycle access/egress trips (0 to 1).
     "EBIKE_SHARE_Y40": 0.50,  # Nominal final e-bike share.
     "EBIKE_SPEED_MULTIPLIER": 1.5,  # E-bike speed divided by conventional-bike speed; 1.5 means 50% faster.
     "ROAD_FREIGHT_GROWTH": 0.0,  # Growth in prepared commercial/freight vehicles and their synthetic uplift.
-    "ROAD_FREIGHT_GROWTH_Y40": 0.10,  # Nominal final growth of prepared background road vehicles.
+    "ROAD_FREIGHT_GROWTH_Y40": 0.40,  #former 0.10 # Nominal final growth of prepared background road vehicles.
 
     # -------------------------------------------------------------------------
     # Peak-hour to annual conversions
@@ -117,8 +117,8 @@ NOMINAL_PARAMS = {
     # -------------------------------------------------------------------------
     # Physical CO2 emissions and their common monetary value
     # -------------------------------------------------------------------------
-    "CAR_CO2_KG_PER_VEHICLE_KM": 0.139,  # Car emissions (kg CO2/vehicle-km).
-    "CAR_CO2_KG_PER_VEHICLE_KM_Y40": 0.050,  # Nominal final car emissions (kg CO2/vehicle-km).
+    "CAR_CO2_KG_PER_VEHICLE_KM": 0.16, #0.139, # Car emissions (kg CO2/vehicle-km).
+    "CAR_CO2_KG_PER_VEHICLE_KM_Y40": 0.011, #0.050, # Nominal final car emissions (kg CO2/vehicle-km).
     "RAIL_ENERGY_WH_PER_GROSS_TONNE_KM": 30.0,  # Rail electricity consumption (Wh/gross-tonne-km).
     "RAIL_ELECTRICITY_CO2_G_PER_KWH": 19.58,  # Rail electricity emissions (g CO2/kWh).
     # Both road and rail emissions use this carbon value. Its reference-year
@@ -157,7 +157,7 @@ NOMINAL_PARAMS = {
     # -------------------------------------------------------------------------
     "MAX_AVG_TT": 15.0,  # Acceptability ceiling for peak car/PT in-vehicle time plus car delay (min/trip).
     "PT_SHARE_TARGET": 0.35,  # Teaching minimum for PT share of strategic passenger-km; baseline is about 31.9%.
-    "MIN_STRATEGIC_PKM_DISTANCE": 5.0,  # Minimum OD distance for strategic mode-share indicators (km); not an appraisal cutoff.
+    "MIN_STRATEGIC_PKM_DISTANCE": 0.0,  # Minimum OD distance for strategic mode-share indicators (km); not an appraisal cutoff.
 
     # Internal shared keys for appraisal and uncertainties; edit values in stages.py.
     **package_parameter_defaults(),
@@ -173,18 +173,12 @@ globals().update(NOMINAL_PARAMS)
 # -----------------------------------------------------------------------------
 # OPTION A: Define by Municipalities / Regions (Empty when in "zones" mode)
 # -----------------------------------------------------------------------------
-CORRIDOR_REGIONS = {  # Named municipality groups defining the modeled corridor.
+CORRIDOR_REGIONS = {  # Forch case: municipalities touched by the zone corridor below (used by municipality tables and maps).
+    # The corridor itself is defined by zones (OPTION B); these names only label the
+    # municipality-level OD explorers.
     "Zürich": ["Zürich"],
-    "Winterthur": ["Winterthur"],
-    "Airport / Glattal": [
-        "Kloten", "Opfikon", "Wallisellen", "Dübendorf",
-        "Dietlikon", "Wangen-Brüttisellen", "Bassersdorf", "Rümlang",
-        "Illnau-Effretikon", "Lindau", "Nürensdorf"
-    ],
-    "Eastern Switzerland (Gateways)": [
-        "Wiesendangen", "Elsau",
-        "Elgg", "Hagenbuch"
-    ]
+    "Forchbahn municipalities": ["Zollikon", "Zumikon", "Küsnacht (ZH)", "Maur", "Egg"],
+    "Glattal link": ["Fällanden", "Dübendorf"],  # v2 decision V1: variant V-b adds these two municipalities whole
 }
 
 # Flat list of all corridor municipalities
@@ -195,7 +189,7 @@ CORRIDOR_MUNICIPALITIES = [  # Derived flat list used by corridor selection and 
 # Optional project-relative or absolute detailed road-network cache path.
 # Notebook 02 prepares a missing cache; later notebooks require it to exist.
 # None uses the existing default cache. For a new project, select a new filename.
-DETAILED_NETWORK_FILE = None  # Example: "data/processed/my_project_detailed_network.pkl"
+DETAILED_NETWORK_FILE = "data/processed/forch_vb_detailed_network.pkl"  # Forch roads (corridor V-b) from the frozen 2026-10-09 OSM extract (tools/offline_osm.py).
 
 # -----------------------------------------------------------------------------
 # OPTION B: Define by Explicit Zone IDs
@@ -226,6 +220,64 @@ DETAILED_NETWORK_FILE = None  # Example: "data/processed/my_project_detailed_net
 # Flat list of active corridor zone IDs:
 # CORRIDOR_ZONE_IDS = [z for zone_list in PROJECT_ZONES.values() for z in zone_list]
 # -----------------------------------------------------------------------------
+# FORCH CORRIDOR (active). v2 decision V1 (10 October 2026): variant V-b, the v1
+# corridor D1 plus every zone of Fällanden and Dübendorf, adopted by the rule in
+# deliverables/phase2/s1/S1_decisions.md (V1); comparison in deliverables/phase2/s1/tables/s1_v2_corridor_comparison.csv
+# (tools/v2_variants.py). D1 itself: the course's city S18 zones, plus every zone of
+# Zollikon, Zumikon, Küsnacht, Maur and Egg whose centroid is nearer to a Forchbahn
+# station (GTFS 2026, agency "Forchbahn") than to any other rail station, plus all
+# zones within 1.5 km of Forch station; it stays reproducible with
+# tools/build_forch_corridor.py (tables/corridor_zones_D1.csv, corridor_parameters_block.txt).
+# Groups are the reporting regions of decision D7, plus "Fällanden and Dübendorf".
+CORRIDOR_DEFINITION_MODE = "zones"
+PROJECT_ZONES = {
+    "Rest of Egg": [
+        "19201001", "19201002", "19201003", "19201004", "19201005",
+    ],
+    "Rest of Küsnacht": [
+        "15401011",
+    ],
+    "Forch hub area": [
+        "15401012", "16001004", "19501004", "19501005",
+    ],
+    "Rest of Maur": [
+        "19501001", "19501002", "19501003", "19501006", "19501008",
+    ],
+    "Zollikerberg": [
+        "16101004", "16101006", "16101007", "16101008", "16101009",
+    ],
+    "Zumikon": [
+        "16001001", "16001002", "16001003",
+    ],
+    "Zürich centre": [
+        "26101165", "26101169", "26101171", "26101173", "26101174", "26101180",
+        "26101181", "26101183", "26101185", "26101187", "26101189", "26101190",
+        "26101194", "26101195", "26101198", "26101199", "26101201", "26101202",
+        "26101203", "26101204", "26101209", "26101210", "26101215", "26101216",
+        "26101218", "26101220", "26101221", "26101222", "26101225", "26101227",
+        "26101228", "26101229", "26101231", "26101235", "26101236", "26101243",
+        "26101248",
+    ],
+    "Zürich east": [
+        "26101234", "26101242", "26101245", "26101251", "26101252", "26101255",
+        "26101259", "26101262", "26101263", "26101264", "26101265", "26101267",
+        "26101272", "26101273", "26101274", "26101275", "26101278", "26101281",
+        "26101282", "26101283", "26101285", "26101287", "26101288", "26101289",
+        "26101290", "26101294", "26101295", "26101296", "26101300", "26101301",
+        "26101303", "26101304", "26101305",
+    ],
+    "Fällanden and Dübendorf": [
+        "19101001", "19101002", "19101003", "19101004", "19101005", "19101006",
+        "19101007", "19101008", "19101009", "19101010", "19101011", "19101012",
+        "19101013", "19101014", "19101015", "19101016", "19101017", "19101018",
+        "19101019", "19101020", "19101021", "19101022", "19101023", "19101024",
+        "19101025", "19301001", "19301002", "19301003", "19301004", "19301005",
+        "19301006", "19301007",
+    ],
+}
+CORRIDOR_ZONE_IDS = [z for zone_list in PROJECT_ZONES.values() for z in zone_list]
+
+# -----------------------------------------------------------------------------
 
 # Optional route coverage, including trips with endpoints outside the corridor.
 # Coverage is regenerated from the shared routing inputs when settings change.
@@ -243,7 +295,7 @@ SECTION_DEFAULTS = {  # Generic fallback settings; configure the project's SECTI
 }
 SECTION = {  # Active project section and endpoints used for its travel-time reference.
     **SECTION_DEFAULTS,
-    "active": True,                       # Include this count and its effects in model/appraisal outputs.
+    "active": False,                      # Forch: the Winterthur count is not used (Sheet 2 p. 13).
     "kind": "pt_approach",                # PT station approach, cycling route or individual PT stop.
     "station": "Winterthur",              # Station whose approach is counted.
     "towards": "Effretikon",              # Select the side facing this station, including express services.
@@ -276,7 +328,7 @@ EXTERNAL_FLOW_DEFAULTS = {  # Generic fallback; configure the project's EXTERNAL
 }
 EXTERNAL_FLOW = {  # One cohort shared by baseline and projects, added after mode choice.
     **EXTERNAL_FLOW_DEFAULTS,
-    "enabled": True,                      # Include this cohort's time costs and PT comfort loading.
+    "enabled": False,                     # Forch: the Winterthur cohort is not used (Sheet 2 p. 13).
     "mode": "PT",                         # Existing PT passengers; must match SECTION.mode.
     # One-time nominal Stage-0 calibration (25% e-bikes; 2% road-gap target):
     # 120,000 target - 66,891.950467 modeled passengers/day, both directions.
@@ -310,8 +362,8 @@ STRUCTURAL_UNCERTAINTIES = {  # Distributions for selected general parameters; n
         "use": "scenarios",
         "transient": True,
         "distribution": "triangular",
-        "minimum": -0.20,
-        "maximum": 0.50,
+        "minimum": 0.08, #The number 0.08 comes from the period projection 2017-2050 from ARE department report Verkehrsperspektiven 2050. #-0,20 previous data
+        "maximum": 0.29, #We could use 0.29 even if this come from the period projection 2017-2050. #0.50 previous data
     },
     "PT_ASC_SHIFT": {  # Final additive PT preference shift; negative values reduce PT attractiveness.
         "category": "transport_modelling",
@@ -321,29 +373,29 @@ STRUCTURAL_UNCERTAINTIES = {  # Distributions for selected general parameters; n
         "minimum": -0.10,
         "maximum": 0.30,
     },
-    # Uncomment together with BIKE_ASC_SHIFT_Y40 above to include cycling preferences.
-    # "BIKE_ASC_SHIFT": {
-    #     "category": "transport_modelling",
-    #     "use": "scenarios",
-    #     "transient": True,
-    #     "distribution": "triangular",
-    #     "minimum": -0.50,
-    #     "maximum": 1.00,
-    # },
+     
+    "BIKE_ASC_SHIFT": {
+        "category": "transport_modelling",
+        "use": "scenarios",
+        "transient": True,
+        "distribution": "triangular",
+        "minimum": -0.50,
+        "maximum": 1.00,
+    },
     "EBIKE_SHARE": {  # Final e-bike fraction; starts from the known baseline share.
         "category": "transport_modelling",
         "use": "scenarios",
         "transient": True,
         "distribution": "triangular",
         "minimum": 0.35,
-        "maximum": 0.80,
+        "maximum": 0.60, #0.80 former percentage. We didn't find anyy projection that justify the 80% we decided to be just a bit less optimistic
     },
     "ROAD_FREIGHT_GROWTH": {  # Final prepared-background growth; sigma is in growth-fraction units.
         "category": "transport_modelling",
         "use": "scenarios",
         "transient": True,
         "distribution": "normal",
-        "sigma": 0.05,
+        "sigma": 0.10, #that allows to have 95% of the samples etween 20% and 60% which corresponds to the percentage given by the ARE 
     },
     "C_TT_PT": {  # PT value-of-time sensitivity; one CHF/person-hour draw for the whole horizon.
         "category": "post_modelling",

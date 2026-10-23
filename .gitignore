@@ -37,3 +37,7 @@ validation/
 # Generated Notebook 03 exports
 /figures/03_uncertainty_modeling/
 /results/03_uncertainty_modeling/
+
+# Course auto-exports from our Forch notebook: keep them local
+/deliverables/phase2/s1/figures/nb02_exports/
+/deliverables/phase2/s1/results/nb02_exports/
