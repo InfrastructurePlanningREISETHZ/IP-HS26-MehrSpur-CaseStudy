@@ -4,7 +4,7 @@ no negative congested times,0.0014076204816129447,True,fixed demand
 no negative delays,0.0,True,fixed demand
 congested time >= free-flow time on every link,0.0,True,fixed demand
 all OD demand served (unserved vehicles),0.0,True,fixed demand
-road gap at the last checks (values),0.017973779504984584,True,fixed demand
+road gap at the last checks (values),0.01797377950498372,True,fixed demand
 largest change of a mode share over the last 3 iterations (share points),,not applicable (fixed demand),fixed demand
 "links with V/C > 2 (count; plausibility flag, not a failure)",299.0,True,fixed demand
 no negative link flows,0.0,True,coupled
@@ -12,6 +12,6 @@ no negative congested times,0.0013412772765733145,True,coupled
 no negative delays,0.0,True,coupled
 congested time >= free-flow time on every link,0.0,True,coupled
 all OD demand served (unserved vehicles),0.0,True,coupled
-road gap at the last checks (values),0.01838118139882735,True,coupled
+road gap at the last checks (values),0.018381181398827114,True,coupled
 largest change of a mode share over the last 3 iterations (share points),0.0001709423323010828,True,coupled
 "links with V/C > 2 (count; plausibility flag, not a failure)",92.0,True,coupled

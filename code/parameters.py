@@ -48,16 +48,16 @@ NOMINAL_PARAMS = {
     # Present-day values; *_Y40 values define the nominal endpoints.
     # -------------------------------------------------------------------------
     "PASSENGER_DEMAND_GROWTH": 0.0,  # Cumulative passenger OD growth relative to baseline; 0.20 means +20%.
-    "PASSENGER_DEMAND_GROWTH_Y40": 0.20,  # Nominal final passenger-demand growth.
+    "PASSENGER_DEMAND_GROWTH_Y40": 0.20,  # Nominal final passenger-demand growth. #We validate it with the report from ARE department 
     "PT_ASC_SHIFT": 0.0,  # Additive preference shift for both PT access modes (utility units, not percent).
     "PT_ASC_SHIFT_Y40": 0.10,  # Nominal final PT preference shift (utility units).
     "BIKE_ASC_SHIFT": 0.0,  # Additive preference shift for standalone cycling (utility units).
-    # "BIKE_ASC_SHIFT_Y40": 0.20,  # Optional nominal final cycling preference shift (utility units).
+    "BIKE_ASC_SHIFT_Y40": 0.20,  # Optional nominal final cycling preference shift (utility units).
     "EBIKE_SHARE": 0.25,  # Baseline e-bike fraction of cycling and PT bicycle access/egress trips (0 to 1).
     "EBIKE_SHARE_Y40": 0.50,  # Nominal final e-bike share.
     "EBIKE_SPEED_MULTIPLIER": 1.5,  # E-bike speed divided by conventional-bike speed; 1.5 means 50% faster.
     "ROAD_FREIGHT_GROWTH": 0.0,  # Growth in prepared commercial/freight vehicles and their synthetic uplift.
-    "ROAD_FREIGHT_GROWTH_Y40": 0.10,  # Nominal final growth of prepared background road vehicles.
+    "ROAD_FREIGHT_GROWTH_Y40": 0.40,  #former 0.10 # Nominal final growth of prepared background road vehicles.
 
     # -------------------------------------------------------------------------
     # Peak-hour to annual conversions
@@ -117,8 +117,8 @@ NOMINAL_PARAMS = {
     # -------------------------------------------------------------------------
     # Physical CO2 emissions and their common monetary value
     # -------------------------------------------------------------------------
-    "CAR_CO2_KG_PER_VEHICLE_KM": 0.139,  # Car emissions (kg CO2/vehicle-km).
-    "CAR_CO2_KG_PER_VEHICLE_KM_Y40": 0.050,  # Nominal final car emissions (kg CO2/vehicle-km).
+    "CAR_CO2_KG_PER_VEHICLE_KM": 0.16, #0.139, # Car emissions (kg CO2/vehicle-km).
+    "CAR_CO2_KG_PER_VEHICLE_KM_Y40": 0.011, #0.050, # Nominal final car emissions (kg CO2/vehicle-km).
     "RAIL_ENERGY_WH_PER_GROSS_TONNE_KM": 30.0,  # Rail electricity consumption (Wh/gross-tonne-km).
     "RAIL_ELECTRICITY_CO2_G_PER_KWH": 19.58,  # Rail electricity emissions (g CO2/kWh).
     # Both road and rail emissions use this carbon value. Its reference-year
@@ -157,7 +157,7 @@ NOMINAL_PARAMS = {
     # -------------------------------------------------------------------------
     "MAX_AVG_TT": 15.0,  # Acceptability ceiling for peak car/PT in-vehicle time plus car delay (min/trip).
     "PT_SHARE_TARGET": 0.35,  # Teaching minimum for PT share of strategic passenger-km; baseline is about 31.9%.
-    "MIN_STRATEGIC_PKM_DISTANCE": 5.0,  # Minimum OD distance for strategic mode-share indicators (km); not an appraisal cutoff.
+    "MIN_STRATEGIC_PKM_DISTANCE": 0.0,  # Minimum OD distance for strategic mode-share indicators (km); not an appraisal cutoff.
 
     # Internal shared keys for appraisal and uncertainties; edit values in stages.py.
     **package_parameter_defaults(),
@@ -362,8 +362,8 @@ STRUCTURAL_UNCERTAINTIES = {  # Distributions for selected general parameters; n
         "use": "scenarios",
         "transient": True,
         "distribution": "triangular",
-        "minimum": -0.20,
-        "maximum": 0.50,
+        "minimum": 0.08, #The number 0.08 comes from the period projection 2017-2050 from ARE department report Verkehrsperspektiven 2050. #-0,20 previous data
+        "maximum": 0.29, #We could use 0.29 even if this come from the period projection 2017-2050. #0.50 previous data
     },
     "PT_ASC_SHIFT": {  # Final additive PT preference shift; negative values reduce PT attractiveness.
         "category": "transport_modelling",
@@ -373,29 +373,29 @@ STRUCTURAL_UNCERTAINTIES = {  # Distributions for selected general parameters; n
         "minimum": -0.10,
         "maximum": 0.30,
     },
-    # Uncomment together with BIKE_ASC_SHIFT_Y40 above to include cycling preferences.
-    # "BIKE_ASC_SHIFT": {
-    #     "category": "transport_modelling",
-    #     "use": "scenarios",
-    #     "transient": True,
-    #     "distribution": "triangular",
-    #     "minimum": -0.50,
-    #     "maximum": 1.00,
-    # },
+     
+    "BIKE_ASC_SHIFT": {
+        "category": "transport_modelling",
+        "use": "scenarios",
+        "transient": True,
+        "distribution": "triangular",
+        "minimum": -0.50,
+        "maximum": 1.00,
+    },
     "EBIKE_SHARE": {  # Final e-bike fraction; starts from the known baseline share.
         "category": "transport_modelling",
         "use": "scenarios",
         "transient": True,
         "distribution": "triangular",
         "minimum": 0.35,
-        "maximum": 0.80,
+        "maximum": 0.60, #0.80 former percentage. We didn't find anyy projection that justify the 80% we decided to be just a bit less optimistic
     },
     "ROAD_FREIGHT_GROWTH": {  # Final prepared-background growth; sigma is in growth-fraction units.
         "category": "transport_modelling",
         "use": "scenarios",
         "transient": True,
         "distribution": "normal",
-        "sigma": 0.05,
+        "sigma": 0.10, #that allows to have 95% of the samples etween 20% and 60% which corresponds to the percentage given by the ARE 
     },
     "C_TT_PT": {  # PT value-of-time sensitivity; one CHF/person-hour draw for the whole horizon.
         "category": "post_modelling",

@@ -1,5 +1,5 @@
 indicator,unit,year_1,year_40,better,phase1_outcome,change,change_pct
-Mode-choice journey time,min/trip,21.309112737604426,21.101539100473577,lower,5.3 #3 door-to-door travel time and generalised cost,-0.20757363713084942,-0.9741073675232941
+Mode-choice journey time,min/trip,21.309112737604426,21.101539100473584,lower,5.3 #3 door-to-door travel time and generalised cost,-0.20757363713084231,-0.9741073675232608
 "Road delay (vehicle-hours incl. background, cordon)",veh-h/peak hour,6012.275878182546,7111.468400369921,lower,5.3 #5 car traffic on the Forchstrasse corridor; #3,1099.1925221873753,18.282469807750253
 Car CO2,t/peak hour,56.640184398113966,22.45800213764894,lower,5.3 #6 greenhouse gas emissions (operation),-34.18218226046503,-60.349701583251274
 Trips (all modes),person trips/peak hour,169620.70553658943,203544.84664390737,"context (demand, not a score)",5.3 #2 users (context),33924.14110731793,20.00000000000003
