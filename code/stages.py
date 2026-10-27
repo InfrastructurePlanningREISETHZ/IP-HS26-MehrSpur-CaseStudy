@@ -264,8 +264,8 @@ PACKAGES = {
                 ],
                 "both_directions": True,
                 "effects": {
-                    "distance_reduction_pct": 5.0,
-                    "speed_increase_pct": 10.0
+                    "distance_reduction_pct": 2.0,
+                    "speed_increase_pct": 5.0
                 }
             }
         ],
