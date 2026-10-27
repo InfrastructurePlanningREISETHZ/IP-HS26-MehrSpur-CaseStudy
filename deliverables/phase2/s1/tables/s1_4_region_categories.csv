@@ -1,0 +1,12 @@
+region,internal_from_region,internal_to_region,outbound_from_region,inbound_to_region,intra_region,total_trip_ends
+Zürich centre,25569.2,25739.9,12772.1,12959.4,17746.3,59294.3
+Zürich east,17703.9,17527.9,5842.7,5601.1,11085.4,35590.1
+Zollikerberg,2235.6,2211.3,656.5,618.4,1099.4,4622.3
+Zumikon,1180.5,1206.4,332.5,362.4,646.8,2435.0
+Forch hub area,872.9,896.4,356.6,368.3,380.0,2114.1
+Rest of Maur,1223.5,1214.6,598.5,571.7,550.3,3058.0
+Rest of Egg,1574.4,1575.5,1049.7,999.1,1167.8,4030.8
+Rest of Küsnacht,247.8,243.2,120.1,120.3,61.4,670.0
+Fällanden and Dübendorf,10498.2,10467.3,5520.9,5166.9,8222.5,23430.8
+Buffer: Zürich city,14111.0,14125.5,11519.2,11372.8,7503.6,43625.0
+Buffer: suburbs,5523.2,5532.3,6071.7,5899.5,3364.1,19662.7
