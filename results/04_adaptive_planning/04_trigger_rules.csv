@@ -1,0 +1,3 @@
+﻿monitoring_indicator,threshold,persistence,lead_time,name,signpost_label,description,monitoring_indicator_label
+pt_share,0.4,2,4,Trigger 1,PT share of passenger-kilometres,"When PT share of passenger-kilometres exceeds 0.4 PKM share (0-1) for 2 consecutive years, decide to build; open after a 4-year lead time.",PT share (strategic PKM)
+bike_share_trips,0.15,2,4,Trigger 2,Bike share of trips,"When Bike share of trips exceeds 0.15 trip share (0-1) for 2 consecutive years, decide to build; open after a 4-year lead time.",Cycling trip share

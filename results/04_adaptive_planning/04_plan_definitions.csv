@@ -1,0 +1,7 @@
+﻿plan,name,description,initial state,Station package,Tunnel package
+baseline,Baseline — Baseline throughout the 40-year horizon,Baseline throughout the 40-year horizon,Stage 0 – Baseline Network,no later addition,no later addition
+static1,Stage 1 – Mobility Hub Forch Basic & Feeder Bus 702 — Mobility Hub Forch Basic & Feeder Bus 702 from Year 1,Mobility Hub Forch Basic & Feeder Bus 702 from Year 1,Stage 1 – Mobility Hub Forch Basic & Feeder Bus 702,no later addition,no later addition
+static2,Stage 2 - Bus 702 Frequency Increase & B+R Expansion — Both Stages combined from Year 1,Both Stages combined from Year 1,Both stages combined,no later addition,no later addition
+staged1,"Staged 1 — Stations in Year 8, Tunnel in Year 11","Stations in Year 8, Tunnel in Year 11",Stage 0 – Baseline Network,fixed,fixed
+staged2,"Staged 2 — Stations in Year 6, Tunnel in Year 15","Stations in Year 6, Tunnel in Year 15",Stage 0 – Baseline Network,fixed,fixed
+adaptive,"Adaptive — Stations via Trigger 1, Tunnel via Trigger 2","Stations via Trigger 1, Tunnel via Trigger 2",Stage 0 – Baseline Network,"When PT share of passenger-kilometres exceeds 0.35 PKM share (0-1) for 2 consecutive years, decide to build; open after a 4-year lead time.","When Bike share of trips exceeds 0.15 trip share (0-1) for 2 consecutive years, decide to build; open after a 4-year lead time."
