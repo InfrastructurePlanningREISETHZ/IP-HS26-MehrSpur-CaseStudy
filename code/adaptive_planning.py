@@ -81,9 +81,9 @@ DEFAULT_TRIGGERS = {
     # capacity. The action threshold is separate from comfort capacity.
     "trigger2": {
         "signpost":        "bike_share_trips",  # Average corridor travel time
-        "threshold":       0.15,  # Trip share
+        "threshold":       0.20,  # Trip share
         "persistence":     2,
-        "lead_time":       4,
+        "lead_time":       2,
     }    
 }
 
