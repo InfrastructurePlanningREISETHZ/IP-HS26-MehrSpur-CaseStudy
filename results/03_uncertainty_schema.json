@@ -1,0 +1,59 @@
+{
+  "surrogate_fingerprint": "45f9893021e4fc4ca482",
+  "surrogate_artifact_sha256": "4c1fa71e386368a06799d8497b268ee452836870b704b5cd322810d78b3aca70",
+  "response_table_fingerprint": "d05c114a0311b28859fd",
+  "surrogate_format_version": 3,
+  "transport_uncertainties": [
+    "PASSENGER_DEMAND_GROWTH",
+    "PT_ASC_SHIFT",
+    "BIKE_ASC_SHIFT",
+    "EBIKE_SHARE",
+    "ROAD_FREIGHT_GROWTH"
+  ],
+  "post_modelling_uncertainties": [
+    "CAR_CO2_KG_PER_VEHICLE_KM",
+    "LOCAL_AIR_COST_MULTIPLIER"
+  ],
+  "scenario_uncertainties": [
+    "PASSENGER_DEMAND_GROWTH",
+    "PT_ASC_SHIFT",
+    "BIKE_ASC_SHIFT",
+    "EBIKE_SHARE",
+    "ROAD_FREIGHT_GROWTH",
+    "CAR_CO2_KG_PER_VEHICLE_KM",
+    "LOCAL_AIR_COST_MULTIPLIER"
+  ],
+  "physical_domain": {
+    "PASSENGER_DEMAND_GROWTH": {
+      "minimum": -0.2,
+      "maximum": 0.5,
+      "nominal": 0.0
+    },
+    "PT_ASC_SHIFT": {
+      "minimum": -0.1,
+      "maximum": 0.5,
+      "nominal": 0.0
+    },
+    "BIKE_ASC_SHIFT": {
+      "minimum": -0.1,
+      "maximum": 1.0,
+      "nominal": 0.0
+    },
+    "EBIKE_SHARE": {
+      "minimum": 0.3,
+      "maximum": 0.8,
+      "nominal": 0.3
+    },
+    "ROAD_FREIGHT_GROWTH": {
+      "minimum": -0.05451161530839066,
+      "maximum": 0.25451161530839067,
+      "nominal": 0.0
+    }
+  },
+  "stages": [
+    0,
+    1,
+    2,
+    3
+  ]
+}

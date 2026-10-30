@@ -1,0 +1,6 @@
+﻿indicator,operator,threshold,start_year
+pt_share,>=,0.4,20.0
+congestion_delay_hours,<,10000.0,20.0
+bike_share_trips,>=,0.15,20.0
+pt_journey_time_min,<,30.0,20.0
+section_load_ratio,<,1.1,

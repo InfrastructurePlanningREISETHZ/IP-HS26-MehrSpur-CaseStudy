@@ -50,10 +50,10 @@ NOMINAL_PARAMS = {
     "PASSENGER_DEMAND_GROWTH": 0.0,  # Cumulative passenger OD growth relative to baseline; 0.20 means +20%.
     "PASSENGER_DEMAND_GROWTH_Y40": 0.20,  # Nominal final passenger-demand growth.
     "PT_ASC_SHIFT": 0.0,  # Additive preference shift for both PT access modes (utility units, not percent).
-    "PT_ASC_SHIFT_Y40": 0.10,  # Nominal final PT preference shift (utility units).
+    "PT_ASC_SHIFT_Y40": 0.10,  # Nominal final PT preference shift (utility units)..
     "BIKE_ASC_SHIFT": 0.0,  # Additive preference shift for standalone cycling (utility units).
-    # "BIKE_ASC_SHIFT_Y40": 0.20,  # Optional nominal final cycling preference shift (utility units).
-    "EBIKE_SHARE": 0.25,  # Baseline e-bike fraction of cycling and PT bicycle access/egress trips (0 to 1).
+    "BIKE_ASC_SHIFT_Y40": 0.20,  # Optional nominal final cycling preference shift (utility units).
+    "EBIKE_SHARE": 0.30,  # Baseline e-bike fraction of cycling and PT bicycle access/egress trips (0 to 1).
     "EBIKE_SHARE_Y40": 0.50,  # Nominal final e-bike share.
     "EBIKE_SPEED_MULTIPLIER": 1.5,  # E-bike speed divided by conventional-bike speed; 1.5 means 50% faster.
     "ROAD_FREIGHT_GROWTH": 0.0,  # Growth in prepared commercial/freight vehicles and their synthetic uplift.
@@ -78,11 +78,11 @@ NOMINAL_PARAMS = {
     # -------------------------------------------------------------------------
     # PT service, section comfort capacity and train supply
     # -------------------------------------------------------------------------
-    "PT_HEADWAY_BASELINE": 20.0,  # Baseline interval between PT services (minutes).
+    "PT_HEADWAY_BASELINE": 15.0,  # Baseline interval between PT services (minutes).
     # Package headway reductions and capacity increases are configured in stages.py.
     # Section comfort thresholds (persons/peak hour).
     # Adopted 120,000-passenger daily count * PT peak share; thresholds do not grow with demand.
-    "PT_CAPACITY_BASELINE": 11_352.0,  # Fixed baseline section comfort threshold (persons/peak hour).
+    "PT_CAPACITY_BASELINE": 1400.0,  # Fixed baseline section comfort threshold (persons/peak hour).
     "CROWDING_SLOPE": 2.0,  # Extra time-penalty slope above Q/C = 1 in min(CROWDING_MAX, 1 + slope*max(Q/C-1, 0)).
     "CROWDING_MAX": 3.0,  # Maximum total multiplier on section in-vehicle time; only the excess over 1 is added.
     "TRAIN_GROSS_TONNES": 375.0,  # Reference gross tonnes per train for rail external costs and energy consumption.
@@ -97,11 +97,11 @@ NOMINAL_PARAMS = {
     # -------------------------------------------------------------------------
     "C_TT_CAR": 42.54,  # Car travel-time value, including peak congestion delay (CHF/person-hour).
     "C_TT_PT": 26.52,  # PT in-vehicle time value (CHF/person-hour).
-    "C_TT_PT_WAITING": 26.52,  # Initial and transfer waiting-time value (CHF/person-hour).
-    "C_TT_PT_ACCESS": 26.52,  # PT access and egress walking/cycling time value (CHF/person-hour).
-    "C_TT_PT_TRANSFER": 26.52,  # Physical transfer-walking time value (CHF/person-hour); excludes waiting.
+    "C_TT_PT_WAITING": 39.78,  # Initial and transfer waiting-time value (CHF/person-hour).
+    "C_TT_PT_ACCESS": 31.82,  # PT access and egress walking/cycling time value (CHF/person-hour).
+    "C_TT_PT_TRANSFER": 39.78,  # Physical transfer-walking time value (CHF/person-hour); excludes waiting.
     # Active-mode time is valued per person-hour, like PT/car passenger time.
-        "C_TT_BIKE": 35.0,  # Cycling value of time (CHF/person-hour)
+    "C_TT_BIKE": 35.0,  # Cycling value of time (CHF/person-hour)
     "C_TT_WALK": 16.0,  # Walking value of time (CHF/person-hour)
 
     # -------------------------------------------------------------------------
@@ -155,9 +155,9 @@ NOMINAL_PARAMS = {
     # -------------------------------------------------------------------------
     # Performance requirements and strategic mode-share indicators
     # -------------------------------------------------------------------------
-    "MAX_AVG_TT": 15.0,  # Acceptability ceiling for peak car/PT in-vehicle time plus car delay (min/trip).
+    "MAX_AVG_TT": 30.0,  # Acceptability ceiling for peak car/PT in-vehicle time plus car delay (min/trip).
     "PT_SHARE_TARGET": 0.35,  # Teaching minimum for PT share of strategic passenger-km; baseline is about 31.9%.
-    "MIN_STRATEGIC_PKM_DISTANCE": 5.0,  # Minimum OD distance for strategic mode-share indicators (km); not an appraisal cutoff.
+    "MIN_STRATEGIC_PKM_DISTANCE": 2.0,  # Minimum OD distance for strategic mode-share indicators (km); not an appraisal cutoff.
 
     # Internal shared keys for appraisal and uncertainties; edit values in stages.py.
     **package_parameter_defaults(),
@@ -175,16 +175,9 @@ globals().update(NOMINAL_PARAMS)
 # -----------------------------------------------------------------------------
 CORRIDOR_REGIONS = {  # Named municipality groups defining the modeled corridor.
     "Zürich": ["Zürich"],
-    "Winterthur": ["Winterthur"],
-    "Airport / Glattal": [
-        "Kloten", "Opfikon", "Wallisellen", "Dübendorf",
-        "Dietlikon", "Wangen-Brüttisellen", "Bassersdorf", "Rümlang",
-        "Illnau-Effretikon", "Lindau", "Nürensdorf"
-    ],
-    "Eastern Switzerland (Gateways)": [
-        "Wiesendangen", "Elsau",
-        "Elgg", "Hagenbuch"
-    ]
+    "Lake Zürich": ["Küsnacht (ZH)", "Zollikon", "Zumikon"],
+    "Pfannenstiel": ["Egg", "Fällanden", "Maur", "Mönchaltorf", "Oetwil am See", "Schwerzenbach", "Uster"]
+    
 }
 
 # Flat list of all corridor municipalities
@@ -195,7 +188,7 @@ CORRIDOR_MUNICIPALITIES = [  # Derived flat list used by corridor selection and 
 # Optional project-relative or absolute detailed road-network cache path.
 # Notebook 02 prepares a missing cache; later notebooks require it to exist.
 # None uses the existing default cache. For a new project, select a new filename.
-DETAILED_NETWORK_FILE = None  # Example: "data/processed/my_project_detailed_network.pkl"
+DETAILED_NETWORK_FILE = "data/processed/hubforch_detailed_network.pkl"  # Example: "data/processed/my_project_detailed_network.pkl"
 
 # -----------------------------------------------------------------------------
 # OPTION B: Define by Explicit Zone IDs
@@ -319,17 +312,16 @@ STRUCTURAL_UNCERTAINTIES = {  # Distributions for selected general parameters; n
         "transient": True,
         "distribution": "triangular",
         "minimum": -0.10,
-        "maximum": 0.30,
+        "maximum": 0.50,
     },
-    # Uncomment together with BIKE_ASC_SHIFT_Y40 above to include cycling preferences.
-    # "BIKE_ASC_SHIFT": {
-    #     "category": "transport_modelling",
-    #     "use": "scenarios",
-    #     "transient": True,
-    #     "distribution": "triangular",
-    #     "minimum": -0.50,
-    #     "maximum": 1.00,
-    # },
+    "BIKE_ASC_SHIFT": { # Final additive cycling preference shift; negative values reduce cycling attractiveness.
+         "category": "transport_modelling",
+         "use": "scenarios",
+         "transient": True,
+         "distribution": "triangular",
+         "minimum": -0.10,
+         "maximum": 1.00,
+     },
     "EBIKE_SHARE": {  # Final e-bike fraction; starts from the known baseline share.
         "category": "transport_modelling",
         "use": "scenarios",
@@ -388,30 +380,30 @@ STRUCTURAL_UNCERTAINTIES = {  # Distributions for selected general parameters; n
         "maximum": 5,
         "integer": True,
     },
-    "OPEX_MULTIPLIER": {  # Operating-cost multiplier, sampled once per future.
-        "category": "post_modelling",
-        "use": "scenarios",
-        "transient": False,
-        "distribution": "uniform",
-        "minimum": 0.50,
-        "maximum": 1.50,
-    },
-    "CAPEX_MULTIPLIER": {  # Construction/option-cost multiplier; sampled once per future.
-        "category": "post_modelling",
-        "use": "scenarios",
-        "transient": False,
-        "distribution": "triangular",
-        "minimum": 0.80,
-        "maximum": 1.20,
-    },
-    "ACCIDENT_COST_MULTIPLIER": {  # Final road/rail accident-cost factor.
-        "category": "post_modelling",
-        "use": "scenarios",
-        "transient": True,
-        "distribution": "normal",
-        "sigma": 0.15,
-        "relative_sigma": True,
-    },
+    #"OPEX_MULTIPLIER": {  # Operating-cost multiplier, sampled once per future.
+    #    "category": "post_modelling",
+    #    "use": "scenarios",
+    #    "transient": False,
+    #    "distribution": "uniform",
+    #    "minimum": 0.50,
+    #    "maximum": 1.50,
+    #},
+    #"CAPEX_MULTIPLIER": {  # Construction/option-cost multiplier; sampled once per future.
+    #    "category": "post_modelling",
+    #    "use": "scenarios",
+    #    "transient": False,
+    #    "distribution": "triangular",
+    #    "minimum": 0.80,
+    #    "maximum": 1.20,
+    #},
+    #"ACCIDENT_COST_MULTIPLIER": {  # Final road/rail accident-cost factor.
+    #    "category": "post_modelling",
+    #    "use": "scenarios",
+    #    "transient": True,
+    #    "distribution": "normal",
+    #    "sigma": 0.15,
+    #    "relative_sigma": True,
+    #},
     "LOCAL_AIR_COST_MULTIPLIER": {  # Final road/rail local air-pollution cost factor.
         "category": "post_modelling",
         "use": "scenarios",
@@ -425,5 +417,5 @@ STRUCTURAL_UNCERTAINTIES = {  # Distributions for selected general parameters; n
 # Validate settings and prepare internal surrogate metadata.
 uc.configure(
     registry=STRUCTURAL_UNCERTAINTIES, nominal=NOMINAL_PARAMS,
-    n_years=N_YEARS, tail_probability=TRANSPORT_SURROGATE_TAIL_PROBABILITY,
+    n_years= NOMINAL_PARAMS["N_YEARS"], tail_probability=TRANSPORT_SURROGATE_TAIL_PROBABILITY,
 )

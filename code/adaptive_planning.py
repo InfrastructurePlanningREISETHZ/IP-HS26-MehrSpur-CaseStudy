@@ -71,22 +71,22 @@ SIGNPOSTS = {
 DEFAULT_TRIGGERS = {
     # Trigger 1: Section demand -> package 1 (local stations and access)
     "trigger1": {
-        "signpost":        "section_combined_daily",
-        "threshold":       125_000,
+        "signpost":        "pt_share",  # PT share of passenger-kilometres
+        "threshold":       0.40,
         "persistence":     2,       # Consecutive years above threshold
-        "lead_time":       6,       # Years of planning and station civil works
+        "lead_time":       4,       # Years of planning and station civil works
     },
     # Trigger 2: The same section count -> package 2 (Brüttenertunnel)
     # An absolute daily count keeps the signpost comparable when stations add
     # capacity. The action threshold is separate from comfort capacity.
     "trigger2": {
-        "signpost":        "section_combined_daily",
-        "threshold":       122_000,
+        "signpost":        "bike_share_trips",  # Average corridor travel time
+        "threshold":       0.20,  # Trip share
         "persistence":     2,
-        # Years of tunnel planning and construction after the decision.
-        "lead_time":       10,
-    }
+        "lead_time":       2,
+    }    
 }
+
 
 
 # =============================================================================
@@ -111,17 +111,19 @@ DEFAULT_TRIGGERS = {
 # at time zero, the start of Year 1, using its carbon price.
 # Costs come from parameters.py; physical effects and asset lives from stages.py.
 # Names and descriptions are generated below so timing edits need only one change.
+
+
 PLAN_DEFINITIONS = {
     "baseline": {
         "name": "Baseline",
         "initial_packages": [], "stations": None, "tunnel": None,
     },
     "static1": {
-        "name": "Static 1",
+        "name": "Stage 1 – Mobility Hub Forch Basic & Feeder Bus 702",
         "initial_packages": ["stations"], "stations": None, "tunnel": None,
     },
     "static2": {
-        "name": "Static 2",
+        "name": "Stage 2 - Bus 702 Frequency Increase & B+R Expansion",
         "initial_packages": ["stations", "tunnel"], "stations": None, "tunnel": None,
     },
     "staged1": {
