@@ -129,14 +129,14 @@ PLAN_DEFINITIONS = {
     "staged1": {
         "name": "Staged 1",
         "initial_packages": [],
-        "stations": {"type": "fixed", "opening_year": 8},
-        "tunnel": {"type": "fixed", "opening_year": 11},
+        "stations": {"type": "fixed", "opening_year": 6},
+        "tunnel": {"type": "fixed", "opening_year": 12},
     },
     "staged2": {
         "name": "Staged 2",
         "initial_packages": [],
-        "stations": {"type": "fixed", "opening_year": 6},
-        "tunnel": {"type": "fixed", "opening_year": 15},
+        "stations": {"type": "fixed", "opening_year": 10},
+        "tunnel": {"type": "fixed", "opening_year": 20},
     },
     "flexible": {
         "name": "Flexible",
