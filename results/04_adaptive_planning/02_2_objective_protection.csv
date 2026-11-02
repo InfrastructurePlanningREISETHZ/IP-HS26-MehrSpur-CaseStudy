@@ -1,0 +1,6 @@
+﻿requirement,first_failure_year,failure_years,assessment_start,assessment_end
+1: pt_share >= 0.4,,0,20,40
+2: congestion_delay_hours < 10000,20.0,21,20,40
+3: bike_share_trips >= 0.2,20.0,21,20,40
+4: pt_journey_time_min < 30,,0,20,40
+5: section_load_ratio < 1.1,1.0,40,1,40
