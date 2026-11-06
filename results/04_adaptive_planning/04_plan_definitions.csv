@@ -1,0 +1,8 @@
+﻿plan,name,description,initial state,Station package,Tunnel package
+baseline,Baseline (no hub) — Baseline throughout the 40-year horizon,Baseline throughout the 40-year horizon,Stage 0 – Baseline Network,no later addition,no later addition
+static1,Static 1 – Leitbild hub — Stations only from Year 1,Stations only from Year 1,Package 1: Leitbild station hub Forch,no later addition,no later addition
+static2,Static 2 – Hub + access network — Stations + tunnel from Year 1,Stations + tunnel from Year 1,Both stages - Tunnel and Hubs,no later addition,no later addition
+static3,Static 3 – Access network only — Tunnel only from Year 1,Tunnel only from Year 1,Stage 2 - Acces in non-motorized transport and public transport,no later addition,no later addition
+staged1,"Staged 1 — Stations in Year 9, Tunnel in Year 15","Stations in Year 9, Tunnel in Year 15",Stage 0 – Baseline Network,fixed,fixed
+staged2,"Staged 2 — Stations in Year 9, Tunnel in Year 20","Stations in Year 9, Tunnel in Year 20",Stage 0 – Baseline Network,fixed,fixed
+adaptive,"Adaptive — Stations via Trigger 1, Tunnel via Trigger 2","Stations via Trigger 1, Tunnel via Trigger 2",Stage 0 – Baseline Network,"When PT share of passenger-kilometres exceeds 0.34 PKM share (0-1) for 2 consecutive years, decide to build; open after a 8-year lead time.","When Car share of passenger-kilometres is at or below 0.479 PKM share (0-1) for 2 consecutive years, decide to build; open after a 4-year lead time."
