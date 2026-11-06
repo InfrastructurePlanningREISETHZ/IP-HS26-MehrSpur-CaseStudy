@@ -8,12 +8,7 @@
     "batch_size": 4,
     "targets": {
       "weighted_rmse_min": 0.2
-    },
-    "points_added": 0,
-    "final_holdout_metrics": {
-      "weighted_rmse_min": 0.18242651499902607
-    },
-    "target_reached": true
+    }
   },
   "seed": 42,
   "records": [
@@ -3053,7 +3048,7 @@
   },
   "source_sha256": {
     "code/__init__.py": "421c01f1af482c603c7f45d91add8e927486e49ac37088d74d7237823d6ad9fa",
-    "code/adaptive_planning.py": "d471051352360796312a959a82b3935bac6f586de1fdea70c9231d41451cf609",
+    "code/adaptive_planning.py": "b6a2bc9c311b0f2f565dfe6ab6123dc26c038d0b697d4a34d1e2be99b149ff4d",
     "code/additional/__init__.py": "9ddd4b71b697c94056a009a1676c42259102b25623ff5b5a4f57836b4779d23a",
     "code/additional/notebook_exports.py": "3a83839a9217a775f994c1d88c998ad4b4e217b76e8a1ee5639d5e0675d6b8a4",
     "code/additional/section_flows.py": "8b0c3fdf9c036f7a634636d8a06de4c67375be2f08349a588ce2a43d47e8932a",

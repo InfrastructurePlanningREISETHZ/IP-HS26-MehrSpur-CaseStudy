@@ -1098,6 +1098,7 @@ def extract_corridor_metrics(
         involved = np.ones((len(labels), len(labels)), dtype=bool)
 
     # Trips
+    pt_bike_trips = float(od_by_mode["pt_bike"].to_numpy(dtype=float)[involved].sum())
     car_trips = float(od_by_mode["drive"].to_numpy(dtype=float)[involved].sum())
     pt_trips = float((od_by_mode["pt_walk"] + od_by_mode["pt_bike"]).to_numpy(dtype=float)[involved].sum())
     bike_trips = float(od_by_mode["bike"].to_numpy(dtype=float)[involved].sum())
@@ -1187,6 +1188,8 @@ def extract_corridor_metrics(
         # Original trip-based modal split (kept for reference/legacy checks)
         "car_share_trips": car_trips / max(total_trips, 1e-9),
         "pt_share_trips": pt_trips / max(total_trips, 1e-9),
+        "pt_bike_trips": pt_bike_trips,
+        "pt_bike_share": pt_bike_trips / max(total_trips, 1e-9),
         "bike_share_trips": bike_trips / max(total_trips, 1e-9),
         "walk_share_trips": walk_trips / max(total_trips, 1e-9),
 

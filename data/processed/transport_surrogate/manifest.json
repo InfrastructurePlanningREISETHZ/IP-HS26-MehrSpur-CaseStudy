@@ -1,7 +1,7 @@
 {
   "format_version": 3,
   "emulator_kind": "pooled_od_delay_gp",
-  "method": "Pooled one-hot ARD Mat\u00e9rn-5/2 GP of full directional OD delays; no PCA",
+  "method": "Pooled one-hot ARD Matérn-5/2 GP of full directional OD delays; no PCA",
   "artifact_file": "od_emulator.joblib",
   "input_names": [
     "PASSENGER_DEMAND_GROWTH",
@@ -435,14 +435,14 @@
     "corridor": {
       "mode": "zones",
       "municipalities": [
-        "D\u00fcbendorf",
+        "Dübendorf",
         "Egg",
-        "F\u00e4llanden",
-        "K\u00fcsnacht (ZH)",
+        "Fällanden",
+        "Küsnacht (ZH)",
         "Maur",
         "Zollikon",
         "Zumikon",
-        "Z\u00fcrich"
+        "Zürich"
       ],
       "zone_ids": [
         "15401011",
@@ -599,7 +599,7 @@
             "area_pairs": [
               {
                 "origin": {
-                  "municipality_name": "Z\u00fcrich"
+                  "municipality_name": "Zürich"
                 },
                 "destination": {
                   "municipality_name": "Zollikon"
@@ -607,7 +607,7 @@
               },
               {
                 "origin": {
-                  "municipality_name": "Z\u00fcrich"
+                  "municipality_name": "Zürich"
                 },
                 "destination": {
                   "municipality_name": "Zumikon"
@@ -615,15 +615,15 @@
               },
               {
                 "origin": {
-                  "municipality_name": "Z\u00fcrich"
+                  "municipality_name": "Zürich"
                 },
                 "destination": {
-                  "municipality_name": "K\u00fcsnacht (ZH)"
+                  "municipality_name": "Küsnacht (ZH)"
                 }
               },
               {
                 "origin": {
-                  "municipality_name": "Z\u00fcrich"
+                  "municipality_name": "Zürich"
                 },
                 "destination": {
                   "municipality_name": "Maur"
@@ -631,7 +631,7 @@
               },
               {
                 "origin": {
-                  "municipality_name": "Z\u00fcrich"
+                  "municipality_name": "Zürich"
                 },
                 "destination": {
                   "municipality_name": "Egg"
@@ -639,18 +639,18 @@
               },
               {
                 "origin": {
-                  "municipality_name": "Z\u00fcrich"
+                  "municipality_name": "Zürich"
                 },
                 "destination": {
-                  "municipality_name": "F\u00e4llanden"
+                  "municipality_name": "Fällanden"
                 }
               },
               {
                 "origin": {
-                  "municipality_name": "Z\u00fcrich"
+                  "municipality_name": "Zürich"
                 },
                 "destination": {
-                  "municipality_name": "D\u00fcbendorf"
+                  "municipality_name": "Dübendorf"
                 }
               },
               {
@@ -666,7 +666,7 @@
                   "municipality_name": "Zollikon"
                 },
                 "destination": {
-                  "municipality_name": "K\u00fcsnacht (ZH)"
+                  "municipality_name": "Küsnacht (ZH)"
                 }
               },
               {
@@ -690,7 +690,7 @@
                   "municipality_name": "Zollikon"
                 },
                 "destination": {
-                  "municipality_name": "F\u00e4llanden"
+                  "municipality_name": "Fällanden"
                 }
               },
               {
@@ -698,7 +698,7 @@
                   "municipality_name": "Zollikon"
                 },
                 "destination": {
-                  "municipality_name": "D\u00fcbendorf"
+                  "municipality_name": "Dübendorf"
                 }
               },
               {
@@ -706,7 +706,7 @@
                   "municipality_name": "Zumikon"
                 },
                 "destination": {
-                  "municipality_name": "K\u00fcsnacht (ZH)"
+                  "municipality_name": "Küsnacht (ZH)"
                 }
               },
               {
@@ -730,7 +730,7 @@
                   "municipality_name": "Zumikon"
                 },
                 "destination": {
-                  "municipality_name": "F\u00e4llanden"
+                  "municipality_name": "Fällanden"
                 }
               },
               {
@@ -738,12 +738,12 @@
                   "municipality_name": "Zumikon"
                 },
                 "destination": {
-                  "municipality_name": "D\u00fcbendorf"
+                  "municipality_name": "Dübendorf"
                 }
               },
               {
                 "origin": {
-                  "municipality_name": "K\u00fcsnacht (ZH)"
+                  "municipality_name": "Küsnacht (ZH)"
                 },
                 "destination": {
                   "municipality_name": "Maur"
@@ -751,7 +751,7 @@
               },
               {
                 "origin": {
-                  "municipality_name": "K\u00fcsnacht (ZH)"
+                  "municipality_name": "Küsnacht (ZH)"
                 },
                 "destination": {
                   "municipality_name": "Egg"
@@ -759,18 +759,18 @@
               },
               {
                 "origin": {
-                  "municipality_name": "K\u00fcsnacht (ZH)"
+                  "municipality_name": "Küsnacht (ZH)"
                 },
                 "destination": {
-                  "municipality_name": "F\u00e4llanden"
+                  "municipality_name": "Fällanden"
                 }
               },
               {
                 "origin": {
-                  "municipality_name": "K\u00fcsnacht (ZH)"
+                  "municipality_name": "Küsnacht (ZH)"
                 },
                 "destination": {
-                  "municipality_name": "D\u00fcbendorf"
+                  "municipality_name": "Dübendorf"
                 }
               },
               {
@@ -786,7 +786,7 @@
                   "municipality_name": "Maur"
                 },
                 "destination": {
-                  "municipality_name": "F\u00e4llanden"
+                  "municipality_name": "Fällanden"
                 }
               },
               {
@@ -794,7 +794,7 @@
                   "municipality_name": "Maur"
                 },
                 "destination": {
-                  "municipality_name": "D\u00fcbendorf"
+                  "municipality_name": "Dübendorf"
                 }
               },
               {
@@ -802,7 +802,7 @@
                   "municipality_name": "Egg"
                 },
                 "destination": {
-                  "municipality_name": "F\u00e4llanden"
+                  "municipality_name": "Fällanden"
                 }
               },
               {
@@ -810,15 +810,15 @@
                   "municipality_name": "Egg"
                 },
                 "destination": {
-                  "municipality_name": "D\u00fcbendorf"
+                  "municipality_name": "Dübendorf"
                 }
               },
               {
                 "origin": {
-                  "municipality_name": "F\u00e4llanden"
+                  "municipality_name": "Fällanden"
                 },
                 "destination": {
-                  "municipality_name": "D\u00fcbendorf"
+                  "municipality_name": "Dübendorf"
                 }
               }
             ],
@@ -949,7 +949,7 @@
             "area_pairs": [
               {
                 "origin": {
-                  "municipality_name": "Z\u00fcrich"
+                  "municipality_name": "Zürich"
                 },
                 "destination": {
                   "municipality_name": "Zollikon"
@@ -957,7 +957,7 @@
               },
               {
                 "origin": {
-                  "municipality_name": "Z\u00fcrich"
+                  "municipality_name": "Zürich"
                 },
                 "destination": {
                   "municipality_name": "Zumikon"
@@ -965,15 +965,15 @@
               },
               {
                 "origin": {
-                  "municipality_name": "Z\u00fcrich"
+                  "municipality_name": "Zürich"
                 },
                 "destination": {
-                  "municipality_name": "K\u00fcsnacht (ZH)"
+                  "municipality_name": "Küsnacht (ZH)"
                 }
               },
               {
                 "origin": {
-                  "municipality_name": "Z\u00fcrich"
+                  "municipality_name": "Zürich"
                 },
                 "destination": {
                   "municipality_name": "Maur"
@@ -981,7 +981,7 @@
               },
               {
                 "origin": {
-                  "municipality_name": "Z\u00fcrich"
+                  "municipality_name": "Zürich"
                 },
                 "destination": {
                   "municipality_name": "Egg"
@@ -989,18 +989,18 @@
               },
               {
                 "origin": {
-                  "municipality_name": "Z\u00fcrich"
+                  "municipality_name": "Zürich"
                 },
                 "destination": {
-                  "municipality_name": "F\u00e4llanden"
+                  "municipality_name": "Fällanden"
                 }
               },
               {
                 "origin": {
-                  "municipality_name": "Z\u00fcrich"
+                  "municipality_name": "Zürich"
                 },
                 "destination": {
-                  "municipality_name": "D\u00fcbendorf"
+                  "municipality_name": "Dübendorf"
                 }
               },
               {
@@ -1016,7 +1016,7 @@
                   "municipality_name": "Zollikon"
                 },
                 "destination": {
-                  "municipality_name": "K\u00fcsnacht (ZH)"
+                  "municipality_name": "Küsnacht (ZH)"
                 }
               },
               {
@@ -1040,7 +1040,7 @@
                   "municipality_name": "Zollikon"
                 },
                 "destination": {
-                  "municipality_name": "F\u00e4llanden"
+                  "municipality_name": "Fällanden"
                 }
               },
               {
@@ -1048,7 +1048,7 @@
                   "municipality_name": "Zollikon"
                 },
                 "destination": {
-                  "municipality_name": "D\u00fcbendorf"
+                  "municipality_name": "Dübendorf"
                 }
               },
               {
@@ -1056,7 +1056,7 @@
                   "municipality_name": "Zumikon"
                 },
                 "destination": {
-                  "municipality_name": "K\u00fcsnacht (ZH)"
+                  "municipality_name": "Küsnacht (ZH)"
                 }
               },
               {
@@ -1080,7 +1080,7 @@
                   "municipality_name": "Zumikon"
                 },
                 "destination": {
-                  "municipality_name": "F\u00e4llanden"
+                  "municipality_name": "Fällanden"
                 }
               },
               {
@@ -1088,12 +1088,12 @@
                   "municipality_name": "Zumikon"
                 },
                 "destination": {
-                  "municipality_name": "D\u00fcbendorf"
+                  "municipality_name": "Dübendorf"
                 }
               },
               {
                 "origin": {
-                  "municipality_name": "K\u00fcsnacht (ZH)"
+                  "municipality_name": "Küsnacht (ZH)"
                 },
                 "destination": {
                   "municipality_name": "Maur"
@@ -1101,7 +1101,7 @@
               },
               {
                 "origin": {
-                  "municipality_name": "K\u00fcsnacht (ZH)"
+                  "municipality_name": "Küsnacht (ZH)"
                 },
                 "destination": {
                   "municipality_name": "Egg"
@@ -1109,18 +1109,18 @@
               },
               {
                 "origin": {
-                  "municipality_name": "K\u00fcsnacht (ZH)"
+                  "municipality_name": "Küsnacht (ZH)"
                 },
                 "destination": {
-                  "municipality_name": "F\u00e4llanden"
+                  "municipality_name": "Fällanden"
                 }
               },
               {
                 "origin": {
-                  "municipality_name": "K\u00fcsnacht (ZH)"
+                  "municipality_name": "Küsnacht (ZH)"
                 },
                 "destination": {
-                  "municipality_name": "D\u00fcbendorf"
+                  "municipality_name": "Dübendorf"
                 }
               },
               {
@@ -1136,7 +1136,7 @@
                   "municipality_name": "Maur"
                 },
                 "destination": {
-                  "municipality_name": "F\u00e4llanden"
+                  "municipality_name": "Fällanden"
                 }
               },
               {
@@ -1144,7 +1144,7 @@
                   "municipality_name": "Maur"
                 },
                 "destination": {
-                  "municipality_name": "D\u00fcbendorf"
+                  "municipality_name": "Dübendorf"
                 }
               },
               {
@@ -1152,7 +1152,7 @@
                   "municipality_name": "Egg"
                 },
                 "destination": {
-                  "municipality_name": "F\u00e4llanden"
+                  "municipality_name": "Fällanden"
                 }
               },
               {
@@ -1160,15 +1160,15 @@
                   "municipality_name": "Egg"
                 },
                 "destination": {
-                  "municipality_name": "D\u00fcbendorf"
+                  "municipality_name": "Dübendorf"
                 }
               },
               {
                 "origin": {
-                  "municipality_name": "F\u00e4llanden"
+                  "municipality_name": "Fällanden"
                 },
                 "destination": {
-                  "municipality_name": "D\u00fcbendorf"
+                  "municipality_name": "Dübendorf"
                 }
               }
             ],
@@ -1299,7 +1299,7 @@
             "area_pairs": [
               {
                 "origin": {
-                  "municipality_name": "Z\u00fcrich"
+                  "municipality_name": "Zürich"
                 },
                 "destination": {
                   "municipality_name": "Zollikon"
@@ -1307,7 +1307,7 @@
               },
               {
                 "origin": {
-                  "municipality_name": "Z\u00fcrich"
+                  "municipality_name": "Zürich"
                 },
                 "destination": {
                   "municipality_name": "Zumikon"
@@ -1315,15 +1315,15 @@
               },
               {
                 "origin": {
-                  "municipality_name": "Z\u00fcrich"
+                  "municipality_name": "Zürich"
                 },
                 "destination": {
-                  "municipality_name": "K\u00fcsnacht (ZH)"
+                  "municipality_name": "Küsnacht (ZH)"
                 }
               },
               {
                 "origin": {
-                  "municipality_name": "Z\u00fcrich"
+                  "municipality_name": "Zürich"
                 },
                 "destination": {
                   "municipality_name": "Maur"
@@ -1331,7 +1331,7 @@
               },
               {
                 "origin": {
-                  "municipality_name": "Z\u00fcrich"
+                  "municipality_name": "Zürich"
                 },
                 "destination": {
                   "municipality_name": "Egg"
@@ -1339,18 +1339,18 @@
               },
               {
                 "origin": {
-                  "municipality_name": "Z\u00fcrich"
+                  "municipality_name": "Zürich"
                 },
                 "destination": {
-                  "municipality_name": "F\u00e4llanden"
+                  "municipality_name": "Fällanden"
                 }
               },
               {
                 "origin": {
-                  "municipality_name": "Z\u00fcrich"
+                  "municipality_name": "Zürich"
                 },
                 "destination": {
-                  "municipality_name": "D\u00fcbendorf"
+                  "municipality_name": "Dübendorf"
                 }
               },
               {
@@ -1366,7 +1366,7 @@
                   "municipality_name": "Zollikon"
                 },
                 "destination": {
-                  "municipality_name": "K\u00fcsnacht (ZH)"
+                  "municipality_name": "Küsnacht (ZH)"
                 }
               },
               {
@@ -1390,7 +1390,7 @@
                   "municipality_name": "Zollikon"
                 },
                 "destination": {
-                  "municipality_name": "F\u00e4llanden"
+                  "municipality_name": "Fällanden"
                 }
               },
               {
@@ -1398,7 +1398,7 @@
                   "municipality_name": "Zollikon"
                 },
                 "destination": {
-                  "municipality_name": "D\u00fcbendorf"
+                  "municipality_name": "Dübendorf"
                 }
               },
               {
@@ -1406,7 +1406,7 @@
                   "municipality_name": "Zumikon"
                 },
                 "destination": {
-                  "municipality_name": "K\u00fcsnacht (ZH)"
+                  "municipality_name": "Küsnacht (ZH)"
                 }
               },
               {
@@ -1430,7 +1430,7 @@
                   "municipality_name": "Zumikon"
                 },
                 "destination": {
-                  "municipality_name": "F\u00e4llanden"
+                  "municipality_name": "Fällanden"
                 }
               },
               {
@@ -1438,12 +1438,12 @@
                   "municipality_name": "Zumikon"
                 },
                 "destination": {
-                  "municipality_name": "D\u00fcbendorf"
+                  "municipality_name": "Dübendorf"
                 }
               },
               {
                 "origin": {
-                  "municipality_name": "K\u00fcsnacht (ZH)"
+                  "municipality_name": "Küsnacht (ZH)"
                 },
                 "destination": {
                   "municipality_name": "Maur"
@@ -1451,7 +1451,7 @@
               },
               {
                 "origin": {
-                  "municipality_name": "K\u00fcsnacht (ZH)"
+                  "municipality_name": "Küsnacht (ZH)"
                 },
                 "destination": {
                   "municipality_name": "Egg"
@@ -1459,18 +1459,18 @@
               },
               {
                 "origin": {
-                  "municipality_name": "K\u00fcsnacht (ZH)"
+                  "municipality_name": "Küsnacht (ZH)"
                 },
                 "destination": {
-                  "municipality_name": "F\u00e4llanden"
+                  "municipality_name": "Fällanden"
                 }
               },
               {
                 "origin": {
-                  "municipality_name": "K\u00fcsnacht (ZH)"
+                  "municipality_name": "Küsnacht (ZH)"
                 },
                 "destination": {
-                  "municipality_name": "D\u00fcbendorf"
+                  "municipality_name": "Dübendorf"
                 }
               },
               {
@@ -1486,7 +1486,7 @@
                   "municipality_name": "Maur"
                 },
                 "destination": {
-                  "municipality_name": "F\u00e4llanden"
+                  "municipality_name": "Fällanden"
                 }
               },
               {
@@ -1494,7 +1494,7 @@
                   "municipality_name": "Maur"
                 },
                 "destination": {
-                  "municipality_name": "D\u00fcbendorf"
+                  "municipality_name": "Dübendorf"
                 }
               },
               {
@@ -1502,7 +1502,7 @@
                   "municipality_name": "Egg"
                 },
                 "destination": {
-                  "municipality_name": "F\u00e4llanden"
+                  "municipality_name": "Fällanden"
                 }
               },
               {
@@ -1510,15 +1510,15 @@
                   "municipality_name": "Egg"
                 },
                 "destination": {
-                  "municipality_name": "D\u00fcbendorf"
+                  "municipality_name": "Dübendorf"
                 }
               },
               {
                 "origin": {
-                  "municipality_name": "F\u00e4llanden"
+                  "municipality_name": "Fällanden"
                 },
                 "destination": {
-                  "municipality_name": "D\u00fcbendorf"
+                  "municipality_name": "Dübendorf"
                 }
               }
             ],
@@ -2931,9 +2931,9 @@
   "response_table": {
     "file": "response_table.npz",
     "schema": "transport_response_v1",
-    "fingerprint": "8de41980f2dca915c55d",
-    "sha256": "f736351b2a8fe88883392e12a8b9c87d9778745eeb9a3ed24c2f2c5071019ed0",
+    "fingerprint": "b08d325936a339ed3927",
+    "sha256": "2209739c6e4d78e4d23c963bfdb2662f5609790d5698f14d35daa23cdf728332",
     "n_conditions": 432,
-    "preparation_seconds": 125.96193062490784
+    "preparation_seconds": 146.03614912499324
   }
 }
