@@ -75,6 +75,7 @@ DEFAULT_TRIGGERS = {
     "trigger1": {
         "signpost":        "pt_share",
         "threshold":       0.34,
+        "operator":        ">",
         "persistence":     2,       # Consecutive annual observations meeting the rule
         "lead_time":       8,       # Years of planning and construction ofa mobility hub. Zug Nord and Bulle as examples.
     },

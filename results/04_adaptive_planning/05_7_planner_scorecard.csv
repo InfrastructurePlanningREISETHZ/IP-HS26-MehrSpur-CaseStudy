@@ -1,0 +1,9 @@
+﻿,years_compared,final_state,infrastructure_expenditure_PV_MCHF,construction_CO2_tonnes,years_in_failure,acceptable_years_percent,final_pt_share,final_congestion_delay_hours,final_operating_co2_tonnes,additional_PV_expenditure_vs_lowest_spending_benchmark_MCHF
+PLANNER PLAN,1,Stage 0 – Baseline Network,2.138352484606915,0.0,0,100.0,0.332932152615835,5171767.136440835,188874.26688568597,2.138
+baseline,1,Stage 0 – Baseline Network,0.0,0.0,0,100.0,0.332932152615835,5171767.136440835,188874.26688568597,0.0
+static1,1,Package 1: Leitbild station hub Forch,13.937493609900987,0.0,0,100.0,0.33260844079544916,5162429.265895642,189019.48623707527,13.937
+static2,1,Both stages - Tunnel and Hubs,19.602618033324944,0.0,0,100.0,0.3326153145510726,5159417.352528266,189012.2820870985,19.603
+static3,1,Stage 2 - Acces in non-motorized transport and public transport,5.665124423423958,0.0,0,100.0,0.33257800159848927,5158637.410147162,189031.95441873212,5.665
+staged1,1,Stage 0 – Baseline Network,0.0,0.0,0,100.0,0.332932152615835,5171767.136440835,188874.26688568597,0.0
+staged2,1,Stage 0 – Baseline Network,0.0,0.0,0,100.0,0.332932152615835,5171767.136440835,188874.26688568597,0.0
+adaptive,1,Stage 0 – Baseline Network,2.138352484606915,0.0,0,100.0,0.332932152615835,5171767.136440835,188874.26688568597,2.138
