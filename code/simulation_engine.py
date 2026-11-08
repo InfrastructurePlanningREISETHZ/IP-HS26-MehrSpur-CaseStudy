@@ -679,6 +679,7 @@ def simulate_year(
         "bike_share":             base_metrics.get("bike_share", base_metrics.get("bike_share_trips", 0.0)),
         "walk_share":             base_metrics.get("walk_share", base_metrics.get("walk_share_trips", 0.0)),
         "car_share_trips":        base_metrics.get("car_share_trips", 0.0),
+        "pt_bike_share":          base_metrics.get("pt_bike_share", np.nan),
         "pt_share_trips":         base_metrics.get("pt_share_trips", 0.0),
         "bike_share_trips":       base_metrics.get("bike_share_trips", 0.0),
         "walk_share_trips":       base_metrics.get("walk_share_trips", 0.0),
