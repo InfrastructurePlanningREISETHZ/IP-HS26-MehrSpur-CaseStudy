@@ -119,126 +119,126 @@
 38,section_combined_daily,151044.09782249285,Stage 2,pt_share,41.97848540730615
 39,section_combined_daily,144272.86910452324,Stage 2,pt_share,40.6118565382877
 40,section_combined_daily,142548.66238109485,Stage 2,pt_share,40.30416245576686
-1,section_combined_daily,146528.9564316694,Baseline,congestion_delay_hours,8627716.081216652
-2,section_combined_daily,138172.17973433723,Baseline,congestion_delay_hours,8110187.912040482
-3,section_combined_daily,150100.08373729515,Baseline,congestion_delay_hours,9524344.652882736
-4,section_combined_daily,159282.36241311464,Baseline,congestion_delay_hours,11224737.427224267
-5,section_combined_daily,146184.72824396114,Baseline,congestion_delay_hours,8868371.426939055
-6,section_combined_daily,154523.2127665128,Baseline,congestion_delay_hours,10357124.312251102
-7,section_combined_daily,151648.8576961871,Baseline,congestion_delay_hours,9468631.525595523
-8,section_combined_daily,133196.00481529103,Baseline,congestion_delay_hours,7234786.333066801
-9,section_combined_daily,139662.06269328878,Baseline,congestion_delay_hours,8392776.108503645
-10,section_combined_daily,154183.34335076713,Baseline,congestion_delay_hours,11194116.058086434
-11,section_combined_daily,141699.78867415723,Baseline,congestion_delay_hours,8241321.275663386
-12,section_combined_daily,145741.85730565683,Baseline,congestion_delay_hours,8796435.393812668
-13,section_combined_daily,152576.72903931816,Baseline,congestion_delay_hours,10245607.433730409
-14,section_combined_daily,151020.5785359731,Baseline,congestion_delay_hours,9517385.659729151
-15,section_combined_daily,145010.63091880427,Baseline,congestion_delay_hours,9218655.79412593
-16,section_combined_daily,134904.0575627154,Baseline,congestion_delay_hours,7493207.577042076
-17,section_combined_daily,151161.36922623846,Baseline,congestion_delay_hours,10826000.318508897
-18,section_combined_daily,149331.39894273996,Baseline,congestion_delay_hours,9094119.495739259
-19,section_combined_daily,147960.33905655995,Baseline,congestion_delay_hours,9887504.252719646
-20,section_combined_daily,143221.70533232114,Baseline,congestion_delay_hours,9518564.932334831
-21,section_combined_daily,146458.19626334155,Baseline,congestion_delay_hours,9588822.620292395
-22,section_combined_daily,136671.04407745897,Baseline,congestion_delay_hours,7796212.02265888
-23,section_combined_daily,139740.63019445594,Baseline,congestion_delay_hours,8455534.67107735
-24,section_combined_daily,145645.8496572606,Baseline,congestion_delay_hours,9118167.52045947
-25,section_combined_daily,142729.7535376363,Baseline,congestion_delay_hours,9064000.031575987
-26,section_combined_daily,147508.16752569395,Baseline,congestion_delay_hours,10305943.242733352
-27,section_combined_daily,143101.51371600782,Baseline,congestion_delay_hours,8211576.996240955
-28,section_combined_daily,150058.44497452673,Baseline,congestion_delay_hours,9753923.4258211
-29,section_combined_daily,151813.42014754165,Baseline,congestion_delay_hours,9781716.22987525
-30,section_combined_daily,152462.21991603402,Baseline,congestion_delay_hours,10690322.147574179
-31,section_combined_daily,148109.79947299216,Baseline,congestion_delay_hours,9592955.31254307
-32,section_combined_daily,156536.38479885762,Baseline,congestion_delay_hours,11581923.482394699
-33,section_combined_daily,149720.10900172565,Baseline,congestion_delay_hours,9621292.032204555
-34,section_combined_daily,137859.92305895174,Baseline,congestion_delay_hours,8240700.336829
-35,section_combined_daily,143321.01079895018,Baseline,congestion_delay_hours,8372909.98910619
-36,section_combined_daily,156377.0669850328,Baseline,congestion_delay_hours,10302039.535217822
-37,section_combined_daily,140724.21184465627,Baseline,congestion_delay_hours,8941539.257462297
-38,section_combined_daily,151044.09782249285,Baseline,congestion_delay_hours,10548161.160944553
-39,section_combined_daily,144272.86910452324,Baseline,congestion_delay_hours,8760179.696374511
-40,section_combined_daily,142548.66238109485,Baseline,congestion_delay_hours,8588797.945980296
-1,section_combined_daily,146528.9564316694,Stage 1,congestion_delay_hours,8590414.60878638
-2,section_combined_daily,138172.17973433723,Stage 1,congestion_delay_hours,8078598.999464723
-3,section_combined_daily,150100.08373729515,Stage 1,congestion_delay_hours,9486297.869191738
-4,section_combined_daily,159282.36241311464,Stage 1,congestion_delay_hours,11185134.385189824
-5,section_combined_daily,146184.72824396114,Stage 1,congestion_delay_hours,8836968.67280274
-6,section_combined_daily,154523.2127665128,Stage 1,congestion_delay_hours,10318204.903908066
-7,section_combined_daily,151648.8576961871,Stage 1,congestion_delay_hours,9433003.073313434
-8,section_combined_daily,133196.00481529103,Stage 1,congestion_delay_hours,7208980.6744362535
-9,section_combined_daily,139662.06269328878,Stage 1,congestion_delay_hours,8359972.040422306
-10,section_combined_daily,154183.34335076713,Stage 1,congestion_delay_hours,11154655.990797138
-11,section_combined_daily,141699.78867415723,Stage 1,congestion_delay_hours,8211735.763115217
-12,section_combined_daily,145741.85730565683,Stage 1,congestion_delay_hours,8763535.82664746
-13,section_combined_daily,152576.72903931816,Stage 1,congestion_delay_hours,10206073.934924418
-14,section_combined_daily,151020.5785359731,Stage 1,congestion_delay_hours,9478444.22283905
-15,section_combined_daily,145010.63091880427,Stage 1,congestion_delay_hours,9185055.069351174
-16,section_combined_daily,134904.0575627154,Stage 1,congestion_delay_hours,7467858.800423852
-17,section_combined_daily,151161.36922623846,Stage 1,congestion_delay_hours,10787429.846655676
-18,section_combined_daily,149331.39894273996,Stage 1,congestion_delay_hours,9058581.281222498
-19,section_combined_daily,147960.33905655995,Stage 1,congestion_delay_hours,9849873.754359517
-20,section_combined_daily,143221.70533232114,Stage 1,congestion_delay_hours,9483349.789285045
-21,section_combined_daily,146458.19626334155,Stage 1,congestion_delay_hours,9553718.8077305
-22,section_combined_daily,136671.04407745897,Stage 1,congestion_delay_hours,7767328.472251675
-23,section_combined_daily,139740.63019445594,Stage 1,congestion_delay_hours,8420730.037582293
-24,section_combined_daily,145645.8496572606,Stage 1,congestion_delay_hours,9082941.190297538
-25,section_combined_daily,142729.7535376363,Stage 1,congestion_delay_hours,9029060.101173235
-26,section_combined_daily,147508.16752569395,Stage 1,congestion_delay_hours,10267318.63530358
-27,section_combined_daily,143101.51371600782,Stage 1,congestion_delay_hours,8177047.719045961
-28,section_combined_daily,150058.44497452673,Stage 1,congestion_delay_hours,9715781.967639428
-29,section_combined_daily,151813.42014754165,Stage 1,congestion_delay_hours,9743358.490749441
-30,section_combined_daily,152462.21991603402,Stage 1,congestion_delay_hours,10650172.570524314
-31,section_combined_daily,148109.79947299216,Stage 1,congestion_delay_hours,9555350.652874641
-32,section_combined_daily,156536.38479885762,Stage 1,congestion_delay_hours,11541455.213665148
-33,section_combined_daily,149720.10900172565,Stage 1,congestion_delay_hours,9584873.201025708
-34,section_combined_daily,137859.92305895174,Stage 1,congestion_delay_hours,8209451.314546823
-35,section_combined_daily,143321.01079895018,Stage 1,congestion_delay_hours,8341460.591254143
-36,section_combined_daily,156377.0669850328,Stage 1,congestion_delay_hours,10262311.698275372
-37,section_combined_daily,140724.21184465627,Stage 1,congestion_delay_hours,8907801.200941943
-38,section_combined_daily,151044.09782249285,Stage 1,congestion_delay_hours,10510580.577486906
-39,section_combined_daily,144272.86910452324,Stage 1,congestion_delay_hours,8727571.342006374
-40,section_combined_daily,142548.66238109485,Stage 1,congestion_delay_hours,8558458.024789754
-1,section_combined_daily,146528.9564316694,Stage 2,congestion_delay_hours,8573522.241605537
-2,section_combined_daily,138172.17973433723,Stage 2,congestion_delay_hours,8048015.337726237
-3,section_combined_daily,150100.08373729515,Stage 2,congestion_delay_hours,9470366.768307226
-4,section_combined_daily,159282.36241311464,Stage 2,congestion_delay_hours,11157220.379156174
-5,section_combined_daily,146184.72824396114,Stage 2,congestion_delay_hours,8808392.539315833
-6,section_combined_daily,154523.2127665128,Stage 2,congestion_delay_hours,10298711.762066515
-7,section_combined_daily,151648.8576961871,Stage 2,congestion_delay_hours,9414174.45254357
-8,section_combined_daily,133196.00481529103,Stage 2,congestion_delay_hours,7172589.180208946
-9,section_combined_daily,139662.06269328878,Stage 2,congestion_delay_hours,8332259.279158487
-10,section_combined_daily,154183.34335076713,Stage 2,congestion_delay_hours,11127847.946263853
-11,section_combined_daily,141699.78867415723,Stage 2,congestion_delay_hours,8181419.883162755
-12,section_combined_daily,145741.85730565683,Stage 2,congestion_delay_hours,8738214.886633469
-13,section_combined_daily,152576.72903931816,Stage 2,congestion_delay_hours,10184667.926940946
-14,section_combined_daily,151020.5785359731,Stage 2,congestion_delay_hours,9462177.959719319
-15,section_combined_daily,145010.63091880427,Stage 2,congestion_delay_hours,9154971.034912564
-16,section_combined_daily,134904.0575627154,Stage 2,congestion_delay_hours,7429395.76724237
-17,section_combined_daily,151161.36922623846,Stage 2,congestion_delay_hours,10759183.173467064
-18,section_combined_daily,149331.39894273996,Stage 2,congestion_delay_hours,9038451.724085761
-19,section_combined_daily,147960.33905655995,Stage 2,congestion_delay_hours,9823933.1470241
-20,section_combined_daily,143221.70533232114,Stage 2,congestion_delay_hours,9449934.571019573
-21,section_combined_daily,146458.19626334155,Stage 2,congestion_delay_hours,9523526.30106153
-22,section_combined_daily,136671.04407745897,Stage 2,congestion_delay_hours,7733892.212656421
-23,section_combined_daily,139740.63019445594,Stage 2,congestion_delay_hours,8395055.045387667
-24,section_combined_daily,145645.8496572606,Stage 2,congestion_delay_hours,9059362.340752909
-25,section_combined_daily,142729.7535376363,Stage 2,congestion_delay_hours,9001066.37269992
-26,section_combined_daily,147508.16752569395,Stage 2,congestion_delay_hours,10241937.463200616
-27,section_combined_daily,143101.51371600782,Stage 2,congestion_delay_hours,8157513.449616436
-28,section_combined_daily,150058.44497452673,Stage 2,congestion_delay_hours,9697332.201718034
-29,section_combined_daily,151813.42014754165,Stage 2,congestion_delay_hours,9725019.036162267
-30,section_combined_daily,152462.21991603402,Stage 2,congestion_delay_hours,10625447.76004372
-31,section_combined_daily,148109.79947299216,Stage 2,congestion_delay_hours,9533293.68597394
-32,section_combined_daily,156536.38479885762,Stage 2,congestion_delay_hours,11515359.638358636
-33,section_combined_daily,149720.10900172565,Stage 2,congestion_delay_hours,9561234.810985895
-34,section_combined_daily,137859.92305895174,Stage 2,congestion_delay_hours,8175383.742801899
-35,section_combined_daily,143321.01079895018,Stage 2,congestion_delay_hours,8312405.759506433
-36,section_combined_daily,156377.0669850328,Stage 2,congestion_delay_hours,10246487.691374376
-37,section_combined_daily,140724.21184465627,Stage 2,congestion_delay_hours,8878537.685750687
-38,section_combined_daily,151044.09782249285,Stage 2,congestion_delay_hours,10484803.210877743
-39,section_combined_daily,144272.86910452324,Stage 2,congestion_delay_hours,8701148.994653989
-40,section_combined_daily,142548.66238109485,Stage 2,congestion_delay_hours,8524005.608590722
+1,section_combined_daily,146528.9564316694,Baseline,avg_tt_min,13.626851694538473
+2,section_combined_daily,138172.17973433723,Baseline,avg_tt_min,13.842032659739248
+3,section_combined_daily,150100.08373729515,Baseline,avg_tt_min,13.791220471925843
+4,section_combined_daily,159282.36241311464,Baseline,avg_tt_min,14.261126141800348
+5,section_combined_daily,146184.72824396114,Baseline,avg_tt_min,13.994869679286644
+6,section_combined_daily,154523.2127665128,Baseline,avg_tt_min,13.986622139648107
+7,section_combined_daily,151648.8576961871,Baseline,avg_tt_min,13.873536519131044
+8,section_combined_daily,133196.00481529103,Baseline,avg_tt_min,13.80226143986119
+9,section_combined_daily,139662.06269328878,Baseline,avg_tt_min,13.842955099654368
+10,section_combined_daily,154183.34335076713,Baseline,avg_tt_min,14.303187974838304
+11,section_combined_daily,141699.78867415723,Baseline,avg_tt_min,13.88471910437917
+12,section_combined_daily,145741.85730565683,Baseline,avg_tt_min,13.899001145686645
+13,section_combined_daily,152576.72903931816,Baseline,avg_tt_min,14.056649427081728
+14,section_combined_daily,151020.5785359731,Baseline,avg_tt_min,13.808638258906377
+15,section_combined_daily,145010.63091880427,Baseline,avg_tt_min,14.072792514692797
+16,section_combined_daily,134904.0575627154,Baseline,avg_tt_min,13.919722189915449
+17,section_combined_daily,151161.36922623846,Baseline,avg_tt_min,14.322905334312534
+18,section_combined_daily,149331.39894273996,Baseline,avg_tt_min,13.81017964067158
+19,section_combined_daily,147960.33905655995,Baseline,avg_tt_min,14.096344394774416
+20,section_combined_daily,143221.70533232114,Baseline,avg_tt_min,14.188872710200675
+21,section_combined_daily,146458.19626334155,Baseline,avg_tt_min,14.152876113324618
+22,section_combined_daily,136671.04407745897,Baseline,avg_tt_min,13.847577376335163
+23,section_combined_daily,139740.63019445594,Baseline,avg_tt_min,13.80694079838209
+24,section_combined_daily,145645.8496572606,Baseline,avg_tt_min,13.902607905839764
+25,section_combined_daily,142729.7535376363,Baseline,avg_tt_min,13.967301733328094
+26,section_combined_daily,147508.16752569395,Baseline,avg_tt_min,14.125382081464576
+27,section_combined_daily,143101.51371600782,Baseline,avg_tt_min,13.627685761899968
+28,section_combined_daily,150058.44497452673,Baseline,avg_tt_min,13.883262628647733
+29,section_combined_daily,151813.42014754165,Baseline,avg_tt_min,13.909016918853203
+30,section_combined_daily,152462.21991603402,Baseline,avg_tt_min,14.203658594333495
+31,section_combined_daily,148109.79947299216,Baseline,avg_tt_min,13.946069600688457
+32,section_combined_daily,156536.38479885762,Baseline,avg_tt_min,14.293455603270038
+33,section_combined_daily,149720.10900172565,Baseline,avg_tt_min,14.001742498913961
+34,section_combined_daily,137859.92305895174,Baseline,avg_tt_min,13.953327301050818
+35,section_combined_daily,143321.01079895018,Baseline,avg_tt_min,13.895813503069531
+36,section_combined_daily,156377.0669850328,Baseline,avg_tt_min,13.86317440512761
+37,section_combined_daily,140724.21184465627,Baseline,avg_tt_min,13.977854776598702
+38,section_combined_daily,151044.09782249285,Baseline,avg_tt_min,14.193045847641258
+39,section_combined_daily,144272.86910452324,Baseline,avg_tt_min,13.91315338724265
+40,section_combined_daily,142548.66238109485,Baseline,avg_tt_min,14.065612441141193
+1,section_combined_daily,146528.9564316694,Stage 1,avg_tt_min,13.603119469800301
+2,section_combined_daily,138172.17973433723,Stage 1,avg_tt_min,13.819013444873807
+3,section_combined_daily,150100.08373729515,Stage 1,avg_tt_min,13.767168282843551
+4,section_combined_daily,159282.36241311464,Stage 1,avg_tt_min,14.236280394667503
+5,section_combined_daily,146184.72824396114,Stage 1,avg_tt_min,13.971949693195299
+6,section_combined_daily,154523.2127665128,Stage 1,avg_tt_min,13.96242233613117
+7,section_combined_daily,151648.8576961871,Stage 1,avg_tt_min,13.849967551165149
+8,section_combined_daily,133196.00481529103,Stage 1,avg_tt_min,13.780592736682046
+9,section_combined_daily,139662.06269328878,Stage 1,avg_tt_min,13.819665278096355
+10,section_combined_daily,154183.34335076713,Stage 1,avg_tt_min,14.278119377792807
+11,section_combined_daily,141699.78867415723,Stage 1,avg_tt_min,13.862383954484818
+12,section_combined_daily,145741.85730565683,Stage 1,avg_tt_min,13.875706645288307
+13,section_combined_daily,152576.72903931816,Stage 1,avg_tt_min,14.031944787959327
+14,section_combined_daily,151020.5785359731,Stage 1,avg_tt_min,13.784356337978931
+15,section_combined_daily,145010.63091880427,Stage 1,avg_tt_min,14.049227384566642
+16,section_combined_daily,134904.0575627154,Stage 1,avg_tt_min,13.898145721021805
+17,section_combined_daily,151161.36922623846,Stage 1,avg_tt_min,14.297862005223854
+18,section_combined_daily,149331.39894273996,Stage 1,avg_tt_min,13.786845096763091
+19,section_combined_daily,147960.33905655995,Stage 1,avg_tt_min,14.071774034676775
+20,section_combined_daily,143221.70533232114,Stage 1,avg_tt_min,14.164679353459999
+21,section_combined_daily,146458.19626334155,Stage 1,avg_tt_min,14.12880310257323
+22,section_combined_daily,136671.04407745897,Stage 1,avg_tt_min,13.825214691381724
+23,section_combined_daily,139740.63019445594,Stage 1,avg_tt_min,13.783158574934177
+24,section_combined_daily,145645.8496572606,Stage 1,avg_tt_min,13.87878528746678
+25,section_combined_daily,142729.7535376363,Stage 1,avg_tt_min,13.943525591207942
+26,section_combined_daily,147508.16752569395,Stage 1,avg_tt_min,14.100697226727055
+27,section_combined_daily,143101.51371600782,Stage 1,avg_tt_min,13.604384199439501
+28,section_combined_daily,150058.44497452673,Stage 1,avg_tt_min,13.859097042545656
+29,section_combined_daily,151813.42014754165,Stage 1,avg_tt_min,13.884745203336147
+30,section_combined_daily,152462.21991603402,Stage 1,avg_tt_min,14.178485860925594
+31,section_combined_daily,148109.79947299216,Stage 1,avg_tt_min,13.921780590633674
+32,section_combined_daily,156536.38479885762,Stage 1,avg_tt_min,14.268332164562127
+33,section_combined_daily,149720.10900172565,Stage 1,avg_tt_min,13.977786202570964
+34,section_combined_daily,137859.92305895174,Stage 1,avg_tt_min,13.930201506828563
+35,section_combined_daily,143321.01079895018,Stage 1,avg_tt_min,13.872852953015045
+36,section_combined_daily,156377.0669850328,Stage 1,avg_tt_min,13.838886023553188
+37,section_combined_daily,140724.21184465627,Stage 1,avg_tt_min,13.954277672878195
+38,section_combined_daily,151044.09782249285,Stage 1,avg_tt_min,14.168691423602404
+39,section_combined_daily,144272.86910452324,Stage 1,avg_tt_min,13.889837390693597
+40,section_combined_daily,142548.66238109485,Stage 1,avg_tt_min,14.042815620672638
+1,section_combined_daily,146528.9564316694,Stage 2,avg_tt_min,13.61235870464444
+2,section_combined_daily,138172.17973433723,Stage 2,avg_tt_min,13.821994701644535
+3,section_combined_daily,150100.08373729515,Stage 2,avg_tt_min,13.777193430725744
+4,section_combined_daily,159282.36241311464,Stage 2,avg_tt_min,14.244162346283769
+5,section_combined_daily,146184.72824396114,Stage 2,avg_tt_min,13.977123713582602
+6,section_combined_daily,154523.2127665128,Stage 2,avg_tt_min,13.971995435525567
+7,section_combined_daily,151648.8576961871,Stage 2,avg_tt_min,13.859253404120025
+8,section_combined_daily,133196.00481529103,Stage 2,avg_tt_min,13.780128714805794
+9,section_combined_daily,139662.06269328878,Stage 2,avg_tt_min,13.82396106060595
+10,section_combined_daily,154183.34335076713,Stage 2,avg_tt_min,14.28547358493129
+11,section_combined_daily,141699.78867415723,Stage 2,avg_tt_min,13.866083881885817
+12,section_combined_daily,145741.85730565683,Stage 2,avg_tt_min,13.881924125467759
+13,section_combined_daily,152576.72903931816,Stage 2,avg_tt_min,14.040667677021565
+14,section_combined_daily,151020.5785359731,Stage 2,avg_tt_min,13.794411935013612
+15,section_combined_daily,145010.63091880427,Stage 2,avg_tt_min,14.053778007209075
+16,section_combined_daily,134904.0575627154,Stage 2,avg_tt_min,13.897222468234695
+17,section_combined_daily,151161.36922623846,Stage 2,avg_tt_min,14.304221170969036
+18,section_combined_daily,149331.39894273996,Stage 2,avg_tt_min,13.795444353590547
+19,section_combined_daily,147960.33905655995,Stage 2,avg_tt_min,14.07831135941909
+20,section_combined_daily,143221.70533232114,Stage 2,avg_tt_min,14.167796718350221
+21,section_combined_daily,146458.19626334155,Stage 2,avg_tt_min,14.133617441541077
+22,section_combined_daily,136671.04407745897,Stage 2,avg_tt_min,13.82677955964438
+23,section_combined_daily,139740.63019445594,Stage 2,avg_tt_min,13.788224148023195
+24,section_combined_daily,145645.8496572606,Stage 2,avg_tt_min,13.885648005895085
+25,section_combined_daily,142729.7535376363,Stage 2,avg_tt_min,13.948409793123671
+26,section_combined_daily,147508.16752569395,Stage 2,avg_tt_min,14.107385240431556
+27,section_combined_daily,143101.51371600782,Stage 2,avg_tt_min,13.612172564386013
+28,section_combined_daily,150058.44497452673,Stage 2,avg_tt_min,13.868346549275046
+29,section_combined_daily,151813.42014754165,Stage 2,avg_tt_min,13.894260326190754
+30,section_combined_daily,152462.21991603402,Stage 2,avg_tt_min,14.18619060007005
+31,section_combined_daily,148109.79947299216,Stage 2,avg_tt_min,13.929594259804864
+32,section_combined_daily,156536.38479885762,Stage 2,avg_tt_min,14.276308860344852
+33,section_combined_daily,149720.10900172565,Stage 2,avg_tt_min,13.985330777409938
+34,section_combined_daily,137859.92305895174,Stage 2,avg_tt_min,13.931790605255582
+35,section_combined_daily,143321.01079895018,Stage 2,avg_tt_min,13.877309518145122
+36,section_combined_daily,156377.0669850328,Stage 2,avg_tt_min,13.849755466195797
+37,section_combined_daily,140724.21184465627,Stage 2,avg_tt_min,13.958293560005366
+38,section_combined_daily,151044.09782249285,Stage 2,avg_tt_min,14.175811647930429
+39,section_combined_daily,144272.86910452324,Stage 2,avg_tt_min,13.895421434463417
+40,section_combined_daily,142548.66238109485,Stage 2,avg_tt_min,14.045222567124522
 1,section_combined_daily,146528.9564316694,Baseline,bike_share_trips,15.883771902066101
 2,section_combined_daily,138172.17973433723,Baseline,bike_share_trips,18.122144339825557
 3,section_combined_daily,150100.08373729515,Baseline,bike_share_trips,16.088270000810436
@@ -479,123 +479,3 @@
 38,section_combined_daily,151044.09782249285,Stage 2,pt_journey_time_min,27.224982002228153
 39,section_combined_daily,144272.86910452324,Stage 2,pt_journey_time_min,26.849939108680083
 40,section_combined_daily,142548.66238109485,Stage 2,pt_journey_time_min,27.246775464317928
-1,section_combined_daily,146528.9564316694,Baseline,section_load_ratio,10.41123230206859
-2,section_combined_daily,138172.17973433723,Baseline,section_load_ratio,9.217260930174556
-3,section_combined_daily,150100.08373729515,Baseline,section_load_ratio,10.917752157901203
-4,section_combined_daily,159282.36241311464,Baseline,section_load_ratio,12.241281248650145
-5,section_combined_daily,146184.72824396114,Baseline,section_load_ratio,10.341672200534717
-6,section_combined_daily,154523.2127665128,Baseline,section_load_ratio,11.551396203298793
-7,section_combined_daily,151648.8576961871,Baseline,section_load_ratio,11.122865599052234
-8,section_combined_daily,133196.00481529103,Baseline,section_load_ratio,8.515464620420113
-9,section_combined_daily,139662.06269328878,Baseline,section_load_ratio,9.42832747148606
-10,section_combined_daily,154183.34335076713,Baseline,section_load_ratio,11.490873525313159
-11,section_combined_daily,141699.78867415723,Baseline,section_load_ratio,9.717673570399509
-12,section_combined_daily,145741.85730565683,Baseline,section_load_ratio,10.279666359154092
-13,section_combined_daily,152576.72903931816,Baseline,section_load_ratio,11.255491321903378
-14,section_combined_daily,151020.5785359731,Baseline,section_load_ratio,11.043411603985655
-15,section_combined_daily,145010.63091880427,Baseline,section_load_ratio,10.181479527766363
-16,section_combined_daily,134904.0575627154,Baseline,section_load_ratio,8.755848113096917
-17,section_combined_daily,151161.36922623846,Baseline,section_load_ratio,11.038343833465138
-18,section_combined_daily,149331.39894273996,Baseline,section_load_ratio,10.805465975083035
-19,section_combined_daily,147960.33905655995,Baseline,section_load_ratio,10.596459751924153
-20,section_combined_daily,143221.70533232114,Baseline,section_load_ratio,9.928613470020558
-21,section_combined_daily,146458.19626334155,Baseline,section_load_ratio,10.381589540768193
-22,section_combined_daily,136671.04407745897,Baseline,section_load_ratio,9.005030956950769
-23,section_combined_daily,139740.63019445594,Baseline,section_load_ratio,9.44010265350832
-24,section_combined_daily,145645.8496572606,Baseline,section_load_ratio,10.272641249982462
-25,section_combined_daily,142729.7535376363,Baseline,section_load_ratio,9.863569144922918
-26,section_combined_daily,147508.16752569395,Baseline,section_load_ratio,10.542892027816633
-27,section_combined_daily,143101.51371600782,Baseline,section_load_ratio,9.923345580753123
-28,section_combined_daily,150058.44497452673,Baseline,section_load_ratio,10.909328834636728
-29,section_combined_daily,151813.42014754165,Baseline,section_load_ratio,11.149302390757132
-30,section_combined_daily,152462.21991603402,Baseline,section_load_ratio,11.235213536535332
-31,section_combined_daily,148109.79947299216,Baseline,section_load_ratio,10.625211952381488
-32,section_combined_daily,156536.38479885762,Baseline,section_load_ratio,11.845603049792407
-33,section_combined_daily,149720.10900172565,Baseline,section_load_ratio,10.850035090291666
-34,section_combined_daily,137859.92305895174,Baseline,section_load_ratio,9.170781051618052
-35,section_combined_daily,143321.01079895018,Baseline,section_load_ratio,9.939738283447287
-36,section_combined_daily,156377.0669850328,Baseline,section_load_ratio,11.827277706753074
-37,section_combined_daily,140724.21184465627,Baseline,section_load_ratio,9.577650039854332
-38,section_combined_daily,151044.09782249285,Baseline,section_load_ratio,11.043780316206027
-39,section_combined_daily,144272.86910452324,Baseline,section_load_ratio,10.071882904181704
-40,section_combined_daily,142548.66238109485,Baseline,section_load_ratio,9.833346206351301
-1,section_combined_daily,146528.9564316694,Stage 1,section_load_ratio,9.491016212027697
-2,section_combined_daily,138172.17973433723,Stage 1,section_load_ratio,8.406336995574085
-3,section_combined_daily,150100.08373729515,Stage 1,section_load_ratio,9.94897040621586
-4,section_combined_daily,159282.36241311464,Stage 1,section_load_ratio,11.153703132484164
-5,section_combined_daily,146184.72824396114,Stage 1,section_load_ratio,9.431210044892136
-6,section_combined_daily,154523.2127665128,Stage 1,section_load_ratio,10.525235994051497
-7,section_combined_daily,151648.8576961871,Stage 1,section_load_ratio,10.139104418567829
-8,section_combined_daily,133196.00481529103,Stage 1,section_load_ratio,7.770089649047636
-9,section_combined_daily,139662.06269328878,Stage 1,section_load_ratio,8.597497407048989
-10,section_combined_daily,154183.34335076713,Stage 1,section_load_ratio,10.466506339084836
-11,section_combined_daily,141699.78867415723,Stage 1,section_load_ratio,8.864093124169747
-12,section_combined_daily,145741.85730565683,Stage 1,section_load_ratio,9.37331959806103
-13,section_combined_daily,152576.72903931816,Stage 1,section_load_ratio,10.255755061530701
-14,section_combined_daily,151020.5785359731,Stage 1,section_load_ratio,10.064142363229154
-15,section_combined_daily,145010.63091880427,Stage 1,section_load_ratio,9.282326371587095
-16,section_combined_daily,134904.0575627154,Stage 1,section_load_ratio,7.989272327508135
-17,section_combined_daily,151161.36922623846,Stage 1,section_load_ratio,10.055645113572645
-18,section_combined_daily,149331.39894273996,Stage 1,section_load_ratio,9.851396654314534
-19,section_combined_daily,147960.33905655995,Stage 1,section_load_ratio,9.656216416991853
-20,section_combined_daily,143221.70533232114,Stage 1,section_load_ratio,9.04978177351071
-21,section_combined_daily,146458.19626334155,Stage 1,section_load_ratio,9.4631138240808
-22,section_combined_daily,136671.04407745897,Stage 1,section_load_ratio,8.214515125786104
-23,section_combined_daily,139740.63019445594,Stage 1,section_load_ratio,8.60731677164002
-24,section_combined_daily,145645.8496572606,Stage 1,section_load_ratio,9.364043130359741
-25,section_combined_daily,142729.7535376363,Stage 1,section_load_ratio,8.991479346400547
-26,section_combined_daily,147508.16752569395,Stage 1,section_load_ratio,9.60445368773873
-27,section_combined_daily,143101.51371600782,Stage 1,section_load_ratio,9.048618562457321
-28,section_combined_daily,150058.44497452673,Stage 1,section_load_ratio,9.940768456176661
-29,section_combined_daily,151813.42014754165,Stage 1,section_load_ratio,10.160428274364236
-30,section_combined_daily,152462.21991603402,Stage 1,section_load_ratio,10.235159156583673
-31,section_combined_daily,148109.79947299216,Stage 1,section_load_ratio,9.683040037786336
-32,section_combined_daily,156536.38479885762,Stage 1,section_load_ratio,10.788000879599574
-33,section_combined_daily,149720.10900172565,Stage 1,section_load_ratio,9.889826140722676
-34,section_combined_daily,137859.92305895174,Stage 1,section_load_ratio,8.363976361391689
-35,section_combined_daily,143321.01079895018,Stage 1,section_load_ratio,9.065913606952494
-36,section_combined_daily,156377.0669850328,Stage 1,section_load_ratio,10.77564725474686
-37,section_combined_daily,140724.21184465627,Stage 1,section_load_ratio,8.73133982777341
-38,section_combined_daily,151044.09782249285,Stage 1,section_load_ratio,10.061808637320201
-39,section_combined_daily,144272.86910452324,Stage 1,section_load_ratio,9.18358872452201
-40,section_combined_daily,142548.66238109485,Stage 1,section_load_ratio,8.969002228983022
-1,section_combined_daily,146528.9564316694,Stage 2,section_load_ratio,9.442959538020258
-2,section_combined_daily,138172.17973433723,Stage 2,section_load_ratio,8.351813628276924
-3,section_combined_daily,150100.08373729515,Stage 2,section_load_ratio,9.901593102980964
-4,section_combined_daily,159282.36241311464,Stage 2,section_load_ratio,11.103522795687303
-5,section_combined_daily,146184.72824396114,Stage 2,section_load_ratio,9.376691548150838
-6,section_combined_daily,154523.2127665128,Stage 2,section_load_ratio,10.477749665234052
-7,section_combined_daily,151648.8576961871,Stage 2,section_load_ratio,10.089554423052121
-8,section_combined_daily,133196.00481529103,Stage 2,section_load_ratio,7.714056693675387
-9,section_combined_daily,139662.06269328878,Stage 2,section_load_ratio,8.543787712036405
-10,section_combined_daily,154183.34335076713,Stage 2,section_load_ratio,10.41624167341821
-11,section_combined_daily,141699.78867415723,Stage 2,section_load_ratio,8.808428903846306
-12,section_combined_daily,145741.85730565683,Stage 2,section_load_ratio,9.320355014591463
-13,section_combined_daily,152576.72903931816,Stage 2,section_load_ratio,10.20748358770248
-14,section_combined_daily,151020.5785359731,Stage 2,section_load_ratio,10.017123772868722
-15,section_combined_daily,145010.63091880427,Stage 2,section_load_ratio,9.228352997429182
-16,section_combined_daily,134904.0575627154,Stage 2,section_load_ratio,7.931690494344577
-17,section_combined_daily,151161.36922623846,Stage 2,section_load_ratio,10.004416192372918
-18,section_combined_daily,149331.39894273996,Stage 2,section_load_ratio,9.801940199646465
-19,section_combined_daily,147960.33905655995,Stage 2,section_load_ratio,9.605280530844825
-20,section_combined_daily,143221.70533232114,Stage 2,section_load_ratio,8.995351902563298
-21,section_combined_daily,146458.19626334155,Stage 2,section_load_ratio,9.409677279038908
-22,section_combined_daily,136671.04407745897,Stage 2,section_load_ratio,8.1589092315462
-23,section_combined_daily,139740.63019445594,Stage 2,section_load_ratio,8.554790605813889
-24,section_combined_daily,145645.8496572606,Stage 2,section_load_ratio,9.312716285598675
-25,section_combined_daily,142729.7535376363,Stage 2,section_load_ratio,8.938642967149725
-26,section_combined_daily,147508.16752569395,Stage 2,section_load_ratio,9.554368571161879
-27,section_combined_daily,143101.51371600782,Stage 2,section_load_ratio,8.99794218252085
-28,section_combined_daily,150058.44497452673,Stage 2,section_load_ratio,9.892753471912918
-29,section_combined_daily,151813.42014754165,Stage 2,section_load_ratio,10.112446441113375
-30,section_combined_daily,152462.21991603402,Stage 2,section_load_ratio,10.185852818776313
-31,section_combined_daily,148109.79947299216,Stage 2,section_load_ratio,9.63339920335039
-32,section_combined_daily,156536.38479885762,Stage 2,section_load_ratio,10.73877168717481
-33,section_combined_daily,149720.10900172565,Stage 2,section_load_ratio,9.839318317632081
-34,section_combined_daily,137859.92305895174,Stage 2,section_load_ratio,8.308203875794655
-35,section_combined_daily,143321.01079895018,Stage 2,section_load_ratio,9.011152449234626
-36,section_combined_daily,156377.0669850328,Stage 2,section_load_ratio,10.729396194892878
-37,section_combined_daily,140724.21184465627,Stage 2,section_load_ratio,8.677703952386594
-38,section_combined_daily,151044.09782249285,Stage 2,section_load_ratio,10.011254057754753
-39,section_combined_daily,144272.86910452324,Stage 2,section_load_ratio,9.130232562701757
-40,section_combined_daily,142548.66238109485,Stage 2,section_load_ratio,8.912229807875113
