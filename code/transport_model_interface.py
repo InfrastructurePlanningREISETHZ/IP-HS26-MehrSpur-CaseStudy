@@ -38,7 +38,7 @@ import pandas as pd
 # ---------------------------------------------------------------------------
 
 DEFAULT_CORRIDOR_BUFFER_M = 500.0
-DEFAULT_MAX_GATES = 100
+DEFAULT_MAX_GATES = 40
 DEFAULT_GATE_SEPARATION_M = 500.0
 DEFAULT_PASSTHROUGH_FRACTION = 0.05
 
