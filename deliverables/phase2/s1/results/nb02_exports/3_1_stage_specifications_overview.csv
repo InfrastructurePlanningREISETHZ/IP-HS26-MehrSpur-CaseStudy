@@ -1,0 +1,5 @@
+﻿Stage,Name,Rail,Bike,Hubs,Road,Headway (min),Section saving (min),PT capacity,Incremental CAPEX (CHF),Incremental OPEX (CHF/year),Construction emissions (total tCO2e)
+0,Stage 0 – Baseline Network,0,0,0,0,20.0,0.0,11352.0,0.0,0.0,0.0
+1,Package 1: Leitbild station hub Forch,1,0,1,0,20.0,0.0,11352.0,12990000.0,259800.0,0.0
+2,Stage 2 - Acces in non-motorized transport and public transport,2,3,0,0,20.0,0.0,11352.0,5280000.0,105600.0,0.0
+3,Both stages - Tunnel and Hubs,2,3,1,0,20.0,0.0,11352.0,18270000.0,365400.0,0.0

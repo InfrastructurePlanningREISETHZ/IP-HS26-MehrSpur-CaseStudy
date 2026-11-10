@@ -1,0 +1,11 @@
+﻿Key,Default group,Meaning,Nominal,Visible
+PASSENGER_DEMAND_GROWTH_Y40,Demand,Cumulative demand growth by Year 40,0.2,True
+PT_ASC_SHIFT_Y40,Mode preferences,Common additive PT ASC preference shift by Year 40,0.1,True
+EBIKE_SHARE,Cycling,Share of bicycles represented by e-bikes in Year 40,0.5,True
+EBIKE_SPEED_MULTIPLIER,Cycling,E-bike speed multiplier,1.5,False
+travel_time_reduction_pct,PT infrastructure and service,PT in-vehicle time reduction (%),0.0,True
+initial_wait_reduction_pct,PT infrastructure and service,Initial waiting-time reduction (%),0.0,True
+transfer_wait_reduction_pct,PT infrastructure and service,Transfer waiting-time reduction (%),0.0,True
+transfer_time_reduction_pct,PT infrastructure and service,Physical transfer-time reduction (%),0.0,True
+access_time_reduction_pct,PT infrastructure and service,Station access-time reduction (%),0.0,True
+egress_time_reduction_pct,PT infrastructure and service,Station egress-time reduction (%),0.0,True

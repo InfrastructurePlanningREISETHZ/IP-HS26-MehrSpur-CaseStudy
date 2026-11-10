@@ -1,0 +1,13 @@
+{
+  "bbox_west_south_east_north": [
+    8.52,
+    47.26,
+    8.76,
+    47.42
+  ],
+  "query": "osmnx.graph_from_bbox(network_type='drive', simplify=False, retain_all=True)",
+  "osmnx_version": "2.0.1",
+  "downloaded_utc": "2026-10-09T19:30:37+00:00",
+  "nodes": 100012,
+  "edges": 183416
+}

@@ -113,16 +113,20 @@ DEFAULT_TRIGGERS = {
 # Names and descriptions are generated below so timing edits need only one change.
 PLAN_DEFINITIONS = {
     "baseline": {
-        "name": "Baseline",
+        "name": "Baseline (no hub)",
         "initial_packages": [], "stations": None, "tunnel": None,
     },
     "static1": {
-        "name": "Static 1",
+        "name": "Static 1 – Leitbild hub",
         "initial_packages": ["stations"], "stations": None, "tunnel": None,
     },
     "static2": {
-        "name": "Static 2",
+        "name": "Static 2 – Hub + access network",
         "initial_packages": ["stations", "tunnel"], "stations": None, "tunnel": None,
+    },
+    "static3": {
+        "name": "Static 3 – Access network only",
+        "initial_packages": ["tunnel"], "stations": None, "tunnel": None,
     },
     "staged1": {
         "name": "Staged 1",

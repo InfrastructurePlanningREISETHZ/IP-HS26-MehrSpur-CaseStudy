@@ -1,0 +1,4 @@
+﻿,Section reference time,Section modeled passengers,Section supplementary passengers,Section combined passengers,Section comfort capacity,Section load/capacity,Section crowding multiplier,Section crowding penalty,PT waiting,PT access,PT egress,PT transfer walking
+Baseline — Baseline throughout the 40-year horizon,,,,,,,,,3.9049684153859836,4.859317307305231,4.643107018880489,1.0678552193661417
+Static 1 — Stations only from Year 1,,,,,,,,,3.9049684153859836,4.8591495247787835,4.643107018880489,1.0678552193661417
+Static 2 — Stations + tunnel from Year 1,,,,,,,,,3.904803332088134,4.8591495247787835,4.643107018880489,1.0678552193661417

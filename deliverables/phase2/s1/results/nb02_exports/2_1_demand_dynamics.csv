@@ -1,0 +1,5 @@
+﻿Parameter,Where it is,Definition,Baseline Value,Unit,Spatial Scope,Direct System Impact
+N_YEARS,"<a href=""../code/parameters.py#L42"">parameters.py</a>",Planning horizon,40,years,Global,Length of Year 1 → Year 40 comparison
+PASSENGER_DEMAND_GROWTH_Y40,"<a href=""../code/parameters.py#L51"">parameters.py</a>",Total corridor demand growth by Year 40,20%,fraction,"All 1,223 Canton Zürich zones",Drives Year 40 traffic volume and congestion
+MAX_AVG_TT,"<a href=""../code/parameters.py#L158"">parameters.py</a>",Maximum acceptable average motorized travel time,15,minutes,Corridor-wide,Acceptability / success threshold
+PT_SHARE_TARGET,"<a href=""../code/parameters.py#L159"">parameters.py</a>",Target PT modal split,35%,fraction,Corridor-wide,Acceptability / success threshold

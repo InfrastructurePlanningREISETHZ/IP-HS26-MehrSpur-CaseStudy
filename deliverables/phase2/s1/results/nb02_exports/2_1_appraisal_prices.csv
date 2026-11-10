@@ -1,0 +1,12 @@
+﻿Parameter,Where it is,Definition,Baseline Value,Unit,Spatial Scope,Direct System Impact
+DISCOUNT_RATE,"<a href=""../code/parameters.py#L44"">parameters.py</a>",Social discount rate,2.0%,fraction,Corridor-wide CBA,Discounts future costs and benefits to present value
+CAR_CO2_KG_PER_VEHICLE_KM,"<a href=""../code/parameters.py#L120"">parameters.py</a>",Car fleet emission factor,0.139,kg CO₂/vehicle-km,Car travel,Converts vehicle-km to physical emissions
+CO2_VALUE_CHF_PER_TONNE,"<a href=""../code/parameters.py#L127"">parameters.py</a>",Carbon value in reference year,123.2,CHF/tonne CO₂,Car and rail,Values each mode at the same carbon price
+CO2_REFERENCE_YEAR,"<a href=""../code/parameters.py#L128"">parameters.py</a>",Carbon valuation reference year,2015,calendar year,Car and rail,Starting year for carbon-price escalation
+CO2_VALUE_ANNUAL_GROWTH,"<a href=""../code/parameters.py#L129"">parameters.py</a>",Annual carbon-price growth,3.0%,fraction/year,Car and rail,Compounds the carbon value by calendar year
+APPRAISAL_START_YEAR,"<a href=""../code/parameters.py#L43"">parameters.py</a>",Calendar year of appraisal Year 1,2026,calendar year,Corridor-wide CBA,Aligns annual carbon values with the appraisal horizon
+C_TT_CAR,"<a href=""../code/parameters.py#L98"">parameters.py</a>",Value of car travel time,42.5,CHF/h,Car travel demand,Monetizes car travel-time savings
+C_TT_PT,"<a href=""../code/parameters.py#L99"">parameters.py</a>",Value of in-vehicle PT travel time,26.52,CHF/person-hour,PT passengers,Monetizes PT in-vehicle time savings
+C_TT_PT_WAITING,"<a href=""../code/parameters.py#L100"">parameters.py</a>",Value of PT waiting time,26.52,CHF/person-hour,PT passengers,Values initial and transfer waiting
+C_TT_PT_ACCESS,"<a href=""../code/parameters.py#L101"">parameters.py</a>",Value of station access and egress,26.52,CHF/person-hour,PT passengers,Values access and egress time
+C_TT_PT_TRANSFER,"<a href=""../code/parameters.py#L102"">parameters.py</a>",Value of transfer walking,26.52,CHF/person-hour,PT passengers,Values walking between services

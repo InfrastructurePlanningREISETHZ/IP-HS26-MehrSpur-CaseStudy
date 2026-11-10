@@ -38,7 +38,7 @@ import pandas as pd
 # ---------------------------------------------------------------------------
 
 DEFAULT_CORRIDOR_BUFFER_M = 500.0
-DEFAULT_MAX_GATES = 100
+DEFAULT_MAX_GATES = 60  # Forch V-b (v2 decision V1), rule D3: smallest set gating every gateable major crossing, delay within 5 % of next larger (D1 had 40).
 DEFAULT_GATE_SEPARATION_M = 500.0
 DEFAULT_PASSTHROUGH_FRACTION = 0.05
 
