@@ -1,0 +1,15 @@
+﻿plan,requirement,failure_percent,mean_failure_years
+adaptive,1: pt_share > 0.35,84.5,13.225
+adaptive,2: pt_bike_share >= 0.075,99.0,19.28
+baseline,1: pt_share > 0.35,84.0,13.3
+baseline,2: pt_bike_share >= 0.075,99.0,19.3
+staged1,1: pt_share > 0.35,84.5,13.225
+staged1,2: pt_bike_share >= 0.075,99.0,19.28
+staged2,1: pt_share > 0.35,84.5,13.225
+staged2,2: pt_bike_share >= 0.075,99.0,19.28
+static1,1: pt_share > 0.35,84.5,13.22
+static1,2: pt_bike_share >= 0.075,99.0,19.275
+static2,1: pt_share > 0.35,84.5,13.225
+static2,2: pt_bike_share >= 0.075,99.0,19.28
+static3,1: pt_share > 0.35,84.5,13.315
+static3,2: pt_bike_share >= 0.075,99.0,19.3

@@ -1,0 +1,5 @@
+﻿requirement,plan,box_source,density_in_plan,coverage_in_plan
+1: pt_share > 0.35,baseline,baseline,1.0,0.6964285714285714
+1: pt_share > 0.35,adaptive,adaptive,1.0,0.6923076923076923
+2: pt_bike_share >= 0.075,baseline,none,,
+2: pt_bike_share >= 0.075,adaptive,none,,

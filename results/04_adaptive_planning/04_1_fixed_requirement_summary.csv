@@ -1,0 +1,9 @@
+﻿requirement,failure_percent,mean_failure_years,configuration
+PT share (strategic PKM) > 35 % (Years 20–40),84.0,13.3,Stage 0 – Baseline Network
+PT with bicycle access/egress (% of all trips) >= 7.5 % (Years 20–40),99.0,19.3,Stage 0 – Baseline Network
+PT share (strategic PKM) > 35 % (Years 20–40),84.5,13.22,Package 1: Leitbild station hub Forch
+PT with bicycle access/egress (% of all trips) >= 7.5 % (Years 20–40),99.0,19.27,Package 1: Leitbild station hub Forch
+PT share (strategic PKM) > 35 % (Years 20–40),84.5,13.32,Stage 2 - Acces in non-motorized transport and public transport
+PT with bicycle access/egress (% of all trips) >= 7.5 % (Years 20–40),99.0,19.3,Stage 2 - Acces in non-motorized transport and public transport
+PT share (strategic PKM) > 35 % (Years 20–40),84.5,13.22,Both stages - Tunnel and Hubs
+PT with bicycle access/egress (% of all trips) >= 7.5 % (Years 20–40),99.0,19.28,Both stages - Tunnel and Hubs
