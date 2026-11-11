@@ -1,13 +1,13 @@
 ﻿scenario,source_state,target_state,package,transition,window_number,opening_window_start,opening_window_end,restorable_years,construction_years,decision_by_window_start,last_restoration_decision_year,earliest_rule_decision_year,earliest_rule_opening_year,reachable_from_new_monitoring,whole_window_reachable,continues_to_horizon
-35,0,1,1,Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,1,34,34,1,8,26,26,3,11,True,True,False
-35,2,3,1,Stage 2 - Acces in non-motorized transport and public transport → Both stages - Tunnel and Hubs,1,34,34,1,8,26,26,3,11,True,True,False
-61,0,1,1,Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,1,32,32,1,8,24,24,3,11,True,True,False
-61,0,2,2,Stage 0 – Baseline Network → Stage 2 - Acces in non-motorized transport and public transport,1,32,32,1,4,28,28,3,7,True,True,False
+40,0,1,1,Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,1,31,31,1,8,23,23,3,11,True,True,False
+40,0,2,2,Stage 0 – Baseline Network → Stage 2 - Acces in non-motorized transport and public transport,1,31,31,1,4,27,27,3,7,True,True,False
+63,2,3,1,Stage 2 - Acces in non-motorized transport and public transport → Both stages - Tunnel and Hubs,1,38,38,1,8,30,30,3,11,True,True,False
+66,1,3,2,Package 1: Leitbild station hub Forch → Both stages - Tunnel and Hubs,1,31,31,1,4,27,27,3,7,True,True,False
+66,2,3,1,Stage 2 - Acces in non-motorized transport and public transport → Both stages - Tunnel and Hubs,1,31,31,1,8,23,23,3,11,True,True,False
 71,0,1,1,Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,1,38,38,1,8,30,30,3,11,True,True,False
 71,2,3,1,Stage 2 - Acces in non-motorized transport and public transport → Both stages - Tunnel and Hubs,1,38,38,1,8,30,30,3,11,True,True,False
+81,0,1,1,Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,1,37,37,1,8,29,29,3,11,True,True,False
+81,2,3,1,Stage 2 - Acces in non-motorized transport and public transport → Both stages - Tunnel and Hubs,1,37,37,1,8,29,29,3,11,True,True,False
+99,0,1,1,Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,1,38,38,1,8,30,30,3,11,True,True,False
 145,0,1,1,Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,1,40,40,1,8,32,32,3,11,True,True,True
 145,0,2,2,Stage 0 – Baseline Network → Stage 2 - Acces in non-motorized transport and public transport,1,40,40,1,4,36,36,3,7,True,True,True
-194,0,1,1,Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,1,34,34,1,8,26,26,3,11,True,True,False
-194,2,3,1,Stage 2 - Acces in non-motorized transport and public transport → Both stages - Tunnel and Hubs,1,34,34,1,8,26,26,3,11,True,True,False
-195,0,1,1,Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,1,37,37,1,8,29,29,3,11,True,True,False
-195,2,3,1,Stage 2 - Acces in non-motorized transport and public transport → Both stages - Tunnel and Hubs,1,37,37,1,8,29,29,3,11,True,True,False

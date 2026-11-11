@@ -139,10 +139,10 @@
 34,Stage 0 – Baseline Network → Stage 2 - Acces in non-motorized transport and public transport,0,2,2,0,0,False,False,,,
 34,Package 1: Leitbild station hub Forch → Both stages - Tunnel and Hubs,1,3,2,0,0,False,False,,,
 34,Stage 2 - Acces in non-motorized transport and public transport → Both stages - Tunnel and Hubs,2,3,1,0,0,False,False,,,
-35,Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,0,1,1,1,1,True,True,34.0,34.0,26.0
+35,Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,0,1,1,0,0,False,False,,,
 35,Stage 0 – Baseline Network → Stage 2 - Acces in non-motorized transport and public transport,0,2,2,0,0,False,False,,,
 35,Package 1: Leitbild station hub Forch → Both stages - Tunnel and Hubs,1,3,2,0,0,False,False,,,
-35,Stage 2 - Acces in non-motorized transport and public transport → Both stages - Tunnel and Hubs,2,3,1,1,1,True,True,34.0,34.0,26.0
+35,Stage 2 - Acces in non-motorized transport and public transport → Both stages - Tunnel and Hubs,2,3,1,0,0,False,False,,,
 36,Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,0,1,1,0,0,False,False,,,
 36,Stage 0 – Baseline Network → Stage 2 - Acces in non-motorized transport and public transport,0,2,2,0,0,False,False,,,
 36,Package 1: Leitbild station hub Forch → Both stages - Tunnel and Hubs,1,3,2,0,0,False,False,,,
@@ -159,8 +159,8 @@
 39,Stage 0 – Baseline Network → Stage 2 - Acces in non-motorized transport and public transport,0,2,2,0,0,False,False,,,
 39,Package 1: Leitbild station hub Forch → Both stages - Tunnel and Hubs,1,3,2,0,0,False,False,,,
 39,Stage 2 - Acces in non-motorized transport and public transport → Both stages - Tunnel and Hubs,2,3,1,0,0,False,False,,,
-40,Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,0,1,1,0,0,False,False,,,
-40,Stage 0 – Baseline Network → Stage 2 - Acces in non-motorized transport and public transport,0,2,2,0,0,False,False,,,
+40,Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,0,1,1,1,1,True,True,31.0,31.0,23.0
+40,Stage 0 – Baseline Network → Stage 2 - Acces in non-motorized transport and public transport,0,2,2,1,1,True,True,31.0,31.0,27.0
 40,Package 1: Leitbild station hub Forch → Both stages - Tunnel and Hubs,1,3,2,0,0,False,False,,,
 40,Stage 2 - Acces in non-motorized transport and public transport → Both stages - Tunnel and Hubs,2,3,1,0,0,False,False,,,
 41,Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,0,1,1,0,0,False,False,,,
@@ -243,8 +243,8 @@
 60,Stage 0 – Baseline Network → Stage 2 - Acces in non-motorized transport and public transport,0,2,2,0,0,False,False,,,
 60,Package 1: Leitbild station hub Forch → Both stages - Tunnel and Hubs,1,3,2,0,0,False,False,,,
 60,Stage 2 - Acces in non-motorized transport and public transport → Both stages - Tunnel and Hubs,2,3,1,0,0,False,False,,,
-61,Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,0,1,1,1,1,True,True,32.0,32.0,24.0
-61,Stage 0 – Baseline Network → Stage 2 - Acces in non-motorized transport and public transport,0,2,2,1,1,True,True,32.0,32.0,28.0
+61,Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,0,1,1,0,0,False,False,,,
+61,Stage 0 – Baseline Network → Stage 2 - Acces in non-motorized transport and public transport,0,2,2,0,0,False,False,,,
 61,Package 1: Leitbild station hub Forch → Both stages - Tunnel and Hubs,1,3,2,0,0,False,False,,,
 61,Stage 2 - Acces in non-motorized transport and public transport → Both stages - Tunnel and Hubs,2,3,1,0,0,False,False,,,
 62,Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,0,1,1,0,0,False,False,,,
@@ -254,7 +254,7 @@
 63,Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,0,1,1,0,0,False,False,,,
 63,Stage 0 – Baseline Network → Stage 2 - Acces in non-motorized transport and public transport,0,2,2,0,0,False,False,,,
 63,Package 1: Leitbild station hub Forch → Both stages - Tunnel and Hubs,1,3,2,0,0,False,False,,,
-63,Stage 2 - Acces in non-motorized transport and public transport → Both stages - Tunnel and Hubs,2,3,1,0,0,False,False,,,
+63,Stage 2 - Acces in non-motorized transport and public transport → Both stages - Tunnel and Hubs,2,3,1,1,1,True,True,38.0,38.0,30.0
 64,Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,0,1,1,0,0,False,False,,,
 64,Stage 0 – Baseline Network → Stage 2 - Acces in non-motorized transport and public transport,0,2,2,0,0,False,False,,,
 64,Package 1: Leitbild station hub Forch → Both stages - Tunnel and Hubs,1,3,2,0,0,False,False,,,
@@ -265,8 +265,8 @@
 65,Stage 2 - Acces in non-motorized transport and public transport → Both stages - Tunnel and Hubs,2,3,1,0,0,False,False,,,
 66,Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,0,1,1,0,0,False,False,,,
 66,Stage 0 – Baseline Network → Stage 2 - Acces in non-motorized transport and public transport,0,2,2,0,0,False,False,,,
-66,Package 1: Leitbild station hub Forch → Both stages - Tunnel and Hubs,1,3,2,0,0,False,False,,,
-66,Stage 2 - Acces in non-motorized transport and public transport → Both stages - Tunnel and Hubs,2,3,1,0,0,False,False,,,
+66,Package 1: Leitbild station hub Forch → Both stages - Tunnel and Hubs,1,3,2,1,1,True,True,31.0,31.0,27.0
+66,Stage 2 - Acces in non-motorized transport and public transport → Both stages - Tunnel and Hubs,2,3,1,1,1,True,True,31.0,31.0,23.0
 67,Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,0,1,1,0,0,False,False,,,
 67,Stage 0 – Baseline Network → Stage 2 - Acces in non-motorized transport and public transport,0,2,2,0,0,False,False,,,
 67,Package 1: Leitbild station hub Forch → Both stages - Tunnel and Hubs,1,3,2,0,0,False,False,,,
@@ -323,10 +323,10 @@
 80,Stage 0 – Baseline Network → Stage 2 - Acces in non-motorized transport and public transport,0,2,2,0,0,False,False,,,
 80,Package 1: Leitbild station hub Forch → Both stages - Tunnel and Hubs,1,3,2,0,0,False,False,,,
 80,Stage 2 - Acces in non-motorized transport and public transport → Both stages - Tunnel and Hubs,2,3,1,0,0,False,False,,,
-81,Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,0,1,1,0,0,False,False,,,
+81,Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,0,1,1,1,1,True,True,37.0,37.0,29.0
 81,Stage 0 – Baseline Network → Stage 2 - Acces in non-motorized transport and public transport,0,2,2,0,0,False,False,,,
 81,Package 1: Leitbild station hub Forch → Both stages - Tunnel and Hubs,1,3,2,0,0,False,False,,,
-81,Stage 2 - Acces in non-motorized transport and public transport → Both stages - Tunnel and Hubs,2,3,1,0,0,False,False,,,
+81,Stage 2 - Acces in non-motorized transport and public transport → Both stages - Tunnel and Hubs,2,3,1,1,1,True,True,37.0,37.0,29.0
 82,Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,0,1,1,0,0,False,False,,,
 82,Stage 0 – Baseline Network → Stage 2 - Acces in non-motorized transport and public transport,0,2,2,0,0,False,False,,,
 82,Package 1: Leitbild station hub Forch → Both stages - Tunnel and Hubs,1,3,2,0,0,False,False,,,
@@ -395,7 +395,7 @@
 98,Stage 0 – Baseline Network → Stage 2 - Acces in non-motorized transport and public transport,0,2,2,0,0,False,False,,,
 98,Package 1: Leitbild station hub Forch → Both stages - Tunnel and Hubs,1,3,2,0,0,False,False,,,
 98,Stage 2 - Acces in non-motorized transport and public transport → Both stages - Tunnel and Hubs,2,3,1,0,0,False,False,,,
-99,Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,0,1,1,0,0,False,False,,,
+99,Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,0,1,1,1,1,True,True,38.0,38.0,30.0
 99,Stage 0 – Baseline Network → Stage 2 - Acces in non-motorized transport and public transport,0,2,2,0,0,False,False,,,
 99,Package 1: Leitbild station hub Forch → Both stages - Tunnel and Hubs,1,3,2,0,0,False,False,,,
 99,Stage 2 - Acces in non-motorized transport and public transport → Both stages - Tunnel and Hubs,2,3,1,0,0,False,False,,,
@@ -775,14 +775,14 @@
 193,Stage 0 – Baseline Network → Stage 2 - Acces in non-motorized transport and public transport,0,2,2,0,0,False,False,,,
 193,Package 1: Leitbild station hub Forch → Both stages - Tunnel and Hubs,1,3,2,0,0,False,False,,,
 193,Stage 2 - Acces in non-motorized transport and public transport → Both stages - Tunnel and Hubs,2,3,1,0,0,False,False,,,
-194,Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,0,1,1,1,1,True,True,34.0,34.0,26.0
+194,Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,0,1,1,0,0,False,False,,,
 194,Stage 0 – Baseline Network → Stage 2 - Acces in non-motorized transport and public transport,0,2,2,0,0,False,False,,,
 194,Package 1: Leitbild station hub Forch → Both stages - Tunnel and Hubs,1,3,2,0,0,False,False,,,
-194,Stage 2 - Acces in non-motorized transport and public transport → Both stages - Tunnel and Hubs,2,3,1,1,1,True,True,34.0,34.0,26.0
-195,Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,0,1,1,1,1,True,True,37.0,37.0,29.0
+194,Stage 2 - Acces in non-motorized transport and public transport → Both stages - Tunnel and Hubs,2,3,1,0,0,False,False,,,
+195,Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,0,1,1,0,0,False,False,,,
 195,Stage 0 – Baseline Network → Stage 2 - Acces in non-motorized transport and public transport,0,2,2,0,0,False,False,,,
 195,Package 1: Leitbild station hub Forch → Both stages - Tunnel and Hubs,1,3,2,0,0,False,False,,,
-195,Stage 2 - Acces in non-motorized transport and public transport → Both stages - Tunnel and Hubs,2,3,1,1,1,True,True,37.0,37.0,29.0
+195,Stage 2 - Acces in non-motorized transport and public transport → Both stages - Tunnel and Hubs,2,3,1,0,0,False,False,,,
 196,Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,0,1,1,0,0,False,False,,,
 196,Stage 0 – Baseline Network → Stage 2 - Acces in non-motorized transport and public transport,0,2,2,0,0,False,False,,,
 196,Package 1: Leitbild station hub Forch → Both stages - Tunnel and Hubs,1,3,2,0,0,False,False,,,

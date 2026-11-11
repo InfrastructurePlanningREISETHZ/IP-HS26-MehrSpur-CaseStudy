@@ -1,5 +1,5 @@
 ﻿configuration,initial_shortfall_percent,all_requirements_met_percent,mean_failure_years,median_first_failure_year_among_failures
-Stage 0 – Baseline Network,0.0,0.0,19.43,20.0
-Package 1: Leitbild station hub Forch,0.0,0.0,19.4,20.0
-Stage 2 - Acces in non-motorized transport and public transport,0.0,0.0,19.42,20.0
-Both stages - Tunnel and Hubs,0.0,0.0,19.4,20.0
+Stage 0 – Baseline Network,0.0,1.0,19.3,20.0
+Package 1: Leitbild station hub Forch,0.0,1.0,19.27,20.0
+Stage 2 - Acces in non-motorized transport and public transport,0.0,1.0,19.3,20.0
+Both stages - Tunnel and Hubs,0.0,1.0,19.28,20.0

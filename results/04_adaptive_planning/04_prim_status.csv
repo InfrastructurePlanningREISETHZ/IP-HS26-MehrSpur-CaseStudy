@@ -1,5 +1,5 @@
 ﻿requirement,plan,scenarios,failures,failure_percent,status,accepted,density,coverage,density_threshold
-1: pt_share > 0.35,baseline,200,154,77.0,Qualifying box,True,1.0,0.6103896103896104,0.75
-1: pt_share > 0.35,adaptive,200,156,78.0,Qualifying box,True,1.0,0.6025641025641025,0.75
-2: pt_bike_share >= 0.075,baseline,200,200,100.0,All scenarios fail this requirement,False,,,0.75
-2: pt_bike_share >= 0.075,adaptive,200,200,100.0,All scenarios fail this requirement,False,,,0.75
+1: pt_share > 0.35,baseline,200,168,84.0,Qualifying box,True,1.0,0.6964285714285714,0.75
+1: pt_share > 0.35,adaptive,200,169,84.5,Qualifying box,True,1.0,0.6923076923076923,0.75
+2: pt_bike_share >= 0.075,baseline,200,198,99.0,Too few cases: need 15 per class,False,,,0.75
+2: pt_bike_share >= 0.075,adaptive,200,198,99.0,Too few cases: need 15 per class,False,,,0.75

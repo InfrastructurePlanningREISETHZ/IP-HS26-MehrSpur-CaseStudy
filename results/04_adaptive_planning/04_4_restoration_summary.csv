@@ -1,5 +1,5 @@
 ﻿transition,scenarios_with_window,with_window_percent,reachable_window_percent,mean_restorable_years,median_last_restoration_decision
-Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,6,3.0,3.0,0.03,27.5
-Stage 0 – Baseline Network → Stage 2 - Acces in non-motorized transport and public transport,2,1.0,1.0,0.01,32.0
-Package 1: Leitbild station hub Forch → Both stages - Tunnel and Hubs,0,0.0,0.0,0.0,
-Stage 2 - Acces in non-motorized transport and public transport → Both stages - Tunnel and Hubs,4,2.0,2.0,0.02,27.5
+Stage 0 – Baseline Network → Package 1: Leitbild station hub Forch,5,2.5,2.5,0.02,30.0
+Stage 0 – Baseline Network → Stage 2 - Acces in non-motorized transport and public transport,2,1.0,1.0,0.01,31.5
+Package 1: Leitbild station hub Forch → Both stages - Tunnel and Hubs,1,0.5,0.5,0.0,27.0
+Stage 2 - Acces in non-motorized transport and public transport → Both stages - Tunnel and Hubs,4,2.0,2.0,0.02,29.5
