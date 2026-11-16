@@ -1,0 +1,8 @@
+﻿,years_compared,final_state,infrastructure_expenditure_PV_MCHF,construction_CO2_tonnes,years_in_failure,acceptable_years_percent,final_pt_share,final_congestion_delay_hours,final_operating_co2_tonnes,additional_PV_expenditure_vs_lowest_spending_benchmark_MCHF
+PLANNER PLAN,5,Stage 0 – Baseline Network,100.0,5000.0,0,100.0,0.4132828450174905,9955117.262713231,269998.0499241686,100.0
+baseline,5,Stage 0 – Baseline Network,0.0,0.0,0,100.0,0.4132828450174905,9955117.262713231,269998.0499241686,0.0
+static1,5,Stage 1 – Mobility Hub Forch Basic & Feeder Bus 702,16.119920205492438,5000.0,0,100.0,0.41353100091479644,9915874.903329462,269968.6107573061,16.12
+static2,5,Both stages combined,18.462681942024005,5800.0,0,100.0,0.4140223167458907,9857536.985661598,270400.4884592849,18.463
+staged1,5,Stage 0 – Baseline Network,0.0,5000.0,0,100.0,0.4132828450174905,9955117.262713231,269998.0499241686,0.0
+staged2,5,Stage 0 – Baseline Network,0.0,0.0,0,100.0,0.4132828450174905,9955117.262713231,269998.0499241686,0.0
+adaptive,5,Stage 0 – Baseline Network,100.0,3750.0,0,100.0,0.4132828450174905,9955117.262713231,269998.0499241686,100.0
