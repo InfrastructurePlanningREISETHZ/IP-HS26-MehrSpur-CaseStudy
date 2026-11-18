@@ -128,7 +128,7 @@ asset lifetimes does not require a surrogate rebuild. Rerun appraisal to include
 
    EXAMPLE 4: A specific station (rather than a municipality-wide access package)
    "mobility_hubs": [
-       {"station": "Wallisellen", "effects": {
+       {"station": ["15401012"], "effects": {
            "access_time_reduction_pct": 25.0,
            "egress_time_reduction_pct": 20.0,
            "transfer_time_reduction_pct": 15.0
@@ -153,14 +153,16 @@ PACKAGES = {
         "mobility_hubs": [
             {
                 "name": "Forch station: bike parking at the platforms and barrier-free links",
-                "station": "Forch",
+                "zones": ["15401012"],
+                "stops_per_zone": 8,
                 "effects": {
                     # Baseline: bike access from zone 15401012 to Forch = 7.4 min (prepared skims).
-                    # Assumption: 1.0 min saved (parking next to the platforms, direct ramps)
+                    # Assumption: 1.0 min saved (parking next to the platforms, direct ramps, undergroundgarage is liberating space that improve acces time)
                     # → 1.0 / 7.4 ≈ 13.5 %. TO VERIFY against plan distances.
-                    "access_time_reduction_pct": 13.5,
+                    #New hypothese → 3.0 / 7.4 ≈ 40.5 %.
+                    "access_time_reduction_pct": 40.5,
                     # Same layout for arrivals;
-                    "egress_time_reduction_pct": 13.5,
+                    "egress_time_reduction_pct": 40.5,
                     # Bus–train transfer left out on purpose: the timetable already allows 60 s
                     # for this change and the model's minimum is 1 min.
                 },
@@ -255,10 +257,23 @@ PACKAGES = {
                 ],
                 "both_directions": True,
                 "effects": {
-                    "travel_time_reduction_pct": 12.5, ##Necessity to verify better the percentage. We assume that we can decrease 2min in the total travel that last 8min.
+                    "travel_time_reduction_pct": 25.0, ##Necessity to verify better the percentage. We assume that we can decrease 2min in the total travel that last 8min.
                 },
             },
         ],  
+        "mobility_hubs": [
+                    {
+                        "name": "Bike line access and egress time improvements at Forch station",
+                        "zones": ["15401012"],
+                        "stops_per_zone": 8,
+                        "effects": {
+                            # We do an average of the three previous interventions (Axe Maur–Forch and Axe Süessblätz–Forch: Forch-Forch) to estimate the time reduction for the access and egress time at Forch station.
+                            "access_time_reduction_pct": 80.0,
+                            # Same layout for arrivals;
+                            "egress_time_reduction_pct": 80.0,
+                        },
+                    }   
+                ],
         #Costs
         "appraisal": {
             "capital_cost_chf": 5280000,  # À compléter : investissement total.

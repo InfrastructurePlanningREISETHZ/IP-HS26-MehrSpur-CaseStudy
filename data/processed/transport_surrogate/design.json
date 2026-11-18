@@ -8,7 +8,12 @@
     "batch_size": 4,
     "targets": {
       "weighted_rmse_min": 0.2
-    }
+    },
+    "points_added": 0,
+    "final_holdout_metrics": {
+      "weighted_rmse_min": 0.17631501447547218
+    },
+    "target_reached": true
   },
   "seed": 42,
   "records": [
@@ -1575,7 +1580,7 @@
   ],
   "cache_contract": {
     "format_version": 3,
-    "model_fingerprint": "a25c4e056cde0e743ac4",
+    "model_fingerprint": "38794950c97d91107f48",
     "reference_equations": "d657e21ae87ab33a0428",
     "solver_settings": {
       "stopping_rule": "road_relative_gap",
@@ -1892,13 +1897,16 @@
         "EBIKE_SPEED_MULTIPLIER": 1.5,
         "mobility_hubs": [
           {
-            "station": "Forch",
+            "zones": [
+              "15401012"
+            ],
+            "stops_per_zone": 8,
             "effects": {
-              "access_time_reduction_pct": 13.5,
+              "access_time_reduction_pct": 40.5,
               "transfer_time_reduction_pct": 0.0,
               "initial_wait_reduction_pct": 0.0,
               "transfer_wait_reduction_pct": 0.0,
-              "egress_time_reduction_pct": 13.5
+              "egress_time_reduction_pct": 40.5
             }
           }
         ],
@@ -2209,7 +2217,22 @@
             ],
             "both_directions": true,
             "effects": {
-              "travel_time_reduction_pct": 12.5
+              "travel_time_reduction_pct": 25.0
+            }
+          }
+        ],
+        "mobility_hubs": [
+          {
+            "zones": [
+              "15401012"
+            ],
+            "stops_per_zone": 8,
+            "effects": {
+              "access_time_reduction_pct": 80.0,
+              "transfer_time_reduction_pct": 0.0,
+              "initial_wait_reduction_pct": 0.0,
+              "transfer_wait_reduction_pct": 0.0,
+              "egress_time_reduction_pct": 80.0
             }
           }
         ],
@@ -2559,7 +2582,35 @@
             ],
             "both_directions": true,
             "effects": {
-              "travel_time_reduction_pct": 12.5
+              "travel_time_reduction_pct": 25.0
+            }
+          }
+        ],
+        "mobility_hubs": [
+          {
+            "zones": [
+              "15401012"
+            ],
+            "stops_per_zone": 8,
+            "effects": {
+              "access_time_reduction_pct": 40.5,
+              "transfer_time_reduction_pct": 0.0,
+              "initial_wait_reduction_pct": 0.0,
+              "transfer_wait_reduction_pct": 0.0,
+              "egress_time_reduction_pct": 40.5
+            }
+          },
+          {
+            "zones": [
+              "15401012"
+            ],
+            "stops_per_zone": 8,
+            "effects": {
+              "access_time_reduction_pct": 80.0,
+              "transfer_time_reduction_pct": 0.0,
+              "initial_wait_reduction_pct": 0.0,
+              "transfer_wait_reduction_pct": 0.0,
+              "egress_time_reduction_pct": 80.0
             }
           }
         ],
@@ -2842,18 +2893,6 @@
               "egress_time_reduction_pct": 0.0
             }
           }
-        ],
-        "mobility_hubs": [
-          {
-            "station": "Forch",
-            "effects": {
-              "access_time_reduction_pct": 13.5,
-              "transfer_time_reduction_pct": 0.0,
-              "initial_wait_reduction_pct": 0.0,
-              "transfer_wait_reduction_pct": 0.0,
-              "egress_time_reduction_pct": 13.5
-            }
-          }
         ]
       }
     },
@@ -3048,21 +3087,21 @@
   },
   "source_sha256": {
     "code/__init__.py": "421c01f1af482c603c7f45d91add8e927486e49ac37088d74d7237823d6ad9fa",
-    "code/adaptive_planning.py": "b6a2bc9c311b0f2f565dfe6ab6123dc26c038d0b697d4a34d1e2be99b149ff4d",
+    "code/adaptive_planning.py": "8f206120f3beed30fddf11cb79df35a1c42e5448d3934c72f1ca8e2fdf8e8920",
     "code/additional/__init__.py": "9ddd4b71b697c94056a009a1676c42259102b25623ff5b5a4f57836b4779d23a",
     "code/additional/notebook_exports.py": "3a83839a9217a775f994c1d88c998ad4b4e217b76e8a1ee5639d5e0675d6b8a4",
     "code/additional/section_flows.py": "8b0c3fdf9c036f7a634636d8a06de4c67375be2f08349a588ce2a43d47e8932a",
     "code/additional/transport_display.py": "ab09ab70c65a0e1386b1d67bfac717cb219e3170870178443fa933e2edc8c3a4",
     "code/additional/trigger_optimization.py": "a0c80d8e99d7aca004eb50da27543c6936ad13b32c856dcbf22be1359fc8af06",
     "code/additional/uncertainty.py": "10432673e33b9059824cb75f9286c19dcf93cb8cb896552081597c4e566d8141",
-    "code/parameters.py": "65d5ad0a04af898074ab4f8e60c215114c15872697db12277c15d8494c825743",
-    "code/simulation_engine.py": "61e9a8a2dc1470643f5ce7ea7756811b321299c92d6883e828b15cf19db5c5e3",
-    "code/stages.py": "6b82cd74f68a8cfef8b34c3b8093751c60b10ee73e3d2b14d9acf55b1710c14e",
+    "code/parameters.py": "02f80c8b5177e19d82720891e97686c01b4b7bfd6a1dec9b92affc5c3da4ce2b",
+    "code/simulation_engine.py": "a3d3f351e2481a7dda436fd2ce31d5b9f4c2d76a2440b7d6a0dc737d2ff8066b",
+    "code/stages.py": "010f180b6f0466186545a7b819a3b86470bc9d7d79f921c927c8a2792c1040b6",
     "code/surrogate_model/__init__.py": "913ec659a888396e56db37d5d0971f4d767e6d3aafd10690442bb78f27b867ea",
     "code/surrogate_model/build_transport_surrogate.py": "8ce85c6ce093b33cf47b56c15bcd305f0d74262eea8f912fb022c3844dfc02f9",
     "code/surrogate_model/od_gp.py": "ce03b9601c671d06974fc5acece46eed4867f9f139a5e130e8bd39cd0e7a04bf",
-    "code/surrogate_model/prepared_transport.py": "8c559ef41b72cc676d0d78fda6a2b39cdf5f4993517069bc01e6030ad7a06cee",
-    "code/surrogate_model/response_table.py": "b715a90a46b0fe4be9ab94faf5f764db11ba9296ad546f2272480cea42eb70de",
+    "code/surrogate_model/prepared_transport.py": "e3319ac7beaf7d21b8a43bde472a4606dafb10338b46eea7feaeebfa1ebfe613",
+    "code/surrogate_model/response_table.py": "d13e34a7a46330d950fb00a83741d8e842d06d8f3c364cc94ea60b806840386b",
     "code/surrogate_model/transport_surrogate.py": "9ffe06b71c46c8a60499de052d6bf1a9658e061fe928193384abd7205c767fbd",
     "code/surrogate_model/validate_surrogate_appraisal.py": "08314f911179ef1f99777466008228b25bf22d976220cff00d364152b13010a6",
     "code/transport_core/__init__.py": "387e965d0f185cdb755ac2fa9f8e50898ce5d45f21a455f8d5291b6898390815",
@@ -3074,26 +3113,26 @@
     "code/transport_core/routing.py": "ca8b3dc68880492991130e023f7d80388784a74415a9f4278ecf5b331eae1292",
     "code/transport_core/travel_times.py": "0e761de51501ef7883663aa2d398dae5c0305937dbe937e30c40a938a92480d4",
     "code/transport_core/zoning.py": "11d387c2389b4954351f82c59f2d7d2b4c74464a9b829155e33cc6b530f780c3",
-    "code/transport_model_interface.py": "54ca5d847d12560b541910555927ac8092b77178f703ea1e9aaa47c1a069e09d",
+    "code/transport_model_interface.py": "2f939d6a502d7a801e2fbf983d04cf04860c3f16ee72260bd30b0e3aa7ddb93a",
     "code/validate_case_study.py": "3c261b5d3fe77d43e1c989aaa2671eaf22091e32cbda8289660ef56730ad74eb"
   },
   "reference_source_sha256": {
     "code/__init__.py": "421c01f1af482c603c7f45d91add8e927486e49ac37088d74d7237823d6ad9fa",
-    "code/adaptive_planning.py": "d471051352360796312a959a82b3935bac6f586de1fdea70c9231d41451cf609",
+    "code/adaptive_planning.py": "8f206120f3beed30fddf11cb79df35a1c42e5448d3934c72f1ca8e2fdf8e8920",
     "code/additional/__init__.py": "9ddd4b71b697c94056a009a1676c42259102b25623ff5b5a4f57836b4779d23a",
     "code/additional/notebook_exports.py": "3a83839a9217a775f994c1d88c998ad4b4e217b76e8a1ee5639d5e0675d6b8a4",
     "code/additional/section_flows.py": "8b0c3fdf9c036f7a634636d8a06de4c67375be2f08349a588ce2a43d47e8932a",
     "code/additional/transport_display.py": "ab09ab70c65a0e1386b1d67bfac717cb219e3170870178443fa933e2edc8c3a4",
     "code/additional/trigger_optimization.py": "a0c80d8e99d7aca004eb50da27543c6936ad13b32c856dcbf22be1359fc8af06",
     "code/additional/uncertainty.py": "10432673e33b9059824cb75f9286c19dcf93cb8cb896552081597c4e566d8141",
-    "code/parameters.py": "65d5ad0a04af898074ab4f8e60c215114c15872697db12277c15d8494c825743",
-    "code/simulation_engine.py": "61e9a8a2dc1470643f5ce7ea7756811b321299c92d6883e828b15cf19db5c5e3",
-    "code/stages.py": "6b82cd74f68a8cfef8b34c3b8093751c60b10ee73e3d2b14d9acf55b1710c14e",
+    "code/parameters.py": "02f80c8b5177e19d82720891e97686c01b4b7bfd6a1dec9b92affc5c3da4ce2b",
+    "code/simulation_engine.py": "a3d3f351e2481a7dda436fd2ce31d5b9f4c2d76a2440b7d6a0dc737d2ff8066b",
+    "code/stages.py": "010f180b6f0466186545a7b819a3b86470bc9d7d79f921c927c8a2792c1040b6",
     "code/surrogate_model/__init__.py": "913ec659a888396e56db37d5d0971f4d767e6d3aafd10690442bb78f27b867ea",
     "code/surrogate_model/build_transport_surrogate.py": "8ce85c6ce093b33cf47b56c15bcd305f0d74262eea8f912fb022c3844dfc02f9",
     "code/surrogate_model/od_gp.py": "ce03b9601c671d06974fc5acece46eed4867f9f139a5e130e8bd39cd0e7a04bf",
-    "code/surrogate_model/prepared_transport.py": "8c559ef41b72cc676d0d78fda6a2b39cdf5f4993517069bc01e6030ad7a06cee",
-    "code/surrogate_model/response_table.py": "b715a90a46b0fe4be9ab94faf5f764db11ba9296ad546f2272480cea42eb70de",
+    "code/surrogate_model/prepared_transport.py": "e3319ac7beaf7d21b8a43bde472a4606dafb10338b46eea7feaeebfa1ebfe613",
+    "code/surrogate_model/response_table.py": "d13e34a7a46330d950fb00a83741d8e842d06d8f3c364cc94ea60b806840386b",
     "code/surrogate_model/transport_surrogate.py": "9ffe06b71c46c8a60499de052d6bf1a9658e061fe928193384abd7205c767fbd",
     "code/surrogate_model/validate_surrogate_appraisal.py": "08314f911179ef1f99777466008228b25bf22d976220cff00d364152b13010a6",
     "code/transport_core/__init__.py": "387e965d0f185cdb755ac2fa9f8e50898ce5d45f21a455f8d5291b6898390815",
@@ -3105,7 +3144,7 @@
     "code/transport_core/routing.py": "ca8b3dc68880492991130e023f7d80388784a74415a9f4278ecf5b331eae1292",
     "code/transport_core/travel_times.py": "0e761de51501ef7883663aa2d398dae5c0305937dbe937e30c40a938a92480d4",
     "code/transport_core/zoning.py": "11d387c2389b4954351f82c59f2d7d2b4c74464a9b829155e33cc6b530f780c3",
-    "code/transport_model_interface.py": "54ca5d847d12560b541910555927ac8092b77178f703ea1e9aaa47c1a069e09d",
+    "code/transport_model_interface.py": "2f939d6a502d7a801e2fbf983d04cf04860c3f16ee72260bd30b0e3aa7ddb93a",
     "code/validate_case_study.py": "3c261b5d3fe77d43e1c989aaa2671eaf22091e32cbda8289660ef56730ad74eb"
   }
 }
