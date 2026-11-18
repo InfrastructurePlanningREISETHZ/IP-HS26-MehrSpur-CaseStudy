@@ -1,0 +1,141 @@
+grid_id,municipality_name,city_quartier,region,baseline_population,baseline_jobs,nearest_station,nearest_station_m,nearest_is_forchbahn,dist_forch_m,reason,in_D1,in_Vb,in_Vc
+19201001,Egg,,Rest of Egg,1488.0,413.0,"Hinteregg, Station",871.0,True,2962.0,nearest_station_forchbahn,True,True,True
+19201002,Egg,,Rest of Egg,1350.0,578.0,Hinteregg,871.0,True,3610.0,nearest_station_forchbahn,True,True,True
+19201003,Egg,,Rest of Egg,2277.0,504.0,Langwies ZH,894.0,True,5250.0,nearest_station_forchbahn,True,True,True
+19201004,Egg,,Rest of Egg,1787.0,740.0,Langwies ZH,541.0,True,4769.0,nearest_station_forchbahn,True,True,True
+19201005,Egg,,Rest of Egg,1957.0,828.0,Esslingen,695.0,True,6331.0,nearest_station_forchbahn,True,True,True
+15401011,Küsnacht (ZH),,Rest of Küsnacht,1397.0,369.0,Waltikon,1424.0,True,3666.0,nearest_station_forchbahn,True,True,True
+15401012,Küsnacht (ZH),,Forch hub area,853.0,336.0,Neue Forch,817.0,True,1148.0,nearest_station_forchbahn; within_1500m_of_forch,True,True,True
+19501001,Maur,,Rest of Maur,2226.0,388.0,Zollikerberg,2169.0,True,3896.0,nearest_station_forchbahn,True,True,True
+19501002,Maur,,Rest of Maur,1769.0,278.0,"Waltikon, Station",1985.0,True,2622.0,nearest_station_forchbahn,True,True,True
+19501003,Maur,,Rest of Maur,1082.0,446.0,"Waltikon, Station",3137.0,True,3296.0,nearest_station_forchbahn,True,True,True
+19501004,Maur,,Forch hub area,1065.0,209.0,Forch,1342.0,True,1342.0,nearest_station_forchbahn; within_1500m_of_forch,True,True,True
+19501005,Maur,,Forch hub area,1142.0,410.0,Scheuren,746.0,True,913.0,nearest_station_forchbahn; within_1500m_of_forch,True,True,True
+19501006,Maur,,Rest of Maur,1350.0,237.0,Scheuren,733.0,True,1655.0,nearest_station_forchbahn,True,True,True
+19501008,Maur,,Rest of Maur,1334.0,328.0,Scheuren,2045.0,True,2719.0,nearest_station_forchbahn,True,True,True
+16101004,Zollikon,,Zollikerberg,1679.0,639.0,"Zürich, Rehalp",855.0,True,5841.0,nearest_station_forchbahn,True,True,True
+16101006,Zollikon,,Zollikerberg,1668.0,463.0,"Zürich, Rehalp",525.0,True,5450.0,nearest_station_forchbahn,True,True,True
+16101007,Zollikon,,Zollikerberg,1239.0,1737.0,Spital Zollikerberg,353.0,True,4918.0,nearest_station_forchbahn,True,True,True
+16101008,Zollikon,,Zollikerberg,2893.0,471.0,"Waldburg, Station",706.0,True,4324.0,nearest_station_forchbahn,True,True,True
+16101009,Zollikon,,Zollikerberg,1380.0,381.0,Zollikerberg,839.0,True,3595.0,nearest_station_forchbahn,True,True,True
+16001001,Zumikon,,Zumikon,1587.0,457.0,Zumikon,527.0,True,2362.0,nearest_station_forchbahn,True,True,True
+16001002,Zumikon,,Zumikon,1025.0,893.0,"Waltikon, Station",742.0,True,2527.0,nearest_station_forchbahn,True,True,True
+16001003,Zumikon,,Zumikon,1227.0,296.0,Zumikon,732.0,True,1627.0,nearest_station_forchbahn,True,True,True
+16001004,Zumikon,,Forch hub area,1930.0,372.0,Maiacher,412.0,True,1044.0,nearest_station_forchbahn; within_1500m_of_forch,True,True,True
+26101165,Zürich,Enge,Zürich centre,203.0,2835.0,Zürich Selnau,453.0,False,9834.0,city_s18_list,True,True,False
+26101169,Zürich,Langstrasse,Zürich centre,0.0,3602.0,Zürich HB,136.0,False,10325.0,city_s18_list,True,True,False
+26101171,Zürich,Gewerbeschule,Zürich centre,884.0,2239.0,Zürich HB,270.0,False,10511.0,city_s18_list,True,True,False
+26101173,Zürich,City,Zürich centre,3.0,4712.0,Zürich Selnau,224.0,False,10002.0,city_s18_list,True,True,False
+26101174,Zürich,City,Zürich centre,10.0,4632.0,Zürich Selnau,350.0,False,10130.0,city_s18_list,True,True,False
+26101180,Zürich,City,Zürich centre,36.0,3326.0,Zürich Selnau,443.0,False,9780.0,city_s18_list,True,True,False
+26101181,Zürich,Gewerbeschule,Zürich centre,545.0,3531.0,Zürich HB,511.0,False,10647.0,city_s18_list,True,True,False
+26101183,Zürich,City,Zürich centre,36.0,3923.0,Zürich Selnau,421.0,False,9935.0,city_s18_list,True,True,False
+26101185,Zürich,City,Zürich centre,3.0,4651.0,Zürich Selnau,487.0,False,9748.0,city_s18_list,True,True,False
+26101187,Zürich,Unterstrass,Zürich centre,1632.0,1360.0,Zürich HB,838.0,False,10755.0,city_s18_list,True,True,False
+26101189,Zürich,City,Zürich centre,40.0,3790.0,Zürich HB,233.0,False,10088.0,city_s18_list,True,True,False
+26101190,Zürich,City,Zürich centre,3.0,1935.0,Zürich HB,421.0,False,9943.0,city_s18_list,True,True,False
+26101194,Zürich,Lindenhof,Zürich centre,34.0,5694.0,"Zürich Stadelhofen, Bahnhof",586.0,True,9375.0,city_s18_list,True,True,False
+26101195,Zürich,Lindenhof,Zürich centre,1630.0,2503.0,Zürich Selnau,684.0,False,9567.0,city_s18_list,True,True,False
+26101198,Zürich,Lindenhof,Zürich centre,636.0,1818.0,Zürich Selnau,658.0,False,9714.0,city_s18_list,True,True,False
+26101199,Zürich,Lindenhof,Zürich centre,23.0,3995.0,Zürich HB,430.0,False,9839.0,city_s18_list,True,True,False
+26101201,Zürich,City,Zürich centre,0.0,2440.0,Zürich HB,189.0,False,10075.0,city_s18_list,True,True,False
+26101202,Zürich,Rathaus,Zürich centre,166.0,3529.0,"Zürich Stadelhofen, Bahnhof",456.0,True,9272.0,city_s18_list,True,True,False
+26101203,Zürich,Unterstrass,Zürich centre,194.0,1994.0,Zürich HB,468.0,False,10264.0,city_s18_list,True,True,False
+26101204,Zürich,Unterstrass,Zürich centre,610.0,593.0,Zürich HB,772.0,False,10444.0,city_s18_list,True,True,False
+26101209,Zürich,Unterstrass,Zürich centre,692.0,4159.0,Zürich HB,553.0,False,10122.0,city_s18_list,True,True,False
+26101210,Zürich,City,Zürich centre,7.0,2676.0,Zürich HB,313.0,False,10069.0,city_s18_list,True,True,False
+26101215,Zürich,Unterstrass,Zürich centre,697.0,595.0,Zürich HB,816.0,False,10221.0,city_s18_list,True,True,False
+26101216,Zürich,Rathaus,Zürich centre,542.0,2312.0,Zürich HB,622.0,False,9636.0,city_s18_list,True,True,False
+26101218,Zürich,Rathaus,Zürich centre,1248.0,2621.0,Zürich Stadelhofen,780.0,False,9469.0,city_s18_list,True,True,False
+26101220,Zürich,Rathaus,Zürich centre,290.0,1497.0,"Zürich Stadelhofen, Bahnhof",383.0,True,9206.0,city_s18_list,True,True,False
+26101221,Zürich,Rathaus,Zürich centre,611.0,2250.0,Zürich Stadelhofen,573.0,False,9298.0,city_s18_list,True,True,False
+26101222,Zürich,Hochschulen,Zürich centre,381.0,2679.0,Zürich HB,650.0,False,9646.0,city_s18_list,True,True,False
+26101225,Zürich,Oberstrass,Zürich centre,805.0,2200.0,Zürich HB,645.0,False,9835.0,city_s18_list,True,True,False
+26101227,Zürich,Rathaus,Zürich centre,428.0,1971.0,Zürich Stadelhofen,366.0,False,9104.0,city_s18_list,True,True,False
+26101228,Zürich,Oberstrass,Zürich centre,1232.0,3055.0,Zürich HB,934.0,False,10056.0,city_s18_list,True,True,False
+26101229,Zürich,Hochschulen,Zürich centre,3.0,2329.0,"Zürich Stadelhofen, Bahnhof",229.0,True,8971.0,city_s18_list,True,True,False
+26101231,Zürich,Oberstrass,Zürich centre,854.0,870.0,Zürich HB,775.0,False,9786.0,city_s18_list,True,True,False
+26101234,Zürich,Seefeld,Zürich east,155.0,2201.0,"Zürich Stadelhofen, Bahnhof",377.0,True,8803.0,city_s18_list,True,True,False
+26101235,Zürich,Hochschulen,Zürich centre,277.0,3585.0,Zürich Stadelhofen,108.0,False,8891.0,city_s18_list,True,True,False
+26101236,Zürich,Hochschulen,Zürich centre,57.0,5475.0,Zürich Stadelhofen,809.0,False,9270.0,city_s18_list,True,True,False
+26101242,Zürich,Fluntern,Zürich east,149.0,9879.0,Zürich HB,1113.0,False,9258.0,city_s18_list,True,True,False
+26101243,Zürich,Oberstrass,Zürich centre,1376.0,2711.0,Zürich HB,973.0,False,9610.0,city_s18_list,True,True,False
+26101245,Zürich,Mühlebach,Zürich east,667.0,3208.0,"Zürich Stadelhofen, Bahnhof",242.0,True,8588.0,city_s18_list,True,True,False
+26101248,Zürich,Oberstrass,Zürich centre,1912.0,650.0,Zürich HB,1499.0,False,9811.0,city_s18_list,True,True,False
+26101251,Zürich,Hottingen,Zürich east,1252.0,2595.0,"Zürich, Kreuzplatz",295.0,True,8595.0,city_s18_list,True,True,False
+26101252,Zürich,Hottingen,Zürich east,1090.0,3211.0,Zürich Stadelhofen,647.0,False,8856.0,city_s18_list,True,True,False
+26101255,Zürich,Mühlebach,Zürich east,1522.0,2658.0,"Zürich, Kreuzplatz",211.0,True,8307.0,city_s18_list,True,True,False
+26101259,Zürich,Mühlebach,Zürich east,1032.0,1981.0,"Zürich, Hegibachplatz",477.0,True,8041.0,city_s18_list,True,True,False
+26101262,Zürich,Fluntern,Zürich east,2783.0,1155.0,Zürich HB,1406.0,False,9333.0,city_s18_list,True,True,False
+26101263,Zürich,Fluntern,Zürich east,1101.0,4000.0,Zürich Stadelhofen,931.0,False,8798.0,city_s18_list,True,True,False
+26101264,Zürich,Hottingen,Zürich east,1077.0,768.0,"Zürich, Kreuzplatz",392.0,True,8358.0,city_s18_list,True,True,False
+26101265,Zürich,Mühlebach,Zürich east,2071.0,1334.0,"Zürich, Hegibachplatz",592.0,True,7665.0,city_s18_list,True,True,False
+26101267,Zürich,Hirslanden,Zürich east,2225.0,1298.0,"Zürich, Hegibachplatz",313.0,True,8011.0,city_s18_list,True,True,False
+26101272,Zürich,Weinegg,Zürich east,1143.0,1741.0,"Zürich, Hegibachplatz",317.0,True,7506.0,city_s18_list,True,True,False
+26101273,Zürich,Hottingen,Zürich east,1869.0,1254.0,"Zürich, Kreuzplatz",837.0,True,8268.0,city_s18_list,True,True,False
+26101274,Zürich,Weinegg,Zürich east,1303.0,903.0,Zürich Tiefenbrunnen,440.0,False,7234.0,city_s18_list,True,True,False
+26101275,Zürich,Hottingen,Zürich east,2158.0,955.0,"Zürich, Hegibachplatz",564.0,True,7944.0,city_s18_list,True,True,False
+26101278,Zürich,Hirslanden,Zürich east,1573.0,905.0,"Zürich, Hegibachplatz",199.0,True,7552.0,city_s18_list,True,True,False
+26101281,Zürich,Hirslanden,Zürich east,1150.0,750.0,"Zürich, Hegibachplatz",387.0,True,7584.0,city_s18_list,True,True,False
+26101282,Zürich,Fluntern,Zürich east,2682.0,1858.0,"Zürich, Kreuzplatz",2166.0,True,8807.0,city_s18_list,True,True,False
+26101283,Zürich,Hirslanden,Zürich east,2061.0,808.0,"Zürich, Wetlistrasse",729.0,True,7449.0,city_s18_list,True,True,False
+26101285,Zürich,Hirslanden,Zürich east,2133.0,885.0,"Zürich, Wetlistrasse",79.0,True,7082.0,city_s18_list,True,True,False
+26101287,Zürich,Weinegg,Zürich east,1681.0,1321.0,Zürich Tiefenbrunnen,599.0,False,6513.0,city_s18_list,True,True,False
+26101288,Zürich,Weinegg,Zürich east,1057.0,1596.0,"Zürich, Balgrist",400.0,True,6771.0,city_s18_list,True,True,False
+26101289,Zürich,Hottingen,Zürich east,763.0,919.0,"Zürich, Wetlistrasse",2069.0,True,7270.0,city_s18_list,True,True,False
+26101290,Zürich,Weinegg,Zürich east,314.0,5489.0,"Zürich, Balgrist",241.0,True,6290.0,city_s18_list,True,True,False
+26101294,Zürich,Weinegg,Zürich east,755.0,645.0,"Zürich, Rehalp",290.0,True,5953.0,city_s18_list,True,True,False
+26101295,Zürich,Witikon,Zürich east,1159.0,146.0,"Zürich, Balgrist",454.0,True,6115.0,city_s18_list,True,True,False
+26101296,Zürich,Witikon,Zürich east,1521.0,176.0,"Zürich, Wetlistrasse",875.0,True,6608.0,city_s18_list,True,True,False
+26101300,Zürich,Witikon,Zürich east,2044.0,474.0,"Zürich, Rehalp",1277.0,True,6035.0,city_s18_list,True,True,False
+26101301,Zürich,Witikon,Zürich east,1722.0,387.0,"Zürich, Rehalp",814.0,True,5518.0,city_s18_list,True,True,False
+26101303,Zürich,Witikon,Zürich east,1038.0,287.0,Spital Zollikerberg,2047.0,True,5535.0,city_s18_list,True,True,False
+26101304,Zürich,Witikon,Zürich east,1711.0,172.0,Spital Zollikerberg,700.0,True,4853.0,city_s18_list,True,True,False
+26101305,Zürich,Witikon,Zürich east,2539.0,529.0,Zollikerberg,1411.0,True,4609.0,city_s18_list,True,True,False
+19101001,Dübendorf,,Dübendorf,1453.0,238.0,Stettbach,1514.0,False,7563.0,,False,True,False
+19101002,Dübendorf,,Dübendorf,440.0,116.0,Stettbach,647.0,False,9416.0,,False,True,False
+19101003,Dübendorf,,Dübendorf,510.0,1880.0,Stettbach,618.0,False,8467.0,,False,True,False
+19101004,Dübendorf,,Dübendorf,1494.0,3060.0,Stettbach,335.0,False,8999.0,,False,True,False
+19101005,Dübendorf,,Dübendorf,1980.0,3941.0,Stettbach,611.0,False,8945.0,,False,True,False
+19101006,Dübendorf,,Dübendorf,876.0,191.0,Stettbach,2566.0,False,6351.0,,False,True,False
+19101007,Dübendorf,,Dübendorf,616.0,534.0,Stettbach,985.0,False,8764.0,,False,True,False
+19101008,Dübendorf,,Dübendorf,1614.0,238.0,Stettbach,941.0,False,7995.0,,False,True,False
+19101009,Dübendorf,,Dübendorf,1830.0,422.0,Stettbach,894.0,False,8532.0,,False,True,False
+19101010,Dübendorf,,Dübendorf,690.0,2100.0,Dübendorf,931.0,False,9105.0,,False,True,False
+19101011,Dübendorf,,Dübendorf,881.0,1608.0,Dübendorf,951.0,False,8904.0,,False,True,False
+19101012,Dübendorf,,Dübendorf,1724.0,268.0,Dübendorf,935.0,False,8241.0,,False,True,False
+19101013,Dübendorf,,Dübendorf,1354.0,106.0,Dübendorf,798.0,False,9237.0,,False,True,False
+19101014,Dübendorf,,Dübendorf,1105.0,115.0,Dübendorf,985.0,False,7926.0,,False,True,False
+19101015,Dübendorf,,Dübendorf,1087.0,491.0,Dübendorf,1931.0,False,7014.0,,False,True,False
+19101016,Dübendorf,,Dübendorf,1858.0,1167.0,Dübendorf,505.0,False,8435.0,,False,True,False
+19101017,Dübendorf,,Dübendorf,805.0,857.0,Dübendorf,651.0,False,8043.0,,False,True,False
+19101018,Dübendorf,,Dübendorf,1984.0,277.0,Dübendorf,1341.0,False,7232.0,,False,True,False
+19101019,Dübendorf,,Dübendorf,1590.0,381.0,Dübendorf,347.0,False,8886.0,,False,True,False
+19101020,Dübendorf,,Dübendorf,1782.0,954.0,Dübendorf,320.0,False,8260.0,,False,True,False
+19101021,Dübendorf,,Dübendorf,1370.0,144.0,Dübendorf,785.0,False,9132.0,,False,True,False
+19101022,Dübendorf,,Dübendorf,1587.0,664.0,Dübendorf,1042.0,False,8318.0,,False,True,False
+19101023,Dübendorf,,Dübendorf,1677.0,226.0,Dübendorf,1676.0,False,6985.0,,False,True,False
+19101024,Dübendorf,,Dübendorf,1136.0,303.0,Dübendorf,1498.0,False,7424.0,,False,True,False
+19101025,Dübendorf,,Dübendorf,888.0,917.0,Schwerzenbach ZH,1430.0,False,7569.0,,False,True,False
+19301001,Fällanden,,Fällanden,1646.0,268.0,Zollikerberg,2464.0,True,4650.0,,False,True,False
+19301002,Fällanden,,Fällanden,1217.0,438.0,Schwerzenbach ZH,2746.0,False,5371.0,,False,True,False
+19301003,Fällanden,,Fällanden,2088.0,198.0,Schwerzenbach ZH,3043.0,False,4045.0,,False,True,False
+19301004,Fällanden,,Fällanden,2069.0,293.0,Schwerzenbach ZH,1993.0,False,5869.0,,False,True,False
+19301005,Fällanden,,Fällanden,1427.0,108.0,Schwerzenbach ZH,2489.0,False,4305.0,,False,True,False
+19301006,Fällanden,,Fällanden,1158.0,572.0,Schwerzenbach ZH,1877.0,False,4750.0,,False,True,False
+19301007,Fällanden,,Fällanden,44.0,1410.0,Schwerzenbach ZH,1422.0,False,5973.0,,False,True,False
+15401001,Küsnacht (ZH),,Rest of Küsnacht,829.0,1569.0,Küsnacht Goldbach,521.0,False,5845.0,,False,False,True
+15401002,Küsnacht (ZH),,Rest of Küsnacht,1576.0,488.0,Küsnacht Goldbach,206.0,False,5272.0,,False,False,True
+15401003,Küsnacht (ZH),,Rest of Küsnacht,1319.0,650.0,Küsnacht ZH,971.0,False,5556.0,,False,False,True
+15401004,Küsnacht (ZH),,Rest of Küsnacht,782.0,1060.0,Küsnacht ZH,202.0,False,4985.0,,False,False,True
+15401005,Küsnacht (ZH),,Rest of Küsnacht,1305.0,160.0,Küsnacht Goldbach,784.0,False,4660.0,,False,False,True
+15401006,Küsnacht (ZH),,Rest of Küsnacht,993.0,909.0,Küsnacht ZH,732.0,False,4887.0,,False,False,True
+15401007,Küsnacht (ZH),,Rest of Küsnacht,1008.0,122.0,Küsnacht ZH,574.0,False,4561.0,,False,False,True
+15401008,Küsnacht (ZH),,Rest of Küsnacht,1265.0,248.0,Erlenbach ZH,1601.0,False,3501.0,,False,False,True
+15401009,Küsnacht (ZH),,Rest of Küsnacht,1997.0,416.0,Erlenbach ZH,1086.0,False,3725.0,,False,False,True
+15401010,Küsnacht (ZH),,Rest of Küsnacht,1958.0,576.0,Küsnacht ZH,1551.0,False,3628.0,,False,False,True
+19501007,Maur,,Rest of Maur,933.0,344.0,Nänikon-Greifensee,2822.0,False,2880.0,,False,False,True
+16101001,Zollikon,,Zollikerberg,1147.0,1463.0,Zollikon,594.0,False,6646.0,,False,False,True
+16101002,Zollikon,,Zollikerberg,1087.0,282.0,Zollikon,744.0,False,6096.0,,False,False,True
+16101003,Zollikon,,Zollikerberg,1232.0,364.0,Zollikon,403.0,False,6024.0,,False,False,True
+16101005,Zollikon,,Zollikerberg,1233.0,1186.0,Zollikon,660.0,False,5469.0,,False,False,True
