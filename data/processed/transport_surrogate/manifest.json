@@ -1,7 +1,7 @@
 {
   "format_version": 3,
   "emulator_kind": "pooled_od_delay_gp",
-  "method": "Pooled one-hot ARD Matérn-5/2 GP of full directional OD delays; no PCA",
+  "method": "Pooled one-hot ARD Mat\u00e9rn-5/2 GP of full directional OD delays; no PCA",
   "artifact_file": "od_emulator.joblib",
   "input_names": [
     "PASSENGER_DEMAND_GROWTH",
@@ -291,7 +291,7 @@
     },
     "points_added": 0,
     "final_holdout_metrics": {
-      "weighted_rmse_min": 0.18242651499902607
+      "weighted_rmse_min": 0.17631501447547218
     },
     "target_reached": true
   },
@@ -419,7 +419,7 @@
     "test_004_stage2",
     "test_004_stage3"
   ],
-  "design_sha256": "7a8b57feea7bee912a89b510be1bb64ab8a0b832f6808648f6b7b7984509d0a5",
+  "design_sha256": "38608451b2897cda5aa9e344a15468e2794cd874438b496676a5ba199fef5300",
   "training_counts_by_stage": {
     "0": 25,
     "1": 25,
@@ -428,21 +428,21 @@
   },
   "seed": 42,
   "design": "continuous LHS with balanced stage labels; independent paired-stage LHS holdout",
-  "model_fingerprint": "a25c4e056cde0e743ac4",
-  "cache_namespace": "4b93117ae092ebd6a757",
+  "model_fingerprint": "38794950c97d91107f48",
+  "cache_namespace": "51ded5c8cb9ca2c93bdc",
   "portable_model_inputs": {
     "identity_version": 3,
     "corridor": {
       "mode": "zones",
       "municipalities": [
-        "Dübendorf",
+        "D\u00fcbendorf",
         "Egg",
-        "Fällanden",
-        "Küsnacht (ZH)",
+        "F\u00e4llanden",
+        "K\u00fcsnacht (ZH)",
         "Maur",
         "Zollikon",
         "Zumikon",
-        "Zürich"
+        "Z\u00fcrich"
       ],
       "zone_ids": [
         "15401011",
@@ -584,13 +584,16 @@
         "EBIKE_SPEED_MULTIPLIER": 1.5,
         "mobility_hubs": [
           {
-            "station": "Forch",
+            "zones": [
+              "15401012"
+            ],
+            "stops_per_zone": 8,
             "effects": {
-              "access_time_reduction_pct": 13.5,
+              "access_time_reduction_pct": 40.5,
               "transfer_time_reduction_pct": 0.0,
               "initial_wait_reduction_pct": 0.0,
               "transfer_wait_reduction_pct": 0.0,
-              "egress_time_reduction_pct": 13.5
+              "egress_time_reduction_pct": 40.5
             }
           }
         ],
@@ -599,7 +602,7 @@
             "area_pairs": [
               {
                 "origin": {
-                  "municipality_name": "Zürich"
+                  "municipality_name": "Z\u00fcrich"
                 },
                 "destination": {
                   "municipality_name": "Zollikon"
@@ -607,7 +610,7 @@
               },
               {
                 "origin": {
-                  "municipality_name": "Zürich"
+                  "municipality_name": "Z\u00fcrich"
                 },
                 "destination": {
                   "municipality_name": "Zumikon"
@@ -615,15 +618,15 @@
               },
               {
                 "origin": {
-                  "municipality_name": "Zürich"
+                  "municipality_name": "Z\u00fcrich"
                 },
                 "destination": {
-                  "municipality_name": "Küsnacht (ZH)"
+                  "municipality_name": "K\u00fcsnacht (ZH)"
                 }
               },
               {
                 "origin": {
-                  "municipality_name": "Zürich"
+                  "municipality_name": "Z\u00fcrich"
                 },
                 "destination": {
                   "municipality_name": "Maur"
@@ -631,7 +634,7 @@
               },
               {
                 "origin": {
-                  "municipality_name": "Zürich"
+                  "municipality_name": "Z\u00fcrich"
                 },
                 "destination": {
                   "municipality_name": "Egg"
@@ -639,18 +642,18 @@
               },
               {
                 "origin": {
-                  "municipality_name": "Zürich"
+                  "municipality_name": "Z\u00fcrich"
                 },
                 "destination": {
-                  "municipality_name": "Fällanden"
+                  "municipality_name": "F\u00e4llanden"
                 }
               },
               {
                 "origin": {
-                  "municipality_name": "Zürich"
+                  "municipality_name": "Z\u00fcrich"
                 },
                 "destination": {
-                  "municipality_name": "Dübendorf"
+                  "municipality_name": "D\u00fcbendorf"
                 }
               },
               {
@@ -666,7 +669,7 @@
                   "municipality_name": "Zollikon"
                 },
                 "destination": {
-                  "municipality_name": "Küsnacht (ZH)"
+                  "municipality_name": "K\u00fcsnacht (ZH)"
                 }
               },
               {
@@ -690,7 +693,7 @@
                   "municipality_name": "Zollikon"
                 },
                 "destination": {
-                  "municipality_name": "Fällanden"
+                  "municipality_name": "F\u00e4llanden"
                 }
               },
               {
@@ -698,7 +701,7 @@
                   "municipality_name": "Zollikon"
                 },
                 "destination": {
-                  "municipality_name": "Dübendorf"
+                  "municipality_name": "D\u00fcbendorf"
                 }
               },
               {
@@ -706,7 +709,7 @@
                   "municipality_name": "Zumikon"
                 },
                 "destination": {
-                  "municipality_name": "Küsnacht (ZH)"
+                  "municipality_name": "K\u00fcsnacht (ZH)"
                 }
               },
               {
@@ -730,7 +733,7 @@
                   "municipality_name": "Zumikon"
                 },
                 "destination": {
-                  "municipality_name": "Fällanden"
+                  "municipality_name": "F\u00e4llanden"
                 }
               },
               {
@@ -738,12 +741,12 @@
                   "municipality_name": "Zumikon"
                 },
                 "destination": {
-                  "municipality_name": "Dübendorf"
+                  "municipality_name": "D\u00fcbendorf"
                 }
               },
               {
                 "origin": {
-                  "municipality_name": "Küsnacht (ZH)"
+                  "municipality_name": "K\u00fcsnacht (ZH)"
                 },
                 "destination": {
                   "municipality_name": "Maur"
@@ -751,7 +754,7 @@
               },
               {
                 "origin": {
-                  "municipality_name": "Küsnacht (ZH)"
+                  "municipality_name": "K\u00fcsnacht (ZH)"
                 },
                 "destination": {
                   "municipality_name": "Egg"
@@ -759,18 +762,18 @@
               },
               {
                 "origin": {
-                  "municipality_name": "Küsnacht (ZH)"
+                  "municipality_name": "K\u00fcsnacht (ZH)"
                 },
                 "destination": {
-                  "municipality_name": "Fällanden"
+                  "municipality_name": "F\u00e4llanden"
                 }
               },
               {
                 "origin": {
-                  "municipality_name": "Küsnacht (ZH)"
+                  "municipality_name": "K\u00fcsnacht (ZH)"
                 },
                 "destination": {
-                  "municipality_name": "Dübendorf"
+                  "municipality_name": "D\u00fcbendorf"
                 }
               },
               {
@@ -786,7 +789,7 @@
                   "municipality_name": "Maur"
                 },
                 "destination": {
-                  "municipality_name": "Fällanden"
+                  "municipality_name": "F\u00e4llanden"
                 }
               },
               {
@@ -794,7 +797,7 @@
                   "municipality_name": "Maur"
                 },
                 "destination": {
-                  "municipality_name": "Dübendorf"
+                  "municipality_name": "D\u00fcbendorf"
                 }
               },
               {
@@ -802,7 +805,7 @@
                   "municipality_name": "Egg"
                 },
                 "destination": {
-                  "municipality_name": "Fällanden"
+                  "municipality_name": "F\u00e4llanden"
                 }
               },
               {
@@ -810,15 +813,15 @@
                   "municipality_name": "Egg"
                 },
                 "destination": {
-                  "municipality_name": "Dübendorf"
+                  "municipality_name": "D\u00fcbendorf"
                 }
               },
               {
                 "origin": {
-                  "municipality_name": "Fällanden"
+                  "municipality_name": "F\u00e4llanden"
                 },
                 "destination": {
-                  "municipality_name": "Dübendorf"
+                  "municipality_name": "D\u00fcbendorf"
                 }
               }
             ],
@@ -901,7 +904,22 @@
             ],
             "both_directions": true,
             "effects": {
-              "travel_time_reduction_pct": 12.5
+              "travel_time_reduction_pct": 25.0
+            }
+          }
+        ],
+        "mobility_hubs": [
+          {
+            "zones": [
+              "15401012"
+            ],
+            "stops_per_zone": 8,
+            "effects": {
+              "access_time_reduction_pct": 80.0,
+              "transfer_time_reduction_pct": 0.0,
+              "initial_wait_reduction_pct": 0.0,
+              "transfer_wait_reduction_pct": 0.0,
+              "egress_time_reduction_pct": 80.0
             }
           }
         ],
@@ -949,7 +967,7 @@
             "area_pairs": [
               {
                 "origin": {
-                  "municipality_name": "Zürich"
+                  "municipality_name": "Z\u00fcrich"
                 },
                 "destination": {
                   "municipality_name": "Zollikon"
@@ -957,7 +975,7 @@
               },
               {
                 "origin": {
-                  "municipality_name": "Zürich"
+                  "municipality_name": "Z\u00fcrich"
                 },
                 "destination": {
                   "municipality_name": "Zumikon"
@@ -965,15 +983,15 @@
               },
               {
                 "origin": {
-                  "municipality_name": "Zürich"
+                  "municipality_name": "Z\u00fcrich"
                 },
                 "destination": {
-                  "municipality_name": "Küsnacht (ZH)"
+                  "municipality_name": "K\u00fcsnacht (ZH)"
                 }
               },
               {
                 "origin": {
-                  "municipality_name": "Zürich"
+                  "municipality_name": "Z\u00fcrich"
                 },
                 "destination": {
                   "municipality_name": "Maur"
@@ -981,7 +999,7 @@
               },
               {
                 "origin": {
-                  "municipality_name": "Zürich"
+                  "municipality_name": "Z\u00fcrich"
                 },
                 "destination": {
                   "municipality_name": "Egg"
@@ -989,18 +1007,18 @@
               },
               {
                 "origin": {
-                  "municipality_name": "Zürich"
+                  "municipality_name": "Z\u00fcrich"
                 },
                 "destination": {
-                  "municipality_name": "Fällanden"
+                  "municipality_name": "F\u00e4llanden"
                 }
               },
               {
                 "origin": {
-                  "municipality_name": "Zürich"
+                  "municipality_name": "Z\u00fcrich"
                 },
                 "destination": {
-                  "municipality_name": "Dübendorf"
+                  "municipality_name": "D\u00fcbendorf"
                 }
               },
               {
@@ -1016,7 +1034,7 @@
                   "municipality_name": "Zollikon"
                 },
                 "destination": {
-                  "municipality_name": "Küsnacht (ZH)"
+                  "municipality_name": "K\u00fcsnacht (ZH)"
                 }
               },
               {
@@ -1040,7 +1058,7 @@
                   "municipality_name": "Zollikon"
                 },
                 "destination": {
-                  "municipality_name": "Fällanden"
+                  "municipality_name": "F\u00e4llanden"
                 }
               },
               {
@@ -1048,7 +1066,7 @@
                   "municipality_name": "Zollikon"
                 },
                 "destination": {
-                  "municipality_name": "Dübendorf"
+                  "municipality_name": "D\u00fcbendorf"
                 }
               },
               {
@@ -1056,7 +1074,7 @@
                   "municipality_name": "Zumikon"
                 },
                 "destination": {
-                  "municipality_name": "Küsnacht (ZH)"
+                  "municipality_name": "K\u00fcsnacht (ZH)"
                 }
               },
               {
@@ -1080,7 +1098,7 @@
                   "municipality_name": "Zumikon"
                 },
                 "destination": {
-                  "municipality_name": "Fällanden"
+                  "municipality_name": "F\u00e4llanden"
                 }
               },
               {
@@ -1088,12 +1106,12 @@
                   "municipality_name": "Zumikon"
                 },
                 "destination": {
-                  "municipality_name": "Dübendorf"
+                  "municipality_name": "D\u00fcbendorf"
                 }
               },
               {
                 "origin": {
-                  "municipality_name": "Küsnacht (ZH)"
+                  "municipality_name": "K\u00fcsnacht (ZH)"
                 },
                 "destination": {
                   "municipality_name": "Maur"
@@ -1101,7 +1119,7 @@
               },
               {
                 "origin": {
-                  "municipality_name": "Küsnacht (ZH)"
+                  "municipality_name": "K\u00fcsnacht (ZH)"
                 },
                 "destination": {
                   "municipality_name": "Egg"
@@ -1109,18 +1127,18 @@
               },
               {
                 "origin": {
-                  "municipality_name": "Küsnacht (ZH)"
+                  "municipality_name": "K\u00fcsnacht (ZH)"
                 },
                 "destination": {
-                  "municipality_name": "Fällanden"
+                  "municipality_name": "F\u00e4llanden"
                 }
               },
               {
                 "origin": {
-                  "municipality_name": "Küsnacht (ZH)"
+                  "municipality_name": "K\u00fcsnacht (ZH)"
                 },
                 "destination": {
-                  "municipality_name": "Dübendorf"
+                  "municipality_name": "D\u00fcbendorf"
                 }
               },
               {
@@ -1136,7 +1154,7 @@
                   "municipality_name": "Maur"
                 },
                 "destination": {
-                  "municipality_name": "Fällanden"
+                  "municipality_name": "F\u00e4llanden"
                 }
               },
               {
@@ -1144,7 +1162,7 @@
                   "municipality_name": "Maur"
                 },
                 "destination": {
-                  "municipality_name": "Dübendorf"
+                  "municipality_name": "D\u00fcbendorf"
                 }
               },
               {
@@ -1152,7 +1170,7 @@
                   "municipality_name": "Egg"
                 },
                 "destination": {
-                  "municipality_name": "Fällanden"
+                  "municipality_name": "F\u00e4llanden"
                 }
               },
               {
@@ -1160,15 +1178,15 @@
                   "municipality_name": "Egg"
                 },
                 "destination": {
-                  "municipality_name": "Dübendorf"
+                  "municipality_name": "D\u00fcbendorf"
                 }
               },
               {
                 "origin": {
-                  "municipality_name": "Fällanden"
+                  "municipality_name": "F\u00e4llanden"
                 },
                 "destination": {
-                  "municipality_name": "Dübendorf"
+                  "municipality_name": "D\u00fcbendorf"
                 }
               }
             ],
@@ -1251,7 +1269,35 @@
             ],
             "both_directions": true,
             "effects": {
-              "travel_time_reduction_pct": 12.5
+              "travel_time_reduction_pct": 25.0
+            }
+          }
+        ],
+        "mobility_hubs": [
+          {
+            "zones": [
+              "15401012"
+            ],
+            "stops_per_zone": 8,
+            "effects": {
+              "access_time_reduction_pct": 40.5,
+              "transfer_time_reduction_pct": 0.0,
+              "initial_wait_reduction_pct": 0.0,
+              "transfer_wait_reduction_pct": 0.0,
+              "egress_time_reduction_pct": 40.5
+            }
+          },
+          {
+            "zones": [
+              "15401012"
+            ],
+            "stops_per_zone": 8,
+            "effects": {
+              "access_time_reduction_pct": 80.0,
+              "transfer_time_reduction_pct": 0.0,
+              "initial_wait_reduction_pct": 0.0,
+              "transfer_wait_reduction_pct": 0.0,
+              "egress_time_reduction_pct": 80.0
             }
           }
         ],
@@ -1299,7 +1345,7 @@
             "area_pairs": [
               {
                 "origin": {
-                  "municipality_name": "Zürich"
+                  "municipality_name": "Z\u00fcrich"
                 },
                 "destination": {
                   "municipality_name": "Zollikon"
@@ -1307,7 +1353,7 @@
               },
               {
                 "origin": {
-                  "municipality_name": "Zürich"
+                  "municipality_name": "Z\u00fcrich"
                 },
                 "destination": {
                   "municipality_name": "Zumikon"
@@ -1315,15 +1361,15 @@
               },
               {
                 "origin": {
-                  "municipality_name": "Zürich"
+                  "municipality_name": "Z\u00fcrich"
                 },
                 "destination": {
-                  "municipality_name": "Küsnacht (ZH)"
+                  "municipality_name": "K\u00fcsnacht (ZH)"
                 }
               },
               {
                 "origin": {
-                  "municipality_name": "Zürich"
+                  "municipality_name": "Z\u00fcrich"
                 },
                 "destination": {
                   "municipality_name": "Maur"
@@ -1331,7 +1377,7 @@
               },
               {
                 "origin": {
-                  "municipality_name": "Zürich"
+                  "municipality_name": "Z\u00fcrich"
                 },
                 "destination": {
                   "municipality_name": "Egg"
@@ -1339,18 +1385,18 @@
               },
               {
                 "origin": {
-                  "municipality_name": "Zürich"
+                  "municipality_name": "Z\u00fcrich"
                 },
                 "destination": {
-                  "municipality_name": "Fällanden"
+                  "municipality_name": "F\u00e4llanden"
                 }
               },
               {
                 "origin": {
-                  "municipality_name": "Zürich"
+                  "municipality_name": "Z\u00fcrich"
                 },
                 "destination": {
-                  "municipality_name": "Dübendorf"
+                  "municipality_name": "D\u00fcbendorf"
                 }
               },
               {
@@ -1366,7 +1412,7 @@
                   "municipality_name": "Zollikon"
                 },
                 "destination": {
-                  "municipality_name": "Küsnacht (ZH)"
+                  "municipality_name": "K\u00fcsnacht (ZH)"
                 }
               },
               {
@@ -1390,7 +1436,7 @@
                   "municipality_name": "Zollikon"
                 },
                 "destination": {
-                  "municipality_name": "Fällanden"
+                  "municipality_name": "F\u00e4llanden"
                 }
               },
               {
@@ -1398,7 +1444,7 @@
                   "municipality_name": "Zollikon"
                 },
                 "destination": {
-                  "municipality_name": "Dübendorf"
+                  "municipality_name": "D\u00fcbendorf"
                 }
               },
               {
@@ -1406,7 +1452,7 @@
                   "municipality_name": "Zumikon"
                 },
                 "destination": {
-                  "municipality_name": "Küsnacht (ZH)"
+                  "municipality_name": "K\u00fcsnacht (ZH)"
                 }
               },
               {
@@ -1430,7 +1476,7 @@
                   "municipality_name": "Zumikon"
                 },
                 "destination": {
-                  "municipality_name": "Fällanden"
+                  "municipality_name": "F\u00e4llanden"
                 }
               },
               {
@@ -1438,12 +1484,12 @@
                   "municipality_name": "Zumikon"
                 },
                 "destination": {
-                  "municipality_name": "Dübendorf"
+                  "municipality_name": "D\u00fcbendorf"
                 }
               },
               {
                 "origin": {
-                  "municipality_name": "Küsnacht (ZH)"
+                  "municipality_name": "K\u00fcsnacht (ZH)"
                 },
                 "destination": {
                   "municipality_name": "Maur"
@@ -1451,7 +1497,7 @@
               },
               {
                 "origin": {
-                  "municipality_name": "Küsnacht (ZH)"
+                  "municipality_name": "K\u00fcsnacht (ZH)"
                 },
                 "destination": {
                   "municipality_name": "Egg"
@@ -1459,18 +1505,18 @@
               },
               {
                 "origin": {
-                  "municipality_name": "Küsnacht (ZH)"
+                  "municipality_name": "K\u00fcsnacht (ZH)"
                 },
                 "destination": {
-                  "municipality_name": "Fällanden"
+                  "municipality_name": "F\u00e4llanden"
                 }
               },
               {
                 "origin": {
-                  "municipality_name": "Küsnacht (ZH)"
+                  "municipality_name": "K\u00fcsnacht (ZH)"
                 },
                 "destination": {
-                  "municipality_name": "Dübendorf"
+                  "municipality_name": "D\u00fcbendorf"
                 }
               },
               {
@@ -1486,7 +1532,7 @@
                   "municipality_name": "Maur"
                 },
                 "destination": {
-                  "municipality_name": "Fällanden"
+                  "municipality_name": "F\u00e4llanden"
                 }
               },
               {
@@ -1494,7 +1540,7 @@
                   "municipality_name": "Maur"
                 },
                 "destination": {
-                  "municipality_name": "Dübendorf"
+                  "municipality_name": "D\u00fcbendorf"
                 }
               },
               {
@@ -1502,7 +1548,7 @@
                   "municipality_name": "Egg"
                 },
                 "destination": {
-                  "municipality_name": "Fällanden"
+                  "municipality_name": "F\u00e4llanden"
                 }
               },
               {
@@ -1510,15 +1556,15 @@
                   "municipality_name": "Egg"
                 },
                 "destination": {
-                  "municipality_name": "Dübendorf"
+                  "municipality_name": "D\u00fcbendorf"
                 }
               },
               {
                 "origin": {
-                  "municipality_name": "Fällanden"
+                  "municipality_name": "F\u00e4llanden"
                 },
                 "destination": {
-                  "municipality_name": "Dübendorf"
+                  "municipality_name": "D\u00fcbendorf"
                 }
               }
             ],
@@ -1532,18 +1578,6 @@
               "transfer_time_reduction_pct": 0.0,
               "access_time_reduction_pct": 0.0,
               "egress_time_reduction_pct": 0.0
-            }
-          }
-        ],
-        "mobility_hubs": [
-          {
-            "station": "Forch",
-            "effects": {
-              "access_time_reduction_pct": 13.5,
-              "transfer_time_reduction_pct": 0.0,
-              "initial_wait_reduction_pct": 0.0,
-              "transfer_wait_reduction_pct": 0.0,
-              "egress_time_reduction_pct": 13.5
             }
           }
         ]
@@ -1744,7 +1778,7 @@
   },
   "cache_contract": {
     "format_version": 3,
-    "model_fingerprint": "a25c4e056cde0e743ac4",
+    "model_fingerprint": "38794950c97d91107f48",
     "reference_equations": "d657e21ae87ab33a0428",
     "solver_settings": {
       "stopping_rule": "road_relative_gap",
@@ -1767,7 +1801,7 @@
     "od_threshold": 0.0,
     "drive_occupancy": 1.14
   },
-  "source_fingerprint": "95cd5b8ff2b0d1b473e8",
+  "source_fingerprint": "ab0ec1043ac1f92d3b8d",
   "source_convergence_passed": true,
   "gp_diagnostics": {
     "mode": "pooled",
@@ -1791,47 +1825,47 @@
         "target_reduction": "none; exact Gram likelihood identity",
         "prediction_storage": "original training targets; exact posterior identity",
         "stored_target_dtype": "float32",
-        "kernel": "2.15**2 * Matern(length_scale=[2.38, 3.62, 2.63, 6.41, 3.9, 10, 10, 10, 10], nu=2.5) + WhiteKernel(noise_level=0.00901)",
+        "kernel": "2.28**2 * Matern(length_scale=[2.52, 3.81, 2.85, 6.82, 4.12, 10, 10, 10, 10], nu=2.5) + WhiteKernel(noise_level=0.00932)",
         "theta": [
-          1.53382705297585,
-          0.8656373058179221,
-          1.2869755662823386,
-          0.9673920851917545,
-          1.8582994603622078,
-          1.3603623487361065,
+          1.6489316909406704,
+          0.9238587145890297,
+          1.3383432655948782,
+          1.0463654580841508,
+          1.9197272464607344,
+          1.4161474006223878,
           2.302585092994046,
           2.302585092994046,
           2.302585092994046,
           2.302585092994046,
-          -4.709639596472374
+          -4.676055698894528
         ],
         "length_scales": [
-          2.3765201735904813,
-          3.6218160317782906,
-          2.6310738877619935,
-          6.412822235357438,
-          3.897605338323123,
+          2.5189917306871172,
+          3.812721602899013,
+          2.8472837170830876,
+          6.819098282424876,
+          4.121212435878284,
           10.000000000000002,
           10.000000000000002,
           10.000000000000002,
           10.000000000000002
         ],
-        "amplitude_variance": 4.635884692516325,
-        "noise_variance_normalized": 0.009008023520931465,
-        "nll_per_varying_output": -32.28252690763212,
+        "amplitude_variance": 5.2014201337229355,
+        "noise_variance_normalized": 0.009315685385970926,
+        "nll_per_varying_output": -32.15447404109631,
         "selected_optimizer_success": true,
         "optimizer_attempts": [
           {
             "success": true,
-            "message": "CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH",
-            "iterations": 38,
-            "nll_per_output": -32.28252690763212
+            "message": "CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL",
+            "iterations": 39,
+            "nll_per_output": -32.15447404109631
           },
           {
             "success": true,
             "message": "CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL",
-            "iterations": 41,
-            "nll_per_output": -13.773746843555983
+            "iterations": 43,
+            "nll_per_output": -14.107757613225303
           }
         ],
         "parameters_near_bound": [
@@ -1840,21 +1874,21 @@
           8,
           9
         ],
-        "fit_seconds": 15.16988141706679
+        "fit_seconds": 15.571508916000312
       }
     },
-    "fit_seconds": 15.16988141706679
+    "fit_seconds": 15.571508916000312
   },
   "validation": {
     "od": {
       "n_cases": 20,
-      "weighted_mae_min": 0.09385560644052501,
-      "weighted_rmse_min": 0.18242651499902607,
-      "weighted_bias_min": 0.019469492491015886,
-      "maximum_case_mae_min": 0.18064058863702262,
-      "weighted_95pct_latent_coverage": 0.7747218843529927,
-      "weighted_nrmse": 0.014803877247111451,
-      "maximum_case_scaled_error": 0.023624969714616934,
+      "weighted_mae_min": 0.09123432532438316,
+      "weighted_rmse_min": 0.17631501447547218,
+      "weighted_bias_min": -0.003283191788447391,
+      "maximum_case_mae_min": 0.1712369428074357,
+      "weighted_95pct_latent_coverage": 0.7900692231254401,
+      "weighted_nrmse": 0.014268962577993725,
+      "maximum_case_scaled_error": 0.022678671425074105,
       "limits": {
         "weighted_mae_min": 0.1,
         "weighted_rmse_min": 0.2
@@ -1863,276 +1897,276 @@
         {
           "id": "test_000_stage0",
           "stage": 0,
-          "weighted_mae_min": 0.0809176901645064,
-          "weighted_mse_min2": 0.02475247503870262,
-          "weighted_rmse_min": 0.15732919321824104,
+          "weighted_mae_min": 0.07416495541901141,
+          "weighted_mse_min2": 0.022957584649799134,
+          "weighted_rmse_min": 0.15151760508204692,
           "weighted_truth_rms_min": 13.221187759840056,
-          "scaled_error": 0.011899777544657179,
-          "weighted_bias_min": 0.06926167060241366,
-          "weighted_95pct_latent_coverage": 0.8713513292947663,
+          "scaled_error": 0.011460211278618126,
+          "weighted_bias_min": 0.061085156360749716,
+          "weighted_95pct_latent_coverage": 0.8714359647979318,
           "negative_prediction_fraction_weighted": 0.0
         },
         {
           "id": "test_000_stage1",
           "stage": 1,
-          "weighted_mae_min": 0.1322945221009123,
-          "weighted_mse_min2": 0.05623101832107602,
-          "weighted_rmse_min": 0.2371308042433037,
-          "weighted_truth_rms_min": 13.221156836461036,
-          "scaled_error": 0.01793570768250394,
-          "weighted_bias_min": 0.12272690659338306,
-          "weighted_95pct_latent_coverage": 0.6117743270245173,
+          "weighted_mae_min": 0.10259755093025752,
+          "weighted_mse_min2": 0.03483840053154285,
+          "weighted_rmse_min": 0.1866504769121763,
+          "weighted_truth_rms_min": 13.22804915838084,
+          "scaled_error": 0.014110204360249215,
+          "weighted_bias_min": 0.0917090612726062,
+          "weighted_95pct_latent_coverage": 0.6940319348704452,
           "negative_prediction_fraction_weighted": 0.0
         },
         {
           "id": "test_000_stage2",
           "stage": 2,
-          "weighted_mae_min": 0.09063296656694515,
-          "weighted_mse_min2": 0.026083396888137305,
-          "weighted_rmse_min": 0.16150355069823483,
-          "weighted_truth_rms_min": 13.221185750636916,
-          "scaled_error": 0.012215511811446606,
-          "weighted_bias_min": 0.0819653761444897,
-          "weighted_95pct_latent_coverage": 0.8824052950960466,
+          "weighted_mae_min": 0.1712369428074357,
+          "weighted_mse_min2": 0.08949934784953534,
+          "weighted_rmse_min": 0.2991644160817515,
+          "weighted_truth_rms_min": 13.191443646517486,
+          "scaled_error": 0.022678671425074105,
+          "weighted_bias_min": 0.16383135261781304,
+          "weighted_95pct_latent_coverage": 0.5754680306120908,
           "negative_prediction_fraction_weighted": 0.0
         },
         {
           "id": "test_000_stage3",
           "stage": 3,
-          "weighted_mae_min": 0.1187526027664862,
-          "weighted_mse_min2": 0.04525785739445404,
-          "weighted_rmse_min": 0.21273894188524592,
-          "weighted_truth_rms_min": 13.221154999349887,
-          "scaled_error": 0.016090798564551038,
-          "weighted_bias_min": 0.11197077289428567,
-          "weighted_95pct_latent_coverage": 0.5065594008129842,
+          "weighted_mae_min": 0.05117334678596486,
+          "weighted_mse_min2": 0.006303677037115217,
+          "weighted_rmse_min": 0.07939569910968236,
+          "weighted_truth_rms_min": 13.19101569361219,
+          "scaled_error": 0.0060189223448600775,
+          "weighted_bias_min": 0.04339803697079242,
+          "weighted_95pct_latent_coverage": 0.878388666423944,
           "negative_prediction_fraction_weighted": 0.0
         },
         {
           "id": "test_001_stage0",
           "stage": 0,
-          "weighted_mae_min": 0.18064058863702262,
-          "weighted_mse_min2": 0.10281874106564709,
-          "weighted_rmse_min": 0.32065361539462967,
+          "weighted_mae_min": 0.1440819402093736,
+          "weighted_mse_min2": 0.06869558238889416,
+          "weighted_rmse_min": 0.26209842118733595,
           "weighted_truth_rms_min": 13.572657204137665,
-          "scaled_error": 0.023624969714616934,
-          "weighted_bias_min": -0.17590011449650977,
-          "weighted_95pct_latent_coverage": 0.6367191613477858,
+          "scaled_error": 0.019310767025592784,
+          "weighted_bias_min": -0.13917759307615787,
+          "weighted_95pct_latent_coverage": 0.699545985320849,
           "negative_prediction_fraction_weighted": 0.0
         },
         {
           "id": "test_001_stage1",
           "stage": 1,
-          "weighted_mae_min": 0.10888015794777628,
-          "weighted_mse_min2": 0.04344476270477088,
-          "weighted_rmse_min": 0.20843407280185952,
-          "weighted_truth_rms_min": 13.573827312367525,
-          "scaled_error": 0.015355586011614346,
-          "weighted_bias_min": -0.10252347978567372,
-          "weighted_95pct_latent_coverage": 0.5908287151145919,
+          "weighted_mae_min": 0.1518024665680509,
+          "weighted_mse_min2": 0.06100303792218262,
+          "weighted_rmse_min": 0.24698793072169056,
+          "weighted_truth_rms_min": 13.612132110593642,
+          "scaled_error": 0.018144690979708625,
+          "weighted_bias_min": -0.1477607905016526,
+          "weighted_95pct_latent_coverage": 0.4399762676627813,
           "negative_prediction_fraction_weighted": 0.0
         },
         {
           "id": "test_001_stage2",
           "stage": 2,
-          "weighted_mae_min": 0.1500057005253414,
-          "weighted_mse_min2": 0.07832140271060913,
-          "weighted_rmse_min": 0.2798596125034999,
-          "weighted_truth_rms_min": 13.5668238249795,
-          "scaled_error": 0.020628233705535185,
-          "weighted_bias_min": -0.1449044885291571,
-          "weighted_95pct_latent_coverage": 0.6334621296276763,
+          "weighted_mae_min": 0.07243392355726833,
+          "weighted_mse_min2": 0.020959762605086033,
+          "weighted_rmse_min": 0.14477486869303674,
+          "weighted_truth_rms_min": 13.604592694253755,
+          "scaled_error": 0.010641617279302016,
+          "weighted_bias_min": -0.06969182441521532,
+          "weighted_95pct_latent_coverage": 0.9481066558892517,
           "negative_prediction_fraction_weighted": 0.0
         },
         {
           "id": "test_001_stage3",
           "stage": 3,
-          "weighted_mae_min": 0.1327676269001572,
-          "weighted_mse_min2": 0.060707651467540105,
-          "weighted_rmse_min": 0.24638922758014423,
-          "weighted_truth_rms_min": 13.572083584230475,
-          "scaled_error": 0.0181541195241699,
-          "weighted_bias_min": -0.12626759473930102,
-          "weighted_95pct_latent_coverage": 0.587625749008111,
+          "weighted_mae_min": 0.16743753446318696,
+          "weighted_mse_min2": 0.08366948781860144,
+          "weighted_rmse_min": 0.2892567852593979,
+          "weighted_truth_rms_min": 13.606904265784387,
+          "scaled_error": 0.021258089247144663,
+          "weighted_bias_min": -0.1625262110833032,
+          "weighted_95pct_latent_coverage": 0.4608728064077511,
           "negative_prediction_fraction_weighted": 0.0
         },
         {
           "id": "test_002_stage0",
           "stage": 0,
-          "weighted_mae_min": 0.09242021208147004,
-          "weighted_mse_min2": 0.023587163672682515,
-          "weighted_rmse_min": 0.15358113058798115,
+          "weighted_mae_min": 0.11691864390350856,
+          "weighted_mse_min2": 0.03968128005239209,
+          "weighted_rmse_min": 0.19920160655073063,
           "weighted_truth_rms_min": 11.642834227183958,
-          "scaled_error": 0.013191043313954981,
-          "weighted_bias_min": 0.07944978887222678,
-          "weighted_95pct_latent_coverage": 0.8966590296136918,
+          "scaled_error": 0.01710937411490667,
+          "weighted_bias_min": 0.10424459840861183,
+          "weighted_95pct_latent_coverage": 0.7170782490387915,
           "negative_prediction_fraction_weighted": 7.537442102998445e-05
         },
         {
           "id": "test_002_stage1",
           "stage": 1,
-          "weighted_mae_min": 0.0740822199774829,
-          "weighted_mse_min2": 0.014924172769502173,
-          "weighted_rmse_min": 0.12216453155274723,
-          "weighted_truth_rms_min": 11.642795389184668,
-          "scaled_error": 0.010492714805091346,
-          "weighted_bias_min": 0.0639878555010278,
-          "weighted_95pct_latent_coverage": 0.9421950118762418,
-          "negative_prediction_fraction_weighted": 0.0001151993370211707
+          "weighted_mae_min": 0.06786274871040551,
+          "weighted_mse_min2": 0.011303241773921016,
+          "weighted_rmse_min": 0.10631670505579552,
+          "weighted_truth_rms_min": 11.652570665587366,
+          "scaled_error": 0.009123884171736664,
+          "weighted_bias_min": 0.04809172855802242,
+          "weighted_95pct_latent_coverage": 0.9406558447265434,
+          "negative_prediction_fraction_weighted": 4.5653894867807654e-05
         },
         {
           "id": "test_002_stage2",
           "stage": 2,
-          "weighted_mae_min": 0.061400849357882925,
-          "weighted_mse_min2": 0.011470190981372556,
-          "weighted_rmse_min": 0.10709897749919257,
-          "weighted_truth_rms_min": 11.6428291210172,
-          "scaled_error": 0.009198707323279485,
-          "weighted_bias_min": 0.04388843112284742,
-          "weighted_95pct_latent_coverage": 0.9370782065325178,
-          "negative_prediction_fraction_weighted": 2.2795971939926963e-05
+          "weighted_mae_min": 0.08693111006224821,
+          "weighted_mse_min2": 0.025484051530770047,
+          "weighted_rmse_min": 0.1596372498221203,
+          "weighted_truth_rms_min": 11.829068562979586,
+          "scaled_error": 0.013495335577115785,
+          "weighted_bias_min": -0.072210580869338,
+          "weighted_95pct_latent_coverage": 0.9027035338675968,
+          "negative_prediction_fraction_weighted": 7.531247004203072e-05
         },
         {
           "id": "test_002_stage3",
           "stage": 3,
-          "weighted_mae_min": 0.07869245722463329,
-          "weighted_mse_min2": 0.019364165172788002,
-          "weighted_rmse_min": 0.13915518377979313,
-          "weighted_truth_rms_min": 11.642802909764676,
-          "scaled_error": 0.011952034648210475,
-          "weighted_bias_min": 0.051245173203562054,
-          "weighted_95pct_latent_coverage": 0.9129045204972295,
+          "weighted_mae_min": 0.06736451875846797,
+          "weighted_mse_min2": 0.01303840684989806,
+          "weighted_rmse_min": 0.114185843474128,
+          "weighted_truth_rms_min": 11.820256694192585,
+          "scaled_error": 0.009660183059326342,
+          "weighted_bias_min": -0.05631316321567616,
+          "weighted_95pct_latent_coverage": 0.9370469882270792,
           "negative_prediction_fraction_weighted": 0.0
         },
         {
           "id": "test_003_stage0",
           "stage": 0,
-          "weighted_mae_min": 0.038234555848807646,
-          "weighted_mse_min2": 0.004986962233292728,
-          "weighted_rmse_min": 0.07061842700947628,
+          "weighted_mae_min": 0.03912243309691191,
+          "weighted_mse_min2": 0.00470759643653733,
+          "weighted_rmse_min": 0.06861192634329202,
           "weighted_truth_rms_min": 11.66586240833078,
-          "scaled_error": 0.006053425330907943,
-          "weighted_bias_min": -0.016914345646855185,
-          "weighted_95pct_latent_coverage": 0.8297365196345317,
+          "scaled_error": 0.005881427702618466,
+          "weighted_bias_min": -0.011093920616912493,
+          "weighted_95pct_latent_coverage": 0.8619998968752782,
           "negative_prediction_fraction_weighted": 0.0
         },
         {
           "id": "test_003_stage1",
           "stage": 1,
-          "weighted_mae_min": 0.044574568850611083,
-          "weighted_mse_min2": 0.008521948756445425,
-          "weighted_rmse_min": 0.09231440167409105,
-          "weighted_truth_rms_min": 11.665834613922403,
-          "scaled_error": 0.007913227362568633,
-          "weighted_bias_min": -0.022905421176516998,
-          "weighted_95pct_latent_coverage": 0.8052182316420283,
+          "weighted_mae_min": 0.06061568077773537,
+          "weighted_mse_min2": 0.01383164863557837,
+          "weighted_rmse_min": 0.1176080296390445,
+          "weighted_truth_rms_min": 11.7059209415179,
+          "scaled_error": 0.010046883985173604,
+          "weighted_bias_min": -0.029589013413108656,
+          "weighted_95pct_latent_coverage": 0.796022130464406,
           "negative_prediction_fraction_weighted": 0.0
         },
         {
           "id": "test_003_stage2",
           "stage": 2,
-          "weighted_mae_min": 0.051117784056937884,
-          "weighted_mse_min2": 0.00806309664155484,
-          "weighted_rmse_min": 0.08979474729378573,
-          "weighted_truth_rms_min": 11.665853556381725,
-          "scaled_error": 0.0076972290848503,
-          "weighted_bias_min": -0.013777468849951206,
-          "weighted_95pct_latent_coverage": 0.8195506552249212,
+          "weighted_mae_min": 0.03275199644017675,
+          "weighted_mse_min2": 0.002785233822189947,
+          "weighted_rmse_min": 0.052775314515310534,
+          "weighted_truth_rms_min": 11.647584076926037,
+          "scaled_error": 0.004531009535261384,
+          "weighted_bias_min": 0.0033738124269614986,
+          "weighted_95pct_latent_coverage": 0.9063528895145738,
           "negative_prediction_fraction_weighted": 0.0
         },
         {
           "id": "test_003_stage3",
           "stage": 3,
-          "weighted_mae_min": 0.09147875250153994,
-          "weighted_mse_min2": 0.025168618938718613,
-          "weighted_rmse_min": 0.15864620682108543,
-          "weighted_truth_rms_min": 11.665902143781986,
-          "scaled_error": 0.013599137457675749,
-          "weighted_bias_min": 0.0655437210195983,
-          "weighted_95pct_latent_coverage": 0.632967448292055,
+          "weighted_mae_min": 0.04883448834341564,
+          "weighted_mse_min2": 0.00655378094361035,
+          "weighted_rmse_min": 0.0809554256588794,
+          "weighted_truth_rms_min": 11.634564054166344,
+          "scaled_error": 0.006958182986657693,
+          "weighted_bias_min": 0.030291764744213932,
+          "weighted_95pct_latent_coverage": 0.8367042613186435,
           "negative_prediction_fraction_weighted": 0.0
         },
         {
           "id": "test_004_stage0",
           "stage": 0,
-          "weighted_mae_min": 0.09059895799668057,
-          "weighted_mse_min2": 0.025245763546890884,
-          "weighted_rmse_min": 0.1588891549064658,
+          "weighted_mae_min": 0.09756680083006411,
+          "weighted_mse_min2": 0.02873304730210833,
+          "weighted_rmse_min": 0.1695082514277943,
           "weighted_truth_rms_min": 11.342017779679107,
-          "scaled_error": 0.014008896652510903,
-          "weighted_bias_min": 0.0785443480446398,
-          "weighted_95pct_latent_coverage": 0.8753092407503676,
+          "scaled_error": 0.014945158323723779,
+          "weighted_bias_min": 0.08213149313523446,
+          "weighted_95pct_latent_coverage": 0.8696741338743157,
           "negative_prediction_fraction_weighted": 0.0
         },
         {
           "id": "test_004_stage1",
           "stage": 1,
-          "weighted_mae_min": 0.06712832809177947,
-          "weighted_mse_min2": 0.018323868973715025,
-          "weighted_rmse_min": 0.1353656861014453,
-          "weighted_truth_rms_min": 11.341827374641886,
-          "scaled_error": 0.011935086087105909,
-          "weighted_bias_min": 0.05836531457538795,
-          "weighted_95pct_latent_coverage": 0.8815277277889677,
+          "weighted_mae_min": 0.12224259933968502,
+          "weighted_mse_min2": 0.04648792676832776,
+          "weighted_rmse_min": 0.21561059057552753,
+          "weighted_truth_rms_min": 11.629356078651657,
+          "scaled_error": 0.01854020025849325,
+          "weighted_bias_min": -0.10999092254291094,
+          "weighted_95pct_latent_coverage": 0.7082768328606646,
           "negative_prediction_fraction_weighted": 0.0
         },
         {
           "id": "test_004_stage2",
           "stage": 2,
-          "weighted_mae_min": 0.08051662431600967,
-          "weighted_mse_min2": 0.023911223195973552,
-          "weighted_rmse_min": 0.15463254248693434,
-          "weighted_truth_rms_min": 11.3420679709935,
-          "scaled_error": 0.013633540451564532,
-          "weighted_bias_min": 0.06707019152671495,
-          "weighted_95pct_latent_coverage": 0.8979884644977385,
+          "weighted_mae_min": 0.062192322344850545,
+          "weighted_mse_min2": 0.01319304046576093,
+          "weighted_rmse_min": 0.11486096145236174,
+          "weighted_truth_rms_min": 11.34262330118554,
+          "scaled_error": 0.010126490001687386,
+          "weighted_bias_min": 0.03832412345791265,
+          "weighted_95pct_latent_coverage": 0.9192759024168016,
           "negative_prediction_fraction_weighted": 0.0
         },
         {
           "id": "test_004_stage3",
           "stage": 3,
-          "weighted_mae_min": 0.11197496289751721,
-          "weighted_mse_min2": 0.04440418701992409,
-          "weighted_rmse_min": 0.21072301018143247,
-          "weighted_truth_rms_min": 11.341813159609618,
-          "scaled_error": 0.01857930537348805,
-          "weighted_bias_min": 0.09856321294370558,
-          "weighted_95pct_latent_coverage": 0.7425765233830837,
+          "weighted_mae_min": 0.0873545031396446,
+          "weighted_mse_min2": 0.028013551205868074,
+          "weighted_rmse_min": 0.16737249238112,
+          "weighted_truth_rms_min": 11.334540801428146,
+          "scaled_error": 0.014766587840949955,
+          "weighted_bias_min": 0.06620905601240942,
+          "weighted_95pct_latent_coverage": 0.8377674873390637,
           "negative_prediction_fraction_weighted": 0.0
         }
       ],
       "by_stage": {
         "0": {
           "n_cases": 5,
-          "weighted_mae_min": 0.09656240094569746,
-          "weighted_rmse_min": 0.19046842549735946,
-          "weighted_bias_min": 0.006888269475183058,
-          "maximum_case_mae_min": 0.18064058863702262,
-          "weighted_95pct_latent_coverage": 0.8219550561282286
+          "weighted_mae_min": 0.0943709546917739,
+          "weighted_rmse_min": 0.18153517060323657,
+          "weighted_bias_min": 0.019437946842305126,
+          "maximum_case_mae_min": 0.1440819402093736,
+          "weighted_95pct_latent_coverage": 0.8039468459814332
         },
         "1": {
           "n_cases": 5,
-          "weighted_mae_min": 0.0853919593937124,
-          "weighted_rmse_min": 0.1681937998414386,
-          "weighted_bias_min": 0.023930235141521615,
-          "maximum_case_mae_min": 0.1322945221009123,
-          "weighted_95pct_latent_coverage": 0.7663088026892695
+          "weighted_mae_min": 0.10102420926522689,
+          "weighted_rmse_min": 0.1830105219005468,
+          "weighted_bias_min": -0.02950798732540872,
+          "maximum_case_mae_min": 0.1518024665680509,
+          "weighted_95pct_latent_coverage": 0.715792602116968
         },
         "2": {
           "n_cases": 5,
-          "weighted_mae_min": 0.08673478496462342,
-          "weighted_rmse_min": 0.171958896494277,
-          "weighted_bias_min": 0.0068484082829887525,
-          "maximum_case_mae_min": 0.1500057005253414,
-          "weighted_95pct_latent_coverage": 0.8340969501957801
+          "weighted_mae_min": 0.0851092590423959,
+          "weighted_rmse_min": 0.17431089253018142,
+          "weighted_bias_min": 0.012725376643626773,
+          "maximum_case_mae_min": 0.1712369428074357,
+          "weighted_95pct_latent_coverage": 0.8503814024600629
         },
         "3": {
           "n_cases": 5,
-          "weighted_mae_min": 0.10673328045806676,
-          "weighted_rmse_min": 0.1974347892309888,
-          "weighted_bias_min": 0.040211057064370115,
-          "maximum_case_mae_min": 0.1327676269001572,
-          "weighted_95pct_latent_coverage": 0.6765267283986927
+          "weighted_mae_min": 0.084432878298136,
+          "weighted_rmse_min": 0.16587881350859315,
+          "weighted_bias_min": -0.01578810331431272,
+          "maximum_case_mae_min": 0.16743753446318696,
+          "weighted_95pct_latent_coverage": 0.7901560419432963
         }
       },
       "weighting": "fixed nominal all-passenger OD collapsed to corridor, reachable off-diagonal",
@@ -2144,12 +2178,12 @@
       "passed": true,
       "checks": {
         "total_benefit_mae": {
-          "value": 507964.1916175842,
+          "value": 890184.1760502179,
           "limit": 1000000.0,
           "passed": true
         },
         "total_benefit_p95_error": {
-          "value": 1198372.0060880657,
+          "value": 2052474.1372009274,
           "limit": 5000000.0,
           "passed": true
         },
@@ -2164,12 +2198,12 @@
           "passed": true
         },
         "maximum_mode_share_error_pp": {
-          "value": 0.225726205822252,
+          "value": 0.19202712969593194,
           "limit": 1.0,
           "passed": true
         },
         "median_mode_share_error_pp": {
-          "value": 0.026987479266605413,
+          "value": 0.02095255498406612,
           "limit": 0.25,
           "passed": true
         },
@@ -2200,79 +2234,79 @@
         },
         "bike_time": {
           "n": 15,
-          "mean_reference": 15874.818314202626,
-          "mean_absolute_error": 3.240135908126831,
-          "rmse": 5.027530916186447,
-          "nrmse": 0.00015200645183052617,
+          "mean_reference": 29144.39670463403,
+          "mean_absolute_error": 5.30682311852773,
+          "rmse": 8.433796028019348,
+          "nrmse": 0.0001391170620432533,
           "median_absolute_relative_error": null,
           "max_absolute_relative_error": null,
           "material": false,
-          "mean_absolute_reference": 15874.818314202626,
+          "mean_absolute_reference": 29144.39670463403,
           "error_limit_chf_per_year": 1000000.0,
           "passed": null
         },
         "car_acc": {
           "n": 15,
-          "mean_reference": -2681.4254133750997,
-          "mean_absolute_error": 74967.92177365621,
-          "rmse": 97195.74258586884,
-          "nrmse": 2.2162584235240708,
+          "mean_reference": 76326.44973175724,
+          "mean_absolute_error": 149742.66690922977,
+          "rmse": 186584.18454841347,
+          "nrmse": 0.48620028793161596,
           "median_absolute_relative_error": null,
           "max_absolute_relative_error": null,
           "material": false,
-          "mean_absolute_reference": 5809.471622438232,
+          "mean_absolute_reference": 77020.54943963885,
           "error_limit_chf_per_year": 1000000.0,
           "passed": null
         },
         "car_air": {
           "n": 15,
-          "mean_reference": -591.4955715795357,
-          "mean_absolute_error": 16537.172176583856,
-          "rmse": 21440.40666922023,
-          "nrmse": 2.2162584235240494,
+          "mean_reference": 16836.849828282,
+          "mean_absolute_error": 33031.731522922215,
+          "rmse": 41158.601069677534,
+          "nrmse": 0.4862002879316165,
           "median_absolute_relative_error": null,
           "max_absolute_relative_error": null,
           "material": false,
-          "mean_absolute_reference": 1281.5112144271532,
+          "mean_absolute_reference": 16989.96126722048,
           "error_limit_chf_per_year": 1000000.0,
           "passed": null
         },
         "car_co2": {
           "n": 15,
-          "mean_reference": -2745.1352502077816,
-          "mean_absolute_error": 76749.13636191389,
-          "rmse": 99505.08330806898,
-          "nrmse": 2.216258423524858,
+          "mean_reference": 78139.94252327879,
+          "mean_absolute_error": 153300.50626869797,
+          "rmse": 191017.36694954298,
+          "nrmse": 0.48620028793160674,
           "median_absolute_relative_error": null,
           "max_absolute_relative_error": null,
           "material": false,
-          "mean_absolute_reference": 5947.50286778311,
+          "mean_absolute_reference": 78850.53382511338,
           "error_limit_chf_per_year": 1000000.0,
           "passed": null
         },
         "car_noise": {
           "n": 15,
-          "mean_reference": -473.3235239808758,
-          "mean_absolute_error": 13233.290302421401,
-          "rmse": 17156.931222951367,
-          "nrmse": 2.2162584235252085,
+          "mean_reference": 13473.096801364794,
+          "mean_absolute_error": 26432.48118644133,
+          "rmse": 32935.722660482345,
+          "nrmse": 0.4862002879316003,
           "median_absolute_relative_error": null,
           "max_absolute_relative_error": null,
           "material": false,
-          "mean_absolute_reference": 1025.4842693318924,
+          "mean_absolute_reference": 13595.61884433863,
           "error_limit_chf_per_year": 1000000.0,
           "passed": null
         },
         "car_time": {
           "n": 15,
-          "mean_reference": 50816.45406600634,
-          "mean_absolute_error": 687935.5792824586,
-          "rmse": 904299.2573692015,
-          "nrmse": 3.21405396656787,
+          "mean_reference": -210153.52649819056,
+          "mean_absolute_error": 1252332.4290288924,
+          "rmse": 1586407.1016165,
+          "nrmse": 0.4276838433375902,
           "median_absolute_relative_error": null,
           "max_absolute_relative_error": null,
           "material": false,
-          "mean_absolute_reference": 50965.37912589709,
+          "mean_absolute_reference": 648635.942388757,
           "error_limit_chf_per_year": 1000000.0,
           "passed": null
         },
@@ -2369,14 +2403,14 @@
         },
         "pt_access": {
           "n": 15,
-          "mean_reference": 7712.475480190913,
-          "mean_absolute_error": 6.676715854803721,
-          "rmse": 10.191878477487945,
-          "nrmse": 0.0007953208455699226,
+          "mean_reference": 407762.7213175217,
+          "mean_absolute_error": 182.1858942826589,
+          "rmse": 230.0969585802371,
+          "nrmse": 0.0005403701296082913,
           "median_absolute_relative_error": null,
           "max_absolute_relative_error": null,
           "material": false,
-          "mean_absolute_reference": 7712.475480190913,
+          "mean_absolute_reference": 407762.7213175217,
           "error_limit_chf_per_year": 1000000.0,
           "passed": null
         },
@@ -2421,14 +2455,14 @@
         },
         "pt_egress": {
           "n": 15,
-          "mean_reference": 0.0,
-          "mean_absolute_error": 0.0,
-          "rmse": 0.0,
-          "nrmse": 0.0,
+          "mean_reference": 436324.9298201402,
+          "mean_absolute_error": 331.7151690165202,
+          "rmse": 487.2920389789039,
+          "nrmse": 0.0010547434149291112,
           "median_absolute_relative_error": null,
           "max_absolute_relative_error": null,
           "material": false,
-          "mean_absolute_reference": 0.0,
+          "mean_absolute_reference": 436324.9298201402,
           "error_limit_chf_per_year": 1000000.0,
           "passed": null
         },
@@ -2486,27 +2520,27 @@
         },
         "pt_waiting": {
           "n": 15,
-          "mean_reference": 7554.224016370376,
-          "mean_absolute_error": 1.5447124024232228,
-          "rmse": 2.9470815638578425,
-          "nrmse": 0.00022161598889682487,
+          "mean_reference": 12393.922244391839,
+          "mean_absolute_error": 2.5670048316319782,
+          "rmse": 4.3239823576220555,
+          "nrmse": 0.00019561720140821038,
           "median_absolute_relative_error": null,
           "max_absolute_relative_error": null,
           "material": false,
-          "mean_absolute_reference": 7554.224016370376,
+          "mean_absolute_reference": 12393.922244391839,
           "error_limit_chf_per_year": 1000000.0,
           "passed": null
         },
         "total": {
           "n": 15,
-          "mean_reference": -168133.40788249968,
-          "mean_absolute_error": 507964.1916175842,
-          "rmse": 670021.5038096033,
-          "nrmse": 1.5692271066903067,
+          "mean_reference": 616648.7824736277,
+          "mean_absolute_error": 890184.1760502179,
+          "rmse": 1135444.074186974,
+          "nrmse": 0.31833768975994575,
           "median_absolute_relative_error": null,
           "max_absolute_relative_error": null,
           "material": false,
-          "mean_absolute_reference": 182814.0035724004,
+          "mean_absolute_reference": 927242.4771998724,
           "error_limit_chf_per_year": 1000000.0,
           "passed": null
         },
@@ -2555,47 +2589,47 @@
           "avg_tt_min": {
             "n": 5,
             "mean_reference": 14.668441187910204,
-            "mean_absolute_error": 0.0118717200414153,
-            "rmse": 0.014343318700202648,
-            "nrmse": 0.019475048897789785,
-            "median_absolute_relative_error": 0.0005622495296017712,
-            "max_absolute_relative_error": 0.0018453970028830813
+            "mean_absolute_error": 0.010680780693914472,
+            "rmse": 0.012582798166201063,
+            "nrmse": 0.017084652072488854,
+            "median_absolute_relative_error": 0.0006045723046994166,
+            "max_absolute_relative_error": 0.0015635349246033079
           },
           "bike_share": {
             "n": 5,
             "mean_reference": 0.14004522621786666,
-            "mean_absolute_error": 0.00018266083358016715,
-            "rmse": 0.00021523592666458118,
-            "nrmse": 0.003211334659473445,
-            "median_absolute_relative_error": 0.0011148063731487047,
-            "max_absolute_relative_error": 0.0033560877370477247
+            "mean_absolute_error": 0.0001713261123123644,
+            "rmse": 0.00019562367458364388,
+            "nrmse": 0.002918718525011873,
+            "median_absolute_relative_error": 0.001128302469296018,
+            "max_absolute_relative_error": 0.002839449480123616
           },
           "car_share": {
             "n": 5,
             "mean_reference": 0.4466992675558089,
-            "mean_absolute_error": 0.0010070564322261944,
-            "rmse": 0.0011943018416386243,
-            "nrmse": 0.03208072187202506,
-            "median_absolute_relative_error": 0.0016949311718231956,
-            "max_absolute_relative_error": 0.004824883900674645
+            "mean_absolute_error": 0.0009299289848309633,
+            "rmse": 0.0010684264700854158,
+            "nrmse": 0.02869952237576055,
+            "median_absolute_relative_error": 0.0018238397950825892,
+            "max_absolute_relative_error": 0.004104568201054346
           },
           "co2_tonnes": {
             "n": 5,
             "mean_reference": 196512.0295820289,
-            "mean_absolute_error": 444.7850837671664,
-            "rmse": 539.2154394572775,
-            "nrmse": 0.011287691504538651,
-            "median_absolute_relative_error": 0.0016749487941213183,
-            "max_absolute_relative_error": 0.004768480485574021
+            "mean_absolute_error": 406.8839502786577,
+            "rmse": 476.6164740478995,
+            "nrmse": 0.009977273147906396,
+            "median_absolute_relative_error": 0.0017965432390197817,
+            "max_absolute_relative_error": 0.004056585354457376
           },
           "pt_share": {
             "n": 5,
             "mean_reference": 0.3475105979789933,
-            "mean_absolute_error": 0.0008052005432030995,
-            "rmse": 0.00095648896205177,
-            "nrmse": 0.028648469259179705,
-            "median_absolute_relative_error": 0.0016967086606926448,
-            "max_absolute_relative_error": 0.005315772792351128
+            "mean_absolute_error": 0.0007407554639330294,
+            "rmse": 0.0008531844641568294,
+            "nrmse": 0.025554324057619066,
+            "median_absolute_relative_error": 0.0017654175776912584,
+            "max_absolute_relative_error": 0.004531771391422023
           },
           "section_modeled_peak": {
             "n": 5,
@@ -2609,67 +2643,67 @@
           "total_cost": {
             "n": 5,
             "mean_reference": 4408346625.28821,
-            "mean_absolute_error": 2081683.7220519066,
-            "rmse": 2562116.1540962774,
-            "nrmse": 0.0025088541852582077,
-            "median_absolute_relative_error": 0.0003185990581789126,
-            "max_absolute_relative_error": 0.0010646373303529538
+            "mean_absolute_error": 1888244.9795412063,
+            "rmse": 2242250.406171164,
+            "nrmse": 0.0021956378936706282,
+            "median_absolute_relative_error": 0.00039095149848955926,
+            "max_absolute_relative_error": 0.0008976954253002221
           },
           "walk_share": {
             "n": 5,
             "mean_reference": 0.06574490824733104,
-            "mean_absolute_error": 1.9195055442935983e-05,
-            "rmse": 2.3089214824101205e-05,
-            "nrmse": 0.0018184112803728346,
-            "median_absolute_relative_error": 0.0002490209503392726,
-            "max_absolute_relative_error": 0.0005992934735704719
+            "mean_absolute_error": 1.7847408585576485e-05,
+            "rmse": 2.068685784402533e-05,
+            "nrmse": 0.0016292115581071625,
+            "median_absolute_relative_error": 0.0002784437629548095,
+            "max_absolute_relative_error": 0.0004903155267200037
           }
         },
         "1": {
           "avg_tt_min": {
             "n": 5,
-            "mean_reference": 14.66796908618175,
-            "mean_absolute_error": 0.010591323337584058,
-            "rmse": 0.011184428726117985,
-            "nrmse": 0.015228627913845407,
-            "median_absolute_relative_error": 0.0006115596025830335,
-            "max_absolute_relative_error": 0.0011101988392580068
+            "mean_reference": 14.673089233519141,
+            "mean_absolute_error": 0.00983831428511337,
+            "rmse": 0.011326756463709424,
+            "nrmse": 0.015438816303024492,
+            "median_absolute_relative_error": 0.0006335840944353134,
+            "max_absolute_relative_error": 0.0013184210866236826
           },
           "bike_share": {
             "n": 5,
-            "mean_reference": 0.1400416229854584,
-            "mean_absolute_error": 0.00016726714752191563,
-            "rmse": 0.00017909755070763807,
-            "nrmse": 0.002672190146052984,
-            "median_absolute_relative_error": 0.000979597575189373,
-            "max_absolute_relative_error": 0.002127183120955215
+            "mean_reference": 0.1400796517282303,
+            "mean_absolute_error": 0.00014385482528051773,
+            "rmse": 0.00016464688980474685,
+            "nrmse": 0.002456318501930596,
+            "median_absolute_relative_error": 0.0010300694056499388,
+            "max_absolute_relative_error": 0.0022871770932555123
           },
           "car_share": {
             "n": 5,
-            "mean_reference": 0.4467037285329682,
-            "mean_absolute_error": 0.0009193011670543761,
-            "rmse": 0.000999923940675397,
-            "nrmse": 0.026839342861446965,
-            "median_absolute_relative_error": 0.001708457313637351,
-            "max_absolute_relative_error": 0.0031425189800630233
+            "mean_reference": 0.44625224578935196,
+            "mean_absolute_error": 0.0007955896825993403,
+            "rmse": 0.0009083698926865151,
+            "nrmse": 0.02426709297775398,
+            "median_absolute_relative_error": 0.0018357570990297713,
+            "max_absolute_relative_error": 0.0031045354368494957
           },
           "co2_tonnes": {
             "n": 5,
-            "mean_reference": 196514.23278972262,
-            "mean_absolute_error": 407.61040076296194,
-            "rmse": 453.0885858813518,
-            "nrmse": 0.00948114035792782,
-            "median_absolute_relative_error": 0.0016847511745679243,
-            "max_absolute_relative_error": 0.003105785360141755
+            "mean_reference": 196329.06771838194,
+            "mean_absolute_error": 355.3973535526835,
+            "rmse": 413.3395058243227,
+            "nrmse": 0.008631148776818379,
+            "median_absolute_relative_error": 0.001810185038768652,
+            "max_absolute_relative_error": 0.0030682435234527443
           },
           "pt_share": {
             "n": 5,
-            "mean_reference": 0.34750962734957674,
-            "mean_absolute_error": 0.0007346343128854071,
-            "rmse": 0.0008014568033980425,
-            "nrmse": 0.02399635167833275,
-            "median_absolute_relative_error": 0.00168340986264312,
-            "max_absolute_relative_error": 0.0034886668294394907
+            "mean_reference": 0.34791868245397317,
+            "mean_absolute_error": 0.0006351993198052686,
+            "rmse": 0.0007252164566738693,
+            "nrmse": 0.0218563835162364,
+            "median_absolute_relative_error": 0.001802668131124894,
+            "max_absolute_relative_error": 0.003360866916812307
           },
           "section_modeled_peak": {
             "n": 5,
@@ -2682,68 +2716,68 @@
           },
           "total_cost": {
             "n": 5,
-            "mean_reference": 4408538366.060071,
-            "mean_absolute_error": 1888004.324755001,
-            "rmse": 2075148.6885940814,
-            "nrmse": 0.0020320177640270063,
-            "median_absolute_relative_error": 0.0003707901989052659,
-            "max_absolute_relative_error": 0.0006638546304308844
+            "mean_reference": 4409260830.124743,
+            "mean_absolute_error": 1724002.5533744812,
+            "rmse": 2008462.5451062347,
+            "nrmse": 0.001967797817213553,
+            "median_absolute_relative_error": 0.00042544183421563655,
+            "max_absolute_relative_error": 0.0007262498735767415
           },
           "walk_share": {
             "n": 5,
-            "mean_reference": 0.06574502113199662,
-            "mean_absolute_error": 1.739970664703244e-05,
-            "rmse": 2.0170558608849537e-05,
-            "nrmse": 0.0015885497777061413,
-            "median_absolute_relative_error": 0.00023627679350570662,
-            "max_absolute_relative_error": 0.0004326542596629471
+            "mean_reference": 0.06574942002844461,
+            "mean_absolute_error": 1.6691537519084032e-05,
+            "rmse": 1.995175008705577e-05,
+            "nrmse": 0.001571489564228698,
+            "median_absolute_relative_error": 0.00024221121169884022,
+            "max_absolute_relative_error": 0.00045425853573069925
           }
         },
         "2": {
           "avg_tt_min": {
             "n": 5,
-            "mean_reference": 14.668157313154747,
-            "mean_absolute_error": 0.009971594993518806,
-            "rmse": 0.012061540605871035,
-            "nrmse": 0.016422018966838783,
-            "median_absolute_relative_error": 0.0005589619544360628,
-            "max_absolute_relative_error": 0.001508276833211897
+            "mean_reference": 14.668125484608618,
+            "mean_absolute_error": 0.008449641367371896,
+            "rmse": 0.009958745275101008,
+            "nrmse": 0.0135787565842013,
+            "median_absolute_relative_error": 0.0005925753272473472,
+            "max_absolute_relative_error": 0.001041753032907966
           },
           "bike_share": {
             "n": 5,
-            "mean_reference": 0.14004960107562187,
-            "mean_absolute_error": 0.00016004885571174743,
-            "rmse": 0.0001883153934948845,
-            "nrmse": 0.0028095454458606857,
-            "median_absolute_relative_error": 0.0010273240228818987,
-            "max_absolute_relative_error": 0.002872261690037878
+            "mean_reference": 0.1400147847154259,
+            "mean_absolute_error": 0.0001414213193572489,
+            "rmse": 0.00016719512580100611,
+            "nrmse": 0.002495391613796501,
+            "median_absolute_relative_error": 0.0010022872017716768,
+            "max_absolute_relative_error": 0.0025546374572302916
           },
           "car_share": {
             "n": 5,
-            "mean_reference": 0.4467258580090986,
-            "mean_absolute_error": 0.0008679016449550936,
-            "rmse": 0.001018070454284524,
-            "nrmse": 0.027221319859687964,
-            "median_absolute_relative_error": 0.0017945661758474272,
-            "max_absolute_relative_error": 0.003930966170880978
+            "mean_reference": 0.44638143653510476,
+            "mean_absolute_error": 0.000792104679962613,
+            "rmse": 0.0009485910528045323,
+            "nrmse": 0.025506523530492185,
+            "median_absolute_relative_error": 0.0017434308142212222,
+            "max_absolute_relative_error": 0.0037808836978214157
           },
           "co2_tonnes": {
             "n": 5,
-            "mean_reference": 196524.5074779427,
-            "mean_absolute_error": 387.75452092791676,
-            "rmse": 463.43294666391466,
-            "nrmse": 0.009685465135480303,
-            "median_absolute_relative_error": 0.001769665325317756,
-            "max_absolute_relative_error": 0.003885028617716978
+            "mean_reference": 196386.36466487186,
+            "mean_absolute_error": 352.3636178109853,
+            "rmse": 434.19335204175417,
+            "nrmse": 0.009018226335688277,
+            "median_absolute_relative_error": 0.0017172732999579169,
+            "max_absolute_relative_error": 0.00373630317775177
           },
           "pt_share": {
             "n": 5,
-            "mean_reference": 0.34748145727511826,
-            "mean_absolute_error": 0.0006904959079986117,
-            "rmse": 0.0008094257094673922,
-            "nrmse": 0.024243344266208913,
-            "median_absolute_relative_error": 0.0017639462939382441,
-            "max_absolute_relative_error": 0.004279172814382824
+            "mean_reference": 0.3478635744678384,
+            "mean_absolute_error": 0.0006355923542090136,
+            "rmse": 0.0007633427986548872,
+            "nrmse": 0.02287369827784224,
+            "median_absolute_relative_error": 0.0017716581389814782,
+            "max_absolute_relative_error": 0.0038013564912435147
           },
           "section_modeled_peak": {
             "n": 5,
@@ -2756,68 +2790,68 @@
           },
           "total_cost": {
             "n": 5,
-            "mean_reference": 4408376907.883333,
-            "mean_absolute_error": 1819335.8568314551,
-            "rmse": 2224821.1042649643,
-            "nrmse": 0.0021785630475771303,
-            "median_absolute_relative_error": 0.0003623146865305092,
-            "max_absolute_relative_error": 0.0008885463662897945
+            "mean_reference": 4408029669.300039,
+            "mean_absolute_error": 1595353.1193051338,
+            "rmse": 1937319.7398026146,
+            "nrmse": 0.0019008504957121948,
+            "median_absolute_relative_error": 0.00035856226444080046,
+            "max_absolute_relative_error": 0.0006986536037991244
           },
           "walk_share": {
             "n": 5,
-            "mean_reference": 0.0657430836401612,
-            "mean_absolute_error": 1.7356881244676158e-05,
-            "rmse": 2.0929790197637354e-05,
-            "nrmse": 0.0016482728680205097,
-            "median_absolute_relative_error": 0.00027683073604844305,
-            "max_absolute_relative_error": 0.0005205872946169073
+            "mean_reference": 0.06574020428163099,
+            "mean_absolute_error": 1.5091006396374117e-05,
+            "rmse": 1.910160006549149e-05,
+            "nrmse": 0.0015048836774899878,
+            "median_absolute_relative_error": 0.00017948688946923857,
+            "max_absolute_relative_error": 0.000484544828462884
           }
         },
         "3": {
           "avg_tt_min": {
             "n": 5,
-            "mean_reference": 14.667988333171788,
-            "mean_absolute_error": 0.008705809702085432,
-            "rmse": 0.01103453642655838,
-            "nrmse": 0.015036893708013458,
-            "median_absolute_relative_error": 0.0006636599975374539,
-            "max_absolute_relative_error": 0.001208023225694854
+            "mean_reference": 14.667698504595577,
+            "mean_absolute_error": 0.008001108678928403,
+            "rmse": 0.010121131381349013,
+            "nrmse": 0.01380057188682728,
+            "median_absolute_relative_error": 0.00037260624660879875,
+            "max_absolute_relative_error": 0.0012857394817684432
           },
           "bike_share": {
             "n": 5,
-            "mean_reference": 0.14004829728130824,
-            "mean_absolute_error": 0.00017068824435189088,
-            "rmse": 0.00018949309624354403,
-            "nrmse": 0.00282712756409542,
-            "median_absolute_relative_error": 0.00133905515366621,
-            "max_absolute_relative_error": 0.002430711550799536
+            "mean_reference": 0.1400069435934391,
+            "mean_absolute_error": 0.00013272254968426655,
+            "rmse": 0.0001652118954072222,
+            "nrmse": 0.00246604998278665,
+            "median_absolute_relative_error": 0.0008628340091996147,
+            "max_absolute_relative_error": 0.0025997557476624233
           },
           "car_share": {
             "n": 5,
-            "mean_reference": 0.4466997068161945,
-            "mean_absolute_error": 0.0008978630432315393,
-            "rmse": 0.001046849848202411,
-            "nrmse": 0.028068582479991864,
-            "median_absolute_relative_error": 0.0022398379849994147,
-            "max_absolute_relative_error": 0.0035690151123767264
+            "mean_reference": 0.4463799311898752,
+            "mean_absolute_error": 0.000674761287025949,
+            "rmse": 0.000846672894825624,
+            "nrmse": 0.022741687791118907,
+            "median_absolute_relative_error": 0.0014045192145463645,
+            "max_absolute_relative_error": 0.00341540407468255
           },
           "co2_tonnes": {
             "n": 5,
-            "mean_reference": 196512.59648456302,
-            "mean_absolute_error": 401.2208351759531,
-            "rmse": 475.93696924797825,
-            "nrmse": 0.009956963536538846,
-            "median_absolute_relative_error": 0.0022087580036960226,
-            "max_absolute_relative_error": 0.003527297804407221
+            "mean_reference": 196386.62371419836,
+            "mean_absolute_error": 295.51129675390547,
+            "rmse": 379.3280165911906,
+            "nrmse": 0.007875101148485837,
+            "median_absolute_relative_error": 0.0013850180676088961,
+            "max_absolute_relative_error": 0.0033754713762930216
           },
           "pt_share": {
             "n": 5,
-            "mean_reference": 0.34750878066727947,
-            "mean_absolute_error": 0.0007072564556607653,
-            "rmse": 0.0008369751112689803,
-            "nrmse": 0.025068197415802445,
-            "median_absolute_relative_error": 0.0021793474104097044,
-            "max_absolute_relative_error": 0.003949060964019987
+            "mean_reference": 0.3478743704515594,
+            "mean_absolute_error": 0.0005279349227755636,
+            "rmse": 0.0006640306613170836,
+            "nrmse": 0.019940714891796968,
+            "median_absolute_relative_error": 0.0013243195211433065,
+            "max_absolute_relative_error": 0.0036614981676865725
           },
           "section_modeled_peak": {
             "n": 5,
@@ -2830,21 +2864,21 @@
           },
           "total_cost": {
             "n": 5,
-            "mean_reference": 4408613647.190437,
-            "mean_absolute_error": 1822931.5059090615,
-            "rmse": 2178770.746614632,
-            "nrmse": 0.002133475099399235,
-            "median_absolute_relative_error": 0.0004542541392744064,
-            "max_absolute_relative_error": 0.0007448933865614691
+            "mean_reference": 4408172417.25818,
+            "mean_absolute_error": 1440673.3291150094,
+            "rmse": 1870522.4867471617,
+            "nrmse": 0.0018357525557684586,
+            "median_absolute_relative_error": 0.0002760059801511901,
+            "max_absolute_relative_error": 0.0007798684882686824
           },
           "walk_share": {
             "n": 5,
-            "mean_reference": 0.06574321523521784,
-            "mean_absolute_error": 1.991834321887487e-05,
-            "rmse": 2.194489388024157e-05,
-            "nrmse": 0.0017282215271056318,
-            "median_absolute_relative_error": 0.00034447859463925364,
-            "max_absolute_relative_error": 0.00045578435256364764
+            "mean_reference": 0.06573875476512625,
+            "mean_absolute_error": 1.4103814566131245e-05,
+            "rmse": 1.883532681363247e-05,
+            "nrmse": 0.0014841370019398625,
+            "median_absolute_relative_error": 0.000125058966255785,
+            "max_absolute_relative_error": 0.0005211605404706609
           }
         }
       },
@@ -2853,7 +2887,7 @@
       "scope": "Paired annual baseline/project matched benefits and physical indicators, not full-future NPV.",
       "n_holdouts_per_stage": 5,
       "n_independent_physical_futures": 5,
-      "surrogate_fingerprint": "a25c4e056cde0e743ac4",
+      "surrogate_fingerprint": "38794950c97d91107f48",
       "component_rule": "Material mean benefit >= CHF5m/year: MAE <= max(10%, CHF1m/year).",
       "current_parameters": {
         "N_YEARS": 40,
@@ -2910,7 +2944,7 @@
         "OPEX_RATE": 0.02,
         "OPEX_MULTIPLIER": 1.0,
         "CAPEX_MULTIPLIER": 1.0,
-        "C_FLEX": 50000000,
+        "C_FLEX": 1000000,
         "MAX_AVG_TT": 15.0,
         "PT_SHARE_TARGET": 0.35,
         "MIN_STRATEGIC_PKM_DISTANCE": 0.0,
@@ -2923,17 +2957,17 @@
     },
     "passed": true
   },
-  "artifact_sha256": "5d7c97679af96833f0a2c9b0a51625a064a8edcb331589b231d913d874cd2b06",
-  "validation_data_sha256": "c21d4d7720f4fba46bd11d061b6a41d160a101aaf68c97b693a72ea0612aa06a",
+  "artifact_sha256": "4c71ddeceffeacc2aa0f7c84276dde37a7b429f53c76f3ed9542af5cf8212613",
+  "validation_data_sha256": "bbdcac5b43c20b653a757952b75e25c0b870a5c67ba123f6a07fbf9da9d0dff4",
   "validation_passed": true,
   "validation_status": "passed",
-  "runtime_seconds": 3244.9150627079653,
+  "runtime_seconds": 3010.0926797079956,
   "response_table": {
     "file": "response_table.npz",
     "schema": "transport_response_v1",
-    "fingerprint": "b08d325936a339ed3927",
-    "sha256": "2209739c6e4d78e4d23c963bfdb2662f5609790d5698f14d35daa23cdf728332",
+    "fingerprint": "3bc6b21d54e4329632e0",
+    "sha256": "1bb88405352d8c9c74111ed284c12f5721f212699ae5d5280d03dacfce6da135",
     "n_conditions": 432,
-    "preparation_seconds": 146.03614912499324
+    "preparation_seconds": 140.42610395899828
   }
 }
