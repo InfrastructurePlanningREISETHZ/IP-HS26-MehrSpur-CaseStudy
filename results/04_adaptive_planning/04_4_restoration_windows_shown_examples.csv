@@ -1,0 +1,14 @@
+﻿scenario,source_state,target_state,package,transition,window_number,opening_window_start,opening_window_end,restorable_years,construction_years,decision_by_window_start,last_restoration_decision_year,earliest_rule_decision_year,earliest_rule_opening_year,reachable_from_new_monitoring,whole_window_reachable,continues_to_horizon
+105,0,1,1,Stage 0 – Baseline Network → Stage 1 – Mobility Hub Forch Basic & Feeder Bus 702,1,40,40,1,4,36,36,3,7,True,True,True
+56,0,2,2,Stage 0 – Baseline Network → Stage 2 - Bus 702 Frequency Increase & B+R Expansion,1,27,27,1,2,25,25,3,5,True,True,False
+78,0,2,2,Stage 0 – Baseline Network → Stage 2 - Bus 702 Frequency Increase & B+R Expansion,1,34,34,1,2,32,32,3,5,True,True,False
+5,0,2,2,Stage 0 – Baseline Network → Stage 2 - Bus 702 Frequency Increase & B+R Expansion,1,38,38,1,2,36,36,3,5,True,True,False
+41,1,3,2,Stage 1 – Mobility Hub Forch Basic & Feeder Bus 702 → Both stages combined,1,20,20,1,2,18,18,3,5,True,True,False
+8,1,3,2,Stage 1 – Mobility Hub Forch Basic & Feeder Bus 702 → Both stages combined,1,22,22,1,2,20,20,3,5,True,True,False
+105,1,3,2,Stage 1 – Mobility Hub Forch Basic & Feeder Bus 702 → Both stages combined,1,34,34,1,2,32,32,3,5,True,True,False
+105,1,3,2,Stage 1 – Mobility Hub Forch Basic & Feeder Bus 702 → Both stages combined,2,37,39,3,2,35,37,3,5,True,True,False
+41,2,3,1,Stage 2 - Bus 702 Frequency Increase & B+R Expansion → Both stages combined,1,20,20,1,4,16,16,3,7,True,True,False
+8,2,3,1,Stage 2 - Bus 702 Frequency Increase & B+R Expansion → Both stages combined,1,22,22,1,4,18,18,3,7,True,True,False
+105,2,3,1,Stage 2 - Bus 702 Frequency Increase & B+R Expansion → Both stages combined,1,30,30,1,4,26,26,3,7,True,True,False
+105,2,3,1,Stage 2 - Bus 702 Frequency Increase & B+R Expansion → Both stages combined,2,34,34,1,4,30,30,3,7,True,True,False
+105,2,3,1,Stage 2 - Bus 702 Frequency Increase & B+R Expansion → Both stages combined,3,37,40,4,4,33,36,3,7,True,True,True

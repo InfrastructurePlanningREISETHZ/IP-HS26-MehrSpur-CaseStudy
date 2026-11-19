@@ -1,0 +1,61 @@
+﻿comparison,monitoring_indicator,outcome,monitoring_unit,outcome_unit,n,r_squared,slope,spearman_r,outcome_range
+baseline,pt_share,pt_share,%,%,40,0.9985,2.064e+00,0.9964,5.3753
+baseline,pt_share,avg_tt_min,%,min/trip,40,0.0386,-5.073e-02,-0.1523,0.6961
+baseline,pt_share,bike_share_trips,%,%,40,0.4107,-1.297e+00,-0.6129,4.9504
+baseline,pt_share,pt_journey_time_min,%,min/trip,40,0.0594,-7.102e-02,-0.2236,0.7751
+baseline,bike_share_trips,pt_share,%,%,40,0.4267,-1.426e+00,-0.6417,5.3753
+baseline,bike_share_trips,avg_tt_min,%,min/trip,40,0.0606,6.716e-02,0.2972,0.6961
+baseline,bike_share_trips,bike_share_trips,%,%,40,0.9999,2.138e+00,0.9996,4.9504
+baseline,bike_share_trips,pt_journey_time_min,%,min/trip,40,0.1957,1.363e-01,0.4683,0.7751
+baseline,congestion_delay_hours,pt_share,person-hours/year,%,40,0.2495,1.350e-06,0.5409,5.3753
+baseline,congestion_delay_hours,avg_tt_min,person-hours/year,min/trip,40,0.5013,2.390e-07,0.6478,0.6961
+baseline,congestion_delay_hours,bike_share_trips,person-hours/year,%,40,0.112,-8.856e-07,-0.3114,4.9504
+baseline,congestion_delay_hours,pt_journey_time_min,person-hours/year,min/trip,40,0.3093,2.121e-07,0.5071,0.7751
+baseline,avg_tt_min,pt_share,min/trip,%,40,0.0311,-2.891e+00,-0.1266,5.3753
+baseline,avg_tt_min,avg_tt_min,min/trip,min/trip,40,0.997,2.044e+00,0.9962,0.6961
+baseline,avg_tt_min,bike_share_trips,min/trip,%,40,0.0504,3.601e+00,0.2475,4.9504
+baseline,avg_tt_min,pt_journey_time_min,min/trip,min/trip,40,0.8686,2.155e+00,0.9141,0.7751
+baseline,section_combined_daily,pt_share,person-trips/day,%,40,0.557,1.664e-04,0.755,5.3753
+baseline,section_combined_daily,avg_tt_min,person-trips/day,min/trip,40,0.1983,1.240e-05,0.3983,0.6961
+baseline,section_combined_daily,bike_share_trips,person-trips/day,%,40,0.1256,-7.740e-05,-0.3323,4.9504
+baseline,section_combined_daily,pt_journey_time_min,person-trips/day,min/trip,40,0.1164,1.074e-05,0.2974,0.7751
+stage1_change,pt_share,pt_share,%,percentage points,40,0.4077,-9.648e-03,-0.6516,0.0399
+stage1_change,pt_share,avg_tt_min,%,min/trip,40,0.2484,-6.592e-04,-0.5015,0.0036
+stage1_change,pt_share,bike_share_trips,%,percentage points,40,0.022,-1.793e-04,-0.2507,0.0032
+stage1_change,pt_share,pt_journey_time_min,%,min/trip,40,0.2409,-1.336e-03,-0.5163,0.0074
+stage1_change,bike_share_trips,pt_share,%,percentage points,40,0.6195,1.257e-02,0.7413,0.0399
+stage1_change,bike_share_trips,avg_tt_min,%,min/trip,40,0.2683,7.242e-04,0.4604,0.0036
+stage1_change,bike_share_trips,bike_share_trips,%,percentage points,40,0.0018,5.479e-05,0.018,0.0032
+stage1_change,bike_share_trips,pt_journey_time_min,%,min/trip,40,0.2918,1.554e-03,0.5306,0.0074
+stage1_change,congestion_delay_hours,pt_share,person-hours/year,percentage points,40,0.6727,-1.621e-08,-0.8165,0.0399
+stage1_change,congestion_delay_hours,avg_tt_min,person-hours/year,min/trip,40,0.8575,-1.602e-09,-0.9349,0.0036
+stage1_change,congestion_delay_hours,bike_share_trips,person-hours/year,percentage points,40,0.7224,-1.342e-09,-0.8201,0.0032
+stage1_change,congestion_delay_hours,pt_journey_time_min,person-hours/year,min/trip,40,0.8892,-3.356e-09,-0.9306,0.0074
+stage1_change,avg_tt_min,pt_share,min/trip,percentage points,40,0.1236,-4.212e-02,-0.3135,0.0399
+stage1_change,avg_tt_min,avg_tt_min,min/trip,min/trip,40,0.3755,-6.428e-03,-0.6114,0.0036
+stage1_change,avg_tt_min,bike_share_trips,min/trip,percentage points,40,0.6411,-7.667e-03,-0.7126,0.0032
+stage1_change,avg_tt_min,pt_journey_time_min,min/trip,min/trip,40,0.4224,-1.403e-02,-0.5961,0.0074
+stage1_change,section_combined_daily,pt_share,person-trips/day,percentage points,40,0.5757,-1.237e-06,-0.7694,0.0399
+stage1_change,section_combined_daily,avg_tt_min,person-trips/day,min/trip,40,0.6782,-1.176e-07,-0.8208,0.0036
+stage1_change,section_combined_daily,bike_share_trips,person-trips/day,percentage points,40,0.4996,-9.212e-08,-0.7139,0.0032
+stage1_change,section_combined_daily,pt_journey_time_min,person-trips/day,min/trip,40,0.6658,-2.397e-07,-0.8066,0.0074
+stage2_change,pt_share,pt_share,%,percentage points,40,0.8874,1.648e-02,0.9366,0.0405
+stage2_change,pt_share,avg_tt_min,%,min/trip,40,0.933,3.421e-03,0.967,0.0091
+stage2_change,pt_share,bike_share_trips,%,percentage points,40,0.3936,7.532e-04,0.6092,0.0031
+stage2_change,pt_share,pt_journey_time_min,%,min/trip,40,0.8625,3.014e-03,0.9169,0.0076
+stage2_change,bike_share_trips,pt_share,%,percentage points,40,0.1956,-8.179e-03,-0.4212,0.0405
+stage2_change,bike_share_trips,avg_tt_min,%,min/trip,40,0.3771,-2.299e-03,-0.578,0.0091
+stage2_change,bike_share_trips,bike_share_trips,%,percentage points,40,0.0297,2.185e-04,0.1841,0.0031
+stage2_change,bike_share_trips,pt_journey_time_min,%,min/trip,40,0.24,-1.680e-03,-0.4445,0.0076
+stage2_change,congestion_delay_hours,pt_share,person-hours/year,percentage points,40,0.2262,1.088e-08,0.4938,0.0405
+stage2_change,congestion_delay_hours,avg_tt_min,person-hours/year,min/trip,40,0.2424,2.281e-09,0.4981,0.0091
+stage2_change,congestion_delay_hours,bike_share_trips,person-hours/year,percentage points,40,0.1784,6.632e-10,0.3647,0.0031
+stage2_change,congestion_delay_hours,pt_journey_time_min,person-hours/year,min/trip,40,0.1355,1.562e-09,0.3874,0.0076
+stage2_change,avg_tt_min,pt_share,min/trip,percentage points,40,0.0236,-2.130e-02,-0.1394,0.0405
+stage2_change,avg_tt_min,avg_tt_min,min/trip,min/trip,40,0.0359,-5.322e-03,-0.1874,0.0091
+stage2_change,avg_tt_min,bike_share_trips,min/trip,percentage points,40,0.0181,1.282e-03,0.1068,0.0031
+stage2_change,avg_tt_min,pt_journey_time_min,min/trip,min/trip,40,0.0814,-7.344e-03,-0.258,0.0076
+stage2_change,section_combined_daily,pt_share,person-trips/day,percentage points,40,0.5804,1.439e-06,0.7585,0.0405
+stage2_change,section_combined_daily,avg_tt_min,person-trips/day,min/trip,40,0.5591,2.859e-07,0.7469,0.0091
+stage2_change,section_combined_daily,bike_share_trips,person-trips/day,percentage points,40,0.4692,8.876e-08,0.6064,0.0031
+stage2_change,section_combined_daily,pt_journey_time_min,person-trips/day,min/trip,40,0.4491,2.348e-07,0.6692,0.0076

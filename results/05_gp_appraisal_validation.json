@@ -1,0 +1,781 @@
+{
+  "passed": true,
+  "checks": {
+    "total_benefit_mae": {
+      "value": 1000354.3977575938,
+      "limit": 1058496.3360897286,
+      "passed": true
+    },
+    "total_benefit_p95_error": {
+      "value": 2089624.3382137294,
+      "limit": 5000000.0,
+      "passed": true
+    },
+    "material_total_sign_errors": {
+      "value": 0,
+      "limit": 0,
+      "passed": true
+    },
+    "material_component_failures": {
+      "value": 0,
+      "limit": 0,
+      "passed": true
+    },
+    "maximum_mode_share_error_pp": {
+      "value": 0.08753511602186959,
+      "limit": 1.0,
+      "passed": true
+    },
+    "median_mode_share_error_pp": {
+      "value": 0.011080087549818207,
+      "limit": 0.25,
+      "passed": true
+    },
+    "maximum_section_load_relative_error": {
+      "value": 0.004119355332798929,
+      "limit": 0.03,
+      "passed": true
+    },
+    "median_section_load_relative_error": {
+      "value": 0.0020133043125274363,
+      "limit": 0.01,
+      "passed": true
+    }
+  },
+  "paired_components": {
+    "bike_health": {
+      "n": 15,
+      "mean_reference": 0.0,
+      "mean_absolute_error": 0.0,
+      "rmse": 0.0,
+      "nrmse": 0.0,
+      "median_absolute_relative_error": null,
+      "max_absolute_relative_error": null,
+      "material": false,
+      "mean_absolute_reference": 0.0,
+      "error_limit_chf_per_year": 1000000.0,
+      "passed": null
+    },
+    "bike_time": {
+      "n": 15,
+      "mean_reference": 1338388.0918703398,
+      "mean_absolute_error": 263.03669963677726,
+      "rmse": 402.4626199377926,
+      "nrmse": 0.0001539949284614924,
+      "median_absolute_relative_error": null,
+      "max_absolute_relative_error": null,
+      "material": false,
+      "mean_absolute_reference": 1338388.0918703398,
+      "error_limit_chf_per_year": 1000000.0,
+      "passed": null
+    },
+    "car_acc": {
+      "n": 15,
+      "mean_reference": 407883.7556403071,
+      "mean_absolute_error": 253686.56550227304,
+      "rmse": 300667.48050938395,
+      "nrmse": 0.45018477317531297,
+      "median_absolute_relative_error": null,
+      "max_absolute_relative_error": null,
+      "material": false,
+      "mean_absolute_reference": 407883.7556403071,
+      "error_limit_chf_per_year": 1000000.0,
+      "passed": null
+    },
+    "car_air": {
+      "n": 15,
+      "mean_reference": 89975.06847556532,
+      "mean_absolute_error": 55960.71377386972,
+      "rmse": 66324.23275778591,
+      "nrmse": 0.4501847731753203,
+      "median_absolute_relative_error": null,
+      "max_absolute_relative_error": null,
+      "material": false,
+      "mean_absolute_reference": 89975.06847556532,
+      "error_limit_chf_per_year": 1000000.0,
+      "passed": null
+    },
+    "car_co2": {
+      "n": 15,
+      "mean_reference": 362768.2354393413,
+      "mean_absolute_error": 225626.60672145983,
+      "rmse": 267411.02054224967,
+      "nrmse": 0.45018477317531286,
+      "median_absolute_relative_error": null,
+      "max_absolute_relative_error": null,
+      "material": false,
+      "mean_absolute_reference": 362768.2354393413,
+      "error_limit_chf_per_year": 1000000.0,
+      "passed": null
+    },
+    "car_noise": {
+      "n": 15,
+      "mean_reference": 71999.38347400328,
+      "mean_absolute_error": 44780.59265470828,
+      "rmse": 53073.63416170904,
+      "nrmse": 0.4501847731753039,
+      "median_absolute_relative_error": null,
+      "max_absolute_relative_error": null,
+      "material": false,
+      "mean_absolute_reference": 71999.38347400328,
+      "error_limit_chf_per_year": 1000000.0,
+      "passed": null
+    },
+    "car_time": {
+      "n": 15,
+      "mean_reference": 973162.1900380611,
+      "mean_absolute_error": 1586761.3179888884,
+      "rmse": 1918470.9494651298,
+      "nrmse": 0.48868598884871,
+      "median_absolute_relative_error": null,
+      "max_absolute_relative_error": null,
+      "material": false,
+      "mean_absolute_reference": 1029242.3676165739,
+      "error_limit_chf_per_year": 1000000.0,
+      "passed": null
+    },
+    "construction_co2": {
+      "n": 15,
+      "mean_reference": 0.0,
+      "mean_absolute_error": 0.0,
+      "rmse": 0.0,
+      "nrmse": 0.0,
+      "median_absolute_relative_error": null,
+      "max_absolute_relative_error": null,
+      "material": false,
+      "mean_absolute_reference": 0.0,
+      "error_limit_chf_per_year": 1000000.0,
+      "passed": null
+    },
+    "external_crowding": {
+      "n": 15,
+      "mean_reference": 2051827.8463335077,
+      "mean_absolute_error": 0.0,
+      "rmse": 0.0,
+      "nrmse": 0.0,
+      "median_absolute_relative_error": null,
+      "max_absolute_relative_error": null,
+      "material": false,
+      "mean_absolute_reference": 2051827.8463335077,
+      "error_limit_chf_per_year": 1000000.0,
+      "passed": null
+    },
+    "external_delay": {
+      "n": 15,
+      "mean_reference": 0.0,
+      "mean_absolute_error": 0.0,
+      "rmse": 0.0,
+      "nrmse": 0.0,
+      "median_absolute_relative_error": null,
+      "max_absolute_relative_error": null,
+      "material": false,
+      "mean_absolute_reference": 0.0,
+      "error_limit_chf_per_year": 1000000.0,
+      "passed": null
+    },
+    "external_time": {
+      "n": 15,
+      "mean_reference": 2711189.0147113027,
+      "mean_absolute_error": 0.0,
+      "rmse": 0.0,
+      "nrmse": 0.0,
+      "median_absolute_relative_error": null,
+      "max_absolute_relative_error": null,
+      "material": false,
+      "mean_absolute_reference": 2711189.0147113027,
+      "error_limit_chf_per_year": 1000000.0,
+      "passed": null
+    },
+    "investment": {
+      "n": 15,
+      "mean_reference": 0.0,
+      "mean_absolute_error": 0.0,
+      "rmse": 0.0,
+      "nrmse": 0.0,
+      "median_absolute_relative_error": null,
+      "max_absolute_relative_error": null,
+      "material": false,
+      "mean_absolute_reference": 0.0,
+      "error_limit_chf_per_year": 1000000.0,
+      "passed": null
+    },
+    "operation": {
+      "n": 15,
+      "mean_reference": -229066.66666666666,
+      "mean_absolute_error": 0.0,
+      "rmse": 0.0,
+      "nrmse": 0.0,
+      "median_absolute_relative_error": null,
+      "max_absolute_relative_error": null,
+      "material": false,
+      "mean_absolute_reference": 229066.66666666666,
+      "error_limit_chf_per_year": 1000000.0,
+      "passed": null
+    },
+    "pt_acc": {
+      "n": 15,
+      "mean_reference": -432403.4142046958,
+      "mean_absolute_error": 0.0,
+      "rmse": 0.0,
+      "nrmse": 0.0,
+      "median_absolute_relative_error": null,
+      "max_absolute_relative_error": null,
+      "material": false,
+      "mean_absolute_reference": 432403.4142046958,
+      "error_limit_chf_per_year": 1000000.0,
+      "passed": null
+    },
+    "pt_access": {
+      "n": 15,
+      "mean_reference": 583723.6616074642,
+      "mean_absolute_error": 341.16542567412057,
+      "rmse": 486.95742295514765,
+      "nrmse": 0.0004532711599362719,
+      "median_absolute_relative_error": null,
+      "max_absolute_relative_error": null,
+      "material": false,
+      "mean_absolute_reference": 583723.6616074642,
+      "error_limit_chf_per_year": 1000000.0,
+      "passed": null
+    },
+    "pt_air": {
+      "n": 15,
+      "mean_reference": -2511483.1351826093,
+      "mean_absolute_error": 0.0,
+      "rmse": 0.0,
+      "nrmse": 0.0,
+      "median_absolute_relative_error": null,
+      "max_absolute_relative_error": null,
+      "material": false,
+      "mean_absolute_reference": 2511483.1351826093,
+      "error_limit_chf_per_year": 1000000.0,
+      "passed": null
+    },
+    "pt_co2": {
+      "n": 15,
+      "mean_reference": -231620.88084445542,
+      "mean_absolute_error": 0.0,
+      "rmse": 0.0,
+      "nrmse": 0.0,
+      "median_absolute_relative_error": null,
+      "max_absolute_relative_error": null,
+      "material": false,
+      "mean_absolute_reference": 231620.88084445542,
+      "error_limit_chf_per_year": 1000000.0,
+      "passed": null
+    },
+    "pt_crowding": {
+      "n": 15,
+      "mean_reference": 3536267.3517142474,
+      "mean_absolute_error": 3913.825126471122,
+      "rmse": 6487.633927272666,
+      "nrmse": 0.0009488144104912787,
+      "median_absolute_relative_error": null,
+      "max_absolute_relative_error": null,
+      "material": false,
+      "mean_absolute_reference": 3536267.3517142474,
+      "error_limit_chf_per_year": 1000000.0,
+      "passed": null
+    },
+    "pt_egress": {
+      "n": 15,
+      "mean_reference": 857073.8460246802,
+      "mean_absolute_error": 257.9512862086296,
+      "rmse": 368.9828970160091,
+      "nrmse": 0.00023423413916114994,
+      "median_absolute_relative_error": null,
+      "max_absolute_relative_error": null,
+      "material": false,
+      "mean_absolute_reference": 857073.8460246802,
+      "error_limit_chf_per_year": 1000000.0,
+      "passed": null
+    },
+    "pt_noise": {
+      "n": 15,
+      "mean_reference": -1489367.9057478271,
+      "mean_absolute_error": 0.0,
+      "rmse": 0.0,
+      "nrmse": 0.0,
+      "median_absolute_relative_error": null,
+      "max_absolute_relative_error": null,
+      "material": false,
+      "mean_absolute_reference": 1489367.9057478271,
+      "error_limit_chf_per_year": 1000000.0,
+      "passed": null
+    },
+    "pt_socioeconomic": {
+      "n": 15,
+      "mean_reference": 0.0,
+      "mean_absolute_error": 0.0,
+      "rmse": 0.0,
+      "nrmse": 0.0,
+      "median_absolute_relative_error": null,
+      "max_absolute_relative_error": null,
+      "material": false,
+      "mean_absolute_reference": 0.0,
+      "error_limit_chf_per_year": 1000000.0,
+      "passed": null
+    },
+    "pt_time": {
+      "n": 15,
+      "mean_reference": 4672657.7057535015,
+      "mean_absolute_error": 5171.544828828176,
+      "rmse": 8572.454977883614,
+      "nrmse": 0.0009488144104897822,
+      "median_absolute_relative_error": null,
+      "max_absolute_relative_error": null,
+      "material": false,
+      "mean_absolute_reference": 4672657.7057535015,
+      "error_limit_chf_per_year": 1000000.0,
+      "passed": null
+    },
+    "pt_transfer_walk": {
+      "n": 15,
+      "mean_reference": 542347.5866190414,
+      "mean_absolute_error": 221.36776024103165,
+      "rmse": 342.3698577319239,
+      "nrmse": 0.0003312537574553891,
+      "median_absolute_relative_error": null,
+      "max_absolute_relative_error": null,
+      "material": false,
+      "mean_absolute_reference": 542347.5866190414,
+      "error_limit_chf_per_year": 1000000.0,
+      "passed": null
+    },
+    "pt_waiting": {
+      "n": 15,
+      "mean_reference": 7864604.986739572,
+      "mean_absolute_error": 4769.061197566986,
+      "rmse": 6717.378834896668,
+      "nrmse": 0.00038562475388631876,
+      "median_absolute_relative_error": 0.0004207282840340638,
+      "max_absolute_relative_error": 0.0010618740308173092,
+      "material": true,
+      "mean_absolute_reference": 7864604.986739572,
+      "error_limit_chf_per_year": 1000000.0,
+      "passed": true
+    },
+    "total": {
+      "n": 15,
+      "mean_reference": 21169926.72179457,
+      "mean_absolute_error": 1000354.3977575938,
+      "rmse": 1233929.53545919,
+      "nrmse": 0.031024120440666738,
+      "median_absolute_relative_error": 0.040885460976325366,
+      "max_absolute_relative_error": 0.4504615941490682,
+      "material": false,
+      "mean_absolute_reference": 21169926.72179457,
+      "error_limit_chf_per_year": 2116992.6721794573,
+      "passed": null
+    },
+    "upfront": {
+      "n": 15,
+      "mean_reference": 0.0,
+      "mean_absolute_error": 0.0,
+      "rmse": 0.0,
+      "nrmse": 0.0,
+      "median_absolute_relative_error": null,
+      "max_absolute_relative_error": null,
+      "material": false,
+      "mean_absolute_reference": 0.0,
+      "error_limit_chf_per_year": 1000000.0,
+      "passed": null
+    },
+    "walk_health": {
+      "n": 15,
+      "mean_reference": 0.0,
+      "mean_absolute_error": 0.0,
+      "rmse": 0.0,
+      "nrmse": 0.0,
+      "median_absolute_relative_error": null,
+      "max_absolute_relative_error": null,
+      "material": false,
+      "mean_absolute_reference": 0.0,
+      "error_limit_chf_per_year": 1000000.0,
+      "passed": null
+    },
+    "walk_time": {
+      "n": 15,
+      "mean_reference": 0.0,
+      "mean_absolute_error": 0.0,
+      "rmse": 0.0,
+      "nrmse": 0.0,
+      "median_absolute_relative_error": null,
+      "max_absolute_relative_error": null,
+      "material": false,
+      "mean_absolute_reference": 0.0,
+      "error_limit_chf_per_year": 1000000.0,
+      "passed": null
+    }
+  },
+  "metrics": {
+    "0": {
+      "avg_tt_min": {
+        "n": 5,
+        "mean_reference": 13.90039875532494,
+        "mean_absolute_error": 0.0020877413579857063,
+        "rmse": 0.002155954256931825,
+        "nrmse": 0.0014723646565669127,
+        "median_absolute_relative_error": 0.00016225337181647584,
+        "max_absolute_relative_error": 0.000190784116319854
+      },
+      "bike_share": {
+        "n": 5,
+        "mean_reference": 0.14958860220334375,
+        "mean_absolute_error": 4.5811797758643635e-05,
+        "rmse": 5.08218571251776e-05,
+        "nrmse": 0.00109075724577401,
+        "median_absolute_relative_error": 0.0003194042583884416,
+        "max_absolute_relative_error": 0.00040937418384051876
+      },
+      "car_share": {
+        "n": 5,
+        "mean_reference": 0.39301765351847306,
+        "mean_absolute_error": 0.00023995081900536342,
+        "rmse": 0.0002438913185159155,
+        "nrmse": 0.007047078833474633,
+        "median_absolute_relative_error": 0.0005402840794916975,
+        "max_absolute_relative_error": 0.0008422489442725573
+      },
+      "co2_tonnes": {
+        "n": 5,
+        "mean_reference": 274125.9529587118,
+        "mean_absolute_error": 165.62926983617945,
+        "rmse": 174.19847493635191,
+        "nrmse": 0.001324794707655046,
+        "median_absolute_relative_error": 0.0005253932121462252,
+        "max_absolute_relative_error": 0.0008200641565448314
+      },
+      "pt_share": {
+        "n": 5,
+        "mean_reference": 0.41882523994598475,
+        "mean_absolute_error": 0.0001921707700377029,
+        "rmse": 0.00020073027874395797,
+        "nrmse": 0.005092600298275778,
+        "median_absolute_relative_error": 0.0004242449491911186,
+        "max_absolute_relative_error": 0.0006176621055998267
+      },
+      "section_modeled_peak": {
+        "n": 5,
+        "mean_reference": 9969.878674820857,
+        "mean_absolute_error": 12.91269104521307,
+        "rmse": 15.454445741397315,
+        "nrmse": 0.002367089738286106,
+        "median_absolute_relative_error": 0.0009315138008069856,
+        "max_absolute_relative_error": 0.002550990651126353
+      },
+      "total_cost": {
+        "n": 5,
+        "mean_reference": 9861713921.075787,
+        "mean_absolute_error": 1765722.5331066132,
+        "rmse": 1912307.419785109,
+        "nrmse": 0.0003538574166509406,
+        "median_absolute_relative_error": 0.00018283618378796932,
+        "max_absolute_relative_error": 0.0002526359684059988
+      },
+      "walk_share": {
+        "n": 5,
+        "mean_reference": 0.0385685043321984,
+        "mean_absolute_error": 2.209528677860062e-06,
+        "rmse": 2.758207439294452e-06,
+        "nrmse": 0.0003733325906742636,
+        "median_absolute_relative_error": 5.8228763201281984e-05,
+        "max_absolute_relative_error": 0.0001214233931299065
+      }
+    },
+    "1": {
+      "avg_tt_min": {
+        "n": 5,
+        "mean_reference": 13.880352778745735,
+        "mean_absolute_error": 0.002388649234163864,
+        "rmse": 0.0027181963672837017,
+        "nrmse": 0.0018610714952278973,
+        "median_absolute_relative_error": 0.00020274380612454146,
+        "max_absolute_relative_error": 0.00030314723956377466
+      },
+      "bike_share": {
+        "n": 5,
+        "mean_reference": 0.14945017372273922,
+        "mean_absolute_error": 6.717280241219092e-05,
+        "rmse": 7.960828428128368e-05,
+        "nrmse": 0.0017118873107777428,
+        "median_absolute_relative_error": 0.0005441777655970562,
+        "max_absolute_relative_error": 0.0008281900766137293
+      },
+      "car_share": {
+        "n": 5,
+        "mean_reference": 0.392300837064496,
+        "mean_absolute_error": 0.0003820436503328306,
+        "rmse": 0.00043784035980392634,
+        "nrmse": 0.012684784193973724,
+        "median_absolute_relative_error": 0.0011358340377330602,
+        "max_absolute_relative_error": 0.0018264980622068549
+      },
+      "co2_tonnes": {
+        "n": 5,
+        "mean_reference": 273651.33715903835,
+        "mean_absolute_error": 287.19545933500046,
+        "rmse": 344.4314073966271,
+        "nrmse": 0.002621332746401105,
+        "median_absolute_relative_error": 0.0011067653325220004,
+        "max_absolute_relative_error": 0.0017773577576153964
+      },
+      "pt_share": {
+        "n": 5,
+        "mean_reference": 0.4196909030510265,
+        "mean_absolute_error": 0.0003114615239054652,
+        "rmse": 0.0003582437628131147,
+        "nrmse": 0.008996537499254005,
+        "median_absolute_relative_error": 0.0007766095834844948,
+        "max_absolute_relative_error": 0.0012863726146874312
+      },
+      "section_modeled_peak": {
+        "n": 5,
+        "mean_reference": 10038.241945874264,
+        "mean_absolute_error": 21.937077228669843,
+        "rmse": 26.55001271827514,
+        "nrmse": 0.004044191733778941,
+        "median_absolute_relative_error": 0.0019937864407037864,
+        "max_absolute_relative_error": 0.0034504414939477697
+      },
+      "total_cost": {
+        "n": 5,
+        "mean_reference": 9846056235.050236,
+        "mean_absolute_error": 2965043.685536003,
+        "rmse": 3482901.0586912823,
+        "nrmse": 0.0006456858578046217,
+        "median_absolute_relative_error": 0.0003468560943780149,
+        "max_absolute_relative_error": 0.00044991832360968804
+      },
+      "walk_share": {
+        "n": 5,
+        "mean_reference": 0.038558086161738246,
+        "mean_absolute_error": 3.409324015148096e-06,
+        "rmse": 3.997189710622275e-06,
+        "nrmse": 0.0005411746015658381,
+        "median_absolute_relative_error": 9.889530591805827e-05,
+        "max_absolute_relative_error": 0.00013612623128370603
+      }
+    },
+    "2": {
+      "avg_tt_min": {
+        "n": 5,
+        "mean_reference": 13.892482238138811,
+        "mean_absolute_error": 0.0056505393826078885,
+        "rmse": 0.006421851218442638,
+        "nrmse": 0.004387656073883779,
+        "median_absolute_relative_error": 0.0005134780793667481,
+        "max_absolute_relative_error": 0.0006440030049043534
+      },
+      "bike_share": {
+        "n": 5,
+        "mean_reference": 0.14988881208992924,
+        "mean_absolute_error": 9.540064127347981e-05,
+        "rmse": 0.00010793990063039364,
+        "nrmse": 0.002318283498568771,
+        "median_absolute_relative_error": 0.0007888136417203241,
+        "max_absolute_relative_error": 0.0011079902963682733
+      },
+      "car_share": {
+        "n": 5,
+        "mean_reference": 0.39220718145725675,
+        "mean_absolute_error": 0.0005301988503853772,
+        "rmse": 0.0006107015706359872,
+        "nrmse": 0.017911763088352812,
+        "median_absolute_relative_error": 0.0016296067655720157,
+        "max_absolute_relative_error": 0.0021360657799802847
+      },
+      "co2_tonnes": {
+        "n": 5,
+        "mean_reference": 274093.4754972965,
+        "mean_absolute_error": 344.26167536195135,
+        "rmse": 404.1899379089795,
+        "nrmse": 0.0030852780867346597,
+        "median_absolute_relative_error": 0.0015784145619172206,
+        "max_absolute_relative_error": 0.0020773749783922534
+      },
+      "pt_share": {
+        "n": 5,
+        "mean_reference": 0.4193533010458335,
+        "mean_absolute_error": 0.0004290459392351731,
+        "rmse": 0.0005045935797891957,
+        "nrmse": 0.012631842130651116,
+        "median_absolute_relative_error": 0.0011894956663235543,
+        "max_absolute_relative_error": 0.001857696856468139
+      },
+      "section_modeled_peak": {
+        "n": 5,
+        "mean_reference": 9962.34291634872,
+        "mean_absolute_error": 24.228623227261778,
+        "rmse": 24.62144280996024,
+        "nrmse": 0.0037777310443563605,
+        "median_absolute_relative_error": 0.002606914513039021,
+        "max_absolute_relative_error": 0.004119355332798929
+      },
+      "total_cost": {
+        "n": 5,
+        "mean_reference": 9857115832.803106,
+        "mean_absolute_error": 3654700.592596817,
+        "rmse": 3909340.2172235576,
+        "nrmse": 0.0007243436942570231,
+        "median_absolute_relative_error": 0.000469830805215392,
+        "max_absolute_relative_error": 0.0005825151619138615
+      },
+      "walk_share": {
+        "n": 5,
+        "mean_reference": 0.03855070540698062,
+        "mean_absolute_error": 5.752269876792282e-06,
+        "rmse": 6.740531927881356e-06,
+        "nrmse": 0.0009125991640429812,
+        "median_absolute_relative_error": 0.00015648988320397745,
+        "max_absolute_relative_error": 0.0003077163492929106
+      }
+    },
+    "3": {
+      "avg_tt_min": {
+        "n": 5,
+        "mean_reference": 13.870703181036273,
+        "mean_absolute_error": 0.0026188202633797173,
+        "rmse": 0.002745761377453657,
+        "nrmse": 0.0018809793174009895,
+        "median_absolute_relative_error": 0.00017189718837023766,
+        "max_absolute_relative_error": 0.0002702959280540688
+      },
+      "bike_share": {
+        "n": 5,
+        "mean_reference": 0.1496118698970528,
+        "mean_absolute_error": 7.225601732182562e-05,
+        "rmse": 8.144208542305093e-05,
+        "nrmse": 0.0017543018477752205,
+        "median_absolute_relative_error": 0.0004623635324139402,
+        "max_absolute_relative_error": 0.0007449004085600255
+      },
+      "car_share": {
+        "n": 5,
+        "mean_reference": 0.39149924283799736,
+        "mean_absolute_error": 0.0005084368753575542,
+        "rmse": 0.0005689452780925249,
+        "nrmse": 0.01700927918540613,
+        "median_absolute_relative_error": 0.0012284253595107515,
+        "max_absolute_relative_error": 0.002075705865103578
+      },
+      "co2_tonnes": {
+        "n": 5,
+        "mean_reference": 273904.5809581418,
+        "mean_absolute_error": 345.3706472677062,
+        "rmse": 403.15540141051713,
+        "nrmse": 0.003079558900568494,
+        "median_absolute_relative_error": 0.0011874834165163215,
+        "max_absolute_relative_error": 0.0020157862238240334
+      },
+      "pt_share": {
+        "n": 5,
+        "mean_reference": 0.4203542192617684,
+        "mean_absolute_error": 0.00043311374048140563,
+        "rmse": 0.00048539050873382567,
+        "nrmse": 0.012210005951738686,
+        "median_absolute_relative_error": 0.0010510323945243114,
+        "max_absolute_relative_error": 0.0018097172824145821
+      },
+      "section_modeled_peak": {
+        "n": 5,
+        "mean_reference": 10025.02504514293,
+        "mean_absolute_error": 20.748475311221775,
+        "rmse": 22.958597188938526,
+        "nrmse": 0.0035121648781021907,
+        "median_absolute_relative_error": 0.0022590454743125804,
+        "max_absolute_relative_error": 0.0033186447024960326
+      },
+      "total_cost": {
+        "n": 5,
+        "mean_reference": 9840442591.090065,
+        "mean_absolute_error": 2947608.5089818956,
+        "rmse": 3401238.5486362646,
+        "nrmse": 0.0006318312573946569,
+        "median_absolute_relative_error": 0.0003093288049452977,
+        "max_absolute_relative_error": 0.00044712073244917186
+      },
+      "walk_share": {
+        "n": 5,
+        "mean_reference": 0.03853466800318135,
+        "mean_absolute_error": 3.067117554357568e-06,
+        "rmse": 3.3749028791044947e-06,
+        "nrmse": 0.00045687119413089,
+        "median_absolute_relative_error": 9.530860016888439e-05,
+        "max_absolute_relative_error": 0.00011549404375895092
+      }
+    }
+  },
+  "appraisal_welfare_version": "matched_zone_od_sections_external_component_vot_v4",
+  "reference": "Independent heldout MSA OD delays; identical native postprocessing; no new MSA.",
+  "scope": "Paired annual baseline/project matched benefits and physical indicators, not full-future NPV.",
+  "n_holdouts_per_stage": 5,
+  "n_independent_physical_futures": 5,
+  "surrogate_fingerprint": "45f9893021e4fc4ca482",
+  "component_rule": "Material mean benefit >= CHF5m/year: MAE <= max(10%, CHF1m/year).",
+  "current_parameters": {
+    "N_YEARS": 40,
+    "APPRAISAL_START_YEAR": 2026,
+    "DISCOUNT_RATE": 0.02,
+    "PASSENGER_DEMAND_GROWTH": 0.0,
+    "PASSENGER_DEMAND_GROWTH_Y40": 0.2,
+    "PT_ASC_SHIFT": 0.0,
+    "PT_ASC_SHIFT_Y40": 0.1,
+    "BIKE_ASC_SHIFT": 0.0,
+    "BIKE_ASC_SHIFT_Y40": 0.2,
+    "EBIKE_SHARE": 0.3,
+    "EBIKE_SHARE_Y40": 0.5,
+    "EBIKE_SPEED_MULTIPLIER": 1.5,
+    "ROAD_FREIGHT_GROWTH": 0.0,
+    "ROAD_FREIGHT_GROWTH_Y40": 0.1,
+    "PT_PEAK_SHARE": 0.0946,
+    "CAR_PEAK_SHARE": 0.1049,
+    "BIKE_PEAK_SHARE": 0.15,
+    "WALK_PEAK_SHARE": 0.15,
+    "EQUIVALENT_DAYS_PER_YEAR": 300,
+    "NUMBER_OF_PEAK_HOURS": 4,
+    "PEAK_TO_ANNUAL_TRAIN": 3391.5,
+    "PT_HEADWAY_BASELINE": 15.0,
+    "PT_CAPACITY_BASELINE": 1400.0,
+    "CROWDING_SLOPE": 2.0,
+    "CROWDING_MAX": 3.0,
+    "TRAIN_GROSS_TONNES": 375.0,
+    "PT_TRAIN_KM_PEAK_STAGE0": 3414.6,
+    "C_TT_CAR": 42.54,
+    "C_TT_PT": 26.52,
+    "C_TT_PT_WAITING": 39.78,
+    "C_TT_PT_ACCESS": 31.82,
+    "C_TT_PT_TRANSFER": 39.78,
+    "C_TT_BIKE": 35.0,
+    "C_TT_WALK": 16.0,
+    "CAR_CO2_KG_PER_VEHICLE_KM": 0.139,
+    "CAR_CO2_KG_PER_VEHICLE_KM_Y40": 0.05,
+    "RAIL_ENERGY_WH_PER_GROSS_TONNE_KM": 30.0,
+    "RAIL_ELECTRICITY_CO2_G_PER_KWH": 19.58,
+    "CO2_VALUE_CHF_PER_TONNE": 123.2,
+    "CO2_REFERENCE_YEAR": 2015,
+    "CO2_VALUE_ANNUAL_GROWTH": 0.03,
+    "C_NOISE_CAR": 0.0149,
+    "C_AIR_CAR": 0.01862,
+    "C_ACCIDENT_CAR": 0.08441,
+    "C_AIR_PT": 0.00344,
+    "C_NOISE_PT": 0.00204,
+    "C_ACCIDENT_PT": 0.2221,
+    "ACCIDENT_COST_MULTIPLIER": 1.0,
+    "ACCIDENT_COST_MULTIPLIER_Y40": 0.85,
+    "LOCAL_AIR_COST_MULTIPLIER": 1.0,
+    "LOCAL_AIR_COST_MULTIPLIER_Y40": 0.65,
+    "OPEX_RATE": 0.02,
+    "OPEX_MULTIPLIER": 1.0,
+    "CAPEX_MULTIPLIER": 1.0,
+    "C_FLEX": 50000000,
+    "MAX_AVG_TT": 30.0,
+    "PT_SHARE_TARGET": 0.35,
+    "MIN_STRATEGIC_PKM_DISTANCE": 2.0,
+    "C_INV_STAGE1": 15000000,
+    "CAPACITY_INCREASE_STAGE1": 0.1,
+    "C_INV_STAGE2": 2180000,
+    "CAPACITY_INCREASE_STAGE2": 0.1,
+    "CAPACITY_INCREASE_COMBINED": 0.05
+  }
+}
