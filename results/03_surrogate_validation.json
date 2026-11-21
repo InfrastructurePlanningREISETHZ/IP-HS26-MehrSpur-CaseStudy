@@ -1,0 +1,2973 @@
+{
+  "format_version": 3,
+  "emulator_kind": "pooled_od_delay_gp",
+  "method": "Pooled one-hot ARD Mat\u00e9rn-5/2 GP of full directional OD delays; no PCA",
+  "artifact_file": "od_emulator.joblib",
+  "input_names": [
+    "PASSENGER_DEMAND_GROWTH",
+    "PT_ASC_SHIFT",
+    "BIKE_ASC_SHIFT",
+    "EBIKE_SHARE",
+    "ROAD_FREIGHT_GROWTH"
+  ],
+  "input_domain": {
+    "PASSENGER_DEMAND_GROWTH": {
+      "minimum": 0.0,
+      "maximum": 0.29,
+      "nominal": 0.0
+    },
+    "PT_ASC_SHIFT": {
+      "minimum": -0.1,
+      "maximum": 0.3,
+      "nominal": 0.0
+    },
+    "BIKE_ASC_SHIFT": {
+      "minimum": -0.5,
+      "maximum": 1.0,
+      "nominal": 0.0
+    },
+    "EBIKE_SHARE": {
+      "minimum": 0.25,
+      "maximum": 0.6,
+      "nominal": 0.25
+    },
+    "ROAD_FREIGHT_GROWTH": {
+      "minimum": 0.0,
+      "maximum": 0.7090232306167814,
+      "nominal": 0.0
+    }
+  },
+  "stages": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "od_labels": [
+    "15401005",
+    "15401010",
+    "15401011",
+    "15401012",
+    "15701002",
+    "16001001",
+    "16001002",
+    "16001003",
+    "16001004",
+    "16101002",
+    "16101004",
+    "16101005",
+    "16101006",
+    "16101007",
+    "16101008",
+    "16101009",
+    "19101001",
+    "19101002",
+    "19101003",
+    "19101004",
+    "19101005",
+    "19101006",
+    "19101007",
+    "19101008",
+    "19101009",
+    "19101010",
+    "19101011",
+    "19101012",
+    "19101013",
+    "19101014",
+    "19101015",
+    "19101016",
+    "19101017",
+    "19101018",
+    "19101019",
+    "19101020",
+    "19101021",
+    "19101022",
+    "19101023",
+    "19101024",
+    "19101025",
+    "19201001",
+    "19201002",
+    "19201003",
+    "19201004",
+    "19201005",
+    "19301001",
+    "19301002",
+    "19301003",
+    "19301004",
+    "19301005",
+    "19301006",
+    "19301007",
+    "19501001",
+    "19501002",
+    "19501003",
+    "19501004",
+    "19501005",
+    "19501006",
+    "19501008",
+    "19601001",
+    "19601002",
+    "19701001",
+    "19701002",
+    "19701004",
+    "20001005",
+    "20001007",
+    "26101129",
+    "26101130",
+    "26101133",
+    "26101134",
+    "26101136",
+    "26101142",
+    "26101143",
+    "26101144",
+    "26101146",
+    "26101147",
+    "26101149",
+    "26101151",
+    "26101152",
+    "26101153",
+    "26101154",
+    "26101156",
+    "26101160",
+    "26101163",
+    "26101164",
+    "26101165",
+    "26101169",
+    "26101171",
+    "26101172",
+    "26101173",
+    "26101174",
+    "26101177",
+    "26101180",
+    "26101181",
+    "26101182",
+    "26101183",
+    "26101184",
+    "26101185",
+    "26101187",
+    "26101189",
+    "26101190",
+    "26101194",
+    "26101195",
+    "26101197",
+    "26101198",
+    "26101199",
+    "26101200",
+    "26101201",
+    "26101202",
+    "26101203",
+    "26101204",
+    "26101209",
+    "26101210",
+    "26101215",
+    "26101216",
+    "26101217",
+    "26101218",
+    "26101219",
+    "26101220",
+    "26101221",
+    "26101222",
+    "26101225",
+    "26101227",
+    "26101228",
+    "26101229",
+    "26101231",
+    "26101234",
+    "26101235",
+    "26101236",
+    "26101238",
+    "26101242",
+    "26101243",
+    "26101244",
+    "26101245",
+    "26101248",
+    "26101250",
+    "26101251",
+    "26101252",
+    "26101255",
+    "26101259",
+    "26101262",
+    "26101263",
+    "26101264",
+    "26101265",
+    "26101266",
+    "26101267",
+    "26101270",
+    "26101272",
+    "26101273",
+    "26101274",
+    "26101275",
+    "26101278",
+    "26101281",
+    "26101282",
+    "26101283",
+    "26101285",
+    "26101287",
+    "26101288",
+    "26101289",
+    "26101290",
+    "26101294",
+    "26101295",
+    "26101296",
+    "26101300",
+    "26101301",
+    "26101302",
+    "26101303",
+    "26101304",
+    "26101305",
+    "26103308",
+    "5401005",
+    "6901008",
+    "6901011",
+    "6901015",
+    "6901018",
+    "6902019",
+    "G01",
+    "G02",
+    "G03",
+    "G04",
+    "G05",
+    "G06",
+    "G07",
+    "G08",
+    "G09",
+    "G10",
+    "G11",
+    "G12",
+    "G13",
+    "G14",
+    "G15",
+    "G16",
+    "G17",
+    "G18",
+    "G19",
+    "G20",
+    "G21",
+    "G22",
+    "G23",
+    "G24",
+    "G25",
+    "G26",
+    "G27",
+    "G28",
+    "G29",
+    "G30",
+    "G31",
+    "G32",
+    "G33",
+    "G34",
+    "G35",
+    "G36",
+    "G37",
+    "G38",
+    "G39",
+    "G40",
+    "G41",
+    "G42",
+    "G43",
+    "G44",
+    "G45",
+    "G46",
+    "G47",
+    "G48",
+    "G49",
+    "G50",
+    "G51",
+    "G52",
+    "G53",
+    "G54",
+    "G55",
+    "G56",
+    "G57"
+  ],
+  "od_labels_hash": "1083f3d0ada94c937f8e",
+  "n_train_total": 100,
+  "n_validation_total": 20,
+  "adaptive_fill_in": {
+    "enabled": false,
+    "max_points": 20,
+    "batch_size": 4,
+    "targets": {
+      "weighted_rmse_min": 0.2
+    },
+    "points_added": 0,
+    "final_holdout_metrics": {
+      "weighted_rmse_min": 0.17631501447547218
+    },
+    "target_reached": true
+  },
+  "training_record_ids": [
+    "train_000",
+    "train_001",
+    "train_002",
+    "train_003",
+    "train_004",
+    "train_005",
+    "train_006",
+    "train_007",
+    "train_008",
+    "train_009",
+    "train_010",
+    "train_011",
+    "train_012",
+    "train_013",
+    "train_014",
+    "train_015",
+    "train_016",
+    "train_017",
+    "train_018",
+    "train_019",
+    "train_020",
+    "train_021",
+    "train_022",
+    "train_023",
+    "train_024",
+    "train_025",
+    "train_026",
+    "train_027",
+    "train_028",
+    "train_029",
+    "train_030",
+    "train_031",
+    "train_032",
+    "train_033",
+    "train_034",
+    "train_035",
+    "train_036",
+    "train_037",
+    "train_038",
+    "train_039",
+    "train_040",
+    "train_041",
+    "train_042",
+    "train_043",
+    "train_044",
+    "train_045",
+    "train_046",
+    "train_047",
+    "train_048",
+    "train_049",
+    "train_050",
+    "train_051",
+    "train_052",
+    "train_053",
+    "train_054",
+    "train_055",
+    "train_056",
+    "train_057",
+    "train_058",
+    "train_059",
+    "train_060",
+    "train_061",
+    "train_062",
+    "train_063",
+    "train_064",
+    "train_065",
+    "train_066",
+    "train_067",
+    "train_068",
+    "train_069",
+    "train_070",
+    "train_071",
+    "train_072",
+    "train_073",
+    "train_074",
+    "train_075",
+    "train_076",
+    "train_077",
+    "train_078",
+    "train_079",
+    "train_080",
+    "train_081",
+    "train_082",
+    "train_083",
+    "train_084",
+    "train_085",
+    "train_086",
+    "train_087",
+    "train_088",
+    "train_089",
+    "train_090",
+    "train_091",
+    "train_092",
+    "train_093",
+    "train_094",
+    "train_095",
+    "train_096",
+    "train_097",
+    "train_098",
+    "train_099"
+  ],
+  "validation_record_ids": [
+    "test_000_stage0",
+    "test_000_stage1",
+    "test_000_stage2",
+    "test_000_stage3",
+    "test_001_stage0",
+    "test_001_stage1",
+    "test_001_stage2",
+    "test_001_stage3",
+    "test_002_stage0",
+    "test_002_stage1",
+    "test_002_stage2",
+    "test_002_stage3",
+    "test_003_stage0",
+    "test_003_stage1",
+    "test_003_stage2",
+    "test_003_stage3",
+    "test_004_stage0",
+    "test_004_stage1",
+    "test_004_stage2",
+    "test_004_stage3"
+  ],
+  "design_sha256": "38608451b2897cda5aa9e344a15468e2794cd874438b496676a5ba199fef5300",
+  "training_counts_by_stage": {
+    "0": 25,
+    "1": 25,
+    "2": 25,
+    "3": 25
+  },
+  "seed": 42,
+  "design": "continuous LHS with balanced stage labels; independent paired-stage LHS holdout",
+  "model_fingerprint": "38794950c97d91107f48",
+  "cache_namespace": "51ded5c8cb9ca2c93bdc",
+  "portable_model_inputs": {
+    "identity_version": 3,
+    "corridor": {
+      "mode": "zones",
+      "municipalities": [
+        "D\u00fcbendorf",
+        "Egg",
+        "F\u00e4llanden",
+        "K\u00fcsnacht (ZH)",
+        "Maur",
+        "Zollikon",
+        "Zumikon",
+        "Z\u00fcrich"
+      ],
+      "zone_ids": [
+        "15401011",
+        "15401012",
+        "16001001",
+        "16001002",
+        "16001003",
+        "16001004",
+        "16101004",
+        "16101006",
+        "16101007",
+        "16101008",
+        "16101009",
+        "19101001",
+        "19101002",
+        "19101003",
+        "19101004",
+        "19101005",
+        "19101006",
+        "19101007",
+        "19101008",
+        "19101009",
+        "19101010",
+        "19101011",
+        "19101012",
+        "19101013",
+        "19101014",
+        "19101015",
+        "19101016",
+        "19101017",
+        "19101018",
+        "19101019",
+        "19101020",
+        "19101021",
+        "19101022",
+        "19101023",
+        "19101024",
+        "19101025",
+        "19201001",
+        "19201002",
+        "19201003",
+        "19201004",
+        "19201005",
+        "19301001",
+        "19301002",
+        "19301003",
+        "19301004",
+        "19301005",
+        "19301006",
+        "19301007",
+        "19501001",
+        "19501002",
+        "19501003",
+        "19501004",
+        "19501005",
+        "19501006",
+        "19501008",
+        "26101165",
+        "26101169",
+        "26101171",
+        "26101173",
+        "26101174",
+        "26101180",
+        "26101181",
+        "26101183",
+        "26101185",
+        "26101187",
+        "26101189",
+        "26101190",
+        "26101194",
+        "26101195",
+        "26101198",
+        "26101199",
+        "26101201",
+        "26101202",
+        "26101203",
+        "26101204",
+        "26101209",
+        "26101210",
+        "26101215",
+        "26101216",
+        "26101218",
+        "26101220",
+        "26101221",
+        "26101222",
+        "26101225",
+        "26101227",
+        "26101228",
+        "26101229",
+        "26101231",
+        "26101234",
+        "26101235",
+        "26101236",
+        "26101242",
+        "26101243",
+        "26101245",
+        "26101248",
+        "26101251",
+        "26101252",
+        "26101255",
+        "26101259",
+        "26101262",
+        "26101263",
+        "26101264",
+        "26101265",
+        "26101267",
+        "26101272",
+        "26101273",
+        "26101274",
+        "26101275",
+        "26101278",
+        "26101281",
+        "26101282",
+        "26101283",
+        "26101285",
+        "26101287",
+        "26101288",
+        "26101289",
+        "26101290",
+        "26101294",
+        "26101295",
+        "26101296",
+        "26101300",
+        "26101301",
+        "26101303",
+        "26101304",
+        "26101305"
+      ]
+    },
+    "stages": {
+      "0": {
+        "section_time_saving_min": 0.0,
+        "ebike_share": 0.25,
+        "EBIKE_SPEED_MULTIPLIER": 1.5
+      },
+      "1": {
+        "section_time_saving_min": 0.0,
+        "ebike_share": 0.25,
+        "EBIKE_SPEED_MULTIPLIER": 1.5,
+        "mobility_hubs": [
+          {
+            "zones": [
+              "15401012"
+            ],
+            "stops_per_zone": 8,
+            "effects": {
+              "access_time_reduction_pct": 40.5,
+              "transfer_time_reduction_pct": 0.0,
+              "initial_wait_reduction_pct": 0.0,
+              "transfer_wait_reduction_pct": 0.0,
+              "egress_time_reduction_pct": 40.5
+            }
+          }
+        ],
+        "railway_expansions": [
+          {
+            "area_pairs": [
+              {
+                "origin": {
+                  "municipality_name": "Z\u00fcrich"
+                },
+                "destination": {
+                  "municipality_name": "Zollikon"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Z\u00fcrich"
+                },
+                "destination": {
+                  "municipality_name": "Zumikon"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Z\u00fcrich"
+                },
+                "destination": {
+                  "municipality_name": "K\u00fcsnacht (ZH)"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Z\u00fcrich"
+                },
+                "destination": {
+                  "municipality_name": "Maur"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Z\u00fcrich"
+                },
+                "destination": {
+                  "municipality_name": "Egg"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Z\u00fcrich"
+                },
+                "destination": {
+                  "municipality_name": "F\u00e4llanden"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Z\u00fcrich"
+                },
+                "destination": {
+                  "municipality_name": "D\u00fcbendorf"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Zollikon"
+                },
+                "destination": {
+                  "municipality_name": "Zumikon"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Zollikon"
+                },
+                "destination": {
+                  "municipality_name": "K\u00fcsnacht (ZH)"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Zollikon"
+                },
+                "destination": {
+                  "municipality_name": "Maur"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Zollikon"
+                },
+                "destination": {
+                  "municipality_name": "Egg"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Zollikon"
+                },
+                "destination": {
+                  "municipality_name": "F\u00e4llanden"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Zollikon"
+                },
+                "destination": {
+                  "municipality_name": "D\u00fcbendorf"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Zumikon"
+                },
+                "destination": {
+                  "municipality_name": "K\u00fcsnacht (ZH)"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Zumikon"
+                },
+                "destination": {
+                  "municipality_name": "Maur"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Zumikon"
+                },
+                "destination": {
+                  "municipality_name": "Egg"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Zumikon"
+                },
+                "destination": {
+                  "municipality_name": "F\u00e4llanden"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Zumikon"
+                },
+                "destination": {
+                  "municipality_name": "D\u00fcbendorf"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "K\u00fcsnacht (ZH)"
+                },
+                "destination": {
+                  "municipality_name": "Maur"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "K\u00fcsnacht (ZH)"
+                },
+                "destination": {
+                  "municipality_name": "Egg"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "K\u00fcsnacht (ZH)"
+                },
+                "destination": {
+                  "municipality_name": "F\u00e4llanden"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "K\u00fcsnacht (ZH)"
+                },
+                "destination": {
+                  "municipality_name": "D\u00fcbendorf"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Maur"
+                },
+                "destination": {
+                  "municipality_name": "Egg"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Maur"
+                },
+                "destination": {
+                  "municipality_name": "F\u00e4llanden"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Maur"
+                },
+                "destination": {
+                  "municipality_name": "D\u00fcbendorf"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Egg"
+                },
+                "destination": {
+                  "municipality_name": "F\u00e4llanden"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Egg"
+                },
+                "destination": {
+                  "municipality_name": "D\u00fcbendorf"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "F\u00e4llanden"
+                },
+                "destination": {
+                  "municipality_name": "D\u00fcbendorf"
+                }
+              }
+            ],
+            "both_directions": true,
+            "effects": {
+              "travel_time_reduction_pct": 0.0,
+              "speed_increase_pct": 0.0,
+              "distance_reduction_pct": 0.0,
+              "initial_wait_reduction_pct": 0.0,
+              "transfer_wait_reduction_pct": 0.0,
+              "transfer_time_reduction_pct": 0.0,
+              "access_time_reduction_pct": 0.0,
+              "egress_time_reduction_pct": 0.0
+            }
+          }
+        ]
+      },
+      "2": {
+        "section_time_saving_min": 0.0,
+        "ebike_share": 0.25,
+        "EBIKE_SPEED_MULTIPLIER": 1.5,
+        "bike_highways": [
+          {
+            "area_pairs": [
+              {
+                "origin": {
+                  "grid_id": [
+                    "19501007",
+                    "19501008"
+                  ]
+                },
+                "destination": {
+                  "grid_id": [
+                    "15401012"
+                  ]
+                }
+              }
+            ],
+            "both_directions": true,
+            "effects": {
+              "travel_time_reduction_pct": 13.0
+            }
+          },
+          {
+            "area_pairs": [
+              {
+                "origin": {
+                  "grid_id": [
+                    "19501002"
+                  ]
+                },
+                "destination": {
+                  "grid_id": [
+                    "15401012"
+                  ]
+                }
+              }
+            ],
+            "both_directions": true,
+            "effects": {
+              "travel_time_reduction_pct": 12.5
+            }
+          },
+          {
+            "area_pairs": [
+              {
+                "origin": {
+                  "grid_id": [
+                    "19501004",
+                    "19501005",
+                    "19501006"
+                  ]
+                },
+                "destination": {
+                  "grid_id": [
+                    "15401012"
+                  ]
+                }
+              }
+            ],
+            "both_directions": true,
+            "effects": {
+              "travel_time_reduction_pct": 25.0
+            }
+          }
+        ],
+        "mobility_hubs": [
+          {
+            "zones": [
+              "15401012"
+            ],
+            "stops_per_zone": 8,
+            "effects": {
+              "access_time_reduction_pct": 80.0,
+              "transfer_time_reduction_pct": 0.0,
+              "initial_wait_reduction_pct": 0.0,
+              "transfer_wait_reduction_pct": 0.0,
+              "egress_time_reduction_pct": 80.0
+            }
+          }
+        ],
+        "railway_expansions": [
+          {
+            "area_pairs": [
+              {
+                "origin": {
+                  "grid_id": [
+                    "15401012"
+                  ]
+                },
+                "destination": {
+                  "grid_id": [
+                    "19501001",
+                    "19501002",
+                    "19501003",
+                    "19501004",
+                    "19501005",
+                    "19501006",
+                    "19301001",
+                    "19301002",
+                    "19301004",
+                    "19301006",
+                    "19301007",
+                    "19701004",
+                    "19701005"
+                  ]
+                }
+              }
+            ],
+            "both_directions": true,
+            "effects": {
+              "travel_time_reduction_pct": 0.0,
+              "speed_increase_pct": 0.0,
+              "distance_reduction_pct": 0.0,
+              "initial_wait_reduction_pct": 50.0,
+              "transfer_wait_reduction_pct": 42,
+              "transfer_time_reduction_pct": 0.0,
+              "access_time_reduction_pct": 0.0,
+              "egress_time_reduction_pct": 0.0
+            }
+          },
+          {
+            "area_pairs": [
+              {
+                "origin": {
+                  "municipality_name": "Z\u00fcrich"
+                },
+                "destination": {
+                  "municipality_name": "Zollikon"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Z\u00fcrich"
+                },
+                "destination": {
+                  "municipality_name": "Zumikon"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Z\u00fcrich"
+                },
+                "destination": {
+                  "municipality_name": "K\u00fcsnacht (ZH)"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Z\u00fcrich"
+                },
+                "destination": {
+                  "municipality_name": "Maur"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Z\u00fcrich"
+                },
+                "destination": {
+                  "municipality_name": "Egg"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Z\u00fcrich"
+                },
+                "destination": {
+                  "municipality_name": "F\u00e4llanden"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Z\u00fcrich"
+                },
+                "destination": {
+                  "municipality_name": "D\u00fcbendorf"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Zollikon"
+                },
+                "destination": {
+                  "municipality_name": "Zumikon"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Zollikon"
+                },
+                "destination": {
+                  "municipality_name": "K\u00fcsnacht (ZH)"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Zollikon"
+                },
+                "destination": {
+                  "municipality_name": "Maur"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Zollikon"
+                },
+                "destination": {
+                  "municipality_name": "Egg"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Zollikon"
+                },
+                "destination": {
+                  "municipality_name": "F\u00e4llanden"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Zollikon"
+                },
+                "destination": {
+                  "municipality_name": "D\u00fcbendorf"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Zumikon"
+                },
+                "destination": {
+                  "municipality_name": "K\u00fcsnacht (ZH)"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Zumikon"
+                },
+                "destination": {
+                  "municipality_name": "Maur"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Zumikon"
+                },
+                "destination": {
+                  "municipality_name": "Egg"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Zumikon"
+                },
+                "destination": {
+                  "municipality_name": "F\u00e4llanden"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Zumikon"
+                },
+                "destination": {
+                  "municipality_name": "D\u00fcbendorf"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "K\u00fcsnacht (ZH)"
+                },
+                "destination": {
+                  "municipality_name": "Maur"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "K\u00fcsnacht (ZH)"
+                },
+                "destination": {
+                  "municipality_name": "Egg"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "K\u00fcsnacht (ZH)"
+                },
+                "destination": {
+                  "municipality_name": "F\u00e4llanden"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "K\u00fcsnacht (ZH)"
+                },
+                "destination": {
+                  "municipality_name": "D\u00fcbendorf"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Maur"
+                },
+                "destination": {
+                  "municipality_name": "Egg"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Maur"
+                },
+                "destination": {
+                  "municipality_name": "F\u00e4llanden"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Maur"
+                },
+                "destination": {
+                  "municipality_name": "D\u00fcbendorf"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Egg"
+                },
+                "destination": {
+                  "municipality_name": "F\u00e4llanden"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Egg"
+                },
+                "destination": {
+                  "municipality_name": "D\u00fcbendorf"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "F\u00e4llanden"
+                },
+                "destination": {
+                  "municipality_name": "D\u00fcbendorf"
+                }
+              }
+            ],
+            "both_directions": true,
+            "effects": {
+              "travel_time_reduction_pct": 0.0,
+              "speed_increase_pct": 0.0,
+              "distance_reduction_pct": 0.0,
+              "initial_wait_reduction_pct": 0.0,
+              "transfer_wait_reduction_pct": 0.0,
+              "transfer_time_reduction_pct": 0.0,
+              "access_time_reduction_pct": 0.0,
+              "egress_time_reduction_pct": 0.0
+            }
+          }
+        ]
+      },
+      "3": {
+        "section_time_saving_min": 0.0,
+        "ebike_share": 0.25,
+        "EBIKE_SPEED_MULTIPLIER": 1.5,
+        "bike_highways": [
+          {
+            "area_pairs": [
+              {
+                "origin": {
+                  "grid_id": [
+                    "19501007",
+                    "19501008"
+                  ]
+                },
+                "destination": {
+                  "grid_id": [
+                    "15401012"
+                  ]
+                }
+              }
+            ],
+            "both_directions": true,
+            "effects": {
+              "travel_time_reduction_pct": 13.0
+            }
+          },
+          {
+            "area_pairs": [
+              {
+                "origin": {
+                  "grid_id": [
+                    "19501002"
+                  ]
+                },
+                "destination": {
+                  "grid_id": [
+                    "15401012"
+                  ]
+                }
+              }
+            ],
+            "both_directions": true,
+            "effects": {
+              "travel_time_reduction_pct": 12.5
+            }
+          },
+          {
+            "area_pairs": [
+              {
+                "origin": {
+                  "grid_id": [
+                    "19501004",
+                    "19501005",
+                    "19501006"
+                  ]
+                },
+                "destination": {
+                  "grid_id": [
+                    "15401012"
+                  ]
+                }
+              }
+            ],
+            "both_directions": true,
+            "effects": {
+              "travel_time_reduction_pct": 25.0
+            }
+          }
+        ],
+        "mobility_hubs": [
+          {
+            "zones": [
+              "15401012"
+            ],
+            "stops_per_zone": 8,
+            "effects": {
+              "access_time_reduction_pct": 40.5,
+              "transfer_time_reduction_pct": 0.0,
+              "initial_wait_reduction_pct": 0.0,
+              "transfer_wait_reduction_pct": 0.0,
+              "egress_time_reduction_pct": 40.5
+            }
+          },
+          {
+            "zones": [
+              "15401012"
+            ],
+            "stops_per_zone": 8,
+            "effects": {
+              "access_time_reduction_pct": 80.0,
+              "transfer_time_reduction_pct": 0.0,
+              "initial_wait_reduction_pct": 0.0,
+              "transfer_wait_reduction_pct": 0.0,
+              "egress_time_reduction_pct": 80.0
+            }
+          }
+        ],
+        "railway_expansions": [
+          {
+            "area_pairs": [
+              {
+                "origin": {
+                  "grid_id": [
+                    "15401012"
+                  ]
+                },
+                "destination": {
+                  "grid_id": [
+                    "19501001",
+                    "19501002",
+                    "19501003",
+                    "19501004",
+                    "19501005",
+                    "19501006",
+                    "19301001",
+                    "19301002",
+                    "19301004",
+                    "19301006",
+                    "19301007",
+                    "19701004",
+                    "19701005"
+                  ]
+                }
+              }
+            ],
+            "both_directions": true,
+            "effects": {
+              "travel_time_reduction_pct": 0.0,
+              "speed_increase_pct": 0.0,
+              "distance_reduction_pct": 0.0,
+              "initial_wait_reduction_pct": 50.0,
+              "transfer_wait_reduction_pct": 42,
+              "transfer_time_reduction_pct": 0.0,
+              "access_time_reduction_pct": 0.0,
+              "egress_time_reduction_pct": 0.0
+            }
+          },
+          {
+            "area_pairs": [
+              {
+                "origin": {
+                  "municipality_name": "Z\u00fcrich"
+                },
+                "destination": {
+                  "municipality_name": "Zollikon"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Z\u00fcrich"
+                },
+                "destination": {
+                  "municipality_name": "Zumikon"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Z\u00fcrich"
+                },
+                "destination": {
+                  "municipality_name": "K\u00fcsnacht (ZH)"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Z\u00fcrich"
+                },
+                "destination": {
+                  "municipality_name": "Maur"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Z\u00fcrich"
+                },
+                "destination": {
+                  "municipality_name": "Egg"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Z\u00fcrich"
+                },
+                "destination": {
+                  "municipality_name": "F\u00e4llanden"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Z\u00fcrich"
+                },
+                "destination": {
+                  "municipality_name": "D\u00fcbendorf"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Zollikon"
+                },
+                "destination": {
+                  "municipality_name": "Zumikon"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Zollikon"
+                },
+                "destination": {
+                  "municipality_name": "K\u00fcsnacht (ZH)"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Zollikon"
+                },
+                "destination": {
+                  "municipality_name": "Maur"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Zollikon"
+                },
+                "destination": {
+                  "municipality_name": "Egg"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Zollikon"
+                },
+                "destination": {
+                  "municipality_name": "F\u00e4llanden"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Zollikon"
+                },
+                "destination": {
+                  "municipality_name": "D\u00fcbendorf"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Zumikon"
+                },
+                "destination": {
+                  "municipality_name": "K\u00fcsnacht (ZH)"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Zumikon"
+                },
+                "destination": {
+                  "municipality_name": "Maur"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Zumikon"
+                },
+                "destination": {
+                  "municipality_name": "Egg"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Zumikon"
+                },
+                "destination": {
+                  "municipality_name": "F\u00e4llanden"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Zumikon"
+                },
+                "destination": {
+                  "municipality_name": "D\u00fcbendorf"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "K\u00fcsnacht (ZH)"
+                },
+                "destination": {
+                  "municipality_name": "Maur"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "K\u00fcsnacht (ZH)"
+                },
+                "destination": {
+                  "municipality_name": "Egg"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "K\u00fcsnacht (ZH)"
+                },
+                "destination": {
+                  "municipality_name": "F\u00e4llanden"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "K\u00fcsnacht (ZH)"
+                },
+                "destination": {
+                  "municipality_name": "D\u00fcbendorf"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Maur"
+                },
+                "destination": {
+                  "municipality_name": "Egg"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Maur"
+                },
+                "destination": {
+                  "municipality_name": "F\u00e4llanden"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Maur"
+                },
+                "destination": {
+                  "municipality_name": "D\u00fcbendorf"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Egg"
+                },
+                "destination": {
+                  "municipality_name": "F\u00e4llanden"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "Egg"
+                },
+                "destination": {
+                  "municipality_name": "D\u00fcbendorf"
+                }
+              },
+              {
+                "origin": {
+                  "municipality_name": "F\u00e4llanden"
+                },
+                "destination": {
+                  "municipality_name": "D\u00fcbendorf"
+                }
+              }
+            ],
+            "both_directions": true,
+            "effects": {
+              "travel_time_reduction_pct": 0.0,
+              "speed_increase_pct": 0.0,
+              "distance_reduction_pct": 0.0,
+              "initial_wait_reduction_pct": 0.0,
+              "transfer_wait_reduction_pct": 0.0,
+              "transfer_time_reduction_pct": 0.0,
+              "access_time_reduction_pct": 0.0,
+              "egress_time_reduction_pct": 0.0
+            }
+          }
+        ]
+      }
+    },
+    "section_signatures": {
+      "0": "3c71fe24f97a2511bd266bda4c013f235003cd712b5bd4cf4689b22219276661",
+      "1": "3c71fe24f97a2511bd266bda4c013f235003cd712b5bd4cf4689b22219276661",
+      "2": "3c71fe24f97a2511bd266bda4c013f235003cd712b5bd4cf4689b22219276661",
+      "3": "3c71fe24f97a2511bd266bda4c013f235003cd712b5bd4cf4689b22219276661"
+    },
+    "input_domain": {
+      "PASSENGER_DEMAND_GROWTH": {
+        "minimum": 0.0,
+        "maximum": 0.29,
+        "nominal": 0.0
+      },
+      "PT_ASC_SHIFT": {
+        "minimum": -0.1,
+        "maximum": 0.3,
+        "nominal": 0.0
+      },
+      "BIKE_ASC_SHIFT": {
+        "minimum": -0.5,
+        "maximum": 1.0,
+        "nominal": 0.0
+      },
+      "EBIKE_SHARE": {
+        "minimum": 0.25,
+        "maximum": 0.6,
+        "nominal": 0.25
+      },
+      "ROAD_FREIGHT_GROWTH": {
+        "minimum": 0.0,
+        "maximum": 0.7090232306167814,
+        "nominal": 0.0
+      }
+    },
+    "drive_occupancy": 1.14,
+    "prepared_inputs": {
+      "data/transport/config/mode_choice.json": "b099f6dbfe7c3f2b0f72868ccb0598a0a4b7653ea34cf37a85e1ad1111f13d85",
+      "data/transport/prepared/zones.parquet": "86696f4eed8fb24a1cd8011c332f0ed6a868d65013cddfcf13930b3e11ccd623",
+      "data/transport/prepared/demand.pkl.gz": "c7fa90c312ecad089b5b7ff21d36363283b4c9f2c72fdda7af67d1efd0708994",
+      "data/transport/prepared/skims.pkl.gz": "8c6e321818f13afe85cce069b7df002db2f1c74d33764fda4c175fc689b8d7bf",
+      "data/transport/prepared/assignment_network.pkl": "26cbf5ab36717fedd1d071e1b0be5576415b24a5e64ff976efb959ecaef72d31",
+      "data/transport/prepared/lookups.pkl.gz": "8a571b706449c87a41c58a9fd48b34e0fd6a72cf7f825c69db1eb3a8b6bcd73d",
+      "data/processed/forch_vb_detailed_network.pkl": "e0c4dc4c3e237d49ed327c680ecd9461cdb9a2737f6dbc159bb2adb668d132ad"
+    }
+  },
+  "reference_equations": {
+    "code/transport_model_interface.py:_corridor_shortest_time_table": "35336b26fbbc94b8b970c35160c3eb6fa2c63177c73be6a813187749ca38a533",
+    "code/transport_model_interface.py:_sparse_shortest_path_inputs": "137f477a654037df98ce5ca3bbbc0386becf23f84af25328898aea85c9e940c7",
+    "code/transport_model_interface.py:_bpr_link_times": "0ab54cdbfbc413a0c37290f60fa5dd7783f742520f3be37edd66ed3407612f2f",
+    "code/transport_model_interface.py:collapse_od_to_gates": "ad8c543fd63e5f6bd58d4eee926d5ecd17aebdb38e8f9b054c21db4e521c7609",
+    "code/transport_model_interface.py:CorridorContext": "4890f3f6bafc40c34e1fad51a873ac5d5de11f3ac51f2576ce2417a85e9f4612",
+    "code/transport_model_interface.py:TransportContext": "80530b81ffbf12ec8631e7156530659dc46e03d7251a709a185827ef13929ffa",
+    "code/transport_model_interface.py:DEFAULT_PASSTHROUGH_FRACTION": "48107cfe7237c6d213451d7833ce0ab8102b70c833493bdeca4f4f5a82d91711",
+    "code/transport_model_interface.py:run_coupled_corridor_assignment": "2ff21519f30a723141bc0068ab0a08d3a3f0b127443adfe2e69ebc9a502ea400",
+    "code/transport_model_interface.py:gate_totals": "f8a66350729fd663e4662c9edd199f9d3d3c787482fd6ee6a84e248e1e9ea326",
+    "code/transport_model_interface.py:_corridor_mode_summary": "443d47429a76bbfb868eada887127dd62010c074afaf0a6e3323278defe3a838",
+    "code/transport_model_interface.py:_synthetic_assignment_background": "cc7532e294b8724459a1a0d70553c1d0cfa202521d05ae8af4a52170dad3c2f3",
+    "code/transport_model_interface.py:_project_corridor_delay_to_full_od": "08d0d14eacebfe2d87ef130d1fcf0befc1f4323adffa46384adc9b04630b0f9a",
+    "code/transport_model_interface.py:_all_or_nothing_sparse": "eb46f5da329080fce594c83ccc204ec525e3f23a294da3a41957aa85164b5559",
+    "code/transport_model_interface.py:AssignmentResult": "56d2481127764b2a4fdc27843325237f2f848cb475f9e641779ce9930bcbdb7b",
+    "code/transport_model_interface.py:ModeChoiceResult": "c6e4c1dc2259fa1409b8bcbfad6ba88eb0f45e7b99e67cce08c388588d9bb700",
+    "code/transport_model_interface.py:_report_unserved_road_demand": "79fb146415520fc22ea83b4aff24321067093021a8a5ab016ecf4505fc73775c",
+    "code/transport_model_interface.py:resolve_assignment_settings": "4fad46305924815e12d3c6f9a8dea630b062ea3e4b9d11a78c86b14429b448d6",
+    "code/transport_model_interface.py:run_transport_mode_choice": "f50a251a2162187629027d13b29a6d01219106624a4f54c63943bb019897a80d",
+    "code/transport_model_interface.py:apply_road_capacity_stage": "72bab627fc2b76188b757ab5989c36efa0815c697ad96deab57e99fd7ab73510",
+    "code/transport_model_interface.py:_road_change_columns": "72fef994e8897dd6d61f5e71af4119623600735fe72dbd88d36b8ca7e04f1823",
+    "code/transport_model_interface.py:_prepare_road_edges": "47ddea68175ff334d8d11b1b6b57906fdbaccffe4451a6ffd90e72e4e5199b87",
+    "code/transport_model_interface.py:build_corridor_context": "ea57e230732b37e84260c45b52c5139db0217a601723b67ff606ef571c9d4880",
+    "code/transport_model_interface.py:_select_spaced_gates": "3097bd37ec6353e712f22a35f7217ba6a962d86c72d9d7e131d8eda5e8781403",
+    "code/transport_model_interface.py:_reachable_gate_candidates": "02bae839d741d03589a61e55413ee737fc5494f5b0cd6708a4d9507c725465d2",
+    "code/transport_model_interface.py:_retain_internal_road_connections": "cbd89718f6ba69995822c8519be461b1a2f3c4be1653ce0527c7e51f8681697f",
+    "code/transport_model_interface.py:_get_core_zones": "32d8a413ab5501a1f49e7321ace40681cb4c0451667f6fde7e2a560fe39e3e14",
+    "code/transport_model_interface.py:resolve_corridor_zone_ids": "7f6110ee39dbc6affa781738723e764625d08cba418760d9c843792818d2a116",
+    "code/transport_model_interface.py:DEFAULT_GATE_SEPARATION_M": "d525993c205d38203a6d7a35dbee9bb8d8ac27193c67b6688c10a7b4eebc6aec",
+    "code/transport_model_interface.py:DEFAULT_MAX_GATES": "59e22c6925ace78a8378bdd2e49b211adc07659f73860613ad5b95145139be62",
+    "code/transport_model_interface.py:DEFAULT_CORRIDOR_BUFFER_M": "da12853a5516bba19d5f5363006ce409852bea9b534ef24e9602bed82d609946",
+    "code/transport_model_interface.py:load_transport_context": "7d5dfde36d8291f94d39a25b95908cc3485b411329e18b660cfea68d213cf93c",
+    "code/transport_model_interface.py:_detailed_network_file_identity": "7bb9b6e9622a64eacca60363ae01f762df865ac8ca0daab56226023828204162",
+    "code/transport_model_interface.py:_merge_detailed_road_network": "78dcca6645d5d5393600a6b970593bc5e0a148a78d7b47b90368c3b70f83b6a4",
+    "code/transport_model_interface.py:_DETAILED_NETWORK_MERGE_POLICY": "4f83a98b0e49ea42739e1d345149bf1a86150a58cc18c8ab81cf6cd71acaf8ee",
+    "code/transport_model_interface.py:_read_detailed_network": "ca3cb819a1babb72fe7b863bdf4815064836d476c941bc605a56bbab25a61bc9",
+    "code/transport_model_interface.py:_validate_detailed_network": "7e3167de7a6e1144da9734861730e874730c73366b1949f77763b807d69e1a2c",
+    "code/transport_model_interface.py:_detailed_network_scope": "5d3ccc91bed868d230a5e7e1b013a4c3b0a4c4dc0cbb519782e3d152e29ac619",
+    "code/transport_model_interface.py:_load_assignment_network": "3772521ed90913aac4d5f9f12a4e98c28f2b746e8d9ed55807adb384874e007f",
+    "code/transport_model_interface.py:context_cache_status": "c166d24df53de8f596cd434009590cc5a7dbcfa312e3dd63d829682bafa0f716",
+    "code/transport_model_interface.py:configured_input_paths": "48147f1249b0d9bec7f73d300f6b40be2554346111ec620afb4d7e094fa29b96",
+    "code/transport_model_interface.py:_import_transport_modules": "0d0e06234c91bcf411d32c5be2444bd4da0fae9d9affa58d31dad195bd4f39f1",
+    "code/transport_model_interface.py:readiness_flags": "73b7cf7741b19a7250f587208c320d10c53d5aaa4301b2d5aa7ef11fdddca8bb",
+    "code/transport_model_interface.py:transport_input_status": "2feefc4f1c2af349a8dab97595f98def3fb823eb31f7f38a9574e795a34e3c14",
+    "code/transport_model_interface.py:configured_detailed_network_path": "91fb824f27f92738746e123117e3b0c9ea8ceacdb51327d85c440ca2c1e8b079",
+    "code/additional/uncertainty.py:TRANSPORT_BINDINGS": "e29be27c81c023416ee308ff746c8d721cc232e6101792e3d90088c48963e7b1",
+    "code/additional/uncertainty.py:native_transport_inputs": "a5024d6a740482b4cd93325ec5740c5e155528fde177b42c1ccb83909f91ff2c",
+    "code/additional/uncertainty.py:complete_transport_inputs": "fee8083e1df16ae1167f60d6b684b09eee2613fcb141e6e538e24b709421cdd0",
+    "code/additional/section_flows.py:apply_section_time_saving": "5c6036f33efe9abf53109a1c4f8f7893ba60eb55122cdf022127af348c1e6321",
+    "code/additional/section_flows.py:_values": "5ecd8496e322a72c8cdfc774ac61a12cb57f6c0bac4e4b94aa43297238bc2106",
+    "code/additional/section_flows.py:section_saving_weights": "1d9a8c7f86dd6bf22d7d91a9d5542f762b41a06c3ab09ce29985470f6ed4c543",
+    "code/additional/section_flows.py:coverage_masks": "d33c1ab47869a16c8d06c746c6d8ed1dc9ffbea13ee3d50f84856c82c30b2482",
+    "code/additional/section_flows.py:_MODES": "de7a3199230af62f055db731b5cfd20469249804395856fb8ece68a786ccfda6",
+    "code/additional/section_flows.py:_coverage": "5a530303e1dbc920f34e754bc089406db4fe664b72fbd4bb8c30996bf94d34aa",
+    "code/additional/section_flows.py:_name": "1bd9de44bf00f6ff5067cb8db96e0e1935fbe8bb6c3219b9cb7bf1b27ea41996",
+    "code/additional/section_flows.py:_minimal_context": "f3d55878babccae893cabe00aa8ba7abc027882e86402d4d539d0f763090ee38",
+    "code/additional/section_flows.py:_mode": "fb489fe52eaa9ff9b8f8d60a32527ebfde71099d2e0ffc5f2066f61a1f05be26",
+    "code/additional/section_flows.py:_recipe_contract": "36f0063c2583c4324eaab9e2103ffd5a4ede5756597fcea7ebe638f7e153a042",
+    "code/additional/section_flows.py:_routing_path": "dd3cd26f384adea1f3653b2f3b232d22537f33a59007b7298e95683bc7faab7d",
+    "code/additional/section_flows.py:_ROOT": "cf6aca5137e6698eda21fd3c2c781bc7143743fe3a592ddb608c4516c6b77db1",
+    "code/additional/section_flows.py:_CODE_DIR": "770d495023aab802bcfccf37f4c928d6ce31e80a5a4d6813d1e9482226b0fe02",
+    "code/additional/section_flows.py:_digest_path": "1247b736c50e119dd665f031547666ecdb7fbbd8b2999a1940b68883ab2ac202",
+    "code/additional/section_flows.py:_file_digest": "365e540e23b8e7fafc3ac8d21dc2d2c821fd9028e2543cb62ff01eb3fd8308eb",
+    "code/additional/section_flows.py:_RECIPE_VERSION": "a786c4927daaeb9cae90979a0d5edd423485328b70b0b25c5776c14821ec49e4",
+    "code/additional/section_flows.py:_read_coverage": "344b5482e12aef81ee6d14be9e194217b44b3a58785e1a81bfd8870498dca4e6",
+    "code/additional/section_flows.py:_hash": "fbe7897d1570a7e1bfbfd177c43f7333d67f6a1a8717d2ceb35c9f2861d04b69",
+    "code/additional/section_flows.py:_prepare_recipe": "bda4d978d6daec8f9bab3c9d9b8d62b3b73bd985f509b8da59a97c064ef233e5",
+    "code/additional/section_flows.py:_no_path_time": "044f0aefb7e57d8f3949a1c1175d8363163b181b845c44f2c0bb678066bbdb7d",
+    "code/additional/section_flows.py:_station_group": "d00a2b4a4d9d1a073d7a05bbba5a71d02b74d113fec0ce170ab2aff8840ccc63",
+    "code/additional/section_flows.py:route_input_signature": "9095352c695f72b0d5b6995d07108528dc984bf72d49e7c829cad29e102f5648",
+    "code/additional/section_flows.py:_trace_features": "83261bf748896cb1b6f2c0ef4bd90c2da19744f7b824f312243bb381aff9ab22",
+    "code/additional/section_flows.py:_ancestor_sum": "d219e5b695bfcc091515dbdb6137a31530cd4d2e1aacbd12c300f1621e88bfc2",
+    "code/additional/section_flows.py:_route_inputs": "bec1d5f4f96426cbef389ad668a01fe9d32bbe1521dff6103e77f038c2749158",
+    "code/additional/section_flows.py:_path": "102d3b7f8fc18fb31d338fc8dd9faf1917cab01c21558f780ea27b281e4e45c1",
+    "code/additional/section_flows.py:_DEFAULT_COVERAGE": "0cbff2e6cff4f1e779c4b46180af870d6ef354b4f82188ec27cdede21292f72d",
+    "code/additional/section_flows.py:_ensure_recipe_coverage": "7cef10662779643512b0fba0be1cc9f5abfac6fd57ac55159e8b76edb7960e4e",
+    "code/additional/section_flows.py:section_config": "774a6309cddbcdc8120f73f25383b58dba8f0a33765b5e8350bfc38114600b64",
+    "code/additional/section_flows.py:_selector": "8339b5f5d8380ca4e57aa52c35e114220766b5dab1d3b8049bcb032251ad68a7",
+    "code/additional/section_flows.py:_INTERNAL_SECTION": "f54aabcec41d74ee788fe73e002df49ab8ed6ce98365fb6b2af4d43738164d85",
+    "code/additional/section_flows.py:_validate_route_inputs": "72a69ad3247429de1742e0ad5e14734493d48abcf76dcde1478aa188818b18fb",
+    "code/additional/section_flows.py:physical_signature": "cfa684f11987d8c8b98539b8140998e3abbe504b140b4797b3bd4c9dadad3146",
+    "code/additional/section_flows.py:_saving": "28f2fa915d5c0412c311e34dd046f6c5f4c4279dbb95b31d02332cd4d6bfcb49",
+    "code/transport_core/interventions.py:apply_interventions": "6c258742f41df402b16fe75353c1b9bf104b3362a9f44964e63914aee319932e",
+    "code/transport_core/interventions.py:_apply_mobility_hub": "91af188a65d4df848b7446a5a3382f00ffa2a62509d4b4ffc565b19ccc79b10c",
+    "code/transport_core/interventions.py:_multiply_selected": "61b2f047a7bb5108c79946829dc1d305d0a7bed171a2e56584f0a08db8f5999a",
+    "code/transport_core/interventions.py:_reduce_station_transfer": "6c2e7d3464268d479c045434d0ee4efd92c1657e1573c25a2645bcc982622423",
+    "code/transport_core/interventions.py:_reduction_factor": "e9cadd0b2c95b0b47b1504b1b6f2613a92a7946637c341d042fcfcdc04be768f",
+    "code/transport_core/interventions.py:_percentage": "d73898aba9f4c88c14326dcbd89f52285c3bb3207e57939d4a06e8b930dca88b",
+    "code/transport_core/interventions.py:_hub_mode_masks": "5f0e14e9fccd1da3fd4f3d9115dc49b6bc6ef8f6cb083eeeac75d0e747ee975a",
+    "code/transport_core/interventions.py:_hub_stop_ids": "23eabab313e46741710ca452d75cdf60068983cd02d0c9af098007bced821fcb",
+    "code/transport_core/interventions.py:_hub_zone_ids": "19d3264c6aa9512a989dae7775c583ac90764cc7b5df827c341fc6370a0cae7a",
+    "code/transport_core/interventions.py:_selector_zone_ids": "7980adc36156794782aed8df3834a12b9494801247b9c9bee5ec04d8e36f1846",
+    "code/transport_core/interventions.py:_speed_factor": "07a44caedf67e0e8d3c67addbbb4f70c149ad53c081c1275485af4a386d4c9ea",
+    "code/transport_core/interventions.py:station_transfer_walk_minutes": "85e8068b62a874f18b6d49c957009dad2101d43f0207b190f28ed1c5b0ae1ab2",
+    "code/transport_core/interventions.py:_railway_expansion_mask": "5a2a37f528a7db237369d3cf68e39417e2a1cc02fc4382046aae2349d76a53a5",
+    "code/transport_core/interventions.py:_od_mask": "e7f59309a47c13effbfd906adade3cd201a10bda2152b615d4b6dd69cb5dc5e8",
+    "code/transport_core/interventions.py:_as_list": "5b66d0105722c8fd4cecfd020241d235b18e8258836cda2606510829c058e254",
+    "code/transport_core/interventions.py:_apply_railway_expansion": "2d80edec14f28b82ca64bfe164828f2090b0e31f3b4a4773bd349b2fd61bf328",
+    "code/transport_core/interventions.py:_apply_bike_highway": "46d6c4487f8ea2d8f4be380e9ae39d5e00039abfb4131bd09bf355d778ff7cad",
+    "code/transport_core/interventions.py:_bike_highway_mask": "42fba334ee71508d0b71356a660c95c4ebcb3f16cc0c694d17b8ba04a89ba587",
+    "code/transport_core/mode_choice_zurich.py:mode_split_aggregated": "39740dfec6610d700022825fa26bc7df4e23fd921644504f53920e1f2e7322b9",
+    "code/transport_core/mode_choice_zurich.py:UNAVAILABLE_UTILITY": "cf607803da6a985966cf4c2ea3b127db7f605c7e6a149527e92c7ecc9b3d36c5",
+    "code/transport_core/mode_choice_zurich.py:_matrix": "57dc83eb9c08d84e5c067cfdb3749012164060b9c93cdd461d9d7b7183ab00b1",
+    "code/transport_core/mode_choice_zurich.py:load_mode_choice_parameters": "1954ce4e9752eff79cbffaf35710d5d714118c420c59d1796071d9ed1383da1d",
+    "code/transport_core/mode_choice_zurich.py:_availability": "94a468b5ae10f41e5887bd7ee156ab1752f5e5942d8e887d92947493d6e8337a",
+    "code/transport_core/travel_times.py:rebuild_pt_out_of_vehicle_times": "8fcd9b866f27eb8136c207a96e1ab35a7e49d027fb2b47e274409f9a70a1b3f3",
+    "code/transport_core/travel_times.py:standalone_walk_mask": "d7735f72360d69b5bb0d7ed9a25822ca1aae4aab818888b6b17ced91bcf84b2c",
+    "code/transport_core/travel_times.py:apply_ebike_share": "8a90180b70b6580b1ee9a846a3678886d30cab825dee9552def2e49491f3054d",
+    "code/transport_core/travel_times.py:_valid": "a303d1441d1e9388073ac5e6c9be62213e0654a12a87574ba1b0313ee4d81a55",
+    "code/transport_core/travel_times.py:ebike_time_factor": "5a224a3cc955488f7c0f08892fcb233614344057540aa161a3a8d59728ac2ba1",
+    "code/transport_core/travel_times.py:apply_perceived_time_policies": "d9b0cf13a242d84cac666d0aede0b36b313586074f3ebe9ad49a09983c128a3a",
+    "code/transport_core/travel_times.py:_apply_pt_component_floors": "0e8812bfe109e9ecae2728c70f5c15a9c96f4529ba6b06d029e3b3d8c78ef520",
+    "code/transport_core/travel_times.py:_apply_drive_perceived_times": "865e5ce0bb682aa6131a1f00c3da691a1efa42c7d24fce7628627d6c0f7eb683",
+    "code/transport_core/travel_times.py:load_travel_times": "07b30a5688c7523ea98bc9e845a4f6b1ed0bdde1baca8d2f9b98b54b944c0ae7",
+    "code/transport_core/travel_times.py:STRING_SKIMS": "82bc265c8c9ba871ec6316664733231c2d1ab4540bff8e2cc3ae06aa7b69602d",
+    "code/transport_core/travel_times.py:LENGTH_SKIMS": "394dd3a769c5516156dc01cf5c8c99d0fea6ebdab25c45b99ee180ce4c58bed0",
+    "code/transport_core/travel_times.py:NUMERIC_SKIMS": "aca88426b2b2b21e64c32a93fef548abb5f76064cdc63fbe2abee96014e7f501",
+    "code/transport_core/input_packages.py:align_matrix": "76dbbf55971153e022d13a521cb78cf551b19da71a5f6fec86880b21aee9437d",
+    "code/transport_core/input_packages.py:load_package": "5f31d2c5c671de6e12e522141674762acd59ab91c2d69a3bcf2982aca55acbea",
+    "code/transport_core/input_packages.py:PACKAGE_VERSION": "c8ecf5522fe2e582aad4ce39f2e1e86393b302ec27c730debacca131719facec",
+    "code/transport_core/zoning.py:load_model_inputs": "9808b7f189d676aa3d78b14c242c5fb19d391df089e7da4c44d472935f0e9d9b",
+    "code/transport_core/zoning.py:load_od_table": "0b7485fef5fa3225656200fe9c7c83420518175af29ee11d4f0cb01d84244d4c",
+    "code/transport_core/zoning.py:load_zones": "e4ff2f6dc374b15d729e038ac3dd8a7bbf1f687236f448378e554a49d1f79dcc",
+    "code/transport_core/zoning.py:REQUIRED_ZONE_COLUMNS": "6c0996518ec604b212065acccbaabc2dcb99a70aa2de591bb7e876d426e457b9",
+    "code/transport_core/config.py:EBIKE_SPEED_MULTIPLIER": "dae0a3ec813244e77b789467df96d6f2e0d6f7c16f717a18306789eda7898e35",
+    "code/transport_core/config.py:PT_TRANSFER_PHYSICAL_FLOOR_MIN": "891fb690d8fa21cd3f8b644b4a640272b5b7a343e9bc51dc4fb5a0d71ee7449c",
+    "code/transport_core/config.py:PT_EGRESS_FLOOR_MIN": "d11da43ce124d295c5319f6a1684c132d777a858ddefefd264d93d44925e26bd",
+    "code/transport_core/config.py:PT_ACCESS_FLOOR_MIN": "79b75ae5254b1e3364b913f7bf47cff814ed4d737f7b1949f5b131130a5daeb0",
+    "code/transport_core/config.py:PT_INTRAZONAL_MIN": "9784a2a2e5d1e650ee513facf2cf97835f6eff8e6fb2cf5a210c90d7d8c92f7c",
+    "code/transport_core/config.py:DRIVE_INTRAZONAL_MIN": "e8b7513fbd7e4bb009aaffe8b5fea9caf28cb3c53259f4e32b6e7bd4d93edb15",
+    "code/transport_core/config.py:CAR_TERMINAL_CANTON_MIN": "7fe6cc51ce7a7f1236f2857ee88069124531d676746793d3680f35add68d1709",
+    "code/transport_core/config.py:CAR_TERMINAL_CITY_MIN": "1b77d172d496339efc2e17351c351f6cc49c4ac09be6009437d88e0f6f9d0ea6",
+    "code/transport_core/config.py:DRIVE_CONNECTOR_CANTON_MIN": "ef4c062c2ae29db9269421fb6413a96305528df72b178922f57b3142c9478abd",
+    "code/transport_core/config.py:DRIVE_CONNECTOR_CITY_MIN": "00c22847a1f79cffedecae3f49d4e7163a5fbdd7894b638bb37e1b4c5665b7b7",
+    "code/transport_core/config.py:EXTERNAL_BACKGROUND_CANTON_FACTOR": "27b0704fc392a277ccba62e6c6646fd5845cf50889a2149736147ac248cb8543",
+    "code/transport_core/config.py:EXTERNAL_BACKGROUND_CITY_FACTOR": "83c01584df0c620435ed995a2af1f2c9fb3bef0aaa26a831a66a607d4ffdd0d1",
+    "code/transport_core/config.py:MAX_WALK_DISTANCE_KM": "238ac3760cb98234fe768907e7e7d99bf6b16d8126aff5f25f548a685d648ea6",
+    "code/transport_core/config.py:NO_PATH_TIME_MIN": "942afa32d696e2c8a76eee2b169778cb9314019c9785972617ce9a88cc96c263",
+    "code/transport_core/config.py:MODE_ORDER": "2da0be188cb14dc5749a7bf3516a887cd68e34d296c87e8c4294073605d35edd",
+    "code/transport_core/config.py:MODE_CHOICE_FILE": "b45669feb78764b43d7cd0ee193524b3f96c6bbf6969c44ed9d86cce7f2c652e",
+    "code/transport_core/config.py:CONFIG_DIR": "8a6f624a109282a3149dd66c40f6bfa4941bbc0c0ac2c309cdeffacefb0a09e8",
+    "code/transport_core/config.py:INPUT_DIR": "edebd47019ec5ddad464a4923968789d37d24014a4924265b62666547638ad48",
+    "code/transport_core/config.py:ROOT": "2bef70ceee57a55974079bf60e7106a8f67a3d9c19fb3e191d569ce146bbf9b5",
+    "code/transport_core/config.py:LOOKUP_PACKAGE_FILE": "7260b956d28d3fce830bcf3e0775c78153a768834fe6adfea7e3115e10f2b5fc",
+    "code/transport_core/config.py:PREPARED_DIR": "973b0b92d7f22416f6dc3a6fc56fd1523204a537106866643c3b5924e5772ae5",
+    "code/transport_core/config.py:SKIM_PACKAGE_FILE": "b508870e31b5400e8090b1d5dc0314a8fc311ae04df2a2a2db3f3343576ad932",
+    "code/transport_core/config.py:DEMAND_PACKAGE_FILE": "c59bfec7af3e43024603d2915fd9bd663d9c97fc8da34a0ff56b6596ca674cb7",
+    "code/transport_core/config.py:ZONES_FILE": "75fed50e7affacbf9b812923291434b77b018850a124b5b6c97786b8bc44d515"
+  },
+  "cache_contract": {
+    "format_version": 3,
+    "model_fingerprint": "38794950c97d91107f48",
+    "reference_equations": "d657e21ae87ab33a0428",
+    "solver_settings": {
+      "stopping_rule": "road_relative_gap",
+      "min_iterations": 8,
+      "max_iterations": 64,
+      "check_every": 4,
+      "road_gap_threshold": 0.02,
+      "od_threshold": 0.0,
+      "drive_occupancy": 1.14
+    },
+    "route_loader": "native_predecessor_tree",
+    "target": "directional_internal_zone_gate_od_delay_minutes"
+  },
+  "training_solver_settings": {
+    "stopping_rule": "road_relative_gap",
+    "min_iterations": 8,
+    "max_iterations": 64,
+    "check_every": 4,
+    "road_gap_threshold": 0.02,
+    "od_threshold": 0.0,
+    "drive_occupancy": 1.14
+  },
+  "source_fingerprint": "ab0ec1043ac1f92d3b8d",
+  "source_convergence_passed": true,
+  "gp_diagnostics": {
+    "mode": "pooled",
+    "stage_counts": {
+      "0": 25,
+      "1": 25,
+      "2": 25,
+      "3": 25
+    },
+    "feature_encoding": "5 continuous + 4 one-hot",
+    "models": {
+      "pooled": {
+        "n_simulations": 100,
+        "n_features": 9,
+        "n_outputs": 54756,
+        "n_varying_outputs": 53351,
+        "n_constant_outputs": 1405,
+        "output_scale_floor_minutes": 0.01,
+        "standardize_outputs": true,
+        "kernel_family": "matern52",
+        "target_reduction": "none; exact Gram likelihood identity",
+        "prediction_storage": "original training targets; exact posterior identity",
+        "stored_target_dtype": "float32",
+        "kernel": "2.28**2 * Matern(length_scale=[2.52, 3.81, 2.85, 6.82, 4.12, 10, 10, 10, 10], nu=2.5) + WhiteKernel(noise_level=0.00932)",
+        "theta": [
+          1.6489316909406704,
+          0.9238587145890297,
+          1.3383432655948782,
+          1.0463654580841508,
+          1.9197272464607344,
+          1.4161474006223878,
+          2.302585092994046,
+          2.302585092994046,
+          2.302585092994046,
+          2.302585092994046,
+          -4.676055698894528
+        ],
+        "length_scales": [
+          2.5189917306871172,
+          3.812721602899013,
+          2.8472837170830876,
+          6.819098282424876,
+          4.121212435878284,
+          10.000000000000002,
+          10.000000000000002,
+          10.000000000000002,
+          10.000000000000002
+        ],
+        "amplitude_variance": 5.2014201337229355,
+        "noise_variance_normalized": 0.009315685385970926,
+        "nll_per_varying_output": -32.15447404109631,
+        "selected_optimizer_success": true,
+        "optimizer_attempts": [
+          {
+            "success": true,
+            "message": "CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL",
+            "iterations": 39,
+            "nll_per_output": -32.15447404109631
+          },
+          {
+            "success": true,
+            "message": "CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL",
+            "iterations": 43,
+            "nll_per_output": -14.107757613225303
+          }
+        ],
+        "parameters_near_bound": [
+          6,
+          7,
+          8,
+          9
+        ],
+        "fit_seconds": 15.571508916000312
+      }
+    },
+    "fit_seconds": 15.571508916000312
+  },
+  "validation": {
+    "od": {
+      "n_cases": 20,
+      "weighted_mae_min": 0.09123432532438316,
+      "weighted_rmse_min": 0.17631501447547218,
+      "weighted_bias_min": -0.003283191788447391,
+      "maximum_case_mae_min": 0.1712369428074357,
+      "weighted_95pct_latent_coverage": 0.7900692231254401,
+      "weighted_nrmse": 0.014268962577993725,
+      "maximum_case_scaled_error": 0.022678671425074105,
+      "limits": {
+        "weighted_mae_min": 0.1,
+        "weighted_rmse_min": 0.2
+      },
+      "cases": [
+        {
+          "id": "test_000_stage0",
+          "stage": 0,
+          "weighted_mae_min": 0.07416495541901141,
+          "weighted_mse_min2": 0.022957584649799134,
+          "weighted_rmse_min": 0.15151760508204692,
+          "weighted_truth_rms_min": 13.221187759840056,
+          "scaled_error": 0.011460211278618126,
+          "weighted_bias_min": 0.061085156360749716,
+          "weighted_95pct_latent_coverage": 0.8714359647979318,
+          "negative_prediction_fraction_weighted": 0.0
+        },
+        {
+          "id": "test_000_stage1",
+          "stage": 1,
+          "weighted_mae_min": 0.10259755093025752,
+          "weighted_mse_min2": 0.03483840053154285,
+          "weighted_rmse_min": 0.1866504769121763,
+          "weighted_truth_rms_min": 13.22804915838084,
+          "scaled_error": 0.014110204360249215,
+          "weighted_bias_min": 0.0917090612726062,
+          "weighted_95pct_latent_coverage": 0.6940319348704452,
+          "negative_prediction_fraction_weighted": 0.0
+        },
+        {
+          "id": "test_000_stage2",
+          "stage": 2,
+          "weighted_mae_min": 0.1712369428074357,
+          "weighted_mse_min2": 0.08949934784953534,
+          "weighted_rmse_min": 0.2991644160817515,
+          "weighted_truth_rms_min": 13.191443646517486,
+          "scaled_error": 0.022678671425074105,
+          "weighted_bias_min": 0.16383135261781304,
+          "weighted_95pct_latent_coverage": 0.5754680306120908,
+          "negative_prediction_fraction_weighted": 0.0
+        },
+        {
+          "id": "test_000_stage3",
+          "stage": 3,
+          "weighted_mae_min": 0.05117334678596486,
+          "weighted_mse_min2": 0.006303677037115217,
+          "weighted_rmse_min": 0.07939569910968236,
+          "weighted_truth_rms_min": 13.19101569361219,
+          "scaled_error": 0.0060189223448600775,
+          "weighted_bias_min": 0.04339803697079242,
+          "weighted_95pct_latent_coverage": 0.878388666423944,
+          "negative_prediction_fraction_weighted": 0.0
+        },
+        {
+          "id": "test_001_stage0",
+          "stage": 0,
+          "weighted_mae_min": 0.1440819402093736,
+          "weighted_mse_min2": 0.06869558238889416,
+          "weighted_rmse_min": 0.26209842118733595,
+          "weighted_truth_rms_min": 13.572657204137665,
+          "scaled_error": 0.019310767025592784,
+          "weighted_bias_min": -0.13917759307615787,
+          "weighted_95pct_latent_coverage": 0.699545985320849,
+          "negative_prediction_fraction_weighted": 0.0
+        },
+        {
+          "id": "test_001_stage1",
+          "stage": 1,
+          "weighted_mae_min": 0.1518024665680509,
+          "weighted_mse_min2": 0.06100303792218262,
+          "weighted_rmse_min": 0.24698793072169056,
+          "weighted_truth_rms_min": 13.612132110593642,
+          "scaled_error": 0.018144690979708625,
+          "weighted_bias_min": -0.1477607905016526,
+          "weighted_95pct_latent_coverage": 0.4399762676627813,
+          "negative_prediction_fraction_weighted": 0.0
+        },
+        {
+          "id": "test_001_stage2",
+          "stage": 2,
+          "weighted_mae_min": 0.07243392355726833,
+          "weighted_mse_min2": 0.020959762605086033,
+          "weighted_rmse_min": 0.14477486869303674,
+          "weighted_truth_rms_min": 13.604592694253755,
+          "scaled_error": 0.010641617279302016,
+          "weighted_bias_min": -0.06969182441521532,
+          "weighted_95pct_latent_coverage": 0.9481066558892517,
+          "negative_prediction_fraction_weighted": 0.0
+        },
+        {
+          "id": "test_001_stage3",
+          "stage": 3,
+          "weighted_mae_min": 0.16743753446318696,
+          "weighted_mse_min2": 0.08366948781860144,
+          "weighted_rmse_min": 0.2892567852593979,
+          "weighted_truth_rms_min": 13.606904265784387,
+          "scaled_error": 0.021258089247144663,
+          "weighted_bias_min": -0.1625262110833032,
+          "weighted_95pct_latent_coverage": 0.4608728064077511,
+          "negative_prediction_fraction_weighted": 0.0
+        },
+        {
+          "id": "test_002_stage0",
+          "stage": 0,
+          "weighted_mae_min": 0.11691864390350856,
+          "weighted_mse_min2": 0.03968128005239209,
+          "weighted_rmse_min": 0.19920160655073063,
+          "weighted_truth_rms_min": 11.642834227183958,
+          "scaled_error": 0.01710937411490667,
+          "weighted_bias_min": 0.10424459840861183,
+          "weighted_95pct_latent_coverage": 0.7170782490387915,
+          "negative_prediction_fraction_weighted": 7.537442102998445e-05
+        },
+        {
+          "id": "test_002_stage1",
+          "stage": 1,
+          "weighted_mae_min": 0.06786274871040551,
+          "weighted_mse_min2": 0.011303241773921016,
+          "weighted_rmse_min": 0.10631670505579552,
+          "weighted_truth_rms_min": 11.652570665587366,
+          "scaled_error": 0.009123884171736664,
+          "weighted_bias_min": 0.04809172855802242,
+          "weighted_95pct_latent_coverage": 0.9406558447265434,
+          "negative_prediction_fraction_weighted": 4.5653894867807654e-05
+        },
+        {
+          "id": "test_002_stage2",
+          "stage": 2,
+          "weighted_mae_min": 0.08693111006224821,
+          "weighted_mse_min2": 0.025484051530770047,
+          "weighted_rmse_min": 0.1596372498221203,
+          "weighted_truth_rms_min": 11.829068562979586,
+          "scaled_error": 0.013495335577115785,
+          "weighted_bias_min": -0.072210580869338,
+          "weighted_95pct_latent_coverage": 0.9027035338675968,
+          "negative_prediction_fraction_weighted": 7.531247004203072e-05
+        },
+        {
+          "id": "test_002_stage3",
+          "stage": 3,
+          "weighted_mae_min": 0.06736451875846797,
+          "weighted_mse_min2": 0.01303840684989806,
+          "weighted_rmse_min": 0.114185843474128,
+          "weighted_truth_rms_min": 11.820256694192585,
+          "scaled_error": 0.009660183059326342,
+          "weighted_bias_min": -0.05631316321567616,
+          "weighted_95pct_latent_coverage": 0.9370469882270792,
+          "negative_prediction_fraction_weighted": 0.0
+        },
+        {
+          "id": "test_003_stage0",
+          "stage": 0,
+          "weighted_mae_min": 0.03912243309691191,
+          "weighted_mse_min2": 0.00470759643653733,
+          "weighted_rmse_min": 0.06861192634329202,
+          "weighted_truth_rms_min": 11.66586240833078,
+          "scaled_error": 0.005881427702618466,
+          "weighted_bias_min": -0.011093920616912493,
+          "weighted_95pct_latent_coverage": 0.8619998968752782,
+          "negative_prediction_fraction_weighted": 0.0
+        },
+        {
+          "id": "test_003_stage1",
+          "stage": 1,
+          "weighted_mae_min": 0.06061568077773537,
+          "weighted_mse_min2": 0.01383164863557837,
+          "weighted_rmse_min": 0.1176080296390445,
+          "weighted_truth_rms_min": 11.7059209415179,
+          "scaled_error": 0.010046883985173604,
+          "weighted_bias_min": -0.029589013413108656,
+          "weighted_95pct_latent_coverage": 0.796022130464406,
+          "negative_prediction_fraction_weighted": 0.0
+        },
+        {
+          "id": "test_003_stage2",
+          "stage": 2,
+          "weighted_mae_min": 0.03275199644017675,
+          "weighted_mse_min2": 0.002785233822189947,
+          "weighted_rmse_min": 0.052775314515310534,
+          "weighted_truth_rms_min": 11.647584076926037,
+          "scaled_error": 0.004531009535261384,
+          "weighted_bias_min": 0.0033738124269614986,
+          "weighted_95pct_latent_coverage": 0.9063528895145738,
+          "negative_prediction_fraction_weighted": 0.0
+        },
+        {
+          "id": "test_003_stage3",
+          "stage": 3,
+          "weighted_mae_min": 0.04883448834341564,
+          "weighted_mse_min2": 0.00655378094361035,
+          "weighted_rmse_min": 0.0809554256588794,
+          "weighted_truth_rms_min": 11.634564054166344,
+          "scaled_error": 0.006958182986657693,
+          "weighted_bias_min": 0.030291764744213932,
+          "weighted_95pct_latent_coverage": 0.8367042613186435,
+          "negative_prediction_fraction_weighted": 0.0
+        },
+        {
+          "id": "test_004_stage0",
+          "stage": 0,
+          "weighted_mae_min": 0.09756680083006411,
+          "weighted_mse_min2": 0.02873304730210833,
+          "weighted_rmse_min": 0.1695082514277943,
+          "weighted_truth_rms_min": 11.342017779679107,
+          "scaled_error": 0.014945158323723779,
+          "weighted_bias_min": 0.08213149313523446,
+          "weighted_95pct_latent_coverage": 0.8696741338743157,
+          "negative_prediction_fraction_weighted": 0.0
+        },
+        {
+          "id": "test_004_stage1",
+          "stage": 1,
+          "weighted_mae_min": 0.12224259933968502,
+          "weighted_mse_min2": 0.04648792676832776,
+          "weighted_rmse_min": 0.21561059057552753,
+          "weighted_truth_rms_min": 11.629356078651657,
+          "scaled_error": 0.01854020025849325,
+          "weighted_bias_min": -0.10999092254291094,
+          "weighted_95pct_latent_coverage": 0.7082768328606646,
+          "negative_prediction_fraction_weighted": 0.0
+        },
+        {
+          "id": "test_004_stage2",
+          "stage": 2,
+          "weighted_mae_min": 0.062192322344850545,
+          "weighted_mse_min2": 0.01319304046576093,
+          "weighted_rmse_min": 0.11486096145236174,
+          "weighted_truth_rms_min": 11.34262330118554,
+          "scaled_error": 0.010126490001687386,
+          "weighted_bias_min": 0.03832412345791265,
+          "weighted_95pct_latent_coverage": 0.9192759024168016,
+          "negative_prediction_fraction_weighted": 0.0
+        },
+        {
+          "id": "test_004_stage3",
+          "stage": 3,
+          "weighted_mae_min": 0.0873545031396446,
+          "weighted_mse_min2": 0.028013551205868074,
+          "weighted_rmse_min": 0.16737249238112,
+          "weighted_truth_rms_min": 11.334540801428146,
+          "scaled_error": 0.014766587840949955,
+          "weighted_bias_min": 0.06620905601240942,
+          "weighted_95pct_latent_coverage": 0.8377674873390637,
+          "negative_prediction_fraction_weighted": 0.0
+        }
+      ],
+      "by_stage": {
+        "0": {
+          "n_cases": 5,
+          "weighted_mae_min": 0.0943709546917739,
+          "weighted_rmse_min": 0.18153517060323657,
+          "weighted_bias_min": 0.019437946842305126,
+          "maximum_case_mae_min": 0.1440819402093736,
+          "weighted_95pct_latent_coverage": 0.8039468459814332
+        },
+        "1": {
+          "n_cases": 5,
+          "weighted_mae_min": 0.10102420926522689,
+          "weighted_rmse_min": 0.1830105219005468,
+          "weighted_bias_min": -0.02950798732540872,
+          "maximum_case_mae_min": 0.1518024665680509,
+          "weighted_95pct_latent_coverage": 0.715792602116968
+        },
+        "2": {
+          "n_cases": 5,
+          "weighted_mae_min": 0.0851092590423959,
+          "weighted_rmse_min": 0.17431089253018142,
+          "weighted_bias_min": 0.012725376643626773,
+          "maximum_case_mae_min": 0.1712369428074357,
+          "weighted_95pct_latent_coverage": 0.8503814024600629
+        },
+        "3": {
+          "n_cases": 5,
+          "weighted_mae_min": 0.084432878298136,
+          "weighted_rmse_min": 0.16587881350859315,
+          "weighted_bias_min": -0.01578810331431272,
+          "maximum_case_mae_min": 0.16743753446318696,
+          "weighted_95pct_latent_coverage": 0.7901560419432963
+        }
+      },
+      "weighting": "fixed nominal all-passenger OD collapsed to corridor, reachable off-diagonal",
+      "uncertainty_note": "Latent GP marginal intervals; OD cells are not independent validation samples.",
+      "normalization": "NRMSE is divided by holdout weighted truth RMS; maximum scaled error is the worst case RMSE divided by that case's truth RMS (both use a 0.05-minute floor).",
+      "passed": true
+    },
+    "paired_appraisal": {
+      "passed": true,
+      "checks": {
+        "total_benefit_mae": {
+          "value": 890184.1760502179,
+          "limit": 1000000.0,
+          "passed": true
+        },
+        "total_benefit_p95_error": {
+          "value": 2052474.1372009274,
+          "limit": 5000000.0,
+          "passed": true
+        },
+        "material_total_sign_errors": {
+          "value": 0,
+          "limit": 0,
+          "passed": true
+        },
+        "material_component_failures": {
+          "value": 0,
+          "limit": 0,
+          "passed": true
+        },
+        "maximum_mode_share_error_pp": {
+          "value": 0.19202712969593194,
+          "limit": 1.0,
+          "passed": true
+        },
+        "median_mode_share_error_pp": {
+          "value": 0.02095255498406612,
+          "limit": 0.25,
+          "passed": true
+        },
+        "maximum_section_load_relative_error": {
+          "value": 0.0,
+          "limit": 0.03,
+          "passed": true
+        },
+        "median_section_load_relative_error": {
+          "value": 0.0,
+          "limit": 0.01,
+          "passed": true
+        }
+      },
+      "paired_components": {
+        "bike_health": {
+          "n": 15,
+          "mean_reference": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "nrmse": 0.0,
+          "median_absolute_relative_error": null,
+          "max_absolute_relative_error": null,
+          "material": false,
+          "mean_absolute_reference": 0.0,
+          "error_limit_chf_per_year": 1000000.0,
+          "passed": null
+        },
+        "bike_time": {
+          "n": 15,
+          "mean_reference": 29144.39670463403,
+          "mean_absolute_error": 5.30682311852773,
+          "rmse": 8.433796028019348,
+          "nrmse": 0.0001391170620432533,
+          "median_absolute_relative_error": null,
+          "max_absolute_relative_error": null,
+          "material": false,
+          "mean_absolute_reference": 29144.39670463403,
+          "error_limit_chf_per_year": 1000000.0,
+          "passed": null
+        },
+        "car_acc": {
+          "n": 15,
+          "mean_reference": 76326.44973175724,
+          "mean_absolute_error": 149742.66690922977,
+          "rmse": 186584.18454841347,
+          "nrmse": 0.48620028793161596,
+          "median_absolute_relative_error": null,
+          "max_absolute_relative_error": null,
+          "material": false,
+          "mean_absolute_reference": 77020.54943963885,
+          "error_limit_chf_per_year": 1000000.0,
+          "passed": null
+        },
+        "car_air": {
+          "n": 15,
+          "mean_reference": 16836.849828282,
+          "mean_absolute_error": 33031.731522922215,
+          "rmse": 41158.601069677534,
+          "nrmse": 0.4862002879316165,
+          "median_absolute_relative_error": null,
+          "max_absolute_relative_error": null,
+          "material": false,
+          "mean_absolute_reference": 16989.96126722048,
+          "error_limit_chf_per_year": 1000000.0,
+          "passed": null
+        },
+        "car_co2": {
+          "n": 15,
+          "mean_reference": 78139.94252327879,
+          "mean_absolute_error": 153300.50626869797,
+          "rmse": 191017.36694954298,
+          "nrmse": 0.48620028793160674,
+          "median_absolute_relative_error": null,
+          "max_absolute_relative_error": null,
+          "material": false,
+          "mean_absolute_reference": 78850.53382511338,
+          "error_limit_chf_per_year": 1000000.0,
+          "passed": null
+        },
+        "car_noise": {
+          "n": 15,
+          "mean_reference": 13473.096801364794,
+          "mean_absolute_error": 26432.48118644133,
+          "rmse": 32935.722660482345,
+          "nrmse": 0.4862002879316003,
+          "median_absolute_relative_error": null,
+          "max_absolute_relative_error": null,
+          "material": false,
+          "mean_absolute_reference": 13595.61884433863,
+          "error_limit_chf_per_year": 1000000.0,
+          "passed": null
+        },
+        "car_time": {
+          "n": 15,
+          "mean_reference": -210153.52649819056,
+          "mean_absolute_error": 1252332.4290288924,
+          "rmse": 1586407.1016165,
+          "nrmse": 0.4276838433375902,
+          "median_absolute_relative_error": null,
+          "max_absolute_relative_error": null,
+          "material": false,
+          "mean_absolute_reference": 648635.942388757,
+          "error_limit_chf_per_year": 1000000.0,
+          "passed": null
+        },
+        "construction_co2": {
+          "n": 15,
+          "mean_reference": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "nrmse": 0.0,
+          "median_absolute_relative_error": null,
+          "max_absolute_relative_error": null,
+          "material": false,
+          "mean_absolute_reference": 0.0,
+          "error_limit_chf_per_year": 1000000.0,
+          "passed": null
+        },
+        "external_crowding": {
+          "n": 15,
+          "mean_reference": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "nrmse": 0.0,
+          "median_absolute_relative_error": null,
+          "max_absolute_relative_error": null,
+          "material": false,
+          "mean_absolute_reference": 0.0,
+          "error_limit_chf_per_year": 1000000.0,
+          "passed": null
+        },
+        "external_delay": {
+          "n": 15,
+          "mean_reference": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "nrmse": 0.0,
+          "median_absolute_relative_error": null,
+          "max_absolute_relative_error": null,
+          "material": false,
+          "mean_absolute_reference": 0.0,
+          "error_limit_chf_per_year": 1000000.0,
+          "passed": null
+        },
+        "external_time": {
+          "n": 15,
+          "mean_reference": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "nrmse": 0.0,
+          "median_absolute_relative_error": null,
+          "max_absolute_relative_error": null,
+          "material": false,
+          "mean_absolute_reference": 0.0,
+          "error_limit_chf_per_year": 1000000.0,
+          "passed": null
+        },
+        "investment": {
+          "n": 15,
+          "mean_reference": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "nrmse": 0.0,
+          "median_absolute_relative_error": null,
+          "max_absolute_relative_error": null,
+          "material": false,
+          "mean_absolute_reference": 0.0,
+          "error_limit_chf_per_year": 1000000.0,
+          "passed": null
+        },
+        "operation": {
+          "n": 15,
+          "mean_reference": -243600.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "nrmse": 0.0,
+          "median_absolute_relative_error": null,
+          "max_absolute_relative_error": null,
+          "material": false,
+          "mean_absolute_reference": 243600.0,
+          "error_limit_chf_per_year": 1000000.0,
+          "passed": null
+        },
+        "pt_acc": {
+          "n": 15,
+          "mean_reference": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "nrmse": 0.0,
+          "median_absolute_relative_error": null,
+          "max_absolute_relative_error": null,
+          "material": false,
+          "mean_absolute_reference": 0.0,
+          "error_limit_chf_per_year": 1000000.0,
+          "passed": null
+        },
+        "pt_access": {
+          "n": 15,
+          "mean_reference": 407762.7213175217,
+          "mean_absolute_error": 182.1858942826589,
+          "rmse": 230.0969585802371,
+          "nrmse": 0.0005403701296082913,
+          "median_absolute_relative_error": null,
+          "max_absolute_relative_error": null,
+          "material": false,
+          "mean_absolute_reference": 407762.7213175217,
+          "error_limit_chf_per_year": 1000000.0,
+          "passed": null
+        },
+        "pt_air": {
+          "n": 15,
+          "mean_reference": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "nrmse": 0.0,
+          "median_absolute_relative_error": null,
+          "max_absolute_relative_error": null,
+          "material": false,
+          "mean_absolute_reference": 0.0,
+          "error_limit_chf_per_year": 1000000.0,
+          "passed": null
+        },
+        "pt_co2": {
+          "n": 15,
+          "mean_reference": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "nrmse": 0.0,
+          "median_absolute_relative_error": null,
+          "max_absolute_relative_error": null,
+          "material": false,
+          "mean_absolute_reference": 0.0,
+          "error_limit_chf_per_year": 1000000.0,
+          "passed": null
+        },
+        "pt_crowding": {
+          "n": 15,
+          "mean_reference": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "nrmse": 0.0,
+          "median_absolute_relative_error": null,
+          "max_absolute_relative_error": null,
+          "material": false,
+          "mean_absolute_reference": 0.0,
+          "error_limit_chf_per_year": 1000000.0,
+          "passed": null
+        },
+        "pt_egress": {
+          "n": 15,
+          "mean_reference": 436324.9298201402,
+          "mean_absolute_error": 331.7151690165202,
+          "rmse": 487.2920389789039,
+          "nrmse": 0.0010547434149291112,
+          "median_absolute_relative_error": null,
+          "max_absolute_relative_error": null,
+          "material": false,
+          "mean_absolute_reference": 436324.9298201402,
+          "error_limit_chf_per_year": 1000000.0,
+          "passed": null
+        },
+        "pt_noise": {
+          "n": 15,
+          "mean_reference": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "nrmse": 0.0,
+          "median_absolute_relative_error": null,
+          "max_absolute_relative_error": null,
+          "material": false,
+          "mean_absolute_reference": 0.0,
+          "error_limit_chf_per_year": 1000000.0,
+          "passed": null
+        },
+        "pt_socioeconomic": {
+          "n": 15,
+          "mean_reference": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "nrmse": 0.0,
+          "median_absolute_relative_error": null,
+          "max_absolute_relative_error": null,
+          "material": false,
+          "mean_absolute_reference": 0.0,
+          "error_limit_chf_per_year": 1000000.0,
+          "passed": null
+        },
+        "pt_time": {
+          "n": 15,
+          "mean_reference": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "nrmse": 0.0,
+          "median_absolute_relative_error": null,
+          "max_absolute_relative_error": null,
+          "material": false,
+          "mean_absolute_reference": 0.0,
+          "error_limit_chf_per_year": 1000000.0,
+          "passed": null
+        },
+        "pt_transfer_walk": {
+          "n": 15,
+          "mean_reference": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "nrmse": 0.0,
+          "median_absolute_relative_error": null,
+          "max_absolute_relative_error": null,
+          "material": false,
+          "mean_absolute_reference": 0.0,
+          "error_limit_chf_per_year": 1000000.0,
+          "passed": null
+        },
+        "pt_waiting": {
+          "n": 15,
+          "mean_reference": 12393.922244391839,
+          "mean_absolute_error": 2.5670048316319782,
+          "rmse": 4.3239823576220555,
+          "nrmse": 0.00019561720140821038,
+          "median_absolute_relative_error": null,
+          "max_absolute_relative_error": null,
+          "material": false,
+          "mean_absolute_reference": 12393.922244391839,
+          "error_limit_chf_per_year": 1000000.0,
+          "passed": null
+        },
+        "total": {
+          "n": 15,
+          "mean_reference": 616648.7824736277,
+          "mean_absolute_error": 890184.1760502179,
+          "rmse": 1135444.074186974,
+          "nrmse": 0.31833768975994575,
+          "median_absolute_relative_error": null,
+          "max_absolute_relative_error": null,
+          "material": false,
+          "mean_absolute_reference": 927242.4771998724,
+          "error_limit_chf_per_year": 1000000.0,
+          "passed": null
+        },
+        "upfront": {
+          "n": 15,
+          "mean_reference": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "nrmse": 0.0,
+          "median_absolute_relative_error": null,
+          "max_absolute_relative_error": null,
+          "material": false,
+          "mean_absolute_reference": 0.0,
+          "error_limit_chf_per_year": 1000000.0,
+          "passed": null
+        },
+        "walk_health": {
+          "n": 15,
+          "mean_reference": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "nrmse": 0.0,
+          "median_absolute_relative_error": null,
+          "max_absolute_relative_error": null,
+          "material": false,
+          "mean_absolute_reference": 0.0,
+          "error_limit_chf_per_year": 1000000.0,
+          "passed": null
+        },
+        "walk_time": {
+          "n": 15,
+          "mean_reference": 0.0,
+          "mean_absolute_error": 0.0,
+          "rmse": 0.0,
+          "nrmse": 0.0,
+          "median_absolute_relative_error": null,
+          "max_absolute_relative_error": null,
+          "material": false,
+          "mean_absolute_reference": 0.0,
+          "error_limit_chf_per_year": 1000000.0,
+          "passed": null
+        }
+      },
+      "metrics": {
+        "0": {
+          "avg_tt_min": {
+            "n": 5,
+            "mean_reference": 14.668441187910204,
+            "mean_absolute_error": 0.010680780693914472,
+            "rmse": 0.012582798166201063,
+            "nrmse": 0.017084652072488854,
+            "median_absolute_relative_error": 0.0006045723046994166,
+            "max_absolute_relative_error": 0.0015635349246033079
+          },
+          "bike_share": {
+            "n": 5,
+            "mean_reference": 0.14004522621786666,
+            "mean_absolute_error": 0.0001713261123123644,
+            "rmse": 0.00019562367458364388,
+            "nrmse": 0.002918718525011873,
+            "median_absolute_relative_error": 0.001128302469296018,
+            "max_absolute_relative_error": 0.002839449480123616
+          },
+          "car_share": {
+            "n": 5,
+            "mean_reference": 0.4466992675558089,
+            "mean_absolute_error": 0.0009299289848309633,
+            "rmse": 0.0010684264700854158,
+            "nrmse": 0.02869952237576055,
+            "median_absolute_relative_error": 0.0018238397950825892,
+            "max_absolute_relative_error": 0.004104568201054346
+          },
+          "co2_tonnes": {
+            "n": 5,
+            "mean_reference": 196512.0295820289,
+            "mean_absolute_error": 406.8839502786577,
+            "rmse": 476.6164740478995,
+            "nrmse": 0.009977273147906396,
+            "median_absolute_relative_error": 0.0017965432390197817,
+            "max_absolute_relative_error": 0.004056585354457376
+          },
+          "pt_share": {
+            "n": 5,
+            "mean_reference": 0.3475105979789933,
+            "mean_absolute_error": 0.0007407554639330294,
+            "rmse": 0.0008531844641568294,
+            "nrmse": 0.025554324057619066,
+            "median_absolute_relative_error": 0.0017654175776912584,
+            "max_absolute_relative_error": 0.004531771391422023
+          },
+          "section_modeled_peak": {
+            "n": 5,
+            "mean_reference": 0.0,
+            "mean_absolute_error": 0.0,
+            "rmse": 0.0,
+            "nrmse": 0.0,
+            "median_absolute_relative_error": 0.0,
+            "max_absolute_relative_error": 0.0
+          },
+          "total_cost": {
+            "n": 5,
+            "mean_reference": 4408346625.28821,
+            "mean_absolute_error": 1888244.9795412063,
+            "rmse": 2242250.406171164,
+            "nrmse": 0.0021956378936706282,
+            "median_absolute_relative_error": 0.00039095149848955926,
+            "max_absolute_relative_error": 0.0008976954253002221
+          },
+          "walk_share": {
+            "n": 5,
+            "mean_reference": 0.06574490824733104,
+            "mean_absolute_error": 1.7847408585576485e-05,
+            "rmse": 2.068685784402533e-05,
+            "nrmse": 0.0016292115581071625,
+            "median_absolute_relative_error": 0.0002784437629548095,
+            "max_absolute_relative_error": 0.0004903155267200037
+          }
+        },
+        "1": {
+          "avg_tt_min": {
+            "n": 5,
+            "mean_reference": 14.673089233519141,
+            "mean_absolute_error": 0.00983831428511337,
+            "rmse": 0.011326756463709424,
+            "nrmse": 0.015438816303024492,
+            "median_absolute_relative_error": 0.0006335840944353134,
+            "max_absolute_relative_error": 0.0013184210866236826
+          },
+          "bike_share": {
+            "n": 5,
+            "mean_reference": 0.1400796517282303,
+            "mean_absolute_error": 0.00014385482528051773,
+            "rmse": 0.00016464688980474685,
+            "nrmse": 0.002456318501930596,
+            "median_absolute_relative_error": 0.0010300694056499388,
+            "max_absolute_relative_error": 0.0022871770932555123
+          },
+          "car_share": {
+            "n": 5,
+            "mean_reference": 0.44625224578935196,
+            "mean_absolute_error": 0.0007955896825993403,
+            "rmse": 0.0009083698926865151,
+            "nrmse": 0.02426709297775398,
+            "median_absolute_relative_error": 0.0018357570990297713,
+            "max_absolute_relative_error": 0.0031045354368494957
+          },
+          "co2_tonnes": {
+            "n": 5,
+            "mean_reference": 196329.06771838194,
+            "mean_absolute_error": 355.3973535526835,
+            "rmse": 413.3395058243227,
+            "nrmse": 0.008631148776818379,
+            "median_absolute_relative_error": 0.001810185038768652,
+            "max_absolute_relative_error": 0.0030682435234527443
+          },
+          "pt_share": {
+            "n": 5,
+            "mean_reference": 0.34791868245397317,
+            "mean_absolute_error": 0.0006351993198052686,
+            "rmse": 0.0007252164566738693,
+            "nrmse": 0.0218563835162364,
+            "median_absolute_relative_error": 0.001802668131124894,
+            "max_absolute_relative_error": 0.003360866916812307
+          },
+          "section_modeled_peak": {
+            "n": 5,
+            "mean_reference": 0.0,
+            "mean_absolute_error": 0.0,
+            "rmse": 0.0,
+            "nrmse": 0.0,
+            "median_absolute_relative_error": 0.0,
+            "max_absolute_relative_error": 0.0
+          },
+          "total_cost": {
+            "n": 5,
+            "mean_reference": 4409260830.124743,
+            "mean_absolute_error": 1724002.5533744812,
+            "rmse": 2008462.5451062347,
+            "nrmse": 0.001967797817213553,
+            "median_absolute_relative_error": 0.00042544183421563655,
+            "max_absolute_relative_error": 0.0007262498735767415
+          },
+          "walk_share": {
+            "n": 5,
+            "mean_reference": 0.06574942002844461,
+            "mean_absolute_error": 1.6691537519084032e-05,
+            "rmse": 1.995175008705577e-05,
+            "nrmse": 0.001571489564228698,
+            "median_absolute_relative_error": 0.00024221121169884022,
+            "max_absolute_relative_error": 0.00045425853573069925
+          }
+        },
+        "2": {
+          "avg_tt_min": {
+            "n": 5,
+            "mean_reference": 14.668125484608618,
+            "mean_absolute_error": 0.008449641367371896,
+            "rmse": 0.009958745275101008,
+            "nrmse": 0.0135787565842013,
+            "median_absolute_relative_error": 0.0005925753272473472,
+            "max_absolute_relative_error": 0.001041753032907966
+          },
+          "bike_share": {
+            "n": 5,
+            "mean_reference": 0.1400147847154259,
+            "mean_absolute_error": 0.0001414213193572489,
+            "rmse": 0.00016719512580100611,
+            "nrmse": 0.002495391613796501,
+            "median_absolute_relative_error": 0.0010022872017716768,
+            "max_absolute_relative_error": 0.0025546374572302916
+          },
+          "car_share": {
+            "n": 5,
+            "mean_reference": 0.44638143653510476,
+            "mean_absolute_error": 0.000792104679962613,
+            "rmse": 0.0009485910528045323,
+            "nrmse": 0.025506523530492185,
+            "median_absolute_relative_error": 0.0017434308142212222,
+            "max_absolute_relative_error": 0.0037808836978214157
+          },
+          "co2_tonnes": {
+            "n": 5,
+            "mean_reference": 196386.36466487186,
+            "mean_absolute_error": 352.3636178109853,
+            "rmse": 434.19335204175417,
+            "nrmse": 0.009018226335688277,
+            "median_absolute_relative_error": 0.0017172732999579169,
+            "max_absolute_relative_error": 0.00373630317775177
+          },
+          "pt_share": {
+            "n": 5,
+            "mean_reference": 0.3478635744678384,
+            "mean_absolute_error": 0.0006355923542090136,
+            "rmse": 0.0007633427986548872,
+            "nrmse": 0.02287369827784224,
+            "median_absolute_relative_error": 0.0017716581389814782,
+            "max_absolute_relative_error": 0.0038013564912435147
+          },
+          "section_modeled_peak": {
+            "n": 5,
+            "mean_reference": 0.0,
+            "mean_absolute_error": 0.0,
+            "rmse": 0.0,
+            "nrmse": 0.0,
+            "median_absolute_relative_error": 0.0,
+            "max_absolute_relative_error": 0.0
+          },
+          "total_cost": {
+            "n": 5,
+            "mean_reference": 4408029669.300039,
+            "mean_absolute_error": 1595353.1193051338,
+            "rmse": 1937319.7398026146,
+            "nrmse": 0.0019008504957121948,
+            "median_absolute_relative_error": 0.00035856226444080046,
+            "max_absolute_relative_error": 0.0006986536037991244
+          },
+          "walk_share": {
+            "n": 5,
+            "mean_reference": 0.06574020428163099,
+            "mean_absolute_error": 1.5091006396374117e-05,
+            "rmse": 1.910160006549149e-05,
+            "nrmse": 0.0015048836774899878,
+            "median_absolute_relative_error": 0.00017948688946923857,
+            "max_absolute_relative_error": 0.000484544828462884
+          }
+        },
+        "3": {
+          "avg_tt_min": {
+            "n": 5,
+            "mean_reference": 14.667698504595577,
+            "mean_absolute_error": 0.008001108678928403,
+            "rmse": 0.010121131381349013,
+            "nrmse": 0.01380057188682728,
+            "median_absolute_relative_error": 0.00037260624660879875,
+            "max_absolute_relative_error": 0.0012857394817684432
+          },
+          "bike_share": {
+            "n": 5,
+            "mean_reference": 0.1400069435934391,
+            "mean_absolute_error": 0.00013272254968426655,
+            "rmse": 0.0001652118954072222,
+            "nrmse": 0.00246604998278665,
+            "median_absolute_relative_error": 0.0008628340091996147,
+            "max_absolute_relative_error": 0.0025997557476624233
+          },
+          "car_share": {
+            "n": 5,
+            "mean_reference": 0.4463799311898752,
+            "mean_absolute_error": 0.000674761287025949,
+            "rmse": 0.000846672894825624,
+            "nrmse": 0.022741687791118907,
+            "median_absolute_relative_error": 0.0014045192145463645,
+            "max_absolute_relative_error": 0.00341540407468255
+          },
+          "co2_tonnes": {
+            "n": 5,
+            "mean_reference": 196386.62371419836,
+            "mean_absolute_error": 295.51129675390547,
+            "rmse": 379.3280165911906,
+            "nrmse": 0.007875101148485837,
+            "median_absolute_relative_error": 0.0013850180676088961,
+            "max_absolute_relative_error": 0.0033754713762930216
+          },
+          "pt_share": {
+            "n": 5,
+            "mean_reference": 0.3478743704515594,
+            "mean_absolute_error": 0.0005279349227755636,
+            "rmse": 0.0006640306613170836,
+            "nrmse": 0.019940714891796968,
+            "median_absolute_relative_error": 0.0013243195211433065,
+            "max_absolute_relative_error": 0.0036614981676865725
+          },
+          "section_modeled_peak": {
+            "n": 5,
+            "mean_reference": 0.0,
+            "mean_absolute_error": 0.0,
+            "rmse": 0.0,
+            "nrmse": 0.0,
+            "median_absolute_relative_error": 0.0,
+            "max_absolute_relative_error": 0.0
+          },
+          "total_cost": {
+            "n": 5,
+            "mean_reference": 4408172417.25818,
+            "mean_absolute_error": 1440673.3291150094,
+            "rmse": 1870522.4867471617,
+            "nrmse": 0.0018357525557684586,
+            "median_absolute_relative_error": 0.0002760059801511901,
+            "max_absolute_relative_error": 0.0007798684882686824
+          },
+          "walk_share": {
+            "n": 5,
+            "mean_reference": 0.06573875476512625,
+            "mean_absolute_error": 1.4103814566131245e-05,
+            "rmse": 1.883532681363247e-05,
+            "nrmse": 0.0014841370019398625,
+            "median_absolute_relative_error": 0.000125058966255785,
+            "max_absolute_relative_error": 0.0005211605404706609
+          }
+        }
+      },
+      "appraisal_welfare_version": "matched_zone_od_sections_external_component_vot_v4",
+      "reference": "Independent heldout MSA OD delays; identical native postprocessing; no new MSA.",
+      "scope": "Paired annual baseline/project matched benefits and physical indicators, not full-future NPV.",
+      "n_holdouts_per_stage": 5,
+      "n_independent_physical_futures": 5,
+      "surrogate_fingerprint": "38794950c97d91107f48",
+      "component_rule": "Material mean benefit >= CHF5m/year: MAE <= max(10%, CHF1m/year).",
+      "current_parameters": {
+        "N_YEARS": 40,
+        "APPRAISAL_START_YEAR": 2026,
+        "DISCOUNT_RATE": 0.02,
+        "PASSENGER_DEMAND_GROWTH": 0.0,
+        "PASSENGER_DEMAND_GROWTH_Y40": 0.2,
+        "PT_ASC_SHIFT": 0.0,
+        "PT_ASC_SHIFT_Y40": 0.1,
+        "BIKE_ASC_SHIFT": 0.0,
+        "BIKE_ASC_SHIFT_Y40": 0.2,
+        "EBIKE_SHARE": 0.25,
+        "EBIKE_SHARE_Y40": 0.5,
+        "EBIKE_SPEED_MULTIPLIER": 1.5,
+        "ROAD_FREIGHT_GROWTH": 0.0,
+        "ROAD_FREIGHT_GROWTH_Y40": 0.4,
+        "PT_PEAK_SHARE": 0.0946,
+        "CAR_PEAK_SHARE": 0.1049,
+        "BIKE_PEAK_SHARE": 0.15,
+        "WALK_PEAK_SHARE": 0.15,
+        "EQUIVALENT_DAYS_PER_YEAR": 300,
+        "NUMBER_OF_PEAK_HOURS": 4,
+        "PEAK_TO_ANNUAL_TRAIN": 3391.5,
+        "PT_HEADWAY_BASELINE": 20.0,
+        "PT_CAPACITY_BASELINE": 11352.0,
+        "CROWDING_SLOPE": 2.0,
+        "CROWDING_MAX": 3.0,
+        "TRAIN_GROSS_TONNES": 375.0,
+        "PT_TRAIN_KM_PEAK_STAGE0": 3414.6,
+        "C_TT_CAR": 42.54,
+        "C_TT_PT": 26.52,
+        "C_TT_PT_WAITING": 26.52,
+        "C_TT_PT_ACCESS": 26.52,
+        "C_TT_PT_TRANSFER": 26.52,
+        "C_TT_BIKE": 35.0,
+        "C_TT_WALK": 16.0,
+        "CAR_CO2_KG_PER_VEHICLE_KM": 0.16,
+        "CAR_CO2_KG_PER_VEHICLE_KM_Y40": 0.011,
+        "RAIL_ENERGY_WH_PER_GROSS_TONNE_KM": 30.0,
+        "RAIL_ELECTRICITY_CO2_G_PER_KWH": 19.58,
+        "CO2_VALUE_CHF_PER_TONNE": 123.2,
+        "CO2_REFERENCE_YEAR": 2015,
+        "CO2_VALUE_ANNUAL_GROWTH": 0.03,
+        "C_NOISE_CAR": 0.0149,
+        "C_AIR_CAR": 0.01862,
+        "C_ACCIDENT_CAR": 0.08441,
+        "C_AIR_PT": 0.00344,
+        "C_NOISE_PT": 0.00204,
+        "C_ACCIDENT_PT": 0.2221,
+        "ACCIDENT_COST_MULTIPLIER": 1.0,
+        "ACCIDENT_COST_MULTIPLIER_Y40": 0.85,
+        "LOCAL_AIR_COST_MULTIPLIER": 1.0,
+        "LOCAL_AIR_COST_MULTIPLIER_Y40": 0.65,
+        "OPEX_RATE": 0.02,
+        "OPEX_MULTIPLIER": 1.0,
+        "CAPEX_MULTIPLIER": 1.0,
+        "C_FLEX": 1000000,
+        "MAX_AVG_TT": 15.0,
+        "PT_SHARE_TARGET": 0.35,
+        "MIN_STRATEGIC_PKM_DISTANCE": 0.0,
+        "C_INV_STAGE1": 12990000,
+        "CAPACITY_INCREASE_STAGE1": 0.0,
+        "C_INV_STAGE2": 5280000,
+        "CAPACITY_INCREASE_STAGE2": 0.0,
+        "CAPACITY_INCREASE_COMBINED": 0.0
+      }
+    },
+    "passed": true
+  },
+  "artifact_sha256": "4c71ddeceffeacc2aa0f7c84276dde37a7b429f53c76f3ed9542af5cf8212613",
+  "validation_data_sha256": "bbdcac5b43c20b653a757952b75e25c0b870a5c67ba123f6a07fbf9da9d0dff4",
+  "validation_passed": true,
+  "validation_status": "passed",
+  "runtime_seconds": 3010.0926797079956,
+  "response_table": {
+    "file": "response_table.npz",
+    "schema": "transport_response_v1",
+    "fingerprint": "3bc6b21d54e4329632e0",
+    "sha256": "1bb88405352d8c9c74111ed284c12f5721f212699ae5d5280d03dacfce6da135",
+    "n_conditions": 432,
+    "preparation_seconds": 140.42610395899828
+  }
+}

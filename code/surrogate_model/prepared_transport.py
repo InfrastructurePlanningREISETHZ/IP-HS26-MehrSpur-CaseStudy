@@ -355,6 +355,7 @@ class PreparedTransport:
         pt_hours = {component: sum(hours(mode, times[f"{mode}_{component}"]) for mode in ("pt_walk", "pt_bike")) for component in ("ivt", "wait", "access", "egress", "transfer_walk")}
         metrics = {
             "total_trips": total, "car_trips": trips["drive"], "pt_trips": pt_trips,
+            "pt_bike_trips": trips["pt_bike"], "pt_bike_share": trips["pt_bike"] / max(total, 1e-9),
             "bike_trips": trips["bike"], "walk_trips": trips["walk"],
             "car_share_trips": trips["drive"] / max(total, 1e-9), "pt_share_trips": pt_trips / max(total, 1e-9),
             "bike_share_trips": trips["bike"] / max(total, 1e-9), "walk_share_trips": trips["walk"] / max(total, 1e-9),

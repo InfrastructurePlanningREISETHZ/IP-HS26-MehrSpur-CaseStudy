@@ -25,3 +25,4 @@ mplcursors
 openpyxl
 nbformat
 jupyter
+ipykernel<7

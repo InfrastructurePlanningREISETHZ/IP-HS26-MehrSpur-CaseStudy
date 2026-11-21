@@ -1,0 +1,31 @@
+﻿comparison,monitoring_indicator,outcome,monitoring_unit,outcome_unit,n,r_squared,slope,spearman_r,outcome_range
+baseline,pt_share,pt_share,%,%,40,0.9976,2.190e+00,0.997,3.7297
+baseline,pt_share,pt_bike_share,%,%,40,0.9763,5.538e-01,0.982,0.9855
+baseline,car_share,pt_share,%,%,40,0.0122,4.449e-01,0.076,3.7297
+baseline,car_share,pt_bike_share,%,%,40,0.0288,1.744e-01,0.1328,0.9855
+baseline,pt_trips,pt_share,person-trips/peak hour,%,40,0.8145,1.117e-03,0.9051,3.7297
+baseline,pt_trips,pt_bike_share,person-trips/peak hour,%,40,0.7598,2.759e-04,0.8644,0.9855
+baseline,bike_trips,pt_share,person-trips/peak hour,%,40,0.7195,-5.414e-04,-0.8415,3.7297
+baseline,bike_trips,pt_bike_share,person-trips/peak hour,%,40,0.7792,-1.440e-04,-0.8822,0.9855
+baseline,car_share_trips,pt_share,%,%,40,0.2218,2.162e+00,0.5236,3.7297
+baseline,car_share_trips,pt_bike_share,%,%,40,0.267,6.064e-01,0.5685,0.9855
+stage1_change,pt_share,pt_share,%,percentage points,40,0.0322,-4.377e-03,-0.1319,0.047
+stage1_change,pt_share,pt_bike_share,%,percentage points,40,0.0498,-8.272e-04,-0.1582,0.0073
+stage1_change,car_share,pt_share,%,percentage points,40,0.145,-1.702e-02,-0.3856,0.047
+stage1_change,car_share,pt_bike_share,%,percentage points,40,0.1439,-2.578e-03,-0.3897,0.0073
+stage1_change,pt_trips,pt_share,person-trips/peak hour,percentage points,40,0.0306,2.408e-06,0.2045,0.047
+stage1_change,pt_trips,pt_bike_share,person-trips/peak hour,percentage points,40,0.0169,2.720e-07,0.178,0.0073
+stage1_change,bike_trips,pt_share,person-trips/peak hour,percentage points,40,0.1818,3.027e-06,0.3949,0.047
+stage1_change,bike_trips,pt_bike_share,person-trips/peak hour,percentage points,40,0.2112,4.961e-07,0.4133,0.0073
+stage1_change,car_share_trips,pt_share,%,percentage points,40,0.0693,-1.345e-02,-0.2799,0.047
+stage1_change,car_share_trips,pt_bike_share,%,percentage points,40,0.0789,-2.180e-03,-0.2938,0.0073
+stage2_change,pt_share,pt_share,%,percentage points,40,0.006,-2.435e-03,-0.0617,0.0538
+stage2_change,pt_share,pt_bike_share,%,percentage points,40,0.028,-7.827e-04,-0.1544,0.0083
+stage2_change,car_share,pt_share,%,percentage points,40,0.0001,-6.827e-04,0.009,0.0538
+stage2_change,car_share,pt_bike_share,%,percentage points,40,0.001,-2.650e-04,-0.0141,0.0083
+stage2_change,pt_trips,pt_share,person-trips/peak hour,percentage points,40,0.0883,5.295e-06,0.278,0.0538
+stage2_change,pt_trips,pt_bike_share,person-trips/peak hour,percentage points,40,0.0448,5.586e-07,0.1949,0.0083
+stage2_change,bike_trips,pt_share,person-trips/peak hour,percentage points,40,0.0216,1.349e-06,0.1111,0.0538
+stage2_change,bike_trips,pt_bike_share,person-trips/peak hour,percentage points,40,0.0524,3.116e-07,0.1992,0.0083
+stage2_change,car_share_trips,pt_share,%,percentage points,40,0.016,8.363e-03,0.1017,0.0538
+stage2_change,car_share_trips,pt_bike_share,%,percentage points,40,0.0053,7.136e-04,0.0411,0.0083

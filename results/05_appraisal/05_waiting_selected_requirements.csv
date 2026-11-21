@@ -1,0 +1,3 @@
+﻿requirement,new_failure_years,scenario,comparator
+"pt_share > 0.35, Years 20–40",0,1,staged1
+"pt_bike_share >= 0.075, Years 20–40",0,1,staged1
