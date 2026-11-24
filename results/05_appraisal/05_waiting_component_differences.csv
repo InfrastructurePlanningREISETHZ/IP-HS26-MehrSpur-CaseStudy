@@ -1,0 +1,15 @@
+﻿comparator,population,scenario_count,component,mean_difference_MCHF
+staged1,all,200,CAPEX,-98.70494916115064
+staged1,all,200,OPEX,0.8914758749061993
+staged1,all,200,Residual value,0.16516953069716905
+staged1,all,200,Time and access,-257.2058569697646
+staged1,all,200,Crowding,-6.301168717262279
+staged1,all,200,Other effects,99.92451980382207
+staged1,all,200,Net NPV change,-261.2308096387528
+static2,all,200,CAPEX,-96.90029776180958
+static2,all,200,OPEX,2.7322203022340887
+static2,all,200,Residual value,0.7379287165215572
+static2,all,200,Time and access,-480.86940089851726
+static2,all,200,Crowding,-39.70758804482304
+static2,all,200,Other effects,174.58139396227511
+static2,all,200,Net NPV change,-439.4257437241197
