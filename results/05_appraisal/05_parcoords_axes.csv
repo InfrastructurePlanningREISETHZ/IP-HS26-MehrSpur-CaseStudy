@@ -1,0 +1,6 @@
+﻿indicator,favourable_direction,sample_minimum,sample_maximum
+NPV_MCHF,higher,-8.645075253778487,52.887004124815576
+pct_acceptable_years,higher,47.5,100.0
+delta_final_pt_share_pp,higher,-0.04727385276015461,0.10158871418494142
+avoided_co2_tonnes,higher,-5201.935483165551,3149.217325168196
+additional_expenditure_MCHF,lower,0.0,34.759009055893316

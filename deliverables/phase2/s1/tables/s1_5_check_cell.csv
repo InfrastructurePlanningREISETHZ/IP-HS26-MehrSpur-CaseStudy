@@ -1,0 +1,5 @@
+check,worst_value,passed
+probabilities sum to one for every OD pair with demand,5.551115123125783e-16,True
+aggregate modal shares sum to one,1.5543122344752192e-15,True
+"every probability lies in [0, 1]",0.0,True
+trips by mode sum to total demand,0.0,True

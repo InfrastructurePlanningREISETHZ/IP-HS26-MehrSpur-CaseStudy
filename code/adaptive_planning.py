@@ -39,7 +39,7 @@ from additional import uncertainty as uc
 # Triggers are OPERATIONAL ACTION THRESHOLDS that initiate building a package:
 #   - Signpost: the real-time operational metric being monitored
 #   - Threshold: the value that indicates the current system needs an upgrade
-#   - Persistence: consecutive years the threshold must be exceeded before deciding
+#   - Persistence: consecutive years the trigger condition must hold before deciding
 #   - Lead time: construction/implementation duration from decision to opening
 #
 # MehrSpur monitors daily passenger-trips through parameters.SECTION, summed
@@ -51,7 +51,7 @@ from additional import uncertainty as uc
 
 # Common signposts and their units. Other numeric simulate_year() result fields
 # can also be monitored; a misspelled or missing result field raises an error.
-# Every trigger tests STRICTLY GREATER THAN its threshold (value > threshold).
+# Rules use > by default; the car-share rule uses <=.
 # Shares without "_trips" use passenger-kilometres (PKM), not trip counts.
 SIGNPOSTS = {
     "section_combined_daily": {"label": "Counting-section passengers/day", "unit": "passenger-trips/day"},
@@ -60,6 +60,8 @@ SIGNPOSTS = {
     "pt_trips": {"label": "Peak-hour PT demand", "unit": "trips/peak hour"},
     "annual_pt_trips": {"label": "Annual PT demand", "unit": "trips/year"},
     "pt_share": {"label": "PT share of passenger-kilometres", "unit": "PKM share (0-1)"},
+    "car_share_trips": {"label": "Car share of trips", "unit": "trip share (0-1)"},
+    "car_share": {"label": "Car share of passenger-kilometres", "unit": "PKM share (0-1)"},
     "pt_share_trips": {"label": "PT share of trips", "unit": "trip share (0-1)"},
     "avg_tt_min": {"label": "Average corridor travel time", "unit": "minutes"},
     "congestion_delay_hours": {"label": "Annual passenger congestion delay", "unit": "person-hours/year"},
@@ -71,20 +73,20 @@ SIGNPOSTS = {
 DEFAULT_TRIGGERS = {
     # Trigger 1: Section demand -> package 1 (local stations and access)
     "trigger1": {
-        "signpost":        "section_combined_daily",
-        "threshold":       125_000,
-        "persistence":     2,       # Consecutive years above threshold
-        "lead_time":       6,       # Years of planning and station civil works
+        "signpost":        "pt_share",
+        "threshold":       0.34,
+        "operator":        ">",
+        "persistence":     2,       # Consecutive annual observations meeting the rule
+        "lead_time":       8,       # Years of planning and construction ofa mobility hub. Zug Nord and Bulle as examples.
     },
-    # Trigger 2: The same section count -> package 2 (Brüttenertunnel)
-    # An absolute daily count keeps the signpost comparable when stations add
-    # capacity. The action threshold is separate from comfort capacity.
+    # Trigger 2: car PKM share at or below the selected threshold signals a sustained shift away from cars.
     "trigger2": {
-        "signpost":        "section_combined_daily",
-        "threshold":       122_000,
+        "signpost":        "car_share",
+        "threshold":       0.479, # The trigger threshold is based on the Year-12 median car_share in the Stage 0 baseline. # car_share is used as a proxy for a shift away from car
+        "operator":        "<=",
         "persistence":     2,
         # Years of tunnel planning and construction after the decision.
-        "lead_time":       10,
+        "lead_time":       4, #For bike lines creations we took example of Zurich that has 6km lines constructed after the vote of 2020. 
     }
 }
 
@@ -113,28 +115,32 @@ DEFAULT_TRIGGERS = {
 # Names and descriptions are generated below so timing edits need only one change.
 PLAN_DEFINITIONS = {
     "baseline": {
-        "name": "Baseline",
+        "name": "Baseline (no hub)",
         "initial_packages": [], "stations": None, "tunnel": None,
     },
     "static1": {
-        "name": "Static 1",
+        "name": "Static 1 – Leitbild hub",
         "initial_packages": ["stations"], "stations": None, "tunnel": None,
     },
     "static2": {
-        "name": "Static 2",
+        "name": "Static 2 – Hub + access network",
         "initial_packages": ["stations", "tunnel"], "stations": None, "tunnel": None,
+    },
+    "static3": {
+        "name": "Static 3 – Access network only",
+        "initial_packages": ["tunnel"], "stations": None, "tunnel": None,
     },
     "staged1": {
         "name": "Staged 1",
         "initial_packages": [],
-        "stations": {"type": "fixed", "opening_year": 8},
-        "tunnel": {"type": "fixed", "opening_year": 11},
+        "stations": {"type": "fixed", "opening_year": 9}, #8 previous 
+        "tunnel": {"type": "fixed", "opening_year": 15}, #11 previous
     },
     "staged2": {
         "name": "Staged 2",
         "initial_packages": [],
-        "stations": {"type": "fixed", "opening_year": 6},
-        "tunnel": {"type": "fixed", "opening_year": 15},
+        "stations": {"type": "fixed", "opening_year": 9}, #6 previous 
+        "tunnel": {"type": "fixed", "opening_year": 20}, #15 previous
     },
     "flexible": {
         "name": "Flexible",
@@ -153,6 +159,8 @@ def _validate_trigger(trigger: dict, label: str) -> None:
     signpost = trigger.get("signpost")
     if not isinstance(signpost, str) or not signpost.strip():
         raise ValueError(f"{label}: signpost must name an annual result field.")
+    if trigger.get("operator", ">") not in (">", "<="):
+        raise ValueError(f"{label}: operator must be > or <=.")
     threshold = trigger.get("threshold")
     if isinstance(threshold, bool) or not isinstance(threshold, Real) or not np.isfinite(threshold):
         raise ValueError(f"{label}: threshold must be a finite number.")
@@ -166,10 +174,11 @@ def _describe_trigger(trigger: dict, name: str) -> dict:
     result = deepcopy(trigger)
     _validate_trigger(result, name)
     metric = SIGNPOSTS.get(result["signpost"], {"label": result["signpost"], "unit": "result units"})
+    comparison = "is at or below" if result.get("operator") == "<=" else "exceeds"
     result["name"] = name
     result["signpost_label"] = metric["label"]
     result["description"] = (
-        f"When {metric['label']} exceeds {result['threshold']:,g} {metric['unit']} "
+        f"When {metric['label']} {comparison} {result['threshold']:,g} {metric['unit']} "
         f"for {result['persistence']} consecutive years, decide to build; "
         f"open after a {result['lead_time']}-year lead time."
     )
@@ -180,7 +189,7 @@ def get_triggers(params: dict | None = None) -> dict:
     """Return validated rules and generated text, with optional parameter overrides."""
     triggers = deepcopy(DEFAULT_TRIGGERS)
     for key, trigger in triggers.items():
-        for field in ("threshold", "signpost", "persistence", "lead_time"):
+        for field in ("threshold", "signpost", "persistence", "lead_time", "operator"):
             override = f"{key.upper()}_{field.upper()}"
             if params is not None and override in params:
                 trigger[field] = params[override]
@@ -256,8 +265,8 @@ def advance_trigger(year, active, opening, persistence, previous, rule, *, thres
     previous = np.asarray(np.nan if previous is None else previous, dtype=float)
     threshold = rule["threshold"] if threshold is None else threshold
     eligible = ~active & (opening == 0)
-    above = np.isfinite(previous) & (previous > threshold)
-    persistence = np.where(eligible & above, persistence + 1, 0)
+    meets = previous <= threshold if rule.get("operator") == "<=" else previous > threshold
+    persistence = np.where(eligible & np.isfinite(previous) & meets, persistence + 1, 0)
     decision = eligible & (persistence >= rule["persistence"])
     opening = np.where(decision, year + rule["lead_time"], opening)
     opened = ~active & (opening > 0) & (year >= opening)

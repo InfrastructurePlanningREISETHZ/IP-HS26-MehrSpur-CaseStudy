@@ -68,6 +68,7 @@ def _ratios(metrics):
     total = sum(metrics[f"{mode}_trips"] for mode in modes)
     pkm = sum(metrics[f"strategic_{mode}_person_km"] for mode in modes)
     metrics["total_trips"] = total
+    metrics["pt_bike_share"] = metrics["pt_bike_trips"] / max(total, 1e-9)
     for mode in modes:
         metrics[f"{mode}_share_trips"] = metrics[f"{mode}_trips"] / max(total, 1e-9)
         metrics[f"{mode}_share"] = metrics[f"strategic_{mode}_person_km"] / max(pkm, 1e-9)

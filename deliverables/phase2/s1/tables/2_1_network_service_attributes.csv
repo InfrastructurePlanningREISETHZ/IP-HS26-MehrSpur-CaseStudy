@@ -1,0 +1,9 @@
+Parameter,Where it is,Definition,Baseline Value,Unit,Spatial Scope,Direct System Impact
+travel_time_reduction_pct,"<a href=""../code/transport_core/interventions.py"">interventions.py</a>",PT in-vehicle time reduction,0%,%,Targeted OD pairs (e.g. Zürich ↔ Winterthur),Shortens PT in-vehicle time
+speed_increase_pct,"<a href=""../code/transport_core/interventions.py"">interventions.py</a>",Operating speed increase,0%,%,Selected bicycle or PT OD pairs,Reduces travel time on those OD pairs
+distance_reduction_pct,"<a href=""../code/transport_core/interventions.py"">interventions.py</a>",Path-distance / shortcut reduction,0%,%,Selected OD pairs with shorter modeled paths,Shortens the modelled path
+initial_wait_reduction_pct,"<a href=""../code/transport_core/interventions.py"">interventions.py</a>",Initial waiting-time reduction,0%,%,Corridor rail lines and connecting bus feeders,Shortens first-board waiting time
+transfer_wait_reduction_pct,"<a href=""../code/transport_core/interventions.py"">interventions.py</a>",Transfer waiting-time reduction (timetable coordination),0%,%,"Transfer hubs (e.g. Winterthur HB, Stadelhofen)",Shortens wait at transfers
+transfer_time_reduction_pct,"<a href=""../code/transport_core/interventions.py"">interventions.py</a>",Physical transfer-time reduction (platform walking),0%,%,Upgraded interchange station facilities,Shortens walk between platforms
+access_time_reduction_pct,"<a href=""../code/transport_core/interventions.py"">interventions.py</a>",First-mile station access-time reduction,0%,%,Station catchment (walk/bicycle radius),Shortens access to the station
+egress_time_reduction_pct,"<a href=""../code/transport_core/interventions.py"">interventions.py</a>",Last-mile station egress-time reduction,0%,%,Destination municipal employment zones,Shortens egress from the station

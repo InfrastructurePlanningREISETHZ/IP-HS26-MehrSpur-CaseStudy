@@ -1,0 +1,7 @@
+item,required,present,relative_path,purpose
+Zones,True,True,data/transport/prepared/zones.parquet,Spatial zones & attributes
+Passenger & Background Demand,True,True,data/transport/prepared/demand.pkl.gz,OD matrices
+Multimodal Skims,True,True,data/transport/prepared/skims.pkl.gz,Travel times & distances
+Intervention Lookups,True,True,data/transport/prepared/lookups.pkl.gz,Municipality and stop selectors
+Road Network,True,True,data/transport/prepared/assignment_network.pkl,Road links and nodes
+Mode-choice Parameters,True,True,data/transport/config/mode_choice.json,Logit coefficients
