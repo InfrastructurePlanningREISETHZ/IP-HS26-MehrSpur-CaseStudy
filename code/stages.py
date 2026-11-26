@@ -268,9 +268,9 @@ PACKAGES = {
                         "stops_per_zone": 8,
                         "effects": {
                             # We do an average of the three previous interventions (Axe Maur–Forch and Axe Süessblätz–Forch: Forch-Forch) to estimate the time reduction for the access and egress time at Forch station.
-                            "access_time_reduction_pct": 80.0,
+                            "access_time_reduction_pct": 30.0,
                             # Same layout for arrivals;
-                            "egress_time_reduction_pct": 80.0,
+                            "egress_time_reduction_pct": 30.0,
                         },
                     }   
                 ],
