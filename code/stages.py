@@ -157,9 +157,10 @@ PACKAGES = {
                 "stops_per_zone": 8,
                 "effects": {
                     # Baseline: bike access from zone 15401012 to Forch = 7.4 min (prepared skims).
-                    # Assumption: 1.0 min saved (parking next to the platforms, direct ramps, undergroundgarage is liberating space that improve acces time)
-                    # → 1.0 / 7.4 ≈ 13.5 %. TO VERIFY against plan distances.
-                    #New hypothese → 3.0 / 7.4 ≈ 40.5 %.
+                    # Assumption: parking next to the platforms, direct ramps, undergroundgarage 
+                    # is liberating equivalent time savings that we can access to 3.0min (Geurs, 2016).
+                    # It's not actual time reduction but a perception of time saving benefit. 
+                    # hypothese → 3.0 / 7.4 ≈ 40.5 %.
                     "access_time_reduction_pct": 40.5,
                     # Same layout for arrivals;
                     "egress_time_reduction_pct": 40.5,
@@ -231,7 +232,9 @@ PACKAGES = {
                 ],
                 "both_directions": True,
                 "effects": {
-                    "travel_time_reduction_pct": 13.0, #Necessity to verify better the percentage. We assume that we can decrease 2min in the total travel that last 15min.
+                    "travel_time_reduction_pct": 18.0, #Necessity to verify better the percentage. We assume that we can decrease 2min in the total travel that last 15min.
+                    #HYPTOHESES : 2.0 / 11.0 ≈ 18 %.
+                    # 3.3 km
                 },
             },
             {
@@ -244,7 +247,9 @@ PACKAGES = {
                 ],
                 "both_directions": True,
                 "effects": {
-                    "travel_time_reduction_pct": 12.5, ##Necessity to verify better the percentage. We assume that we can decrease 2min in the total travel that last 16min.
+                    "travel_time_reduction_pct": 15.4, #Necessity to verify better the percentage. We assume that we can decrease 2min in the total travel that last 16min.
+                    #HYPTOHESES : 2.0 / 13.0 ≈ 15.4 %.
+                    # 3.6 km
                 },
             },
             {
@@ -257,26 +262,39 @@ PACKAGES = {
                 ],
                 "both_directions": True,
                 "effects": {
-                    "travel_time_reduction_pct": 25.0, ##Necessity to verify better the percentage. We assume that we can decrease 2min in the total travel that last 8min.
+                    "travel_time_reduction_pct": 16.7, ##Necessity to verify better the percentage. We assume that we can decrease 1min in the total travel that last 6min.
+                    #HYPTOHESES : 1.0 / 6.0 ≈ 16.7 %.
+                    #1.3km
                 },
             },
         ],  
         "mobility_hubs": [
                     {
-                        "name": "Bike line access and egress time improvements at Forch station",
+                        "name": "Bike line access and egress time improvements to Forch station",
                         "zones": ["15401012"],
                         "stops_per_zone": 8,
                         "effects": {
-                            # We do an average of the three previous interventions (Axe Maur–Forch and Axe Süessblätz–Forch: Forch-Forch) to estimate the time reduction for the access and egress time at Forch station.
-                            "access_time_reduction_pct": 80.0,
-                            # Same layout for arrivals;
-                            "egress_time_reduction_pct": 80.0,
+                            # The melioration of bike aways and the improvements at Forch station will allow equivalent time saving. 
+                            # For example, the fact that these bike highways were created reassure people with the fact that there will be less interuption during the travel 
+                            # so the people would leave their home later decreasing waiting time at the station and so on the total time. (Geurs et al., 2016).
+                            # A total of 5min time equivalent gain can be assumed (Geurs et al., 2016)
+                            # Percentages convert that ETS using the demand-weighted baseline PT-bike
+                            # components for trips selected by Forch's 8 bike-access stops:
+                            # access: 5 / 6.98 min = 71.7%; egress: 5 / 5.96 min = 83.9%.
+                            # These are approximate: available demand weights are not PT-bike-specific,
+                            # and the hub effect also applies to PT-walk trips using the selected stops.
+                            # hypothese : 5.0 /6.98 ≈ 71.7 % (Geurs et al., 2016).
+                            "access_time_reduction_pct": 71.7,
+                            # hypothese : 5.0 / 5.96 ≈ 83.9 % (Geurs et al., 2016).
+                            "egress_time_reduction_pct": 83.9,
                         },
                     }   
                 ],
         #Costs
+            #Price protected bike lane per kilometer       120'000 CHF/Km x (3.3 + 3.6 + 1.3) = 984 000     (Zani et al., 2023)
+            # Acquisition of a new bus        500'000 CHF     (Krieger, 2017)
         "appraisal": {
-            "capital_cost_chf": 5280000,  # À compléter : investissement total.
+            "capital_cost_chf": 1_484_000, 
             "lifetime_years": None,  # À compléter si valeur résiduelle.
             "capital_share": 0.0,    # Valeur résiduelle désactivée.
         },
