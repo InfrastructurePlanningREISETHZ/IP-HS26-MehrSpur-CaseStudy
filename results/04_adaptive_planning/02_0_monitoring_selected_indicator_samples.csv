@@ -1,0 +1,481 @@
+﻿scenario,monitoring_indicator,monitoring_value,configuration,outcome,outcome_value
+1,section_combined_daily,146528.9564316694,Baseline,pt_share,44.06932240926608
+2,section_combined_daily,138172.17973433723,Baseline,pt_share,40.36292126164112
+3,section_combined_daily,150100.08373729515,Baseline,pt_share,43.51432293009142
+4,section_combined_daily,159282.36241311464,Baseline,pt_share,42.53926263464835
+5,section_combined_daily,146184.72824396114,Baseline,pt_share,40.998248482252194
+6,section_combined_daily,154523.2127665128,Baseline,pt_share,43.71760692428394
+7,section_combined_daily,151648.8576961871,Baseline,pt_share,42.813068641432174
+8,section_combined_daily,133196.00481529103,Baseline,pt_share,38.94858091649686
+9,section_combined_daily,139662.06269328878,Baseline,pt_share,40.4538260621137
+10,section_combined_daily,154183.34335076713,Baseline,pt_share,41.47378980905404
+11,section_combined_daily,141699.78867415723,Baseline,pt_share,41.16951137733113
+12,section_combined_daily,145741.85730565683,Baseline,pt_share,41.08415857076902
+13,section_combined_daily,152576.72903931816,Baseline,pt_share,42.38845413295634
+14,section_combined_daily,151020.5785359731,Baseline,pt_share,43.454393881518456
+15,section_combined_daily,145010.63091880427,Baseline,pt_share,40.8717959636322
+16,section_combined_daily,134904.0575627154,Baseline,pt_share,39.134141601101334
+17,section_combined_daily,151161.36922623846,Baseline,pt_share,40.38004813797341
+18,section_combined_daily,149331.39894273996,Baseline,pt_share,43.59388130831108
+19,section_combined_daily,147960.33905655995,Baseline,pt_share,41.08297964919047
+20,section_combined_daily,143221.70533232114,Baseline,pt_share,39.992628767596585
+21,section_combined_daily,146458.19626334155,Baseline,pt_share,40.55437053764026
+22,section_combined_daily,136671.04407745897,Baseline,pt_share,40.039435829766965
+23,section_combined_daily,139740.63019445594,Baseline,pt_share,40.524990912147025
+24,section_combined_daily,145645.8496572606,Baseline,pt_share,41.423227523345936
+25,section_combined_daily,142729.7535376363,Baseline,pt_share,41.17531951663525
+26,section_combined_daily,147508.16752569395,Baseline,pt_share,41.44543594249855
+27,section_combined_daily,143101.51371600782,Baseline,pt_share,42.83095840220601
+28,section_combined_daily,150058.44497452673,Baseline,pt_share,43.131354104163364
+29,section_combined_daily,151813.42014754165,Baseline,pt_share,42.87463420228212
+30,section_combined_daily,152462.21991603402,Baseline,pt_share,41.402859481061334
+31,section_combined_daily,148109.79947299216,Baseline,pt_share,42.09509054337935
+32,section_combined_daily,156536.38479885762,Baseline,pt_share,42.26804660932863
+33,section_combined_daily,149720.10900172565,Baseline,pt_share,42.17570641911719
+34,section_combined_daily,137859.92305895174,Baseline,pt_share,39.49674282095005
+35,section_combined_daily,143321.01079895018,Baseline,pt_share,40.74752523399057
+36,section_combined_daily,156377.0669850328,Baseline,pt_share,44.32391468555031
+37,section_combined_daily,140724.21184465627,Baseline,pt_share,40.387242242131705
+38,section_combined_daily,151044.09782249285,Baseline,pt_share,41.99664738534442
+39,section_combined_daily,144272.86910452324,Baseline,pt_share,40.63094527848438
+40,section_combined_daily,142548.66238109485,Baseline,pt_share,40.33199534616455
+1,section_combined_daily,146528.9564316694,Stage 1,pt_share,44.098962140161234
+2,section_combined_daily,138172.17973433723,Stage 1,pt_share,40.405047572034086
+3,section_combined_daily,150100.08373729515,Stage 1,pt_share,43.53943481401209
+4,section_combined_daily,159282.36241311464,Stage 1,pt_share,42.567125424354906
+5,section_combined_daily,146184.72824396114,Stage 1,pt_share,41.04920175467527
+6,section_combined_daily,154523.2127665128,Stage 1,pt_share,43.744879724509
+7,section_combined_daily,151648.8576961871,Stage 1,pt_share,42.851511016546795
+8,section_combined_daily,133196.00481529103,Stage 1,pt_share,39.001312589608645
+9,section_combined_daily,139662.06269328878,Stage 1,pt_share,40.49232170790519
+10,section_combined_daily,154183.34335076713,Stage 1,pt_share,41.49633304170193
+11,section_combined_daily,141699.78867415723,Stage 1,pt_share,41.220730653918416
+12,section_combined_daily,145741.85730565683,Stage 1,pt_share,41.128399639850954
+13,section_combined_daily,152576.72903931816,Stage 1,pt_share,42.417655402250034
+14,section_combined_daily,151020.5785359731,Stage 1,pt_share,43.48219843438412
+15,section_combined_daily,145010.63091880427,Stage 1,pt_share,40.913896581372654
+16,section_combined_daily,134904.0575627154,Stage 1,pt_share,39.19065522719362
+17,section_combined_daily,151161.36922623846,Stage 1,pt_share,40.40819198770995
+18,section_combined_daily,149331.39894273996,Stage 1,pt_share,43.633172034044634
+19,section_combined_daily,147960.33905655995,Stage 1,pt_share,41.11370102166034
+20,section_combined_daily,143221.70533232114,Stage 1,pt_share,40.02889597736137
+21,section_combined_daily,146458.19626334155,Stage 1,pt_share,40.59407918520919
+22,section_combined_daily,136671.04407745897,Stage 1,pt_share,40.08732598875854
+23,section_combined_daily,139740.63019445594,Stage 1,pt_share,40.558952654280546
+24,section_combined_daily,145645.8496572606,Stage 1,pt_share,41.45760127185892
+25,section_combined_daily,142729.7535376363,Stage 1,pt_share,41.20928188343666
+26,section_combined_daily,147508.16752569395,Stage 1,pt_share,41.46665075651191
+27,section_combined_daily,143101.51371600782,Stage 1,pt_share,42.86619110166045
+28,section_combined_daily,150058.44497452673,Stage 1,pt_share,43.156815804880004
+29,section_combined_daily,151813.42014754165,Stage 1,pt_share,42.90497177409354
+30,section_combined_daily,152462.21991603402,Stage 1,pt_share,41.428563896028955
+31,section_combined_daily,148109.79947299216,Stage 1,pt_share,42.124275464081485
+32,section_combined_daily,156536.38479885762,Stage 1,pt_share,42.284671274746955
+33,section_combined_daily,149720.10900172565,Stage 1,pt_share,42.21310438921345
+34,section_combined_daily,137859.92305895174,Stage 1,pt_share,39.54155591291618
+35,section_combined_daily,143321.01079895018,Stage 1,pt_share,40.7979642474493
+36,section_combined_daily,156377.0669850328,Stage 1,pt_share,44.34526405646347
+37,section_combined_daily,140724.21184465627,Stage 1,pt_share,40.42161419655037
+38,section_combined_daily,151044.09782249285,Stage 1,pt_share,42.02526495119156
+39,section_combined_daily,144272.86910452324,Stage 1,pt_share,40.67358527743426
+40,section_combined_daily,142548.66238109485,Stage 1,pt_share,40.38576802302952
+1,section_combined_daily,146528.9564316694,Stage 2,pt_share,44.064563976666385
+2,section_combined_daily,138172.17973433723,Stage 2,pt_share,40.33066054236684
+3,section_combined_daily,150100.08373729515,Stage 2,pt_share,43.510432023095504
+4,section_combined_daily,159282.36241311464,Stage 2,pt_share,42.5281164523738
+5,section_combined_daily,146184.72824396114,Stage 2,pt_share,40.983249053975015
+6,section_combined_daily,154523.2127665128,Stage 2,pt_share,43.714375395448016
+7,section_combined_daily,151648.8576961871,Stage 2,pt_share,42.813241934701
+8,section_combined_daily,133196.00481529103,Stage 2,pt_share,38.90973777086005
+9,section_combined_daily,139662.06269328878,Stage 2,pt_share,40.424785754703194
+10,section_combined_daily,154183.34335076713,Stage 2,pt_share,41.45296349974728
+11,section_combined_daily,141699.78867415723,Stage 2,pt_share,41.14617635064738
+12,section_combined_daily,145741.85730565683,Stage 2,pt_share,41.06986110031824
+13,section_combined_daily,152576.72903931816,Stage 2,pt_share,42.38042196865085
+14,section_combined_daily,151020.5785359731,Stage 2,pt_share,43.452913116924144
+15,section_combined_daily,145010.63091880427,Stage 2,pt_share,40.84785827292223
+16,section_combined_daily,134904.0575627154,Stage 2,pt_share,39.09394285498289
+17,section_combined_daily,151161.36922623846,Stage 2,pt_share,40.35676450180759
+18,section_combined_daily,149331.39894273996,Stage 2,pt_share,43.59235121785921
+19,section_combined_daily,147960.33905655995,Stage 2,pt_share,41.06248737523769
+20,section_combined_daily,143221.70533232114,Stage 2,pt_share,39.95731741827499
+21,section_combined_daily,146458.19626334155,Stage 2,pt_share,40.53045567477468
+22,section_combined_daily,136671.04407745897,Stage 2,pt_share,40.00487695485798
+23,section_combined_daily,139740.63019445594,Stage 2,pt_share,40.49702759522842
+24,section_combined_daily,145645.8496572606,Stage 2,pt_share,41.40620003789613
+25,section_combined_daily,142729.7535376363,Stage 2,pt_share,41.14749686969506
+26,section_combined_daily,147508.16752569395,Stage 2,pt_share,41.41955741382196
+27,section_combined_daily,143101.51371600782,Stage 2,pt_share,42.819498688045236
+28,section_combined_daily,150058.44497452673,Stage 2,pt_share,43.1233761900702
+29,section_combined_daily,151813.42014754165,Stage 2,pt_share,42.87132355725668
+30,section_combined_daily,152462.21991603402,Stage 2,pt_share,41.386155538266856
+31,section_combined_daily,148109.79947299216,Stage 2,pt_share,42.08087673716052
+32,section_combined_daily,156536.38479885762,Stage 2,pt_share,42.24793119226893
+33,section_combined_daily,149720.10900172565,Stage 2,pt_share,42.16604610035534
+34,section_combined_daily,137859.92305895174,Stage 2,pt_share,39.45902220373191
+35,section_combined_daily,143321.01079895018,Stage 2,pt_share,40.72788926481919
+36,section_combined_daily,156377.0669850328,Stage 2,pt_share,44.3242076281395
+37,section_combined_daily,140724.21184465627,Stage 2,pt_share,40.35442904137411
+38,section_combined_daily,151044.09782249285,Stage 2,pt_share,41.97848540730615
+39,section_combined_daily,144272.86910452324,Stage 2,pt_share,40.6118565382877
+40,section_combined_daily,142548.66238109485,Stage 2,pt_share,40.30416245576686
+1,section_combined_daily,146528.9564316694,Baseline,avg_tt_min,13.626851694538473
+2,section_combined_daily,138172.17973433723,Baseline,avg_tt_min,13.842032659739248
+3,section_combined_daily,150100.08373729515,Baseline,avg_tt_min,13.791220471925843
+4,section_combined_daily,159282.36241311464,Baseline,avg_tt_min,14.261126141800348
+5,section_combined_daily,146184.72824396114,Baseline,avg_tt_min,13.994869679286644
+6,section_combined_daily,154523.2127665128,Baseline,avg_tt_min,13.986622139648107
+7,section_combined_daily,151648.8576961871,Baseline,avg_tt_min,13.873536519131044
+8,section_combined_daily,133196.00481529103,Baseline,avg_tt_min,13.80226143986119
+9,section_combined_daily,139662.06269328878,Baseline,avg_tt_min,13.842955099654368
+10,section_combined_daily,154183.34335076713,Baseline,avg_tt_min,14.303187974838304
+11,section_combined_daily,141699.78867415723,Baseline,avg_tt_min,13.88471910437917
+12,section_combined_daily,145741.85730565683,Baseline,avg_tt_min,13.899001145686645
+13,section_combined_daily,152576.72903931816,Baseline,avg_tt_min,14.056649427081728
+14,section_combined_daily,151020.5785359731,Baseline,avg_tt_min,13.808638258906377
+15,section_combined_daily,145010.63091880427,Baseline,avg_tt_min,14.072792514692797
+16,section_combined_daily,134904.0575627154,Baseline,avg_tt_min,13.919722189915449
+17,section_combined_daily,151161.36922623846,Baseline,avg_tt_min,14.322905334312534
+18,section_combined_daily,149331.39894273996,Baseline,avg_tt_min,13.81017964067158
+19,section_combined_daily,147960.33905655995,Baseline,avg_tt_min,14.096344394774416
+20,section_combined_daily,143221.70533232114,Baseline,avg_tt_min,14.188872710200675
+21,section_combined_daily,146458.19626334155,Baseline,avg_tt_min,14.152876113324618
+22,section_combined_daily,136671.04407745897,Baseline,avg_tt_min,13.847577376335163
+23,section_combined_daily,139740.63019445594,Baseline,avg_tt_min,13.80694079838209
+24,section_combined_daily,145645.8496572606,Baseline,avg_tt_min,13.902607905839764
+25,section_combined_daily,142729.7535376363,Baseline,avg_tt_min,13.967301733328094
+26,section_combined_daily,147508.16752569395,Baseline,avg_tt_min,14.125382081464576
+27,section_combined_daily,143101.51371600782,Baseline,avg_tt_min,13.627685761899968
+28,section_combined_daily,150058.44497452673,Baseline,avg_tt_min,13.883262628647733
+29,section_combined_daily,151813.42014754165,Baseline,avg_tt_min,13.909016918853203
+30,section_combined_daily,152462.21991603402,Baseline,avg_tt_min,14.203658594333495
+31,section_combined_daily,148109.79947299216,Baseline,avg_tt_min,13.946069600688457
+32,section_combined_daily,156536.38479885762,Baseline,avg_tt_min,14.293455603270038
+33,section_combined_daily,149720.10900172565,Baseline,avg_tt_min,14.001742498913961
+34,section_combined_daily,137859.92305895174,Baseline,avg_tt_min,13.953327301050818
+35,section_combined_daily,143321.01079895018,Baseline,avg_tt_min,13.895813503069531
+36,section_combined_daily,156377.0669850328,Baseline,avg_tt_min,13.86317440512761
+37,section_combined_daily,140724.21184465627,Baseline,avg_tt_min,13.977854776598702
+38,section_combined_daily,151044.09782249285,Baseline,avg_tt_min,14.193045847641258
+39,section_combined_daily,144272.86910452324,Baseline,avg_tt_min,13.91315338724265
+40,section_combined_daily,142548.66238109485,Baseline,avg_tt_min,14.065612441141193
+1,section_combined_daily,146528.9564316694,Stage 1,avg_tt_min,13.603119469800301
+2,section_combined_daily,138172.17973433723,Stage 1,avg_tt_min,13.819013444873807
+3,section_combined_daily,150100.08373729515,Stage 1,avg_tt_min,13.767168282843551
+4,section_combined_daily,159282.36241311464,Stage 1,avg_tt_min,14.236280394667503
+5,section_combined_daily,146184.72824396114,Stage 1,avg_tt_min,13.971949693195299
+6,section_combined_daily,154523.2127665128,Stage 1,avg_tt_min,13.96242233613117
+7,section_combined_daily,151648.8576961871,Stage 1,avg_tt_min,13.849967551165149
+8,section_combined_daily,133196.00481529103,Stage 1,avg_tt_min,13.780592736682046
+9,section_combined_daily,139662.06269328878,Stage 1,avg_tt_min,13.819665278096355
+10,section_combined_daily,154183.34335076713,Stage 1,avg_tt_min,14.278119377792807
+11,section_combined_daily,141699.78867415723,Stage 1,avg_tt_min,13.862383954484818
+12,section_combined_daily,145741.85730565683,Stage 1,avg_tt_min,13.875706645288307
+13,section_combined_daily,152576.72903931816,Stage 1,avg_tt_min,14.031944787959327
+14,section_combined_daily,151020.5785359731,Stage 1,avg_tt_min,13.784356337978931
+15,section_combined_daily,145010.63091880427,Stage 1,avg_tt_min,14.049227384566642
+16,section_combined_daily,134904.0575627154,Stage 1,avg_tt_min,13.898145721021805
+17,section_combined_daily,151161.36922623846,Stage 1,avg_tt_min,14.297862005223854
+18,section_combined_daily,149331.39894273996,Stage 1,avg_tt_min,13.786845096763091
+19,section_combined_daily,147960.33905655995,Stage 1,avg_tt_min,14.071774034676775
+20,section_combined_daily,143221.70533232114,Stage 1,avg_tt_min,14.164679353459999
+21,section_combined_daily,146458.19626334155,Stage 1,avg_tt_min,14.12880310257323
+22,section_combined_daily,136671.04407745897,Stage 1,avg_tt_min,13.825214691381724
+23,section_combined_daily,139740.63019445594,Stage 1,avg_tt_min,13.783158574934177
+24,section_combined_daily,145645.8496572606,Stage 1,avg_tt_min,13.87878528746678
+25,section_combined_daily,142729.7535376363,Stage 1,avg_tt_min,13.943525591207942
+26,section_combined_daily,147508.16752569395,Stage 1,avg_tt_min,14.100697226727055
+27,section_combined_daily,143101.51371600782,Stage 1,avg_tt_min,13.604384199439501
+28,section_combined_daily,150058.44497452673,Stage 1,avg_tt_min,13.859097042545656
+29,section_combined_daily,151813.42014754165,Stage 1,avg_tt_min,13.884745203336147
+30,section_combined_daily,152462.21991603402,Stage 1,avg_tt_min,14.178485860925594
+31,section_combined_daily,148109.79947299216,Stage 1,avg_tt_min,13.921780590633674
+32,section_combined_daily,156536.38479885762,Stage 1,avg_tt_min,14.268332164562127
+33,section_combined_daily,149720.10900172565,Stage 1,avg_tt_min,13.977786202570964
+34,section_combined_daily,137859.92305895174,Stage 1,avg_tt_min,13.930201506828563
+35,section_combined_daily,143321.01079895018,Stage 1,avg_tt_min,13.872852953015045
+36,section_combined_daily,156377.0669850328,Stage 1,avg_tt_min,13.838886023553188
+37,section_combined_daily,140724.21184465627,Stage 1,avg_tt_min,13.954277672878195
+38,section_combined_daily,151044.09782249285,Stage 1,avg_tt_min,14.168691423602404
+39,section_combined_daily,144272.86910452324,Stage 1,avg_tt_min,13.889837390693597
+40,section_combined_daily,142548.66238109485,Stage 1,avg_tt_min,14.042815620672638
+1,section_combined_daily,146528.9564316694,Stage 2,avg_tt_min,13.61235870464444
+2,section_combined_daily,138172.17973433723,Stage 2,avg_tt_min,13.821994701644535
+3,section_combined_daily,150100.08373729515,Stage 2,avg_tt_min,13.777193430725744
+4,section_combined_daily,159282.36241311464,Stage 2,avg_tt_min,14.244162346283769
+5,section_combined_daily,146184.72824396114,Stage 2,avg_tt_min,13.977123713582602
+6,section_combined_daily,154523.2127665128,Stage 2,avg_tt_min,13.971995435525567
+7,section_combined_daily,151648.8576961871,Stage 2,avg_tt_min,13.859253404120025
+8,section_combined_daily,133196.00481529103,Stage 2,avg_tt_min,13.780128714805794
+9,section_combined_daily,139662.06269328878,Stage 2,avg_tt_min,13.82396106060595
+10,section_combined_daily,154183.34335076713,Stage 2,avg_tt_min,14.28547358493129
+11,section_combined_daily,141699.78867415723,Stage 2,avg_tt_min,13.866083881885817
+12,section_combined_daily,145741.85730565683,Stage 2,avg_tt_min,13.881924125467759
+13,section_combined_daily,152576.72903931816,Stage 2,avg_tt_min,14.040667677021565
+14,section_combined_daily,151020.5785359731,Stage 2,avg_tt_min,13.794411935013612
+15,section_combined_daily,145010.63091880427,Stage 2,avg_tt_min,14.053778007209075
+16,section_combined_daily,134904.0575627154,Stage 2,avg_tt_min,13.897222468234695
+17,section_combined_daily,151161.36922623846,Stage 2,avg_tt_min,14.304221170969036
+18,section_combined_daily,149331.39894273996,Stage 2,avg_tt_min,13.795444353590547
+19,section_combined_daily,147960.33905655995,Stage 2,avg_tt_min,14.07831135941909
+20,section_combined_daily,143221.70533232114,Stage 2,avg_tt_min,14.167796718350221
+21,section_combined_daily,146458.19626334155,Stage 2,avg_tt_min,14.133617441541077
+22,section_combined_daily,136671.04407745897,Stage 2,avg_tt_min,13.82677955964438
+23,section_combined_daily,139740.63019445594,Stage 2,avg_tt_min,13.788224148023195
+24,section_combined_daily,145645.8496572606,Stage 2,avg_tt_min,13.885648005895085
+25,section_combined_daily,142729.7535376363,Stage 2,avg_tt_min,13.948409793123671
+26,section_combined_daily,147508.16752569395,Stage 2,avg_tt_min,14.107385240431556
+27,section_combined_daily,143101.51371600782,Stage 2,avg_tt_min,13.612172564386013
+28,section_combined_daily,150058.44497452673,Stage 2,avg_tt_min,13.868346549275046
+29,section_combined_daily,151813.42014754165,Stage 2,avg_tt_min,13.894260326190754
+30,section_combined_daily,152462.21991603402,Stage 2,avg_tt_min,14.18619060007005
+31,section_combined_daily,148109.79947299216,Stage 2,avg_tt_min,13.929594259804864
+32,section_combined_daily,156536.38479885762,Stage 2,avg_tt_min,14.276308860344852
+33,section_combined_daily,149720.10900172565,Stage 2,avg_tt_min,13.985330777409938
+34,section_combined_daily,137859.92305895174,Stage 2,avg_tt_min,13.931790605255582
+35,section_combined_daily,143321.01079895018,Stage 2,avg_tt_min,13.877309518145122
+36,section_combined_daily,156377.0669850328,Stage 2,avg_tt_min,13.849755466195797
+37,section_combined_daily,140724.21184465627,Stage 2,avg_tt_min,13.958293560005366
+38,section_combined_daily,151044.09782249285,Stage 2,avg_tt_min,14.175811647930429
+39,section_combined_daily,144272.86910452324,Stage 2,avg_tt_min,13.895421434463417
+40,section_combined_daily,142548.66238109485,Stage 2,avg_tt_min,14.045222567124522
+1,section_combined_daily,146528.9564316694,Baseline,bike_share_trips,15.883771902066101
+2,section_combined_daily,138172.17973433723,Baseline,bike_share_trips,18.122144339825557
+3,section_combined_daily,150100.08373729515,Baseline,bike_share_trips,16.088270000810436
+4,section_combined_daily,159282.36241311464,Baseline,bike_share_trips,19.644881509346128
+5,section_combined_daily,146184.72824396114,Baseline,bike_share_trips,20.546548066489887
+6,section_combined_daily,154523.2127665128,Baseline,bike_share_trips,16.94166222201788
+7,section_combined_daily,151648.8576961871,Baseline,bike_share_trips,18.50765922502826
+8,section_combined_daily,133196.00481529103,Baseline,bike_share_trips,19.898594924864156
+9,section_combined_daily,139662.06269328878,Baseline,bike_share_trips,17.668234166686748
+10,section_combined_daily,154183.34335076713,Baseline,bike_share_trips,18.162907527243874
+11,section_combined_daily,141699.78867415723,Baseline,bike_share_trips,19.584497543595575
+12,section_combined_daily,145741.85730565683,Baseline,bike_share_trips,19.611232488635384
+13,section_combined_daily,152576.72903931816,Baseline,bike_share_trips,17.934526067724573
+14,section_combined_daily,151020.5785359731,Baseline,bike_share_trips,16.83162398302202
+15,section_combined_daily,145010.63091880427,Baseline,bike_share_trips,19.186020108507286
+16,section_combined_daily,134904.0575627154,Baseline,bike_share_trips,20.75492847857682
+17,section_combined_daily,151161.36922623846,Baseline,bike_share_trips,18.836781537090484
+18,section_combined_daily,149331.39894273996,Baseline,bike_share_trips,17.62593342900906
+19,section_combined_daily,147960.33905655995,Baseline,bike_share_trips,18.113125562785946
+20,section_combined_daily,143221.70533232114,Baseline,bike_share_trips,18.537660392257695
+21,section_combined_daily,146458.19626334155,Baseline,bike_share_trips,19.429104891794708
+22,section_combined_daily,136671.04407745897,Baseline,bike_share_trips,18.997854415907184
+23,section_combined_daily,139740.63019445594,Baseline,bike_share_trips,16.971520660846057
+24,section_combined_daily,145645.8496572606,Baseline,bike_share_trips,17.921613887208554
+25,section_combined_daily,142729.7535376363,Baseline,bike_share_trips,17.213836985127433
+26,section_combined_daily,147508.16752569395,Baseline,bike_share_trips,16.123827607131396
+27,section_combined_daily,143101.51371600782,Baseline,bike_share_trips,16.706224810325267
+28,section_combined_daily,150058.44497452673,Baseline,bike_share_trips,16.308156227140525
+29,section_combined_daily,151813.42014754165,Baseline,bike_share_trips,17.598866852681848
+30,section_combined_daily,152462.21991603402,Baseline,bike_share_trips,18.22943528965397
+31,section_combined_daily,148109.79947299216,Baseline,bike_share_trips,17.244037000978775
+32,section_combined_daily,156536.38479885762,Baseline,bike_share_trips,17.3679574421522
+33,section_combined_daily,149720.10900172565,Baseline,bike_share_trips,18.533854936063985
+34,section_combined_daily,137859.92305895174,Baseline,bike_share_trips,19.028042552203157
+35,section_combined_daily,143321.01079895018,Baseline,bike_share_trips,20.31449793706908
+36,section_combined_daily,156377.0669850328,Baseline,bike_share_trips,16.490218717721127
+37,section_combined_daily,140724.21184465627,Baseline,bike_share_trips,17.17043336982331
+38,section_combined_daily,151044.09782249285,Baseline,bike_share_trips,17.496858506534682
+39,section_combined_daily,144272.86910452324,Baseline,bike_share_trips,19.388910254144776
+40,section_combined_daily,142548.66238109485,Baseline,bike_share_trips,20.83420064789069
+1,section_combined_daily,146528.9564316694,Stage 1,bike_share_trips,15.874960818541783
+2,section_combined_daily,138172.17973433723,Stage 1,bike_share_trips,18.112921509524064
+3,section_combined_daily,150100.08373729515,Stage 1,bike_share_trips,16.078198523258692
+4,section_combined_daily,159282.36241311464,Stage 1,bike_share_trips,19.633595732420236
+5,section_combined_daily,146184.72824396114,Stage 1,bike_share_trips,20.53648674427268
+6,section_combined_daily,154523.2127665128,Stage 1,bike_share_trips,16.931740652278698
+7,section_combined_daily,151648.8576961871,Stage 1,bike_share_trips,18.497341568408057
+8,section_combined_daily,133196.00481529103,Stage 1,bike_share_trips,19.88964315497703
+9,section_combined_daily,139662.06269328878,Stage 1,bike_share_trips,17.658563491235913
+10,section_combined_daily,154183.34335076713,Stage 1,bike_share_trips,18.15121697790317
+11,section_combined_daily,141699.78867415723,Stage 1,bike_share_trips,19.5755144194164
+12,section_combined_daily,145741.85730565683,Stage 1,bike_share_trips,19.60078929766841
+13,section_combined_daily,152576.72903931816,Stage 1,bike_share_trips,17.923739527130287
+14,section_combined_daily,151020.5785359731,Stage 1,bike_share_trips,16.821494852434828
+15,section_combined_daily,145010.63091880427,Stage 1,bike_share_trips,19.17601122914781
+16,section_combined_daily,134904.0575627154,Stage 1,bike_share_trips,20.746012544626094
+17,section_combined_daily,151161.36922623846,Stage 1,bike_share_trips,18.824791651826267
+18,section_combined_daily,149331.39894273996,Stage 1,bike_share_trips,17.61695473045079
+19,section_combined_daily,147960.33905655995,Stage 1,bike_share_trips,18.102190714404326
+20,section_combined_daily,143221.70533232114,Stage 1,bike_share_trips,18.52739736332146
+21,section_combined_daily,146458.19626334155,Stage 1,bike_share_trips,19.418480015359226
+22,section_combined_daily,136671.04407745897,Stage 1,bike_share_trips,18.98890161542056
+23,section_combined_daily,139740.63019445594,Stage 1,bike_share_trips,16.961623959658866
+24,section_combined_daily,145645.8496572606,Stage 1,bike_share_trips,17.911172744944803
+25,section_combined_daily,142729.7535376363,Stage 1,bike_share_trips,17.204278745215515
+26,section_combined_daily,147508.16752569395,Stage 1,bike_share_trips,16.113310969347054
+27,section_combined_daily,143101.51371600782,Stage 1,bike_share_trips,16.697158773747073
+28,section_combined_daily,150058.44497452673,Stage 1,bike_share_trips,16.29806420154856
+29,section_combined_daily,151813.42014754165,Stage 1,bike_share_trips,17.588328069203904
+30,section_combined_daily,152462.21991603402,Stage 1,bike_share_trips,18.21784585832873
+31,section_combined_daily,148109.79947299216,Stage 1,bike_share_trips,17.233657095396993
+32,section_combined_daily,156536.38479885762,Stage 1,bike_share_trips,17.356495017235837
+33,section_combined_daily,149720.10900172565,Stage 1,bike_share_trips,18.523685714715338
+34,section_combined_daily,137859.92305895174,Stage 1,bike_share_trips,19.018441761458337
+35,section_combined_daily,143321.01079895018,Stage 1,bike_share_trips,20.304589561537696
+36,section_combined_daily,156377.0669850328,Stage 1,bike_share_trips,16.479844439961983
+37,section_combined_daily,140724.21184465627,Stage 1,bike_share_trips,17.160689098580477
+38,section_combined_daily,151044.09782249285,Stage 1,bike_share_trips,17.48645712634419
+39,section_combined_daily,144272.86910452324,Stage 1,bike_share_trips,19.378347215814152
+40,section_combined_daily,142548.66238109485,Stage 1,bike_share_trips,20.82460478235916
+1,section_combined_daily,146528.9564316694,Stage 2,bike_share_trips,15.889679173174828
+2,section_combined_daily,138172.17973433723,Stage 2,bike_share_trips,18.126886355872283
+3,section_combined_daily,150100.08373729515,Stage 2,bike_share_trips,16.09408235405473
+4,section_combined_daily,159282.36241311464,Stage 2,bike_share_trips,19.652411048323337
+5,section_combined_daily,146184.72824396114,Stage 2,bike_share_trips,20.55343831814309
+6,section_combined_daily,154523.2127665128,Stage 2,bike_share_trips,16.948231243734003
+7,section_combined_daily,151648.8576961871,Stage 2,bike_share_trips,18.514726612161397
+8,section_combined_daily,133196.00481529103,Stage 2,bike_share_trips,19.90306787486916
+9,section_combined_daily,139662.06269328878,Stage 2,bike_share_trips,17.672919106244525
+10,section_combined_daily,154183.34335076713,Stage 2,bike_share_trips,18.168650224329618
+11,section_combined_daily,141699.78867415723,Stage 2,bike_share_trips,19.590593978332034
+12,section_combined_daily,145741.85730565683,Stage 2,bike_share_trips,19.617532244984016
+13,section_combined_daily,152576.72903931816,Stage 2,bike_share_trips,17.941046365474264
+14,section_combined_daily,151020.5785359731,Stage 2,bike_share_trips,16.83799072461567
+15,section_combined_daily,145010.63091880427,Stage 2,bike_share_trips,19.191959563618898
+16,section_combined_daily,134904.0575627154,Stage 2,bike_share_trips,20.759911617093426
+17,section_combined_daily,151161.36922623846,Stage 2,bike_share_trips,18.84239623909716
+18,section_combined_daily,149331.39894273996,Stage 2,bike_share_trips,17.63297506624126
+19,section_combined_daily,147960.33905655995,Stage 2,bike_share_trips,18.118718030026034
+20,section_combined_daily,143221.70533232114,Stage 2,bike_share_trips,18.542639595093814
+21,section_combined_daily,146458.19626334155,Stage 2,bike_share_trips,19.435088270494774
+22,section_combined_daily,136671.04407745897,Stage 2,bike_share_trips,19.002721333625004
+23,section_combined_daily,139740.63019445594,Stage 2,bike_share_trips,16.976040975628244
+24,section_combined_daily,145645.8496572606,Stage 2,bike_share_trips,17.927178124280264
+25,section_combined_daily,142729.7535376363,Stage 2,bike_share_trips,17.218764266447753
+26,section_combined_daily,147508.16752569395,Stage 2,bike_share_trips,16.128440940440015
+27,section_combined_daily,143101.51371600782,Stage 2,bike_share_trips,16.711864616667313
+28,section_combined_daily,150058.44497452673,Stage 2,bike_share_trips,16.31388110033995
+29,section_combined_daily,151813.42014754165,Stage 2,bike_share_trips,17.605392242944944
+30,section_combined_daily,152462.21991603402,Stage 2,bike_share_trips,18.235402236169104
+31,section_combined_daily,148109.79947299216,Stage 2,bike_share_trips,17.249720350928516
+32,section_combined_daily,156536.38479885762,Stage 2,bike_share_trips,17.37357285305947
+33,section_combined_daily,149720.10900172565,Stage 2,bike_share_trips,18.54054841760993
+34,section_combined_daily,137859.92305895174,Stage 2,bike_share_trips,19.03267772070667
+35,section_combined_daily,143321.01079895018,Stage 2,bike_share_trips,20.32089292298809
+36,section_combined_daily,156377.0669850328,Stage 2,bike_share_trips,16.496563310791792
+37,section_combined_daily,140724.21184465627,Stage 2,bike_share_trips,17.1748613243327
+38,section_combined_daily,151044.09782249285,Stage 2,bike_share_trips,17.502658803900008
+39,section_combined_daily,144272.86910452324,Stage 2,bike_share_trips,19.39468353877169
+40,section_combined_daily,142548.66238109485,Stage 2,bike_share_trips,20.840624525933432
+1,section_combined_daily,146528.9564316694,Baseline,pt_journey_time_min,26.714327024237374
+2,section_combined_daily,138172.17973433723,Baseline,pt_journey_time_min,26.900608271828748
+3,section_combined_daily,150100.08373729515,Baseline,pt_journey_time_min,26.753448703383018
+4,section_combined_daily,159282.36241311464,Baseline,pt_journey_time_min,27.420079394735495
+5,section_combined_daily,146184.72824396114,Baseline,pt_journey_time_min,27.115853172758154
+6,section_combined_daily,154523.2127665128,Baseline,pt_journey_time_min,27.073532736542493
+7,section_combined_daily,151648.8576961871,Baseline,pt_journey_time_min,26.892753161078474
+8,section_combined_daily,133196.00481529103,Baseline,pt_journey_time_min,26.877953937460873
+9,section_combined_daily,139662.06269328878,Baseline,pt_journey_time_min,26.81568146875187
+10,section_combined_daily,154183.34335076713,Baseline,pt_journey_time_min,27.330543093820634
+11,section_combined_daily,141699.78867415723,Baseline,pt_journey_time_min,27.038747295937167
+12,section_combined_daily,145741.85730565683,Baseline,pt_journey_time_min,26.917620881479603
+13,section_combined_daily,152576.72903931816,Baseline,pt_journey_time_min,27.11891181790495
+14,section_combined_daily,151020.5785359731,Baseline,pt_journey_time_min,26.82876556132314
+15,section_combined_daily,145010.63091880427,Baseline,pt_journey_time_min,27.199325417400306
+16,section_combined_daily,134904.0575627154,Baseline,pt_journey_time_min,27.091972174582533
+17,section_combined_daily,151161.36922623846,Baseline,pt_journey_time_min,27.33225572209047
+18,section_combined_daily,149331.39894273996,Baseline,pt_journey_time_min,26.96078413135669
+19,section_combined_daily,147960.33905655995,Baseline,pt_journey_time_min,27.12083131269961
+20,section_combined_daily,143221.70533232114,Baseline,pt_journey_time_min,27.305403139157047
+21,section_combined_daily,146458.19626334155,Baseline,pt_journey_time_min,27.265116055988265
+22,section_combined_daily,136671.04407745897,Baseline,pt_journey_time_min,26.953206784723218
+23,section_combined_daily,139740.63019445594,Baseline,pt_journey_time_min,26.736727217468204
+24,section_combined_daily,145645.8496572606,Baseline,pt_journey_time_min,26.87546389255425
+25,section_combined_daily,142729.7535376363,Baseline,pt_journey_time_min,27.02737418046723
+26,section_combined_daily,147508.16752569395,Baseline,pt_journey_time_min,27.10225081375068
+27,section_combined_daily,143101.51371600782,Baseline,pt_journey_time_min,26.64499931736662
+28,section_combined_daily,150058.44497452673,Baseline,pt_journey_time_min,26.87521742344186
+29,section_combined_daily,151813.42014754165,Baseline,pt_journey_time_min,26.92409070195941
+30,section_combined_daily,152462.21991603402,Baseline,pt_journey_time_min,27.23185127727808
+31,section_combined_daily,148109.79947299216,Baseline,pt_journey_time_min,26.955092846944826
+32,section_combined_daily,156536.38479885762,Baseline,pt_journey_time_min,27.321704332938943
+33,section_combined_daily,149720.10900172565,Baseline,pt_journey_time_min,27.103607920107258
+34,section_combined_daily,137859.92305895174,Baseline,pt_journey_time_min,27.036468109289796
+35,section_combined_daily,143321.01079895018,Baseline,pt_journey_time_min,27.01103615708005
+36,section_combined_daily,156377.0669850328,Baseline,pt_journey_time_min,26.863119018176192
+37,section_combined_daily,140724.21184465627,Baseline,pt_journey_time_min,26.968373779162302
+38,section_combined_daily,151044.09782249285,Baseline,pt_journey_time_min,27.27133822113625
+39,section_combined_daily,144272.86910452324,Baseline,pt_journey_time_min,26.895834173387616
+40,section_combined_daily,142548.66238109485,Baseline,pt_journey_time_min,27.294983265794055
+1,section_combined_daily,146528.9564316694,Stage 1,pt_journey_time_min,26.677845118012982
+2,section_combined_daily,138172.17973433723,Stage 1,pt_journey_time_min,26.865468587618096
+3,section_combined_daily,150100.08373729515,Stage 1,pt_journey_time_min,26.71610123712023
+4,section_combined_daily,159282.36241311464,Stage 1,pt_journey_time_min,27.380462675169603
+5,section_combined_daily,146184.72824396114,Stage 1,pt_journey_time_min,27.08144738986321
+6,section_combined_daily,154523.2127665128,Stage 1,pt_journey_time_min,27.035502609111287
+7,section_combined_daily,151648.8576961871,Stage 1,pt_journey_time_min,26.856988182523814
+8,section_combined_daily,133196.00481529103,Stage 1,pt_journey_time_min,26.844480115751995
+9,section_combined_daily,139662.06269328878,Stage 1,pt_journey_time_min,26.780205620293035
+10,section_combined_daily,154183.34335076713,Stage 1,pt_journey_time_min,27.29071493608539
+11,section_combined_daily,141699.78867415723,Stage 1,pt_journey_time_min,27.004668267132107
+12,section_combined_daily,145741.85730565683,Stage 1,pt_journey_time_min,26.88267638979431
+13,section_combined_daily,152576.72903931816,Stage 1,pt_journey_time_min,27.081032712295595
+14,section_combined_daily,151020.5785359731,Stage 1,pt_journey_time_min,26.791590084189085
+15,section_combined_daily,145010.63091880427,Stage 1,pt_journey_time_min,27.163299684755323
+16,section_combined_daily,134904.0575627154,Stage 1,pt_journey_time_min,27.058554381843862
+17,section_combined_daily,151161.36922623846,Stage 1,pt_journey_time_min,27.293439575517773
+18,section_combined_daily,149331.39894273996,Stage 1,pt_journey_time_min,26.925053456240015
+19,section_combined_daily,147960.33905655995,Stage 1,pt_journey_time_min,27.083163732385216
+20,section_combined_daily,143221.70533232114,Stage 1,pt_journey_time_min,27.268132920410345
+21,section_combined_daily,146458.19626334155,Stage 1,pt_journey_time_min,27.228480330593207
+22,section_combined_daily,136671.04407745897,Stage 1,pt_journey_time_min,26.91881193146769
+23,section_combined_daily,139740.63019445594,Stage 1,pt_journey_time_min,26.700765487763107
+24,section_combined_daily,145645.8496572606,Stage 1,pt_journey_time_min,26.839105296630894
+25,section_combined_daily,142729.7535376363,Stage 1,pt_journey_time_min,26.99059769388019
+26,section_combined_daily,147508.16752569395,Stage 1,pt_journey_time_min,27.063196084327167
+27,section_combined_daily,143101.51371600782,Stage 1,pt_journey_time_min,26.60953374605218
+28,section_combined_daily,150058.44497452673,Stage 1,pt_journey_time_min,26.837557802114752
+29,section_combined_daily,151813.42014754165,Stage 1,pt_journey_time_min,26.88698835236134
+30,section_combined_daily,152462.21991603402,Stage 1,pt_journey_time_min,27.192967234210002
+31,section_combined_daily,148109.79947299216,Stage 1,pt_journey_time_min,26.917721456968167
+32,section_combined_daily,156536.38479885762,Stage 1,pt_journey_time_min,27.280884278775147
+33,section_combined_daily,149720.10900172565,Stage 1,pt_journey_time_min,27.067100198244674
+34,section_combined_daily,137859.92305895174,Stage 1,pt_journey_time_min,27.001372722947664
+35,section_combined_daily,143321.01079895018,Stage 1,pt_journey_time_min,26.976863181277377
+36,section_combined_daily,156377.0669850328,Stage 1,pt_journey_time_min,26.82466433986044
+37,section_combined_daily,140724.21184465627,Stage 1,pt_journey_time_min,26.931810248334386
+38,section_combined_daily,151044.09782249285,Stage 1,pt_journey_time_min,27.23296787037555
+39,section_combined_daily,144272.86910452324,Stage 1,pt_journey_time_min,26.860695048930634
+40,section_combined_daily,142548.66238109485,Stage 1,pt_journey_time_min,27.260612256803558
+1,section_combined_daily,146528.9564316694,Stage 2,pt_journey_time_min,26.671121048743203
+2,section_combined_daily,138172.17973433723,Stage 2,pt_journey_time_min,26.85229172689484
+3,section_combined_daily,150100.08373729515,Stage 2,pt_journey_time_min,26.71035020570058
+4,section_combined_daily,159282.36241311464,Stage 2,pt_journey_time_min,27.37438366351278
+5,section_combined_daily,146184.72824396114,Stage 2,pt_journey_time_min,27.070316961276948
+6,section_combined_daily,154523.2127665128,Stage 2,pt_journey_time_min,27.02995392356943
+7,section_combined_daily,151648.8576961871,Stage 2,pt_journey_time_min,26.85015597644414
+8,section_combined_daily,133196.00481529103,Stage 2,pt_journey_time_min,26.828311849802574
+9,section_combined_daily,139662.06269328878,Stage 2,pt_journey_time_min,26.7681142157382
+10,section_combined_daily,154183.34335076713,Stage 2,pt_journey_time_min,27.283516164976056
+11,section_combined_daily,141699.78867415723,Stage 2,pt_journey_time_min,26.991854439202804
+12,section_combined_daily,145741.85730565683,Stage 2,pt_journey_time_min,26.87253666886612
+13,section_combined_daily,152576.72903931816,Stage 2,pt_journey_time_min,27.07449845401376
+14,section_combined_daily,151020.5785359731,Stage 2,pt_journey_time_min,26.7859172914211
+15,section_combined_daily,145010.63091880427,Stage 2,pt_journey_time_min,27.152029829963496
+16,section_combined_daily,134904.0575627154,Stage 2,pt_journey_time_min,27.041725355405767
+17,section_combined_daily,151161.36922623846,Stage 2,pt_journey_time_min,27.2848195292809
+18,section_combined_daily,149331.39894273996,Stage 2,pt_journey_time_min,26.917720755492862
+19,section_combined_daily,147960.33905655995,Stage 2,pt_journey_time_min,27.0742659017212
+20,section_combined_daily,143221.70533232114,Stage 2,pt_journey_time_min,27.255795013347203
+21,section_combined_daily,146458.19626334155,Stage 2,pt_journey_time_min,27.217690389671194
+22,section_combined_daily,136671.04407745897,Stage 2,pt_journey_time_min,26.904351186095962
+23,section_combined_daily,139740.63019445594,Stage 2,pt_journey_time_min,26.68947093829954
+24,section_combined_daily,145645.8496572606,Stage 2,pt_journey_time_min,26.829954896202256
+25,section_combined_daily,142729.7535376363,Stage 2,pt_journey_time_min,26.97970100207016
+26,section_combined_daily,147508.16752569395,Stage 2,pt_journey_time_min,27.054795714415352
+27,section_combined_daily,143101.51371600782,Stage 2,pt_journey_time_min,26.600842215867672
+28,section_combined_daily,150058.44497452673,Stage 2,pt_journey_time_min,26.831243507094218
+29,section_combined_daily,151813.42014754165,Stage 2,pt_journey_time_min,26.880813103558722
+30,section_combined_daily,152462.21991603402,Stage 2,pt_journey_time_min,27.185735990167917
+31,section_combined_daily,148109.79947299216,Stage 2,pt_journey_time_min,26.90992178608227
+32,section_combined_daily,156536.38479885762,Stage 2,pt_journey_time_min,27.27476655265753
+33,section_combined_daily,149720.10900172565,Stage 2,pt_journey_time_min,27.058973120070892
+34,section_combined_daily,137859.92305895174,Stage 2,pt_journey_time_min,26.98682805178165
+35,section_combined_daily,143321.01079895018,Stage 2,pt_journey_time_min,26.96480825848978
+36,section_combined_daily,156377.0669850328,Stage 2,pt_journey_time_min,26.82038268236019
+37,section_combined_daily,140724.21184465627,Stage 2,pt_journey_time_min,26.919869535507704
+38,section_combined_daily,151044.09782249285,Stage 2,pt_journey_time_min,27.224982002228153
+39,section_combined_daily,144272.86910452324,Stage 2,pt_journey_time_min,26.849939108680083
+40,section_combined_daily,142548.66238109485,Stage 2,pt_journey_time_min,27.246775464317928

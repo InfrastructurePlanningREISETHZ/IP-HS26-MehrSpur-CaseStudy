@@ -1,0 +1,25 @@
+﻿plan,requirement,scenarios_meeting_requirement_percent,mean_failure_years
+baseline,"pt_share >= 0.4, Years 20–40",77.5,3.69
+static1,"pt_share >= 0.4, Years 20–40",78.5,3.52
+static2,"pt_share >= 0.4, Years 20–40",80.0,3.355
+staged1,"pt_share >= 0.4, Years 20–40",80.0,3.355
+staged2,"pt_share >= 0.4, Years 20–40",80.0,3.355
+flexible,"pt_share >= 0.4, Years 20–40",80.0,3.4
+baseline,"avg_tt_min <= 20, Years 20–40",100.0,0.0
+static1,"avg_tt_min <= 20, Years 20–40",100.0,0.0
+static2,"avg_tt_min <= 20, Years 20–40",100.0,0.0
+staged1,"avg_tt_min <= 20, Years 20–40",100.0,0.0
+staged2,"avg_tt_min <= 20, Years 20–40",100.0,0.0
+flexible,"avg_tt_min <= 20, Years 20–40",100.0,0.0
+baseline,"bike_share_trips >= 0.2, Years 20–40",11.5,12.525
+static1,"bike_share_trips >= 0.2, Years 20–40",11.0,12.595
+static2,"bike_share_trips >= 0.2, Years 20–40",11.0,12.58
+staged1,"bike_share_trips >= 0.2, Years 20–40",11.0,12.58
+staged2,"bike_share_trips >= 0.2, Years 20–40",11.0,12.58
+flexible,"bike_share_trips >= 0.2, Years 20–40",11.0,12.595
+baseline,"pt_journey_time_min < 30, Years 20–40",100.0,0.0
+static1,"pt_journey_time_min < 30, Years 20–40",100.0,0.0
+static2,"pt_journey_time_min < 30, Years 20–40",100.0,0.0
+staged1,"pt_journey_time_min < 30, Years 20–40",100.0,0.0
+staged2,"pt_journey_time_min < 30, Years 20–40",100.0,0.0
+flexible,"pt_journey_time_min < 30, Years 20–40",100.0,0.0

@@ -1,0 +1,5 @@
+﻿configuration,initial_shortfall_percent,all_requirements_met_percent,mean_failure_years,median_first_failure_year_among_failures
+Stage 0 – Baseline Network,0.0,4.5,15.4,20.0
+Stage 1 – Mobility Hub Forch Basic & Feeder Bus 702,0.0,4.5,15.32,20.0
+Stage 2 - Bus 702 Frequency Increase & B+R Expansion,0.0,4.5,15.42,20.0
+Both stages combined,0.0,5.0,15.18,20.0

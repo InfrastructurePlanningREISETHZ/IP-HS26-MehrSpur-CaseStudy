@@ -1,0 +1,8 @@
+﻿timing_class,Stage 1,Stage 2
+Initial shortfall; opens,0.0,0.0
+Initial shortfall; not opened,0.0,0.0
+Opens by first failure,95.5,3.5
+Opens after first failure,0.0,48.5
+Reference failure; not opened,0.0,43.5
+Opens without reference failure,4.5,4.5
+No reference failure or opening,0.0,0.0

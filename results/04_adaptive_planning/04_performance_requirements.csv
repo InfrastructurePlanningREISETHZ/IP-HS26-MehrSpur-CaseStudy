@@ -1,0 +1,5 @@
+﻿indicator,operator,threshold,start_year
+pt_share,>=,0.4,20
+avg_tt_min,<=,20.0,20
+bike_share_trips,>=,0.2,20
+pt_journey_time_min,<,30.0,20
